@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/design/home.css">
+
+</head>
+
+    <body>
+        
+        <header> <!-- começo menu fixo no topo -->
+
+            <div class="container-menu"> <!-- criar uma div horizontal para conseguir colocar todos os itens dentro dela -->
+
+                <div class="filho-container esquerda"> <!-- elemento 1 da div, para ficar à esquerda -->
+
+                    <img class="tres-linhas" onclick="clique()" src="/images/menu-tres-linhas.png" alt="">
+
+                </div> <!-- fim primeiro elemento -->
+
+                <div class="filho-container meio"> <!-- elemento 2 da div, para ficar no meio -->
+                    <ul class="menu-header"> <!-- uma lista para conseguir colocar itens lado a lado -->
+                        <a class="item" href="scheduling.html"><li >AGENDA</li></a>
+                        <a class="item" href="finance.html"><li class="item-2">FINANCEIRO</li></a>
+                        <a class="item" href="https://wa.ME/+5511947295062" target="_blank"> <li class="suporte item">SUPORTE</li></a>
+                    </ul> <!-- fim lista -->
+                </div> <!-- fim segundo elemento -->
+
+                <div class="filho-container"> <!-- elemento 3 da div, para ficar à direita -->
+                    <a href="https://www.santosedinelli.com.br/" target="_blank"> <img class="logo" src="/images/santos-dinelli.png" alt=""></a>
+                    
+                </div> <!-- fim terceiro elemento -->
+
+            </div> <!-- fim div horizontal -->
+
+        </header> <!-- fim menu fixo -->
+
+        <section class="bem-vindo"> <!-- começo da seção "bem vindo" que é a tela inical do site -->
+
+            <div class="lado-lado">
+
+                <div class="menu"> <!-- começo menu lateral (tive que fazer uma gambiarra para ele ficar lado a lado com o texto de boas vindas, porque ainda não possuo conhecimento e nem consegui entender muito bom o por que de algumas coisas estarem acontecendo se eu deixar esta parte do código dentro da div "filho-container", mas com o tempo vou aprendendo e melhorando)-->
+
+                    <ul class="menu-lateral"> <!-- uma lista para organizar os itens do menu-->
+        
+                        <li class="broken topicos primeiro-topico">
+                            <a class="topico" href="">AGENDAMENTOS</a>
+                        </li>
+        
+                        <li class="broken topicos">
+                            <a class="topico" href="">FINANCEIRO</a>
+                        </li>
+        
+                        <li class="broken topicos">
+                            <a class="topico" href="">FUNCIONÁRIOS</a>
+                        </li>
+        
+                        <li class="broken topicos">
+                            <a class="topico" href="https://wa.ME/+5511947295062" target="_blank">SUPORTE</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+
+                <div class="titulo-bem-vindo text-align">
+                    <h1>BEM VINDO AO GERENCIAMENTO EMPRESARIAL<br>SANTOS E DINELLI CLIMATIZAÇÃO</h1>
+                </div> 
+
+            </div>
+            
+
+        </section> <!-- fim da section "bem vindo"-->
+
+        
+
+        
+
+    </body>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="/js/home.js"></script>
+
+</html>
