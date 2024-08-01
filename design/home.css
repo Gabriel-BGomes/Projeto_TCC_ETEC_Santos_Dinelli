@@ -14,7 +14,7 @@ html, body {
 
 
 .broken {
-    width: 1200px;
+    width: 100%;
 }
 
 .container-menu {
@@ -42,8 +42,6 @@ html, body {
 .tres-linhas:hover {
     cursor: pointer;
 }
-
-
 
 .meio {
     width: 350px;
@@ -80,7 +78,7 @@ html, body {
 
 .bem-vindo {
     width: 100%;
-    height: 100vh;
+    height: 837px;
     cursor: default;
 }
 
@@ -93,13 +91,13 @@ html, body {
 .titulo-bem-vindo {
     width: 1500px;
     color: #1B6C00;
-    font-size: 35px;
+    font-size: 30px;
     position: fixed;
 }
 
 .menu {
     width: 900px;
-    height: 100vh;
+    height: 839px;
     background-color: aquamarine;
     position: relative;
     transition: 1s;
@@ -110,17 +108,19 @@ html, body {
 }
 
 .active{
-    left: -40%;
+    left: -710px;
     width: 500px;
     background-color: #1B6C00;
 }
 
 .menu-lateral {
+    width: 100%;
     text-decoration: none;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    text-align: center;
 }
 
 .primeiro-topico {
@@ -128,11 +128,10 @@ html, body {
 }
 
 .topicos {
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 50px 0;
-    
+    margin: 50px 50px;
 }
 
 .topico {
