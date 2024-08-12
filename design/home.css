@@ -34,6 +34,10 @@ html, body {
     justify-content: center;
 }
 
+.esquerda {
+    margin-left: -270px;
+}
+
 .tres-linhas {
     width: 70px;
     height: 50px;   
@@ -69,6 +73,10 @@ html, body {
     transition: 1s;
     cursor: pointer;
     color: #a2a2a2;
+}
+
+.ultimo {
+    margin-right: -237px;
 }
 
 .logo {
@@ -146,5 +154,3 @@ html, body {
     color: #a2a2a2;
     transition: 1s;
 }
-
-
