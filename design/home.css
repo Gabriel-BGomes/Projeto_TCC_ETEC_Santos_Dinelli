@@ -3,8 +3,306 @@
     padding: 0;
 }
 
-html, body {
+html, body{
     width: 100%;
     height: 100%;
 }
 
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    transition: 0.5s;
+}
+
+a:hover {
+    color: rgba(255, 255, 255, 0.619);
+    transition: 0.5s;
+}
+
+.header {
+    width: 100%;
+    max-height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #145400;
+}
+
+.fake-tres-linhas {
+    z-index: 3;
+    position: absolute;
+    width: 80px;
+    height: 60px;
+    margin-top: -30px;
+    margin-left: 30px;
+    opacity: 0;
+    
+}
+
+.tres-linhas {
+    position: absolute;
+    z-index: 2;
+    width: 80px;
+    height: 60px;
+    margin-top: -30px;
+    margin-left: 50px;
+    
+}
+
+.fake-tres-linhas:hover {
+    cursor: pointer;
+}
+
+.menu-lateral ul {
+    position: absolute;
+    z-index: 1;
+    width: 400px;
+    height: 100vh;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #1B6C00;
+    margin-left: -400px;
+    transition: all 1s;
+}
+
+.menu-lateral ul li:first-child {
+    margin-top: 150px;
+}
+
+.menu-lateral ul li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    height: 80px;
+    margin: 20px 50px;
+    border-bottom: 3px solid #c3c3c3;
+}
+
+
+.menu-lateral .fake-tres-linhas:checked~ul {
+    transition: all 1s;
+    margin-left: 0;
+}
+
+.menu-fixo {
+    display: flex;
+    margin-left: 150px;
+}
+
+.menu-fixo li {
+    margin-left: 10px;
+}
+
+.menu-fixo li a {
+    text-align: center;
+    display: block;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.logo {
+    width: 220px;
+}
+
+@media (min-width: 960px) {
+    .tres-linhas {
+        width: 80px;
+        height: 60px;
+        margin-left: 30px;   
+    }
+
+    .menu-fixo {
+        margin-left: 120px;
+    }
+}
+
+@media (max-width: 960px) {
+    .header {
+        height: 80px;
+    }
+
+    .fake-tres-linhas {
+        width: 70px;
+        height: 50px;
+        margin-top: -25px;
+        margin-left: 30px;
+    }
+    
+    .tres-linhas {
+        width: 70px;
+        height: 50px;
+        margin-top: -25px;
+        margin-left: 30px;
+    }
+    
+    .menu-lateral ul {
+        width: 300px;
+        margin-left: -300px;
+        transition: all 1s;
+    }
+    
+    .menu-lateral ul li:first-child {
+        margin-top: 80px;
+    }
+    
+    .menu-lateral ul li{
+        font-size: 17px;
+    }
+
+    .menu-fixo {
+        margin-left: 100px;
+    }
+
+    .menu-fixo li a {
+        padding: 10px;
+        font-size: 17px;
+    }
+
+    .logo {
+        width: 180px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .header {
+        height: 60px;
+    }
+
+    .fake-tres-linhas {
+        width: 55px;
+        height: 35px;
+        margin-top: -18px;
+        margin-left: 30px;
+    }
+    
+    .tres-linhas {
+        width: 55px;
+        height: 35px;
+        margin-top: -18px;
+        margin-left: 30px;
+    }
+    
+    .menu-lateral ul {
+        width: 250px;
+        margin-left: -250px;
+        transition: all 1s;
+    }
+    
+    .menu-lateral ul li:first-child {
+        margin-top: 60px;
+    }
+    
+    .menu-lateral ul li{
+        font-size: 15px;
+    }
+
+    .menu-fixo {
+        margin-left: 80px;
+    }
+
+    .menu-fixo li a {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .logo {
+        width: 150px;
+    }
+}
+
+@media (max-width: 670px) {
+    .header {
+        height: 40px;
+    }
+
+    .fake-tres-linhas {
+        width: 40px;
+        height: 25px;
+        margin-top: -13px;
+        margin-left: 30px;
+    }
+    
+    .tres-linhas {
+        width: 40px;
+        height: 25px;
+        margin-top: -13px;
+        margin-left: 30px;
+    }
+    
+    .menu-lateral ul {
+        width: 220px;
+        margin-left: -220px;
+        transition: all 1s;
+    }
+    
+    .menu-lateral ul li:first-child {
+        margin-top: 50px;
+    }
+    
+    .menu-lateral ul li{
+        font-size: 13px;
+    }
+
+    .menu-fixo li a {
+        padding: 5px;
+        font-size: 13px;
+    }
+
+    .logo {
+        width: 100px;
+    }
+}
+
+@media (max-width: 530px) {
+    .header {
+        height: 30px;
+    }
+
+    .fake-tres-linhas {
+        width: 40px;
+        height: 25px;
+        margin-top: -13px;
+        margin-left: 30px;
+    }
+    
+    .tres-linhas {
+        width: 30px;
+        height: 15px;
+        margin-top: -8px;
+        margin-left: 30px;
+    }
+    
+    .menu-lateral ul {
+        width: 180px;
+        margin-left: -220px;
+        transition: all 1s;
+    }
+    
+    .menu-lateral ul li:first-child {
+        margin-top: 50px;
+    }
+    
+    .menu-lateral ul li{
+        font-size: 11px;
+    }
+
+    .menu-fixo {
+        margin-left: 40px;
+    }
+
+    .menu-fixo li a {
+        padding: 3px;
+        font-size: 11px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+}
