@@ -110,6 +110,26 @@ a:hover {
     width: 220px;
 }
 
+
+.canvas {
+    width: 100vw; 
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.chart{ 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 80vh;
+}
+
+
 @media (min-width: 960px) {
     .tres-linhas {
         width: 80px;
@@ -120,6 +140,7 @@ a:hover {
     .menu-fixo {
         margin-left: 120px;
     }
+
 }
 
 @media (max-width: 960px) {
@@ -166,6 +187,16 @@ a:hover {
 
     .logo {
         width: 180px;
+    }
+
+    .canvas { 
+        height: calc(100vh - 80px);
+    }
+    
+    .chart{ 
+        position: relative;
+        width: 80vw;
+        height: calc(90vh- 80px);
     }
 
 }
@@ -251,7 +282,7 @@ a:hover {
     }
 
     .menu-fixo li a {
-        padding: 5px;
+        padding: 6px;
         font-size: 13px;
     }
 
@@ -268,8 +299,8 @@ a:hover {
     .fake-tres-linhas {
         width: 40px;
         height: 25px;
-        margin-top: -13px;
-        margin-left: 30px;
+        margin-top: -8px;
+        margin-left: 25px;
     }
     
     .tres-linhas {
@@ -290,6 +321,7 @@ a:hover {
     }
     
     .menu-lateral ul li{
+        text-align: center;
         font-size: 11px;
     }
 
@@ -298,11 +330,50 @@ a:hover {
     }
 
     .menu-fixo li a {
-        padding: 3px;
+        padding: 6px;
         font-size: 11px;
     }
 
     .logo {
         width: 80px;
+    }
+}
+
+@media (max-width: 420px) {
+    .header {
+        height: 25px;
+    }
+
+    .fake-tres-linhas {
+        width: 40px;
+        height: 25px;
+        margin-top: -8px;
+        margin-left: 15px;
+    }
+    
+    .tres-linhas {
+        width: 20px;
+        height: 12px;
+        margin-top: -6px;
+        margin-left: 20px;
+    }
+    
+    .menu-lateral ul {
+        width: 140px;
+    }
+    
+    .menu-lateral ul li{
+        text-align: center;
+        font-size: 11px;
+    }
+
+
+    .menu-fixo li a {
+        padding: 7px;
+        font-size: 9px;
+    }
+
+    .logo {
+        width: 60px;
     }
 }
