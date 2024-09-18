@@ -112,9 +112,9 @@ const options = {
     },
     
     tooltip: { // tooltip é o que aparece quando o mouse fica em cima de cada coluna
-      titleColor: 'pink', // mudando a cor do título da coluna
+      titleColor: '#145400', // mudando a cor do título da coluna
       bodyColor: 'white', // mudando a cor da legenda do pop-up
-      backgroundColor: 'rgb(60, 66, 71)' // mudando o background do pop-up
+      backgroundColor: 'rgba(139, 138, 138, 0.926)' // mudando o background do pop-up
     },
 
     // aqui irá mudar a cor das legendas de cada coluna (verificar se têm como mudar indiviudalmente cada coluna)

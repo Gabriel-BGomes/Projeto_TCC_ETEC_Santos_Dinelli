@@ -413,3 +413,11 @@ a:hover {
         height: 25vh;
     }
 }
+
+@media (max-width: 380px) {
+    
+    .chart{ 
+        width: 98vw;
+        height: calc(100vh - 25px);
+    }
+}
