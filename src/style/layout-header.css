@@ -349,6 +349,15 @@ a:hover {
     .logo {
         width: 60px;
     }
+
+    .canvas { 
+        height: calc(100vh - 25px)
+    }
+    
+    .chart{ 
+        width: 98vw;
+        height: 25vh;
+    }
 }
 
 @media (max-width: 380px) {
