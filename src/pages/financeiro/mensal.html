@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financeiro Mensal</title>
+    <link rel="stylesheet" href="../../style/layout-header.css">
+    <link rel="stylesheet" href="../../style/financeiro/mensal.css">
+
+</head>
+
+    <body>
+        
+        <header class="header"> <!-- começo menu fixo no topo -->
+        
+            <nav class="menu-lateral"> <!-- primeiro item do menu -->
+
+                <input type="checkbox" class="fake-tres-linhas">
+                <div><img class="tres-linhas" src="../../images/menu-tres-linhas.png" alt="menu de três linhas"></div>
+
+                <ul>
+                    <li><a href="../home.html">ÍNICIO</a></li>
+                    <li><a href="../agenda/index.php">AGENDA</a></li>
+                    <li><a href="../financeiro/finance.html">FINANCEIRO</a></li>
+                    <li><a href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
+                    <li><a href="" target="_blank">SAIR</a></li>
+                </ul>
+
+            </nav>
+
+            <nav> <!-- começar com uma nav para definir os itens do menu-->
+
+                <ul class="menu-fixo"> <!-- começo dos itens do menu-->
+
+                    <li><a href="../home.html">ÍNICIO</a></li>
+                    <li><a href="../agenda/index.php">AGENDA</a></li>
+                    <li><a href="../financeiro/finance.html">FINANCEIRO</a></li>
+                    <li><a href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
+
+                </ul>
+
+            </nav>
+
+            <div> <!-- finalizar com a logo da empresa na direita-->
+
+                <a href="https://www.santosedinelli.com.br/" target="_blank">
+                <img class="logo" src="../../images/santos-dinelli.png"  alt="logo da empresa"></a>
+
+            </div> <!-- final da div da logo-->
+
+        </header> <!-- fim header fixo -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="">
+                    
+                    <input type="text" placeholder="Produção" id="recebimentos"></input>
+                    <input type="text" placeholder="Despesas" id="despesas">
+
+                    <div>
+                        <select id="monthSelector">
+                            <option value="Janeiro">Janeiro</option>
+                            <option value="Fevereiro">Fevereiro</option>
+                            <option value="Março">Março</option>
+                            <option value="Abril">Abril</option>
+                            <option value="Maio">Maio</option>
+                            <option value="Junho">Junho</option>
+                            <option value="Julho">Julho</option>
+                            <option value="Agosto">Agosto</option>
+                            <option value="Setembro">Setembro</option>
+                            <option value="Outubro">Outubro</option>
+                            <option value="Novembro">Novembro</option>
+                            <option value="Dezembro">Dezembro</option>
+                        </select>
+                    </div>
+
+                    <button id="selectMonthValues">Atualizar Gráfico</button>
+                </div>
+            
+            
+                <div class="canvas">
+                    <div class="chart">
+                        <canvas id="mensal"></canvas>
+                    </div>
+                </div>
+            
+            </div>
+            
+        </section>
+    
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script type="text/javascript" src="../../js/financeiro/mensal.js"></script>
+
+    </body>
+
+</html>
