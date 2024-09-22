@@ -11,6 +11,10 @@ Breackpoints para responsividade:
 
 */
 
+body {
+    background-color: #edece2;
+}
+
 
 *{
     margin: 0;
@@ -47,7 +51,7 @@ a:hover {
 }
 
 .fake-tres-linhas {
-    z-index: 3;
+    z-index: 5;
     position: absolute;
     width: 80px;
     height: 60px;
@@ -59,7 +63,7 @@ a:hover {
 
 .tres-linhas {
     position: absolute;
-    z-index: 2;
+    z-index: 4;
     width: 80px;
     height: 60px;
     margin-top: -30px;
@@ -73,7 +77,7 @@ a:hover {
 
 .menu-lateral ul {
     position: absolute;
-    z-index: 1;
+    z-index: 3;
     width: 400px;
     height: 100vh;
     top: 0;
@@ -105,8 +109,12 @@ a:hover {
 }
 
 .menu-fixo {
+    width: 100%;
     display: flex;
-    margin-left: 150px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 120px;
+    
 }
 
 .menu-fixo li {
@@ -124,19 +132,6 @@ a:hover {
     width: 220px;
 }
 
-
-@media (min-width: 960px) {
-    .tres-linhas {
-        width: 80px;
-        height: 60px;
-        margin-left: 30px;   
-    }
-
-    .menu-fixo {
-        margin-left: 120px;
-    }
-
-}
 
 @media (max-width: 960px) {
     .header {
@@ -172,7 +167,7 @@ a:hover {
     }
 
     .menu-fixo {
-        margin-left: 100px;
+        margin-left: 65px;
     }
 
     .menu-fixo li a {
@@ -220,7 +215,7 @@ a:hover {
     }
 
     .menu-fixo {
-        margin-left: 80px;
+        margin-left: 60px;
     }
 
     .menu-fixo li a {
@@ -267,6 +262,10 @@ a:hover {
         font-size: 13px;
     }
 
+    .menu-fixo {
+        margin-left: 40px;
+    }
+
     .menu-fixo li a {
         padding: 6px;
         font-size: 13px;
@@ -287,14 +286,14 @@ a:hover {
         width: 40px;
         height: 25px;
         margin-top: -8px;
-        margin-left: 25px;
+        margin-left: 20px;
     }
     
     .tres-linhas {
         width: 30px;
         height: 15px;
         margin-top: -8px;
-        margin-left: 30px;
+        margin-left: 20px;
     }
     
     .menu-lateral ul {
@@ -313,7 +312,8 @@ a:hover {
     }
 
     .menu-fixo {
-        margin-left: 40px;
+        margin-left: 20px;
+        
     }
 
     .menu-fixo li a {
@@ -335,7 +335,7 @@ a:hover {
         width: 40px;
         height: 25px;
         margin-top: -8px;
-        margin-left: 15px;
+        margin-left: 12px;
     }
     
     .tres-linhas {
@@ -374,10 +374,4 @@ a:hover {
     }
 }
 
-@media (max-width: 380px) {
-    
-    .chart{ 
-        width: 98vw;
-        height: calc(100vh - 25px);
-    }
-}
+

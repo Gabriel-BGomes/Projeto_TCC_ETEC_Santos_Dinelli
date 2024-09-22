@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financeiro Mensal</title>
+    <title>Financeiro Anual</title>
     <link rel="stylesheet" href="../../style/layout-header.css">
-    <link rel="stylesheet" href="../../style/financeiro/mensal.css">
+    <link rel="stylesheet" href="../../style/financeiro/anual.css">
 
 </head>
 
@@ -52,43 +52,32 @@
 
         <section> <!-- section do gráfico mensal -->
 
-            <div class="container"> <!-- 100% da tela -->
+            <div class="container">
 
-                <div class="select-input"> <!-- select, input, button -->
-                    
-                    <input type="text" placeholder="Recebimentos" id="recebimentos"></input>
-                    <input type="text" placeholder="Despesas" id="despesas">
-
-                    <div>
-                        <select id="monthSelector">
-                            <option value="Janeiro">Janeiro</option>
-                            <option value="Fevereiro">Fevereiro</option>
-                            <option value="Março">Março</option>
-                            <option value="Abril">Abril</option>
-                            <option value="Maio">Maio</option>
-                            <option value="Junho">Junho</option>
-                            <option value="Julho">Julho</option>
-                            <option value="Agosto">Agosto</option>
-                            <option value="Setembro">Setembro</option>
-                            <option value="Outubro">Outubro</option>
-                            <option value="Novembro">Novembro</option>
-                            <option value="Dezembro">Dezembro</option>
-                        </select>
-                    </div>
-
-                    <button id="inserirValores">Inserir Valores</button>
-                    <button id="editarValores">Editar Valores</button>
-                    <button id="excluirValores">Excluir Valor</button>
-
-                </div> <!-- encerramento do select, input, button-->
+                <div class="select-input">
+                    <select id="monthSelector">
+                        <option value="Janeiro">Janeiro</option>
+                        <option value="Fevereiro">Fevereiro</option>
+                        <option value="Março">Março</option>
+                        <option value="Abril">Abril</option>
+                        <option value="Maio">Maio</option>
+                        <option value="Junho">Junho</option>
+                        <option value="Julho">Julho</option>
+                        <option value="Agosto">Agosto</option>
+                        <option value="Setembro">Setembro</option>
+                        <option value="Outubro">Outubro</option>
+                        <option value="Novembro">Novembro</option>
+                        <option value="Dezembro">Dezembro</option>
+                    </select>
+                </div>
             
-                <div class="canvas"> <!-- div pai para o gráfico -->
+                <div class="canvas">
                     <div class="chart">
                         <canvas id="mensal"></canvas>
                     </div>
                 </div>
-
-            </div> <!-- encerramento 100% da tela-->
+            
+            </div>
             
         </section>
     

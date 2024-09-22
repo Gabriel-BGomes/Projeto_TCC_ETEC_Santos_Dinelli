@@ -1,0 +1,158 @@
+
+
+.container {
+    width: 100vw; 
+    height: calc(100vh - 100px);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.select-input {
+    width: 100vw;
+    height: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.select-input select {
+    height: 30px;
+    border-radius: 10px;
+    border: 0;
+    margin: 0 10px;
+    padding: 10px;
+    background-color: rgb(227, 224, 209);
+    color: black;
+    font-weight: bolder;
+    box-shadow: 5px 7px 3px 0 rgb(210, 206, 193);
+}
+
+.select-input select {
+    height: 55px;
+    padding: 10px;
+}
+
+
+.select-input select:hover {
+    cursor: pointer;
+}
+
+.canvas {
+    width: 100vw; 
+    height: calc((100vh - 4em) - 125px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.chart{ 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    height: 70vh;
+}
+
+@media (max-width: 960px) {
+
+    .select-input{ 
+        margin-top: 100px;
+        height: 3em;
+    }
+    
+    .canvas { 
+        height: calc((100vh - 3em) - 190px);
+    }
+    
+    .chart{ 
+        width: 80vw;
+        height: 60vh;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .select-input{ 
+        height: 3em;
+    }
+    
+    .canvas { 
+        height: calc((100vh - 3em) - 190px);
+    }
+    
+    .chart{ 
+        width: 90vw;
+        height: 60vh;
+    }
+}
+
+@media (max-width: 670px) {
+
+    .select-input{ 
+        margin-bottom: -50px;
+        height: 3em;
+    }
+    
+    .canvas { 
+        height: calc((100vh - 3em) - 90px);
+    }
+    
+    .chart{ 
+        width: 90vw;
+        height: 50vh;
+    }
+}
+
+@media (max-width: 530px) {
+
+    .select-input{ 
+        margin-bottom: -100px;
+        height: 3em;
+    }
+
+    .select-input select {
+        width: 100px;
+    }
+    
+    .canvas { 
+        height: calc((100vh - 90px));
+    }
+    
+    .chart{ 
+        width: 90vw;
+        height: 50vh;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .select-input{ 
+        margin-bottom: -100px;
+        height: 3em;
+    }
+
+    .select-input select {
+        width: 90px;
+        height: 50px;
+    }
+    
+    .canvas { 
+        height: calc((100vh - 90px));
+    }
+    
+    .chart{ 
+        width: 90vw;
+        height: 50vh;
+    }
+}

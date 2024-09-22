@@ -3,9 +3,6 @@
     padding: 0;
 }
 
-body {
-    background-color: rgb(252, 247, 239);
-}
 
 .canvas {
     width: 100vw; 
@@ -18,15 +15,13 @@ body {
 }
 
 .chart{ 
+    width: 70vw;
+    height: 70vh;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70vw;
-    height: 70vh;
 }
-
-
 
 @media (max-width: 960px) {
 
@@ -86,5 +81,13 @@ body {
     .chart{ 
         width: 98vw;
         height: 25vh;
+    }
+}
+
+@media (max-width: 380px) {
+    
+    .chart{ 
+        width: 98vw;
+        height: calc(100vh - 25px);
     }
 }

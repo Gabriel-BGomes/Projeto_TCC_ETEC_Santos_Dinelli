@@ -81,7 +81,6 @@ const dataMensal = {
 };
 
 const options = {
-    responsive: true,
     maintainAspectRadio: false,
     responsive: true,
     scales: { // scales pelo que entendi irá mexer no nome dos índices
@@ -96,9 +95,6 @@ const options = {
       ticks: {
         color: 'black' // cor da legenda Y
       },
-
-      
-
     }
 
   },
