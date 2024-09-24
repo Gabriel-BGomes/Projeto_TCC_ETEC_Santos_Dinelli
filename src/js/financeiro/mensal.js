@@ -6,7 +6,7 @@ const excluirValores = document.getElementById('excluirValores');
 const recebimentosInput = document.getElementById('recebimentos');
 const despesasInput = document.getElementById('despesas');
 
-var mesSelecionadoRecebimento = {
+const mesSelecionadoRecebimento = {
   'Janeiro': 0,
   'Fevereiro': 0,
   'Março': 0,
@@ -21,7 +21,7 @@ var mesSelecionadoRecebimento = {
   'Dezembro': 0
 };
 
-var mesSelecionadoDespesa = {
+const mesSelecionadoDespesa = {
   'Janeiro': 0,
   'Fevereiro': 0,
   'Março': 0,
@@ -210,4 +210,3 @@ excluirValores.addEventListener('click', function() {
 
 });
 
-export { mesSelecionadoRecebimento, mesSelecionadoDespesa };

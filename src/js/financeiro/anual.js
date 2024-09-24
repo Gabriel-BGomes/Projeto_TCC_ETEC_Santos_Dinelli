@@ -1,20 +1,48 @@
 const anual = document.getElementById('anual'); // é o id puxado do html para fazer tudo aconter
-const monthSelectorAnual = document.getElementById('monthSelector');
+const monthSelector = document.getElementById('monthSelector');
 
-window.alert('teste');
+const mesSelecionadoRecebimento = {
+  'Janeiro': 0,
+  'Fevereiro': 20,
+  'Março': 0,
+  'Abril': 0,
+  'Maio': 0, 
+  'Junho': 0,
+  'Julho': 0,
+  'Agosto': 0,
+  'Setembro': 0,
+  'Outubro': 0,
+  'Novembro': 0,
+  'Dezembro': 0
+};
+
+const mesSelecionadoDespesa = {
+  'Janeiro': 0,
+  'Fevereiro': 0,
+  'Março': 0,
+  'Abril': 0,
+  'Maio': 0, 
+  'Junho': 0,
+  'Julho': 0,
+  'Agosto': 0,
+  'Setembro': 0,
+  'Outubro': 0,
+  'Novembro': 0,
+  'Dezembro': 0
+};
 
 // aqui você pode declarar uma variável ou declarar no próprio chart as informações do gráfico.
 var dataAnual = {
   labels: ['RESUMO'], // colunas
   datasets: [{
     label: 'RECEBIMENTOS', // nome da primeira coluna
-    data: [1, 2, 3], // dados da primeira coluna
+    data: mesSelecionadoRecebimento, // dados da primeira coluna
     backgroundColor: 'green' // cor da primeira coluna
   },
 
   {
     label: 'DESPESAS', // nome da segunda coluna
-    data: [1, 2, 3], // dados da segunda coluna
+    data: mesSelecionadoDespesa, // dados da segunda coluna
     backgroundColor: 'red' // cor da segunda coluna
   }
 ]
@@ -99,9 +127,9 @@ var definingChart = {
 // criando de fato o gráfico
 const chartAnual = new Chart(anual, definingChart);
 
-monthSelectorAnual.addEventListener("change", function() {
+monthSelector.addEventListener("change", function() {
 
-    let monthSele = monthSelectorAnual.value;
+    let monthSele = monthSelector.value;
     
     if (monthSele == 'Todos') {
       chartAnual.data.datasets[0].data = mesSelecionadoRecebimento;
