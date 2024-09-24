@@ -138,7 +138,6 @@ const chartMensal = new Chart(mensal, definingChart);
 inserirValores.addEventListener('click', function() {
 
   let month = monthSelector.value;
-  console.log(month)
 
   let recebimentos = parseInt(recebimentosInput.value);
   let despesas = parseInt(despesasInput.value);
@@ -165,7 +164,6 @@ inserirValores.addEventListener('click', function() {
 editarValores.addEventListener('click', function() {
 
   let month = monthSelector.value;
-  console.log(month)
 
   let recebimentos = parseInt(recebimentosInput.value);
   let despesas = parseInt(despesasInput.value);
@@ -189,7 +187,6 @@ editarValores.addEventListener('click', function() {
 excluirValores.addEventListener('click', function() {
 
   let month = monthSelector.value;
-  console.log(month)
 
   let recebimentos = parseInt(recebimentosInput.value);
   let despesas = parseInt(despesasInput.value);
@@ -212,3 +209,5 @@ excluirValores.addEventListener('click', function() {
   recebimentos = 0
 
 });
+
+export { mesSelecionadoRecebimento, mesSelecionadoDespesa };
