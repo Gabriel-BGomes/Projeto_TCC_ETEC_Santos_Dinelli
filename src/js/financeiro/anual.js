@@ -3,7 +3,7 @@ const monthSelector = document.getElementById('monthSelector');
 
 const mesSelecionadoRecebimento = {
   'Janeiro': 0,
-  'Fevereiro': 20,
+  'Fevereiro': 0,
   'Março': 0,
   'Abril': 0,
   'Maio': 0, 
@@ -31,8 +31,9 @@ const mesSelecionadoDespesa = {
   'Dezembro': 0
 };
 
+
 // aqui você pode declarar uma variável ou declarar no próprio chart as informações do gráfico.
-var dataAnual = {
+var dataMensal = {
   labels: ['RESUMO'], // colunas
   datasets: [{
     label: 'RECEBIMENTOS', // nome da primeira coluna
@@ -47,6 +48,7 @@ var dataAnual = {
   }
 ]
 };
+
 
 // da mesma forma como pode ser criada uma vaiável no data, você pode criar uma varíavel para definir o text de todas as fontes
 var fonte = {
@@ -94,7 +96,7 @@ var options = {
   plugins: { // para fazer mais configurações de estilo
     title: { // adicionar um estilo ao gráfico
       display: true,
-      text: "RESUMO ANUAL", // título
+      text: `RESUMO DE ${monthSelector.value.toUpperCase()}`, // título
       font: fonte, // puxando a constante de fonte
       color: '#145400' // mudando a cor do título
     },
@@ -115,30 +117,58 @@ var options = {
   }
 }
 
-// definindo o background padrão
-Chart.defaults.backgroundColor = 'pink';
-
 var definingChart = {
   type: 'bar', // tipo do gráfico (linha, coluna)
-  data: dataAnual, // puxando a constante data
+  data: dataMensal, // puxando a constante data
   options: options
   };
-  
+
 // criando de fato o gráfico
 const chartAnual = new Chart(anual, definingChart);
 
+// Função para carregar os dados financeiros do PHP para o gráfico anual
+function carregarDadosAnuais() {
+  fetch('../../js/financeiro/php/dados_finance.php') // Ajuste o caminho conforme necessário
+    .then(response => response.json())
+    .then(data => {
+      // Resetar os dados
+      Object.keys(mesSelecionadoRecebimento).forEach(mes => {
+        mesSelecionadoRecebimento[mes] = 0;
+        mesSelecionadoDespesa[mes] = 0;
+      });
+
+      // Atualizar os dados dos meses
+      data.forEach(item => {
+        mesSelecionadoRecebimento[item.mes] = item.recebimento;
+        mesSelecionadoDespesa[item.mes] = item.despesa;
+      });
+
+      // Atualizar o gráfico com os novos dados
+      chartAnual.data.datasets[0].data = Object.values(mesSelecionadoRecebimento);
+      chartAnual.data.datasets[1].data = Object.values(mesSelecionadoDespesa);
+      chartAnual.update(); // Atualizar o gráfico
+    })
+    .catch(error => console.error('Erro ao carregar os dados anuais:', error));
+}
+
+// Chamar a função para carregar os dados anuais inicialmente
+carregarDadosAnuais();
+
+
+// Atualizar o gráfico com base na seleção do mês
 monthSelector.addEventListener("change", function() {
+  let monthSele = monthSelector.value;
 
-    let monthSele = monthSelector.value;
-    
-    if (monthSele == 'Todos') {
-      chartAnual.data.datasets[0].data = mesSelecionadoRecebimento;
-      chartAnual.data.datasets[1].data = mesSelecionadoDespesa;
-    } else {
-      chartAnual.data.datasets[0].data = [mesSelecionadoRecebimento[monthSele]];
-      chartAnual.data.datasets[1].data = [mesSelecionadoDespesa[monthSele]];
-    };
+  if (monthSele == 'Todos') {
+    chartAnual.data.datasets[0].data = (mesSelecionadoRecebimento);
+    chartAnual.data.datasets[1].data = (mesSelecionadoDespesa);
+    chartAnual.options.plugins.title.text = `RESUMO ANUAL`;
+  } else {
+    chartAnual.data.datasets[0].data = [mesSelecionadoRecebimento[monthSele]];
+    chartAnual.data.datasets[1].data = [mesSelecionadoDespesa[monthSele]];
+    chartAnual.options.plugins.title.text = `RESUMO DE ${monthSele.toUpperCase()}`;
+  };
 
-    chartAnual.update();
-
+  chartAnual.update();
+  
 });

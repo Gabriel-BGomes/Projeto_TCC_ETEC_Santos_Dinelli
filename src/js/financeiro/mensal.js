@@ -3,12 +3,13 @@ const monthSelector = document.getElementById("monthSelector");
 const inserirValores = document.getElementById('inserirValores');
 const editarValores = document.getElementById('editarValores');
 const excluirValores = document.getElementById('excluirValores');
+const atualizarGraph = document.getElementById('atualizarGraph');
 const recebimentosInput = document.getElementById('recebimentos');
 const despesasInput = document.getElementById('despesas');
 
 const mesSelecionadoRecebimento = {
   'Janeiro': 0,
-  'Fevereiro': 0,
+  'Fevereiro': 20,
   'Março': 0,
   'Abril': 0,
   'Maio': 0, 
@@ -36,28 +37,38 @@ const mesSelecionadoDespesa = {
   'Dezembro': 0
 };
 
-var anual = {
-  mesSelecionadoRecebimento,
-  mesSelecionadoDespesa
+const meses = {
+  0: 'Janeiro',
+  1: 'Fevereiro',
+  2: 'Março',
+  3: 'Abril',
+  4: 'Maio',
+  5: 'Junho',
+  6: 'Julho',
+  7: 'Agosto',
+  8: 'Setembro',
+  9: 'Outubro',
+  10: 'Novembro',
+  11: 'Dezembro',
 }
 
+
 // aqui você pode declarar uma variável ou declarar no próprio chart as informações do gráfico.
-var dataMensal = {
+var dataAnual = {
   labels: ['RESUMO'], // colunas
   datasets: [{
     label: 'RECEBIMENTOS', // nome da primeira coluna
-    data: mesSelecionadoRecebimento, // dados da primeira coluna
+    data: Object.values(mesSelecionadoRecebimento), // dados da primeira coluna
     backgroundColor: 'green' // cor da primeira coluna
   },
 
   {
     label: 'DESPESAS', // nome da segunda coluna
-    data: mesSelecionadoDespesa, // dados da segunda coluna
+    data: Object.values(mesSelecionadoDespesa), // dados da segunda coluna
     backgroundColor: 'red' // cor da segunda coluna
   }
 ]
 };
-
 
 // da mesma forma como pode ser criada uma vaiável no data, você pode criar uma varíavel para definir o text de todas as fontes
 var fonte = {
@@ -105,7 +116,7 @@ var options = {
   plugins: { // para fazer mais configurações de estilo
     title: { // adicionar um estilo ao gráfico
       display: true,
-      text: "RESUMO MENSAL", // título
+      text: `RESUMO MENSAL DE ${monthSelector.value.toUpperCase()}`, // título
       font: fonte, // puxando a constante de fonte
       color: '#145400' // mudando a cor do título
     },
@@ -126,87 +137,143 @@ var options = {
   }
 }
 
+// definindo o background padrão
+Chart.defaults.backgroundColor = 'pink';
+
 var definingChart = {
   type: 'bar', // tipo do gráfico (linha, coluna)
-  data: dataMensal, // puxando a constante data
+  data: dataAnual, // puxando a constante data
   options: options
   };
-
+  
 // criando de fato o gráfico
 const chartMensal = new Chart(mensal, definingChart);
 
-inserirValores.addEventListener('click', function() {
+// Função para carregar os dados financeiros do PHP para o gráfico anual
+function carregarDadosFinanceiros() {
+  fetch('../../js/financeiro/php/dados_finance.php') // Ajuste o caminho conforme necessário
+    .then(response => response.json())
+    .then(data => {
+      
+      // Resetar os dados
+      Object.keys(mesSelecionadoRecebimento).forEach(mes => {
+        mesSelecionadoRecebimento[mes] = 0;
+        mesSelecionadoDespesa[mes] = 0;
+      });
+
+      // Atualizar os dados dos meses
+      data.forEach(item => {
+        
+        mesSelecionadoRecebimento[item.mes] = item.recebimento;
+        mesSelecionadoDespesa[item.mes] = item.despesa;
+
+      });
+
+      let monthSele = monthSelector.value
+
+      // Atualizar o gráfico com os novos dados
+      chartMensal.data.datasets[0].data = [mesSelecionadoRecebimento[monthSele]];
+      chartMensal.data.datasets[1].data = [mesSelecionadoDespesa[monthSele]];
+
+      chartMensal.update(); // Atualizar o gráfico
+    })
+    .catch(error => console.error('Erro ao carregar os dados anuais:', error));
+}
+
+carregarDadosFinanceiros();
+
+// Atualizar o gráfico com base na seleção do mês
+monthSelector.addEventListener("change", function() {
+  let monthSele = monthSelector.value;
+
+  chartMensal.data.datasets[0].data = [mesSelecionadoRecebimento[monthSele]];
+  chartMensal.data.datasets[1].data = [mesSelecionadoDespesa[monthSele]];
+
+  chartMensal.options.plugins.title.text = `RESUMO MENSAL DE ${monthSele.toUpperCase()}`;
+
+  chartMensal.update();
+});
+
+inserirValores.addEventListener('click', function (event) {
+  event.preventDefault(); // Impede o envio do formulário
 
   let month = monthSelector.value;
-
   let recebimentos = parseInt(recebimentosInput.value);
   let despesas = parseInt(despesasInput.value);
 
-  mesSelecionadoRecebimento[month] += recebimentos;
-  mesSelecionadoDespesa[month] += despesas;
-
-  anual = {
-    mesSelecionadoRecebimento,
-    mesSelecionadoDespesa
-  }
+  // Envio dos dados via AJAX
+  fetch('../../js/financeiro/php/processaFinancas.php', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `action=insert&recebimento=${recebimentos}&despesa=${despesas}&mes=${month}`
+  })
   
-  chartMensal.data.labels = ['Mês de ' + month]
-  chartMensal.data.datasets[0].data[month] = mesSelecionadoRecebimento[month]
-  chartMensal.data.datasets[1].data[month] = mesSelecionadoDespesa[month]
-  
-  chartMensal.update();
-
-  despesas = 0
-  recebimentos = 0
+  .then(data => {
+    console.log(data); // Exibe o resultado no console para debug
+    carregarDadosFinanceiros(); // Chama a função para atualizar os dados do gráfico
+  })
+  .catch(error => {
+      console.error('Erro ao carregar os dados:', error);
+  });
 
 });
 
-editarValores.addEventListener('click', function() {
+editarValores.addEventListener('click', function (event) {
+  event.preventDefault(); // Impede o envio do formulário
 
   let month = monthSelector.value;
-
   let recebimentos = parseInt(recebimentosInput.value);
   let despesas = parseInt(despesasInput.value);
 
-  mesSelecionadoRecebimento[month] = recebimentos;
-  mesSelecionadoDespesa[month] = despesas;
+  // Envio dos dados via AJAX
+  fetch('../../js/financeiro/php/processaFinancas.php', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `action=edit&recebimento=${recebimentos}&despesa=${despesas}&mes=${month}`
+  })
 
-  anual = {
-    mesSelecionadoRecebimento,
-    mesSelecionadoDespesa
-  }
+  .then(data => {
+    console.log(data); // Exibe o resultado no console para debug
+    carregarDadosFinanceiros(); // Chama a função para atualizar os dados do gráfico
+  })
+  .catch(error => {
+      console.error('Erro ao carregar os dados:', error);
+  });
   
-  chartMensal.data.labels = ['Mês de ' + month]
-  chartMensal.data.datasets[0].data[month] = recebimentos
-  chartMensal.data.datasets[1].data[month] = despesas
-  
-  chartMensal.update();
-
 });
 
-excluirValores.addEventListener('click', function() {
+excluirValores.addEventListener('click', function (event) {
+  event.preventDefault(); // Impede o envio do formulário
 
   let month = monthSelector.value;
-
   let recebimentos = parseInt(recebimentosInput.value);
   let despesas = parseInt(despesasInput.value);
 
-  mesSelecionadoRecebimento[month] -= recebimentos;
-  mesSelecionadoDespesa[month] -= despesas;
-
-  anual = {
-    mesSelecionadoRecebimento,
-    mesSelecionadoDespesa
-  }
+  // Envio dos dados via AJAX para excluir (pode ser um método diferente se precisar)
+  fetch('../../js/financeiro/php/processaFinancas.php', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `action=remove&recebimento=${recebimentos}&despesa=${despesas}&mes=${month}`
+  })
   
-  chartMensal.data.labels = ['Mês de ' + month]
-  chartMensal.data.datasets[0].data[month] = mesSelecionadoRecebimento[month]
-  chartMensal.data.datasets[1].data[month] = mesSelecionadoDespesa[month]
+  .then(data => {
+    console.log(data); // Exibe o resultado no console para debug
+    carregarDadosFinanceiros(); // Chama a função para atualizar os dados do gráfico
+  })
+  .catch(error => {
+      console.error('Erro ao carregar os dados:', error);
+  });
   
-  chartMensal.update();
+});
 
-  despesas = 0
-  recebimentos = 0
-
+atualizarGraph.addEventListener('click', function(event) {
+  event.preventDefault();
+  carregarDadosFinanceiros();
 });
 
