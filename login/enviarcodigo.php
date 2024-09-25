@@ -131,13 +131,20 @@ include_once "./conexao.php";
                 $mail->isHTML(true);  
                 
                 // Título do e-mail
-                $mail->Subject = 'Aqui está o código de verificação de 6 dígitos que você solicitou';
+                // Título do e-mail
+                $mail->Subject = 'Código de Verificação para Autenticação Multifator';
 
                 // Conteúdo do e-mail em formato HTML
-                $mail->Body    = "Olá " . $row_usuario['nome'] . ", Autenticação multifator.<br><br>Seu código de verificação de 6 dígitos é $codigo_autenticacao<br><br>Esse código foi enviado para verificar seu login.<br><br>";
+                ob_start();
+                include __DIR__ . '/redefinir_email_template.php';
+                $mail->Body = ob_get_clean();
 
-                // Conteúdo do e-mail em formato texto
-                $mail->AltBody = "Olá " . $row_usuario['nome'] . ", Autenticação multifator.\n\nSeu código de verificação de 6 dígitos é $codigo_autenticacao\n\nEsse código foi enviado para verificar seu login.\n\n";
+                // Conteúdo do e-mail em formato texto (mantenha isso para clientes de email que não suportam HTML)
+                $mail->AltBody = "Olá {$row_usuario['nome']},\n\n" .
+                                "Seu código de verificação de 6 dígitos é: {$codigo_autenticacao}\n\n" .
+                                "Este código foi enviado para redefinir sua senha. Por favor, insira-o na página de verificação para continuar.\n\n" .
+                                "Se você não solicitou este código, por favor ignore este email.\n\n" .
+                                "Esta é uma mensagem automática. Por favor, não responda a este email.";
 
                 // Enviar e-mail
                 $mail->send();
