@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f0f7f4;
+    background-color: #edece2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +28,7 @@ body {
 }
 
 .auth-header {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    background: linear-gradient(135deg, #228d02, #145400);
     color: white;
     padding: 30px;
     text-align: center;
@@ -80,7 +80,7 @@ body {
 .input-group input:valid ~ label {
     top: -20px;
     font-size: 12px;
-    color: #2ecc71;
+    color: #228d02;
 }
 
 .input-group .highlight {
@@ -89,7 +89,7 @@ body {
     left: 0;
     height: 2px;
     width: 0;
-    background: #2ecc71;
+    background: #228d02;
     transition: 0.3s ease all;
 }
 
@@ -98,7 +98,7 @@ body {
 }
 
 .auth-button {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    background: linear-gradient(135deg, #228d02, #145400);
     color: white;
     border: none;
     padding: 12px;

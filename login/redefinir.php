@@ -41,31 +41,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redefinir Senha</title>
-    <link rel="stylesheet" href="../src/style/login/redefinir.css">
-</head>
-<body>
-<div class="reset-container">
-        <div class="reset-header">
-            <h2>Redefinição de Senha</h2>
-            <p>Digite sua nova senha abaixo</p>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Redefinir Senha</title>
+        <link rel="stylesheet" href="../src/style/login/redefinir.css">
+
+    </head>
+
+    <body>
+
+        <div class="reset-container">
+
+            <div class="reset-header">
+                <h2>Redefinição de Senha</h2>
+                <p>Digite sua nova senha abaixo</p>
+            </div>
+
+            <form action="" method="post" class="reset-form" id="reset-form">
+
+                <div class="input-group">
+                    <input type="password" id="new-password" name="nova_senha" required>
+                    <span class="highlight"></span>
+                    <label for="new-password">Nova Senha</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="confirm-password" name="confirma_senha" required>
+                    <span class="highlight"></span>
+                    <label for="confirm-password">Confirmar Senha</label>
+                </div>
+
+                <input type="submit" value="Redefinir Senha" class="reset-button">
+
+            </form>
+
         </div>
-        <form action="" method="post" class="reset-form" id="reset-form">
-            <div class="input-group">
-                <input type="password" id="new-password" name="nova_senha" required>
-                <span class="highlight"></span>
-                <label for="new-password">Nova Senha</label>
-            </div>
-            <div class="input-group">
-                <input type="password" id="confirm-password" name="confirma_senha" required>
-                <span class="highlight"></span>
-                <label for="confirm-password">Confirmar Senha</label>
-            </div>
-            <input type="submit" value="Redefinir Senha" class="reset-button">
-        </form>
-    </div>
-</body>
+
+    </body>
+
 </html>
