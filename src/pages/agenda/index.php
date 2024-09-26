@@ -1,3 +1,25 @@
+<?php
+
+session_start(); // Iniciar a sessão
+
+ob_start(); // Limpar o buffer de saída
+
+// Definir um fuso horario padrao
+date_default_timezone_set('America/Sao_Paulo');
+
+// Acessar o IF quando o usuário não estão logado e redireciona para página de login
+if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SESSION['codigo_autenticacao']))){
+    $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
+
+    // Redirecionar o usuário
+    header("Location: /project_Santos_Dinelli/src/pages/login/index.php");
+
+    // Pausar o processamento
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -17,7 +39,7 @@
 
     <div class="container">
 
-        <h2 class="mb-4">Agenda</h2> <h2><a href="../home.html">VOLTAR</a></h2>
+        <h2 class="mb-4">Agenda</h2> <h2><a href="../home.php">VOLTAR</a></h2>
 
         <span id="msg"></span>
 

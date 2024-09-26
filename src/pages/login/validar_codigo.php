@@ -85,7 +85,7 @@ include_once "./conexao.php";
             $_SESSION['codigo_autenticacao'] = true;            
 
             // Redirecionar o usuário
-            header('Location: ../home.html');
+            header('Location: ../home.php');
         }else{
             $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Código inválido!</p>";
             //header("Location: index.php");
