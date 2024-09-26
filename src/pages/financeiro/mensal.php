@@ -12,7 +12,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
     $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
 
     // Redirecionar o usuário
-    header("Location: /project_Santos_Dinelli/src/pages/login/index.php");
+    header("Location: /project_Santos_Dinelli/login/index.php");
 
     // Pausar o processamento
     exit();
