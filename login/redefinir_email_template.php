@@ -29,13 +29,19 @@
                     background-color: #228d02;
                     color: white;
                     padding: 30px;
-                    text-align: center;
+                    display: flex;
+                    align-items: space-around;
                 }
 
                 h1 {
                     margin: 0;
                     font-size: 28px;
                     font-weight: 300;
+                }
+
+                .img {
+                    width: 50px;
+                    height: 50px
                 }
 
                 .content {
@@ -102,6 +108,7 @@
         <div class="container">
 
             <div class="header">
+                <img src="./circulo.png" alt="imagemquenaofoi">
                 <h1>Autenticação Multifator</h1>
             </div>
 
@@ -119,7 +126,7 @@
                 </div>
 
                 <p class="warning">Se você não solicitou este código, por favor ignore este email.</p>
-                <a href="verificar.php" class="btn" style="color: white !important;">Ir para a página de verificação</a>
+                <a href="localhost/project_Santos_Dinelli/login/verificar.php" class="btn" style="color: white !important;">Ir para a página de verificação</a>
 
             </div>  
 

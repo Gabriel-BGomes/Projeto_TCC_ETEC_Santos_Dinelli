@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Verificar Código</title>
         <link rel="stylesheet" href="../src/style/login/verificar.css">
+        <link rel="shortcut icon" href="../src/images/icons/logo.ico" type="image/x-icon">
     </head>
 
     <body>

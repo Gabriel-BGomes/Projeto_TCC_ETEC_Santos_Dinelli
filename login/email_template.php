@@ -124,7 +124,7 @@ body {
                 </div>
 
                 <p class="warning">Se você não solicitou este código, por favor ignore este email.</p>
-                <a href="localhost/project_Santos_Dinelli/login/verificar.php" class="btn" style="color: white !important;">Ir para a página de verificação</a>
+                <a href="localhost/project_Santos_Dinelli/login/validar_codigo.php" class="btn" style="color: white !important;">Ir para a página de verificação</a>
 
             </div>
 

@@ -3,7 +3,7 @@
 $servername = "localhost"; // Ou o IP do servidor
 $username = "root"; // Nome de usuário do banco de dados
 $password = ""; // Senha do banco de dados
-$dbname = "financas"; // Nome do banco de dados
+$dbname = "teste2"; // Nome do banco de dados
 
 // Criar conexão
 $conn = new mysqli($servername, $username, $password, $dbname);

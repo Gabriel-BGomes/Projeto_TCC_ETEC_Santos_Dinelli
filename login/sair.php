@@ -12,7 +12,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
     $_SESSION['msg'] = "<p style='color: green;'>Deslogado com sucesso!</p>";
 
     // Redirecionar o usuário
-    header("Location: index.php");
+    header("Location: ./index.php");
 
     // Pausar o processamento
     exit();

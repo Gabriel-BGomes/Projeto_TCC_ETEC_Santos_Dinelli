@@ -1,5 +1,6 @@
 <?php
 
+// não deixar a pessoa entrar sem antes ter logado no sistema
 session_start(); // Iniciar a sessão
 
 ob_start(); // Limpar o buffer de saída
@@ -20,6 +21,11 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
 ?>
 
+<?php
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -28,6 +34,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
     <title>Home</title>
     <link rel="stylesheet" href="../style/layout-header.css">
     <link rel="stylesheet" href="../style/home.css">
+    <link rel="shortcut icon" href="../images/icons/logo.ico" type="image/x-icon">
 
 </head>
 
@@ -45,7 +52,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     <li><a href="./agenda/index.php">AGENDA</a></li>
                     <li><a href="./financeiro/finance.php">FINANCEIRO</a></li>
                     <li><a href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
-                    <li><a href="../../login/index.php">SAIR</a></li>
+                    <li><a href="../../login/sair.php">SAIR</a></li>
                 </ul>
 
             </nav>
