@@ -16,7 +16,7 @@ if (!empty($id)) {
     $apagar_event = $conn->prepare($query_apagar_event);
 
     // substituir o link pelo valor
-    $apagar_event->bindParam(':id_Servico', $id);
+    $apagar_event->bindParam(':id', $id);
 
     // verificar se consegui apagar corretamente
     if($apagar_event->execute()){
@@ -31,4 +31,3 @@ if (!empty($id)) {
 
 // converter o array em objeto e retornar para o JavaScript
 echo json_encode($retorna);
-

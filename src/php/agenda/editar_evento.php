@@ -6,8 +6,6 @@ include_once './conexao.php';
 // Receber os dados enviado pelo JavaScript
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-var_dump $dados;
-
 // Criar a QUERY editar evento no banco de dados
 $query_edit_event = "UPDATE events SET title=:title, color=:color, start=:start, end=:end, obs=:obs WHERE id=:id";
 
