@@ -46,6 +46,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     <li><a href="./home.php">ÍNICIO</a></li>
                     <li><a href="./agenda.php">AGENDA</a></li>
                     <li><a href="./finance.php">FINANCEIRO</a></li>
+                    <li><a href="">CLIENTES</a></li>
                     <li><a href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
                     <li><a href="../../login/sair.php">SAIR</a></li>
                 </ul>
@@ -59,6 +60,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     <li><a href="./home.php">ÍNICIO</a></li>
                     <li><a href="./agenda.php">AGENDA</a></li>
                     <li><a href="./finance.php">FINANCEIRO</a></li>
+                    <li><a href="">CLIENTES</a></li>
                     <li><a href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
 
                 </ul>
