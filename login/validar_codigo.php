@@ -90,8 +90,6 @@ include_once "./conexao.php";
                         header('Location: ../src/pages/home.php');
                     }else{
                         $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Código inválido!</p>";
-                        //header("Location: index.php");
-                        //exit();
                     }
                 }
                 ?>

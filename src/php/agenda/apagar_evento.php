@@ -16,7 +16,7 @@ if (!empty($id)) {
     $apagar_event = $conn->prepare($query_apagar_event);
 
     // substituir o link pelo valor
-    $apagar_event->bindParam(':id', $id);
+    $apagar_event->bindParam(':id_Servico', $id);
 
     // verificar se consegui apagar corretamente
     if($apagar_event->execute()){

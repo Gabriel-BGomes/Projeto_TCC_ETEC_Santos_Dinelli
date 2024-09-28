@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$dbname = "teste2";
+$dbname = "db_santosdinelli";
 $port = 3306;
 
 try{

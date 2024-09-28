@@ -151,7 +151,7 @@ const chartMensal = new Chart(mensal, definingChart);
 
 // Função para carregar os dados financeiros do PHP para o gráfico anual
 function carregarDadosFinanceiros() {
-  fetch('../../js/financeiro/php/dados_finance.php') // Ajuste o caminho conforme necessário
+  fetch('../php/financeiro/dados_finance.php') // Ajuste o caminho conforme necessário
     .then(response => response.json())
     .then(data => {
       
@@ -202,7 +202,7 @@ inserirValores.addEventListener('click', function (event) {
   let despesas = parseInt(despesasInput.value);
 
   // Envio dos dados via AJAX
-  fetch('../../js/financeiro/php/processaFinancas.php', {
+  fetch('../php/financeiro/processaFinancas.php', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -228,7 +228,7 @@ editarValores.addEventListener('click', function (event) {
   let despesas = parseInt(despesasInput.value);
 
   // Envio dos dados via AJAX
-  fetch('../../js/financeiro/php/processaFinancas.php', {
+  fetch('../php/financeiro/processaFinancas.php', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -254,7 +254,7 @@ excluirValores.addEventListener('click', function (event) {
   let despesas = parseInt(despesasInput.value);
 
   // Envio dos dados via AJAX para excluir (pode ser um método diferente se precisar)
-  fetch('../../js/financeiro/php/processaFinancas.php', {
+  fetch('../php/financeiro/processaFinancas.php', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/x-www-form-urlencoded',

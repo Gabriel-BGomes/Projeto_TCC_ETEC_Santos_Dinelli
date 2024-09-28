@@ -146,7 +146,7 @@ const chartInicial = new Chart(inicial, definingChart);
 
 // Função para carregar os dados financeiros do PHP para o gráfico inicial
 function carregarDadosAnuais() {
-  fetch('../js/financeiro/php/dados_finance.php') // Ajuste o caminho conforme necessário
+  fetch('../php/financeiro/dados_finance.php') // Ajuste o caminho conforme necessário
     .then(response => response.json())
     .then(data => {
 

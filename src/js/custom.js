@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
         dayMaxEvents: true,
 
         // Chamar o arquivo PHP para recuperar os eventos
-        events: 'listar_evento.php',
+        events: '../php/agenda/listar_evento.php',
 
         // Identificar o clique do usuário sobre o evento
         eventClick: function (info) {
@@ -63,14 +63,14 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById("editarModalLabel").style.display = "none";
 
             // Enviar para a janela modal os dados do evento
-            document.getElementById("visualizar_id").innerText = info.event.id;
+            document.getElementById("visualizar_id").innerText = info.event.id_Servico;
             document.getElementById("visualizar_title").innerText = info.event.title;
             document.getElementById("visualizar_obs").innerText = info.event.extendedProps.obs;
             document.getElementById("visualizar_start").innerText = info.event.start.toLocaleString();
             document.getElementById("visualizar_end").innerText = info.event.end !== null ? info.event.end.toLocaleString() : info.event.start.toLocaleString();
 
             // Enviar os dados do evento para o formulário editar
-            document.getElementById("edit_id").value = info.event.id;
+            document.getElementById("edit_id").value = info.event.id_Servico;
             document.getElementById("edit_title").value = info.event.title;
             document.getElementById("edit_obs").value = info.event.extendedProps.obs;
             document.getElementById("edit_start").value = converterData(info.event.start);
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const dadosForm = new FormData(formCadEvento);
 
             // Chamar o arquivo PHP responsável em salvar o evento
-            const dados = await fetch("cadastrar_evento.php", {
+            const dados = await fetch("../php/agenda/cadastrar_evento.php", {
                 method: "POST",
                 body: dadosForm
             });
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Criar o objeto com os dados do evento
                 const novoEvento = {
-                    id: resposta['id'],
+                    id_Servico: resposta['id_Servico'],
                     title: resposta['title'],
                     color: resposta['color'],
                     start: resposta['start'],
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const dadosForm = new FormData(formEditEvento);
 
             // Chamar o arquivo PHP responsável em editar o evento
-            const dados = await fetch("editar_evento.php", {
+            const dados = await fetch("../php/agenda/editar_evento.php", {
                 method: "POST",
                 body: dadosForm
             });
@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 var idEvento = document.getElementById("visualizar_id").textContent;
 
                 // Chamar o arquivo PHP responsável apagar o evento
-                const dados = await fetch("apagar_evento.php?id=" + idEvento);
+                const dados = await fetch("../../php/agenda/apagar_evento.php?id=" + idEvento);
 
                 // Realizar a leitura dos dados retornados pelo PHP
                 const resposta = await dados.json();

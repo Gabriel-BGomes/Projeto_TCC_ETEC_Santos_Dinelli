@@ -128,7 +128,7 @@ const chartAnual = new Chart(anual, definingChart);
 
 // Função para carregar os dados financeiros do PHP para o gráfico anual
 function carregarDadosAnuais() {
-  fetch('../../js/financeiro/php/dados_finance.php') // Ajuste o caminho conforme necessário
+  fetch('../php/financeiro/dados_finance.php') // Ajuste o caminho conforme necessário
     .then(response => response.json())
     .then(data => {
       // Resetar os dados
