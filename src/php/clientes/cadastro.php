@@ -1,3 +1,25 @@
+<?php
+
+session_start(); // Iniciar a sessão
+
+ob_start(); // Limpar o buffer de saída
+
+// Definir um fuso horario padrao
+date_default_timezone_set('America/Sao_Paulo');
+
+// Acessar o IF quando o usuário não estão logado e redireciona para página de login
+if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SESSION['codigo_autenticacao']))){
+    $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
+
+    // Redirecionar o usuário
+    header("Location: /project_Santos_Dinelli/login/index.php");
+
+    // Pausar o processamento
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -19,12 +41,12 @@
             <div><img class="tres-linhas" src="../../images/menu-tres-linhas.png" alt="menu de três linhas"></div>
 
             <ul>
-                <li><a href="./home.php">ÍNICIO</a></li>
-                <li><a href="./agenda.php">AGENDA</a></li>
-                <li><a href="./finance.php">FINANCEIRO</a></li>
-                <li><a href="./client.php">CLIENTES</a></li>
-                <li><a href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
-                <li><a href="../../login/sair.php">SAIR</a></li>
+                <li><a class="link" href="../../pages/home.php">ÍNICIO</a></li>
+                <li><a class="link" href="../../pages/agenda.php">AGENDA</a></li>
+                <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
+                <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
+                <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
+                <li><a class="link" href="../../login/sair.php">SAIR</a></li>
             </ul>
 
         </nav>
@@ -33,11 +55,11 @@
 
             <ul class="menu-fixo"> <!-- começo dos itens do menu-->
 
-                <li><a href="./home.php">ÍNICIO</a></li>
-                <li><a href="./agenda.php">AGENDA</a></li>
-                <li><a href="./finance.php">FINANCEIRO</a></li>
-                <li><a href="./client.php">CLIENTES</a></li>
-                <li><a href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
+                <li><a class="link" href="../../pages/home.php">ÍNICIO</a></li>
+                <li><a class="link" href="../../pages/agenda.php">AGENDA</a></li>
+                <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
+                <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
+                <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
 
             </ul>
 
@@ -52,9 +74,8 @@
 
     </header> <!-- fim header fixo -->
 
-    <!-- Voltar legal -->
-    <button onclick="history.back()" style="margin-bottom: 20px;">Voltar</button>
-
+    <!-- Voltar legal do leo
+    <button onclick="history.back()" style="margin-bottom: 20px;">Voltar</button> -->
 
     <?php    
     // Configurações do banco de dados

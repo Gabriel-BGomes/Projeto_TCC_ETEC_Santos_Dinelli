@@ -42,12 +42,12 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                 <div><img class="tres-linhas" src="../images/menu-tres-linhas.png" alt="menu de três linhas"></div>
 
                 <ul>
-                    <li><a href="./home.php">ÍNICIO</a></li>
-                    <li><a href="./agenda.php">AGENDA</a></li>
-                    <li><a href="./finance.php">FINANCEIRO</a></li>
-                    <li><a href="./client.php">CLIENTES</a></li>
-                    <li><a href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
-                    <li><a href="../../login/sair.php">SAIR</a></li>
+                    <li><a class="link" href="./home.php">ÍNICIO</a></li>
+                    <li><a class="link" href="./agenda.php">AGENDA</a></li>
+                    <li><a class="link" href="./finance.php">FINANCEIRO</a></li>
+                    <li><a class="link" href="./client.php">CLIENTES</a></li>
+                    <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
+                    <li><a class="link" href="../../login/sair.php">SAIR</a></li>
                 </ul>
 
                 </nav>
@@ -59,7 +59,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     <li><a class="link" href="./home.php">ÍNICIO</a></li>
                     <li><a class="link" href="./agenda.php">AGENDA</a></li>
                     <li><a class="link" href="./finance.php">FINANCEIRO</a></li>
-                    <li><a href="./client.php">CLIENTES</a></li>
+                    <li><a class="link" href="./client.php">CLIENTES</a></li>
                     <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
 
                 </ul>
@@ -84,7 +84,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                     <h4>Mensal</h4>
                     <p>Inserir recebimentos ou despesas e visualizar<br> em gráficos o resumo mensal.</p>
-                    <a class="btn btn-1" href="./mensal.php">VISUALIZAR</a>
+                    <a class="btn btn-1 link" href="./mensal.php">VISUALIZAR</a>
 
                 </div>
 
@@ -92,7 +92,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                     <h4>Anual</h4>
                     <p>Visualizar comparação em gráficos dos<br> meses do ano de 2024.</p>
-                    <a class="btn btn-2" href="./anual.php">VISUALIZAR</a>
+                    <a class="btn btn-2 link" href="./anual.php">VISUALIZAR</a>
 
                 </div>
 
