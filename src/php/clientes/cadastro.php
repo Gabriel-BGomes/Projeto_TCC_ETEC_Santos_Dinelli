@@ -215,8 +215,6 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
             <input type="text" name="cep" placeholder="CEP"><br><br>
 
             <label>Cidade</label>
-            <input type="text"
-
             <input type="text" name="cidade" placeholder="Cidade"><br><br>
 
 <label>Complemento</label>
