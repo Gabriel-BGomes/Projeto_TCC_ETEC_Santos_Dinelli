@@ -12,7 +12,7 @@ Breackpoints para responsividade:
 */
 
 body {
-    background-color: #edece2;
+    background-color: #edece2 !important;
 }
 
 *{
@@ -25,17 +25,18 @@ html, body{
     height: 100%;
 }
 
-ul, li {
+.ul, li {
     list-style: none;
+    font-family: 'Times New Roman', Times, serif !important;
 }
 
-a {
+.link {
     text-decoration: none;
     color: white;
     transition: 0.5s;
 }
 
-a:hover {
+.link:hover {
     color: rgba(255, 255, 255, 0.619);
     transition: 0.5s;
 }
@@ -116,11 +117,11 @@ a:hover {
     
 }
 
-.menu-fixo li {
+.menu-fixo > li {
     margin-left: 10px;
 }
 
-.menu-fixo li a {
+.menu-fixo > li > a {
     text-align: center;
     display: block;
     padding: 10px;
@@ -372,5 +373,3 @@ a:hover {
         height: 25vh;
     }
 }
-
-

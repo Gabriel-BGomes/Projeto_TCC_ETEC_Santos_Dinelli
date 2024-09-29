@@ -43,11 +43,11 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                 <div><img class="tres-linhas" src="../images/menu-tres-linhas.png" alt="menu de três linhas"></div>
 
                 <ul>
-                    <li><a href="./home.php">ÍNICIO</a></li>
-                    <li><a href="./agenda.php">AGENDA</a></li>
-                    <li><a href="./finance.php">FINANCEIRO</a></li>
+                    <li><a class="link" href="./home.php">ÍNICIO</a></li>
+                    <li><a class="link" href="./agenda.php">AGENDA</a></li>
+                    <li><a class="link" href="./finance.php">FINANCEIRO</a></li>
                     <li><a href="./client.php">CLIENTES</a></li>
-                    <li><a href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
+                    <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
                     <li><a href="../../login/sair.php">SAIR</a></li>
                 </ul>
 
@@ -57,11 +57,11 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                 <ul class="menu-fixo"> <!-- começo dos itens do menu-->
 
-                    <li><a href="./home.php">ÍNICIO</a></li>
-                    <li><a href="./agenda.php">AGENDA</a></li>
-                    <li><a href="./finance.php">FINANCEIRO</a></li>
+                    <li><a class="link" href="./home.php">ÍNICIO</a></li>
+                    <li><a class="link" href="./agenda.html">AGENDA</a></li>
+                    <li><a class="link" href="./finance.php">FINANCEIRO</a></li>
                     <li><a href="./client.php">CLIENTES</a></li>
-                    <li><a href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
+                    <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
 
                 </ul>
 

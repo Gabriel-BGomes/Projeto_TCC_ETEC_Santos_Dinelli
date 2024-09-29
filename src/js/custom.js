@@ -19,6 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // Incluir o bootstrap 5
         themeSystem: 'bootstrap5',
 
+        title: {
+            text: 'Teste'
+        },
+
         // Criar o cabeçalho do calendário
         headerToolbar: {
             left: 'prev,next today',
