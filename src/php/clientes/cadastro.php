@@ -10,6 +10,48 @@
 </head>
 
 <body>
+
+<header class="header"> <!-- começo menu fixo no topo -->
+        
+        <nav class="menu-lateral"> <!-- primeiro item do menu -->
+
+            <input type="checkbox" class="fake-tres-linhas">
+            <div><img class="tres-linhas" src="../../images/menu-tres-linhas.png" alt="menu de três linhas"></div>
+
+            <ul>
+                <li><a href="./home.php">ÍNICIO</a></li>
+                <li><a href="./agenda.php">AGENDA</a></li>
+                <li><a href="./finance.php">FINANCEIRO</a></li>
+                <li><a href="./client.php">CLIENTES</a></li>
+                <li><a href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
+                <li><a href="../../login/sair.php">SAIR</a></li>
+            </ul>
+
+        </nav>
+
+        <nav> <!-- começar com uma nav para definir os itens do menu-->
+
+            <ul class="menu-fixo"> <!-- começo dos itens do menu-->
+
+                <li><a href="./home.php">ÍNICIO</a></li>
+                <li><a href="./agenda.php">AGENDA</a></li>
+                <li><a href="./finance.php">FINANCEIRO</a></li>
+                <li><a href="./client.php">CLIENTES</a></li>
+                <li><a href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
+
+            </ul>
+
+        </nav>
+
+        <nav> <!-- finalizar com a logo da empresa na direita-->
+
+            <a href="https://www.santosedinelli.com.br/" target="_blank">
+            <img class="logo" src="../../images/santos-dinelli.png"  alt="logo da empresa"></a>
+
+        </nav> <!-- final da div da logo-->
+
+    </header> <!-- fim header fixo -->
+
     <!-- Voltar legal -->
     <button onclick="history.back()" style="margin-bottom: 20px;">Voltar</button>
 
