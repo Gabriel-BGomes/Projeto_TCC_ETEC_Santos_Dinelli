@@ -55,6 +55,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                 <li><a class="link" href="./home.php">ÍNICIO</a></li>
                 <li><a class="link" href="./agenda.php">AGENDA</a></li>
                 <li><a class="link" href="./finance.php">FINANCEIRO</a></li>
+                <li><a class="link" href="">CLIENTE</a></li>
                 <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
                 <li><a class="link" href="../../login/sair.php">SAIR</a></li>
             </ul>
@@ -63,11 +64,12 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
         <nav> <!-- começar com uma nav para definir os itens do menu-->
 
-            <ul class="menu-fixo"> <!-- começo dos itens do menu-->
+            <ul class="menu-fixo" style="margin: 0; margin-left: 104px;"> <!-- começo dos itens do menu-->
 
                 <li><a class="link" href="./home.php">ÍNICIO</a></li>
                 <li><a class="link" href="./agenda.php">AGENDA</a></li>
                 <li><a class="link" href="./finance.php">FINANCEIRO</a></li>
+                <li><a class="link" href="">CLIENTE</a></li>
                 <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
 
             </ul>
@@ -85,7 +87,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
     <div class="container">
 
-        <span id="msg"></span>
+        <span id="msg" class="msg"></span>
 
         <div id='calendar' class="calendario"></div>
 
