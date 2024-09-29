@@ -1,0 +1,19 @@
+.container {
+    width: 100vw;
+    height: calc(100vh - 100px);
+    margin: 0 0 !important;
+    max-width: 100% !important;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.calendario {
+    width: 95vw;
+    height: calc(90vh - 100px);
+}
+
+.btn-group { 
+    background-color: red !important;
+
+}
