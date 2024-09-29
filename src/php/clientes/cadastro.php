@@ -3,16 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <title>Formulario cadastrar pessoa fisica ou juridica</title>
+    <link rel="stylesheet" href="../../style/clientes/clientes.css">
+    <link rel="stylesheet" href="../../style/layout-header.css">
+    <link rel="shortcut icon" href="../images/icons/logo.ico" type="image/x-icon">
+    <title>Cadastro</title>
 </head>
 
 <body>
+    <!-- Voltar legal -->
+    <button onclick="history.back()" style="margin-bottom: 20px;">Voltar</button>
+
 
     <?php    
     // Configurações do banco de dados
     $host = "localhost";
-    $dbname = "cadastro_bd"; // Substitua pelo nome do seu banco de dados
+    $dbname = "santos_dinelli"; // Substitua pelo nome do seu banco de dados
     $user = "root"; // Substitua pelo seu usuário do banco de dados
     $pass = ""; // Substitua pela sua senha do banco de dados
 
@@ -38,7 +43,7 @@
                 echo "<p style='color: red;'>Por favor, preencha todos os campos obrigatórios!</p>";
             } else {
                 // QUERY para cadastrar pessoa física no banco de dados
-                $query_pessoa = "INSERT INTO usuarios (tipo_pessoa, nome_cliente, email_cliente, cpf_cliente, data_nascimento, telefone, endereco, bairro, cep, cidade, complemento, forma_pagamento) 
+                $query_pessoa = "INSERT INTO clientes (tipo_pessoa, nome_cliente, email_cliente, cpf_cliente, data_nascimento, telefone, endereco, bairro, cep, cidade, complemento, forma_pagamento) 
                                 VALUES (:tipo_pessoa, :nome_cliente, :email_cliente, :cpf_cliente, :data_nascimento, :telefone, :endereco, :bairro, :cep, :cidade, :complemento, :forma_pagamento)";
 
                 // Preparar a QUERY com PDO
@@ -58,7 +63,7 @@
                 $cad_pessoa->bindParam(':complemento', $dados['complemento']);
                 $cad_pessoa->bindParam(':forma_pagamento', $dados['forma_pagamento']);
                 
-                // Executar a QUERY com PDO
+               // Executar a QUERY com PDO
                 try {
                     $cad_pessoa->execute();
                     if ($cad_pessoa->rowCount()) {
@@ -78,7 +83,7 @@
                 echo "<p style='color: red;'>Por favor, preencha todos os campos obrigatórios!</p>";
             } else {
                 // QUERY para cadastrar pessoa jurídica no banco de dados
-                $query_pessoa = "INSERT INTO usuarios (tipo_pessoa, razao_social, email_cliente_pj, cnpj, telefone_pj, endereco_pj, cep_pj, referencia_pj) 
+                $query_pessoa = "INSERT INTO clientes (tipo_pessoa, razao_social, email_cliente_pj, cnpj, telefone_pj, endereco_pj, cep_pj, referencia_pj) 
                                  VALUES (:tipo_pessoa, :razao_social, :email_cliente_pj, :cnpj, :telefone_pj, :endereco_pj, :cep_pj, :referencia_pj)";
 
                 // Preparar a QUERY com PDO
@@ -112,9 +117,9 @@
     ?>
 
     <h1 style="display: flex;">
-        Cadastrar&nbsp;
-        <span id="titulo-pessoa-fisica" style="display: none;">pessoa física</span>
-        <span id="titulo-pessoa-juridica" style="display: none;">pessoa jurídica</span>
+        Cadastrar cliente:&nbsp;
+        <span id="titulo-pessoa-fisica" style="display: none;">Pessoa física</span>
+        <span id="titulo-pessoa-juridica" style="display: none;">Pessoa jurídica</span>
     </h1>
 
     <form method="POST" action="">

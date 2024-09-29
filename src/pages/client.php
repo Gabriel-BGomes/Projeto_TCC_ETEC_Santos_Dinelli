@@ -1,6 +1,5 @@
 <?php
 
-// não deixar a pessoa entrar sem antes ter logado no sistema
 session_start(); // Iniciar a sessão
 
 ob_start(); // Limpar o buffer de saída
@@ -9,7 +8,7 @@ ob_start(); // Limpar o buffer de saída
 date_default_timezone_set('America/Sao_Paulo');
 
 // Acessar o IF quando o usuário não estão logado e redireciona para página de login
-if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SESSION['codigo_autenticacao']))) {
+if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SESSION['codigo_autenticacao']))){
     $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
 
     // Redirecionar o usuário
@@ -22,15 +21,15 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Financeiro</title>
     <link rel="stylesheet" href="../style/layout-header.css">
-    <link rel="stylesheet" href="../style/home.css">
+    <link rel="stylesheet" href="../style/financeiro/finance.css">
     <link rel="shortcut icon" href="../images/icons/logo.ico" type="image/x-icon">
-
+    
 </head>
 
     <body>
@@ -51,9 +50,9 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     <li><a href="../../login/sair.php">SAIR</a></li>
                 </ul>
 
-            </nav>
+                </nav>
 
-            <nav> <!-- começar com uma nav para definir os itens do menu-->
+                <nav> <!-- começar com uma nav para definir os itens do menu-->
 
                 <ul class="menu-fixo"> <!-- começo dos itens do menu-->
 
@@ -67,27 +66,41 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
             </nav>
 
-            <nav> <!-- finalizar com a logo da empresa na direita-->
+            <div> <!-- finalizar com a logo da empresa na direita-->
 
                 <a href="https://www.santosedinelli.com.br/" target="_blank">
                 <img class="logo" src="../images/santos-dinelli.png"  alt="logo da empresa"></a>
 
-            </nav> <!-- final da div da logo-->
+            </div> <!-- final da div da logo-->
 
         </header> <!-- fim header fixo -->
 
-        <section>
-            <div class="canvas">
-                <div class="chart">
-                    <canvas id="inicial"></canvas>
+
+        <section> <!-- começo da sessão-->
+
+            <div class="container"> <!-- organizar as opções de seleção-->
+
+                <div class="child child-1"> <!-- organizar cada filho -->
+
+                    <h4>Cadastrar</h4>
+                    <p>Cadastrar um novo clinte <br> Pessoa Física ou Pessoa Jurídica.</p>
+                    <a class="btn btn-1" href="../php/clientes/cadastro.php">VISUALIZAR</a>
+
                 </div>
-            </div>
+
+                <div class="child child-2"> <!-- organizar cada filho-->
+
+                    <h4>Lista</h4>
+                    <p>Lista de clientes ja cadastrados<br> Pessoa Física ou Pessoa Jurídica.</p>
+                    <a class="btn btn-2" href="">VISUALIZAR</a>
+
+                </div>
+
+            </div> <!-- fim da organização de seleção de mês/anual-->
+
         </section>
 
 
     </body>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script type="text/javascript" src="../js/inicial.js"></script>
 
 </html>

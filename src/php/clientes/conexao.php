@@ -4,7 +4,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$dbname = "cadastro_bd";
+$dbname = "santos_dinelli";
 $port = 3306;
 
 try {
