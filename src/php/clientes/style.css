@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fdfaf4; /* Cor de fundo clara semelhante ao da imagem */
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333; /* Texto em cor neutra */
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #4b5320; /* Verde escuro para as labels */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="radio"] {
+    width: 90%; /* Reduzindo a largura dos inputs */
+    padding: 8px; /* Diminuindo o padding */
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="radio"] {
+    width: auto;
+}
+
+input[type="submit"] {
+    background: #4b5320; /* Verde escuro semelhante ao da barra superior da imagem */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: #5cb85c; /* Verde mais claro para o efeito de hover */
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+}
+
+.success-message {
+    color: green;
+    text-align: center;
+}
+
+.form-section {
+    display: none;
+    margin-top: 20px;
+}
