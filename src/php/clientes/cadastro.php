@@ -177,57 +177,66 @@
                         <p>Pessoa Jurídica</p>
                     </div>
 
-                </div>  
+                </div>  <!-- fechamento tipo-pesso -->
+
                 <div id="form-pessoa-fisica" style="display: none;">
+                    
+                    <div class="separar">
+                        
+                        <div class="campo">
+                            <label>Nome</label>
+                            <input type="text" name="nome_cliente" placeholder="Nome completo">
+                        </div>
 
-                    <div class="campo">
-                        <label>Nome</label>
-                        <input type="text" name="nome_cliente" placeholder="Nome completo">
+                        <div class="campo">
+                            <label>E-mail</label>
+                            <input type="email" name="email_cliente" placeholder="E-mail">
+                        </div>
+
+                        <div class="campo">
+                            <label>CPF</label>
+                            <input type="text" name="cpf_cliente" placeholder="CPF">
+                        </div>
+
+                        <div class="campo">
+                            <label>Data de Nascimento</label>
+                            <input type="date" name="data_nascimento" placeholder="Data de nascimento">
+                        </div>
+
+                        <div class="campo">
+                            <label>Telefone</label>
+                            <input type="text" name="telefone" placeholder="Telefone">
+                        </div>
+                   
                     </div>
 
-                    <div class="campo">
-                        <label>E-mail</label>
-                        <input type="email" name="email_cliente" placeholder="E-mail">
-                    </div>
+                    <div class="separar">
 
-                    <div class="campo">
-                        <label>CPF</label>
-                        <input type="text" name="cpf_cliente" placeholder="CPF">
-                    </div>
+                        <div class="campo">
+                            <label>Endereço completo da entrega</label>
+                            <input type="text" name="endereco" placeholder="Endereço completo">
+                        </div>
 
-                    <div class="campo">
-                        <label>Data de Nascimento</label>
-                        <input type="date" name="data_nascimento" placeholder="Data de nascimento">
-                    </div>
+                        <div class="campo">
+                            <label>Bairro</label>
+                            <input type="text" name="bairro" placeholder="Bairro">
+                        </div>
 
-                    <div class="campo">
-                        <label>Telefone</label>
-                        <input type="text" name="telefone" placeholder="Telefone">
-                    </div>
+                        <div class="campo">
+                            <label>CEP</label>
+                            <input type="text" name="cep" placeholder="CEP">
+                        </div>
 
-                    <div class="campo">
-                        <label>Endereço completo da entrega</label>
-                        <input type="text" name="endereco" placeholder="Endereço completo">
-                    </div>
+                        <div class="campo">
+                            <label>Cidade</label>
+                            <input type="text" name="cidade" placeholder="Cidade">
+                        </div>
 
-                    <div class="campo">
-                        <label>Bairro</label>
-                        <input type="text" name="bairro" placeholder="Bairro">
-                    </div>
+                        <div class="campo">
+                            <label>Complemento</label>
+                            <input type="text" name="complemento" placeholder="Complemento">
+                        </div>
 
-                    <div class="campo">
-                        <label>CEP</label>
-                        <input type="text" name="cep" placeholder="CEP">
-                    </div>
-
-                    <div class="campo">
-                        <label>Cidade</label>
-                        <input type="text" name="cidade" placeholder="Cidade">
-                    </div>
-
-                    <div class="campo">
-                        <label>Complemento</label>
-                        <input type="text" name="complemento" placeholder="Complemento">
                     </div>
 
                     <div class="campo">
