@@ -116,11 +116,6 @@ body {
     box-shadow: 0 5px 15px rgba(46,204,113,0.3);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 .reset-container {
     animation: fadeIn 0.5s ease-out;
 }
@@ -130,4 +125,26 @@ body {
     padding-top: 10px;
     font-size: 14px;
     text-align: center;
+}
+
+
+.reenviar {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.reenviar a {
+    color: #228d02;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.reenviar a:hover {
+    color: #145400;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }

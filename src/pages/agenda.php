@@ -250,7 +250,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                             <label for="cad_title" class="col-sm-2 col-form-label">Cliente</label>
 
                             <div class="col-sm-10">
-                                <input type="text" name="cad_title" class="form-control" id="cad_title" placeholder="Nome do Cliente">
+                                <input type="text" name="cad_title" class="form-control" id="cad_title" placeholder="Nome do Cliente" required>
                             </div>
 
                         </div>
@@ -260,7 +260,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                             <label for="cad_obs" class="col-sm-2 col-form-label">Observação</label>
 
                             <div class="col-sm-10">
-                                <input type="text" name="cad_obs" class="form-control" id="cad_obs" placeholder="Observação do Serviço">
+                                <input type="text" name="cad_obs" class="form-control" id="cad_obs" placeholder="Observação do Serviço" required>
                             </div>
 
                         </div>
@@ -270,7 +270,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                             <label for="cad_start" class="col-sm-2 col-form-label">Início</label>
 
                             <div class="col-sm-10">
-                                <input type="datetime-local" name="cad_start" class="form-control" id="cad_start">
+                                <input type="datetime-local" name="cad_start" class="form-control" id="cad_start" required>
                             </div>
 
                         </div>
@@ -280,7 +280,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                             <label for="cad_end" class="col-sm-2 col-form-label">Fim</label>
 
                             <div class="col-sm-10">
-                                <input type="datetime-local" name="cad_end" class="form-control" id="cad_end">
+                                <input type="datetime-local" name="cad_end" class="form-control" id="cad_end" required>
                             </div>
 
                         </div>
@@ -291,7 +291,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                             <div class="col-sm-10">
 
-                                <select name="cad_color" class="form-control" id="cad_color">
+                                <select name="cad_color" class="form-control" id="cad_color" required>
                                     <option value="">Selecione</option>
                                     <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
                                     <option style="color:#0071c5;" value="#0071c5">Azul Turquesa</option>

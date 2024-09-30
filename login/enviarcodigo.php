@@ -162,18 +162,30 @@ include_once "./conexao.php";
                     $_SESSION['msg'] = "<p style='color: #f00;'>Erro: E-mail não enviado com sucesso!</p>";
                 }
             } else {
-                $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário ou senha inválida!</p>";
+                $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário inexistente!</p>";
             }
         }
         ?>
 
         <div class="login-container">
 
+        
             <div class="login-header">
                 <h2>Digite seu e-mail</h2>
             </div>
 
             <form action="" method="post" class="login-form" id="login-form">
+
+            <div style="margin-bottom: 15px;">
+                        <?php
+                        // Imprimir a mensagem da sessão
+                            if (isset($_SESSION['msg'])) {
+                            echo $_SESSION['msg'];
+                            unset($_SESSION['msg']);
+                            }
+                        ?>
+            </div>
+
                 <div class="input-group">
                     <input type="email" id="email" name="email" required>
                     <span class="highlight"></span>

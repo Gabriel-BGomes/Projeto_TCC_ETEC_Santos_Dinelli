@@ -124,3 +124,19 @@ body {
 .reset-container {
     animation: fadeIn 0.5s ease-out;
 }
+
+.reenviar {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.reenviar a {
+    color: #228d02;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.reenviar a:hover {
+    color: #145400;
+}

@@ -20,7 +20,8 @@ include_once "./conexao.php";
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Verificação de Duas Etapas</title>
         <link rel="stylesheet" href="../src/style/login/validar_codigo.css">
-        <link rel="shortcut icon" href="../src/images/icons/logo.ico" type="image/x-icon">      
+        <link rel="shortcut icon" href="../src/images/icons/logo.ico" type="image/x-icon"> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>     
 
     </head>
 
@@ -28,7 +29,7 @@ include_once "./conexao.php";
 
         <div class="auth-container">
             <div class="auth-header">
-                <h2>Digite o código enviado no e-mail cadastrado</h2>
+                <h2>Digite o código enviado no E-mail cadastrado</h2>
             </div>
         
             <?php
@@ -113,10 +114,36 @@ include_once "./conexao.php";
                         <label for="verification-code">Código de Verificação</label>
                     </div>
                     <input type="submit" class="auth-button" name="ValCodigo" value="Validar" id="botaoTransicao">
+
+                    <div class="reenviar">
+                        <a href="#" id="reenviar-codigo">Reenviar Código</a>
+                    </div>
                 </form> <!-- Fim do formulário validar código -->
 
         </div>
 
     </body>
+    <script>
+        $(document).ready(function() {
+            $('#reenviar-codigo').click(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: 'enviar_novo_codigo.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.success) {
+                            alert('Novo código enviado para o seu e-mail.');
+                        } else {
+                            alert('Erro ao enviar novo código: ' + response.message);
+                        }
+                    },
+                    error: function() {
+                        alert('Erro ao processar a solicitação. Tente novamente.');
+                    }
+                });
+            });
+        });
+    </script>
 
 </html>

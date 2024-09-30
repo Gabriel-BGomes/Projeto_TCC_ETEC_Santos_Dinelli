@@ -57,3 +57,12 @@ button#btnEditEvento:hover {
     background-color: rgb(0, 96, 0);
     transition: 0.5s;
 }
+
+.form-control {
+    margin-left: 5px !important;
+}
+
+#btnCadEvento {
+    margin-left: 150px !important;
+    width: 150px !important;
+}
