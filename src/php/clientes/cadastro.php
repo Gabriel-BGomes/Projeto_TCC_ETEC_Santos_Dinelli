@@ -1,35 +1,13 @@
-<?php
-
-session_start(); // Iniciar a sessão
-
-ob_start(); // Limpar o buffer de saída
-
-// Definir um fuso horario padrao
-date_default_timezone_set('America/Sao_Paulo');
-
-// Acessar o IF quando o usuário não estão logado e redireciona para página de login
-if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SESSION['codigo_autenticacao']))){
-    $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
-
-    // Redirecionar o usuário
-    header("Location: /project_Santos_Dinelli/login/index.php");
-
-    // Pausar o processamento
-    exit();
-}
-
-?>
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../style/clientes/clientes.css">
-    <link rel="stylesheet" href="../../style/layout-header.css">
-    <link rel="shortcut icon" href="../images/icons/logo.ico" type="image/x-icon">
-    <title>Cadastro</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../style/clientes/cadastrar.css">
+        <link rel="stylesheet" href="../../style/layout-header.css">
+        <link rel="shortcut icon" href="../images/icons/logo.ico" type="image/x-icon">
+        <title>Cadastro</title>
+    </head>
 
     <body>
 
@@ -67,15 +45,16 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
             <nav> <!-- finalizar com a logo da empresa na direita-->
 
-                <a href="https://www.santosedinelli.com.br/" target="_blank">
+                <a href="https://www.santosedinelli.com target="_blank">
                 <img class="logo" src="../../images/santos-dinelli.png"  alt="logo da empresa"></a>
 
             </nav> <!-- final da div da logo-->
 
         </header> <!-- fim header fixo -->
 
-        <!-- Voltar legal do leo
+        <!--  botao voltar legal do leo
         <button onclick="history.back()" style="margin-bottom: 20px;">Voltar</button> -->
+
 
         <?php    
         // Configurações do banco de dados
@@ -179,90 +158,143 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
         }
         ?>
 
-        <h1 style="display: flex;">
-            Cadastrar cliente:&nbsp;
-            <span id="titulo-pessoa-fisica" style="display: none;">Pessoa física</span>
-            <span id="titulo-pessoa-juridica" style="display: none;">Pessoa jurídica</span>
-        </h1>
+        <div class="container">
+           
+            <form method="POST" action="" class="form">
+            
+                <div class="tipo-pessoa">
 
-        <form method="POST" action="">
-            <input type="radio" name="tipo_pessoa" id="tipo_pessoa_fisica" value="1" onchange="formPessoaFisica();">Pessoa Física
-            <input type="radio" name="tipo_pessoa" id="tipo_pessoa_juridica" value="2" onchange="formPessoaJuridica();">Pessoa Jurídica<br><br>
+                    <h1 style="display: flex;">
+                        Cadastrar cliente:&nbsp;
+                        <span id="titulo-pessoa-fisica" style="display: none;">Pessoa física</span>
+                        <span id="titulo-pessoa-juridica" style="display: none;">Pessoa jurídica</span>
+                    </h1>
 
-            <div id="form-pessoa-fisica" style="display: none;">
-                <label>Nome</label>
-                <input type="text" name="nome_cliente" placeholder="Nome completo"><br><br>
+                    <div class="radio">
+                        <input type="radio" name="tipo_pessoa" id="tipo_pessoa_fisica" value="1" onchange="formPessoaFisica();">
+                        <p>Pessoa Física</p>
+                        <input type="radio" name="tipo_pessoa" id="tipo_pessoa_juridica" value="2" onchange="formPessoaJuridica();">
+                        <p>Pessoa Jurídica</p>
+                    </div>
 
-                <label>E-mail</label>
-                <input type="email" name="email_cliente" placeholder="E-mail"><br><br>
+                </div>  
+                <div id="form-pessoa-fisica" style="display: none;">
 
-                <label>CPF</label>
-                <input type="text" name="cpf_cliente" placeholder="CPF"><br><br>
+                    <div class="campo">
+                        <label>Nome</label>
+                        <input type="text" name="nome_cliente" placeholder="Nome completo">
+                    </div>
 
-                <label>Data de Nascimento</label>
-                <input type="date" name="data_nascimento" placeholder="Data de nascimento"><br><br>
+                    <div class="campo">
+                        <label>E-mail</label>
+                        <input type="email" name="email_cliente" placeholder="E-mail">
+                    </div>
 
-                <label>Telefone</label>
-                <input type="text" name="telefone" placeholder="Telefone"><br><br>
+                    <div class="campo">
+                        <label>CPF</label>
+                        <input type="text" name="cpf_cliente" placeholder="CPF">
+                    </div>
 
-                <label>Endereço completo da entrega</label>
-                <input type="text" name="endereco" placeholder="Endereço completo"><br><br>
+                    <div class="campo">
+                        <label>Data de Nascimento</label>
+                        <input type="date" name="data_nascimento" placeholder="Data de nascimento">
+                    </div>
 
-                <label>Bairro</label>
-                <input type="text" name="bairro" placeholder="Bairro"><br><br>
+                    <div class="campo">
+                        <label>Telefone</label>
+                        <input type="text" name="telefone" placeholder="Telefone">
+                    </div>
 
-                <label>CEP</label>
-                <input type="text" name="cep" placeholder="CEP"><br><br>
+                    <div class="campo">
+                        <label>Endereço completo da entrega</label>
+                        <input type="text" name="endereco" placeholder="Endereço completo">
+                    </div>
 
-                <label>Cidade</label>
-                <input type="text" name="cidade" placeholder="Cidade"><br><br>
+                    <div class="campo">
+                        <label>Bairro</label>
+                        <input type="text" name="bairro" placeholder="Bairro">
+                    </div>
 
-                <label>Complemento</label>
-                <input type="text" name="complemento" placeholder="Complemento"><br><br>
+                    <div class="campo">
+                        <label>CEP</label>
+                        <input type="text" name="cep" placeholder="CEP">
+                    </div>
 
-                <label>Forma de Pagamento</label>
-                <input type="text" name="forma_pagamento" placeholder="Forma de pagamento"><br><br>
-                </div>
+                    <div class="campo">
+                        <label>Cidade</label>
+                        <input type="text" name="cidade" placeholder="Cidade">
+                    </div>
+
+                    <div class="campo">
+                        <label>Complemento</label>
+                        <input type="text" name="complemento" placeholder="Complemento">
+                    </div>
+
+                    <div class="campo">
+                        <label>Forma de Pagamento</label>
+                        <input type="text" name="forma_pagamento" placeholder="Forma de pagamento">
+                    </div>  
+
+                </div> <!-- fim do form para pessoa fisica -->
 
                 <div id="form-pessoa-juridica" style="display: none;">
-                <label>Razão Social</label>
-                <input type="text" name="razao_social" placeholder="Razão social"><br><br>
 
-                <label>E-mail</label>
-                <input type="email" name="email_cliente_pj" placeholder="E-mail"><br><br>
+                    <div class="campo">
+                        <label>Razão Social</label>
+                        <input type="text" name="razao_social" placeholder="Razão social">
+                    </div>  
 
-                <label>CNPJ</label>
-                <input type="text" name="cnpj" placeholder="CNPJ"><br><br>
+                    <div class="campo">
+                        <label>E-mail</label>
+                        <input type="email" name="email_cliente_pj" placeholder="E-mail">
+                    </div>
 
-                <label>Telefone(s)</label>
-                <input type="text" name="telefone_pj" placeholder="Telefone(s)"><br><br>
+                    <div class="campo">
+                        <label>CNPJ</label>
+                        <input type="text" name="cnpj" placeholder="CNPJ">
+                    </div>
 
-                <label>Endereço completo</label>
-                <input type="text" name="endereco_pj" placeholder="Endereço completo"><br><br>
+                    <div class="campo">
+                        <label>Telefone(s)</label>
+                        <input type="text" name="telefone_pj" placeholder="Telefone(s)">
+                    </div>
 
-                <label>CEP</label>
-                <input type="text" name="cep_pj" placeholder="CEP"><br><br>
+                    <div class="campo">
+                        <label>Endereço completo</label>
+                        <input type="text" name="endereco_pj" placeholder="Endereço completo">
+                    </div>
 
-                <label>Ponto de referência</label>
-                <input type="text" name="referencia_pj" placeholder="Ponto de referência"><br><br>
-                </div>
+                    <div class="campo">
+                        <label>CEP</label>
+                        <input type="text" name="cep_pj" placeholder="CEP">
+                    </div>
+
+                    <div class="campo">
+                        <label>Ponto de referência</label>
+                        <input type="text" name="referencia_pj" placeholder="Ponto de referência">
+                    </div>
+                
+                </div> <!-- fim do form para pessoa juridica -->
 
                 <div id="form-btn-cadastrar" style="display: none;">
-                <input type="submit" name="SendCad" value="Cadastrar"><br><br>
-            </div>
+                    <input type="submit" name="SendCad" value="Cadastrar"></div>
+                </div>
 
-        </form>
-        <!-- Fim formulário cadastrar pessoa física ou pessoa jurídica -->
+            </form> <!-- Fim formulário cadastrar pessoa física ou pessoa jurídica -->
+            
+        </div> <!-- fim container -->
 
     <script>
+
         // Função para carregar os campos para cadastrar pessoa física
         function formPessoaFisica() {
+
         // Apresentar o título cadastrar pessoa física
-        document.getElementById("titulo-pessoa-fisica").style.display = 'block';
+        document.getElementById("titulo-pessoa-fisica").style.display = 'flex';
         document.getElementById("titulo-pessoa-juridica").style.display = 'none';
 
         // Apresentar o formulário cadastrar pessoa física
-        document.getElementById("form-pessoa-fisica").style.display = 'block';
+        document.getElementById("form-pessoa-fisica").style.display = 'flex';
         document.getElementById("form-pessoa-juridica").style.display = 'none';
 
         // Carregar o botão cadastrar após o usuário selecionar o tipo de formulário pessoa física ou jurídica
@@ -271,19 +303,20 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
         // Função para carregar os campos para cadastrar pessoa jurídica
         function formPessoaJuridica() {
+
         // Apresentar o título cadastrar pessoa jurídica
-        document.getElementById("titulo-pessoa-juridica").style.display = 'block';
+        document.getElementById("titulo-pessoa-juridica").style.display = 'flex';
         document.getElementById("titulo-pessoa-fisica").style.display = 'none';
 
         // Apresentar o formulário cadastrar pessoa jurídica
         document.getElementById("form-pessoa-fisica").style.display = 'none';
-        document.getElementById("form-pessoa-juridica").style.display = 'block';
+        document.getElementById("form-pessoa-juridica").style.display = 'flex';
 
         // Carregar o botão cadastrar após o usuário selecionar o tipo de formulário pessoa física ou jurídica
         document.getElementById("form-btn-cadastrar").style.display = 'block';
         }
+        
     </script>
 
     </body>
-    
 </html>
