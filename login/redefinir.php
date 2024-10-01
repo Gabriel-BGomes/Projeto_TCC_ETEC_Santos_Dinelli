@@ -17,6 +17,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se a nova senha tem no mínimo 8 caracteres
     if (strlen($nova_senha) < 8) {
         $msg = "<p style='color: red;'>A senha deve ter no mínimo 8 caracteres.</p>";
+    } 
+    
+    // Verifica se a nova senha tem letras maiúsculas
+    if (!preg_match('@[A-Z]@', $nova_senha)) {
+        $msg = "<p style='color: red;'>As deve ter letras maiúsculas.</p>";
+    } 
+    
+    // Verifica se a nova senha tem pelo menos um número
+    if (!preg_match('@[0-9]@', $nova_senha)) {
+        $msg = "<p style='color: red;'>A senha deve conter pelo menos um número.</p>";
+    } 
+    
+    // Verifica se a nova senha tem pelo menos um simbolo especial
+    if (!preg_match('@[^\w]@', $nova_senha)) {
+        $msg = "<p style='color: red;'>A senha deve conter pelo menos um símbolo especial ($@#&!).</p>";
     } else if ($nova_senha !== $confirma_senha) {
         $msg = "<p style='color: red;'>As senhas não coincidem.</p>";
     } else {

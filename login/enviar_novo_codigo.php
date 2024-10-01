@@ -75,7 +75,7 @@ try {
 
     // Conteúdo do e-mail em formato HTML
     ob_start();
-    include __DIR__ . '/email_template.php';
+    include __DIR__ . '/email_novo_codigo_template.php';
     $mail->Body = ob_get_clean();
 
     // Conteúdo do e-mail em formato texto

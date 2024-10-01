@@ -108,7 +108,6 @@
         <div class="container">
 
             <div class="header">
-                <img src="./circulo.png" alt="imagemquenaofoi">
                 <h1>Autenticação Multifator</h1>
             </div>
 
