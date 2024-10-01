@@ -171,10 +171,10 @@
                     </h1>
 
                     <div class="radio">
-                        <input type="radio" name="tipo_pessoa" id="tipo_pessoa_fisica" value="1" onchange="formPessoaFisica();">
-                        <p>Pessoa Física</p>
-                        <input type="radio" name="tipo_pessoa" id="tipo_pessoa_juridica" value="2" onchange="formPessoaJuridica();">
-                        <p>Pessoa Jurídica</p>
+                        <input type="radio" name="tipo_pessoa"  id="tipo_pessoa_fisica" class="radin" value="1" onchange="formPessoaFisica();">
+                        <p class="input-radio">Pessoa Física</p>
+                        <input type="radio" name="tipo_pessoa"  id="tipo_pessoa_juridica" class="radin" value="2" onchange="formPessoaJuridica();">
+                        <p class="input-radio">Pessoa Jurídica</p>
                     </div>
 
                 </div>  <!-- fechamento tipo-pesso -->
@@ -213,8 +213,8 @@
                     <div class="separar">
 
                         <div class="campo">
-                            <label>Endereço completo da entrega</label>
-                            <input type="text" name="endereco" placeholder="Endereço completo">
+                            <label>Endereço Completo</label>
+                            <input type="text" name="endereco" placeholder="Ex: rua abacaxi listrado 112">
                         </div>
 
                         <div class="campo">
@@ -239,46 +239,55 @@
 
                     </div>
 
-                    <div class="campo">
+                    <div class="campo especial" style="margin-bottom: 10px">
                         <label>Forma de Pagamento</label>
-                        <input type="text" name="forma_pagamento" placeholder="Forma de pagamento">
+                        <input  type="text" name="forma_pagamento" placeholder="Forma de pagamento">
                     </div>  
 
                 </div> <!-- fim do form para pessoa fisica -->
 
                 <div id="form-pessoa-juridica" style="display: none;">
 
-                    <div class="campo">
-                        <label>Razão Social</label>
-                        <input type="text" name="razao_social" placeholder="Razão social">
-                    </div>  
 
-                    <div class="campo">
-                        <label>E-mail</label>
-                        <input type="email" name="email_cliente_pj" placeholder="E-mail">
+                    <div class="separar">
+
+                        <div class="campo">
+                            <label>Razão Social</label>
+                            <input type="text" name="razao_social" placeholder="Razão social">
+                        </div>  
+
+                        <div class="campo">
+                            <label>E-mail</label>
+                            <input type="email" name="email_cliente_pj" placeholder="E-mail">
+                        </div>
+
+                        <div class="campo">
+                            <label>CNPJ</label>
+                            <input type="text" name="cnpj" placeholder="CNPJ">
+                        </div>
+
                     </div>
 
-                    <div class="campo">
-                        <label>CNPJ</label>
-                        <input type="text" name="cnpj" placeholder="CNPJ">
+                    <div class="separar">
+
+                        <div class="campo">
+                            <label>Telefone(s)</label>
+                            <input type="text" name="telefone_pj" placeholder="Telefone(s)">
+                        </div>
+
+                        <div class="campo">
+                            <label>Endereço completo</label>
+                            <input type="text" name="endereco_pj" placeholder="Ex: rua abacaxi listrado 112">
+                        </div>
+
+                        <div class="campo">
+                            <label>CEP</label>
+                            <input type="text" name="cep_pj" placeholder="CEP">
+                        </div>
+
                     </div>
 
-                    <div class="campo">
-                        <label>Telefone(s)</label>
-                        <input type="text" name="telefone_pj" placeholder="Telefone(s)">
-                    </div>
-
-                    <div class="campo">
-                        <label>Endereço completo</label>
-                        <input type="text" name="endereco_pj" placeholder="Endereço completo">
-                    </div>
-
-                    <div class="campo">
-                        <label>CEP</label>
-                        <input type="text" name="cep_pj" placeholder="CEP">
-                    </div>
-
-                    <div class="campo">
+                    <div class="campo especial">
                         <label>Ponto de referência</label>
                         <input type="text" name="referencia_pj" placeholder="Ponto de referência">
                     </div>
