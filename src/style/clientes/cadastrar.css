@@ -1,6 +1,7 @@
 body {
     background-color: #edece2; /* Cor de fundo clara semelhante ao da imagem */
     margin: 0;
+    padding: 0;
 }
 
 
@@ -11,8 +12,8 @@ h1 {
 
 
 .container {
-    width: 100vw;
-    height: calc(100vh - 100px);
+    width: calc(100vw- 100px);
+    height: calc(100vh - 150px);
     display: flex;
     justify-content: center;
 }
@@ -82,6 +83,7 @@ label {
 }
 
 input[type="text"],
+input[type="number"],
 input[type="email"],
 input[type="date"],
 input[type="radio"] {
@@ -91,6 +93,7 @@ input[type="radio"] {
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 6px;
+    font-size: 18px;
 }
 
 input[type="submit"] {
@@ -112,11 +115,17 @@ input[type="submit"]:hover {
 .error-message {
     color: red;
     text-align: center;
+    font-size: 30px;
+    margin-bottom: -20px;
+    margin-top: 20px;
 }
 
 .success-message {
     color: green;
     text-align: center;
+    font-size: 30px;
+    margin-bottom: -20px;
+    margin-top: 20px;
 }
 
 .form-section {
