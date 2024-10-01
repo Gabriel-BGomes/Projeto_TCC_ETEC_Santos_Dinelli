@@ -14,27 +14,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nova_senha = $_POST['nova_senha'];
     $confirma_senha = $_POST['confirma_senha'];
 
+    // Variável para controlar erros de validação
+    $senha_valida = true;
+
     // Verifica se a nova senha tem no mínimo 8 caracteres
     if (strlen($nova_senha) < 8) {
-        $msg = "<p style='color: red;'>A senha deve ter no mínimo 8 caracteres.</p>";
+        $msg .= "<p style='color: red;'>A senha deve ter no mínimo 8 caracteres.</p>";
+        $senha_valida = false;
     } 
     
     // Verifica se a nova senha tem letras maiúsculas
     if (!preg_match('@[A-Z]@', $nova_senha)) {
-        $msg = "<p style='color: red;'>As deve ter letras maiúsculas.</p>";
+        $msg .= "<p style='color: red;'>A senha deve ter letras maiúsculas.</p>";
+        $senha_valida = false;
     } 
     
     // Verifica se a nova senha tem pelo menos um número
     if (!preg_match('@[0-9]@', $nova_senha)) {
-        $msg = "<p style='color: red;'>A senha deve conter pelo menos um número.</p>";
-    } 
+        $msg .= "<p style='color: red;'>A senha deve conter pelo menos um número.</p>";
+        $senha_valida = false;
+    }
     
-    // Verifica se a nova senha tem pelo menos um simbolo especial
+    // Verifica se a nova senha tem pelo menos um símbolo especial
     if (!preg_match('@[^\w]@', $nova_senha)) {
-        $msg = "<p style='color: red;'>A senha deve conter pelo menos um símbolo especial ($@#&!).</p>";
-    } else if ($nova_senha !== $confirma_senha) {
-        $msg = "<p style='color: red;'>As senhas não coincidem.</p>";
-    } else {
+        $msg .= "<p style='color: red;'>A senha deve conter pelo menos um símbolo especial ($@#&!).</p>";
+        $senha_valida = false;
+    }
+    
+    // Verifica se as senhas coincidem
+    if ($nova_senha !== $confirma_senha) {
+        $msg .= "<p style='color: red;'>As senhas não coincidem.</p>";
+        $senha_valida = false;
+    } if ($senha_valida) {
         $id = $_SESSION['id'];
         $senha_hash = password_hash($nova_senha, PASSWORD_DEFAULT);
 
