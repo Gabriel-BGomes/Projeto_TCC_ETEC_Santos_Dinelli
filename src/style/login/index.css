@@ -138,3 +138,41 @@ body {
     font-size: 14px;
     text-align: center;
 }
+
+.lembrar-me{
+    font-size: 14px;
+    margin-top: -10px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.lembrar-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #228d02;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.lembrar-checkbox:checked {
+    background-color: #228d02;
+    position: relative;
+}
+.lembrar-checkbox:checked::before {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.lembrar-label {
+    font-size: 15px;
+    cursor: pointer;
+}
