@@ -212,6 +212,7 @@ include_once "./conexao.php";
                         <span class="highlight"></span>
                         <label for="password">Senha</label>
                     </div>
+                    
                         <input type="submit" name="SendLogin" value="Acessar" class="login-button">    
                     <div class="forgot-password">
                         <a href="enviarcodigo.php">Esqueceu a senha?</a>
