@@ -83,10 +83,10 @@ label {
 }
 
 input[type="text"],
-input[type="number"],
 input[type="email"],
 input[type="date"],
-input[type="radio"] {
+input[type="radio"],
+select  {
     width: 90%; /* Reduzindo a largura dos inputs */
     height: 30px;
     padding: 8px; /* Diminuindo o padding */
@@ -133,4 +133,7 @@ input[type="submit"]:hover {
     margin-top: 20px;
 }
 
+select {
+    height: 50px;
+}
 

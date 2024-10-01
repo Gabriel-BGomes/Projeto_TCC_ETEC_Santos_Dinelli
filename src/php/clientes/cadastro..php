@@ -1,3 +1,25 @@
+<!-- <?php
+
+session_start(); // Iniciar a sessão
+
+ob_start(); // Limpar o buffer de saída
+
+// Definir um fuso horario padrao
+date_default_timezone_set('America/Sao_Paulo');
+
+// Acessar o IF quando o usuário não estão logado e redireciona para página de login
+if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SESSION['codigo_autenticacao']))){
+    $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
+
+    // Redirecionar o usuário
+    header("Location: /project_Santos_Dinelli/login/index.php");
+
+    // Pausar o processamento
+    exit();
+}
+
+?> -->
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -24,7 +46,7 @@
                     <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
                     <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
                     <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
-                    <li><a class="link" href="../../login/sair.php">SAIR</a></li>
+                    <li><a class="link" href="../../../login/sair.php">SAIR</a></li>
                 </ul>
 
             </nav>
@@ -200,7 +222,7 @@
 
                         <div class="campo">
                             <label>Data de Nascimento</label>
-                            <input type="date" name="data_nascimento" class="cpf" placeholder="Data de nascimento">
+                            <input type="date" name="data_nascimento" placeholder="Data de nascimento">
                         </div>
 
                         <div class="campo">
@@ -224,7 +246,7 @@
 
                         <div class="campo">
                             <label>CEP</label>
-                            <input type="text" name="cep" placeholder="CEP">
+                            <input type="text" name="cep" maxLength="9" placeholder="CEP">
                         </div>
 
                         <div class="campo">
@@ -241,7 +263,16 @@
 
                     <div class="campo especial" style="margin-bottom: 10px">
                         <label>Forma de Pagamento</label>
-                        <input  type="text" name="forma_pagamento" placeholder="Forma de pagamento">
+
+                        <select id="forma_pagamento">
+                            <option value="">Selecione</option>
+                            <option value="debito">Débito</option>
+                            <option value="credito">Crédito</option>
+                            <option value="boleto">Boleto</option>
+                            <option value="pix">Pix</option>
+                            <option value="dinheiro">Dinheiro</option>
+                        </select>
+                
                     </div>  
 
                 </div> <!-- fim do form para pessoa fisica -->

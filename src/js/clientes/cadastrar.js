@@ -76,3 +76,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+// Função que adiciona máscara de CEP conforme o usuário digita
+document.addEventListener("DOMContentLoaded", function () {
+    const campoTelefone = document.querySelector("input[name='cep']");
+
+    campoTelefone.addEventListener('keypress', () => {
+        let tamanhoCampo = campoTelefone.value.length;
+
+        // Adiciona o parêntese esquerdo após o primeiro dígito do DDD
+        if (tamanhoCampo === 5) {
+            campoTelefone.value += '-';
+        }
+
+    });
+});
