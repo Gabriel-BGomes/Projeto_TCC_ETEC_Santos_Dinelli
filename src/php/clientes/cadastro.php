@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../../style/clientes/cadastrar.css">
         <link rel="stylesheet" href="../../style/layout-header.css">
-        <link rel="shortcut icon" href="../images/icons/logo.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../images/icons/logo.ico" type="image/x-icon">
         <title>Cadastro</title>
     </head>
 
@@ -109,9 +109,9 @@
                     try {
                         $cad_pessoa->execute();
                         if ($cad_pessoa->rowCount()) {
-                            echo "<p style='color: green;'>Cliente cadastrado com sucesso!</p>";
+                            echo "<p class='success-message'>Cliente cadastrado com sucesso!</p>";
                         } else {
-                            echo "<p style='color: #f00;'>Erro: Cliente não cadastrado com sucesso!</p>";
+                            echo "<p class='error-message'>Erro: Cliente não cadastrado com sucesso!</p>";
                         }
 
                         
@@ -145,9 +145,9 @@
                     try {
                         $cad_pessoa->execute();
                         if ($cad_pessoa->rowCount()) {
-                            echo "<p style='color: green;'>Cliente cadastrado com sucesso!</p>";
+                            echo "<p class='success-message'>Cliente cadastrado com sucesso!</p>";
                         } else {
-                            echo "<p style='color: #f00;'>Erro: Cliente não cadastrado com sucesso!</p>";
+                            echo "<p class='error-message'>Erro: Cliente não cadastrado com sucesso!</p>";
                         }
                     } catch (PDOException $e) {
                         echo "Erro ao cadastrar: " . $e->getMessage();
@@ -195,17 +195,17 @@
 
                         <div class="campo">
                             <label>CPF</label>
-                            <input type="text" name="cpf_cliente" placeholder="CPF">
+                            <input type="text" name="cpf_cliente" maxlength="14" placeholder="CPF">
                         </div>
 
                         <div class="campo">
                             <label>Data de Nascimento</label>
-                            <input type="date" name="data_nascimento" placeholder="Data de nascimento">
+                            <input type="date" name="data_nascimento" class="cpf" placeholder="Data de nascimento">
                         </div>
 
                         <div class="campo">
                             <label>Telefone</label>
-                            <input type="text" name="telefone" placeholder="Telefone">
+                            <input type="text" name="telefone" maxlength="15" placeholder="Telefone">
                         </div>
                    
                     </div>
@@ -302,39 +302,7 @@
             
         </div> <!-- fim container -->
 
-    <script>
-
-        // Função para carregar os campos para cadastrar pessoa física
-        function formPessoaFisica() {
-
-        // Apresentar o título cadastrar pessoa física
-        document.getElementById("titulo-pessoa-fisica").style.display = 'flex';
-        document.getElementById("titulo-pessoa-juridica").style.display = 'none';
-
-        // Apresentar o formulário cadastrar pessoa física
-        document.getElementById("form-pessoa-fisica").style.display = 'flex';
-        document.getElementById("form-pessoa-juridica").style.display = 'none';
-
-        // Carregar o botão cadastrar após o usuário selecionar o tipo de formulário pessoa física ou jurídica
-        document.getElementById("form-btn-cadastrar").style.display = 'block';
-        }
-
-        // Função para carregar os campos para cadastrar pessoa jurídica
-        function formPessoaJuridica() {
-
-        // Apresentar o título cadastrar pessoa jurídica
-        document.getElementById("titulo-pessoa-juridica").style.display = 'flex';
-        document.getElementById("titulo-pessoa-fisica").style.display = 'none';
-
-        // Apresentar o formulário cadastrar pessoa jurídica
-        document.getElementById("form-pessoa-fisica").style.display = 'none';
-        document.getElementById("form-pessoa-juridica").style.display = 'flex';
-
-        // Carregar o botão cadastrar após o usuário selecionar o tipo de formulário pessoa física ou jurídica
-        document.getElementById("form-btn-cadastrar").style.display = 'block';
-        }
-        
-    </script>
+    <script src="../../js/clientes/cadastrar.js"></script>
 
     </body>
 </html>
