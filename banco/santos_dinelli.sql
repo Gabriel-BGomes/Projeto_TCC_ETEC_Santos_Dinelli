@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 28, 2024 at 08:46 PM
+-- Generation Time: Oct 01, 2024 at 02:26 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -55,23 +55,31 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `tipo_pessoa`, `nome_cliente`, `email_cliente`, `cpf_cliente`, `data_nascimento`, `telefone`, `endereco`, `bairro`, `cep`, `cidade`, `complemento`, `forma_pagamento`, `razao_social`, `email_cliente_pj`, `cnpj`, `telefone_pj`, `endereco_pj`, `cep_pj`, `referencia_pj`) VALUES
-(1, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Etec', 'leodinelli2007@gmail.com', 'dada', '11940521224', 'Rua c 152', '04182-135', 'APPCCCCXCX'),
-(2, 1, 'Leonardo Dinelli dos Santos', 'leodinelli2007@gmail.com', '5435354353', '1111-11-11', '11940521224', 'Rua c 152', 'Jardim Santa Emilia', '04182-135', 'São Paulo', 'App 44 c', 'Cartao', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Etec', 'leodinelli2007@gmail.com', '4234423424', '11940521224', 'Rua c 152', '04182-135', 'APPCCCCXCX'),
-(4, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Etec', 'leodinelli2007@gmail.com', '4234423424', '11940521224', 'Rua c 152', '04182-135', 'APPCCCCXCX'),
-(5, 1, 'Leonardo Dinelli dos Santos', 'leodinelli2007@gmail.com', '', '2222-02-22', '11940521224', 'Rua c 152', '', '04182-135', 'São Paulo', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 1, 'Leonardo Dinelli dos Santos', 'leodinelli2007@gmail.com', '5435354353', '2006-02-27', '11940521224', 'Rua c 152', 'Jardim Santa Emilia', '04182-135', 'São Paulo', 'App 44 c', 'Cartao', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Etec', 'leodinelli2007@gmail.com', '3213121', '11940521224', 'Rua c 152', '04182-135', 'APPCCCCXCX'),
-(8, 1, 'Leonardo Dinelli dos Santos', 'leodinelli2007@gmail.com', '5435354353', '2007-02-27', '11940521224', 'Rua c 152', 'Jardim Santa Emilia', '04182-135', 'São Paulo', 'App 44 c', 'Cartao', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(9, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Etec', 'leodinelli2007@gmail.com', '4234423424', '11940521224', 'Rua c 152', '04182-135', 'APPCCCCXCX'),
 (10, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Etec', 'leodinelli2007@gmail.com', '4234423424', '11940521224', 'Rua c 152', '04182-135', 'APPCCCCXCX'),
-(11, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Etec', 'leodinelli2007@gmail.com', '4234423424', '11940521224', 'Rua c 152', '04182-135', 'APPCCCCXCX'),
-(12, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Etec', 'leodinelli2007@gmail.com', '4234423424', '11940521224', 'Rua c 152', '04182-135', 'APPCCCCXCX'),
-(13, 1, 'Leonardo Dinelli dos Santos', 'leodinelli2007@gmail.com', '5435354353', '2222-02-22', '11940521224', 'Rua c 152', 'JD. STA. CRUZ (SACOMA)', '04182-135', 'São Paulo', 'App 44 c', 'Cartao', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(14, 1, 'Leonardo Dinelli dos Santos', 'leodinelli2007@gmail.com', '5435354353', '2222-02-22', '11940521224', 'Rua c 152', 'JD. STA. CRUZ (SACOMA)', '04182-135', 'São Paulo', 'App 44 c', 'Cartao', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(15, 1, 'Leonardo Dinelli dos Santos', 'leodinelli2007@gmail.com', '5435354353', '2222-02-22', '11940521224', 'Rua c 152', 'JD. STA. CRUZ (SACOMA)', '04182-135', 'São Paulo', 'App 44 c', 'Cartao', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(16, 1, 'Leonardo Dinelli dos Santos', 'leodinelli2007@gmail.com', '5435354353', '2222-02-22', '11940521224', 'Rua c 152', 'JD. STA. CRUZ (SACOMA)', '04182-135', 'São Paulo', 'App 44 c', 'Cartao', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(17, 1, 'Leonardo Dinelli dos Santos', 'leodinelli2007@gmail.com', '5435354353', '2222-02-22', '11940521224', 'Rua c 152', 'Jardim Santa Emilia', '04182-135', 'São Paulo', 'App 44C', 'Cartao', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(18, 1, 'Matheus', 'fdasfas@gmail.com', '12312241', '1245-12-12', 'fdsa', '1fsdaf', 'fdas', 'fdas', 'fdsa', 'fdas', 'fdsa', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(19, 1, 'Matheus', 'fdasfas@gmail.com', '12312241', '1245-12-12', 'fdsa', '1fsdaf', 'fdas', 'fdas', 'fdsa', 'fdas', 'fdsa', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 1, 'Matheus', 'fdasfas@gmail.com', '12312241', '1245-12-12', 'fdsa', '1fsdaf', 'fdas', 'fdas', 'fdsa', 'fdas', 'fdsa', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(21, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(22, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(23, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(24, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(25, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(26, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(27, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(28, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(29, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(30, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(31, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(32, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(33, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(34, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(35, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(36, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(37, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(38, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(39, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(40, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
+(41, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca');
 
 -- --------------------------------------------------------
 
@@ -81,10 +89,10 @@ INSERT INTO `clientes` (`id`, `tipo_pessoa`, `nome_cliente`, `email_cliente`, `c
 
 CREATE TABLE `events` (
   `id` int NOT NULL,
-  `title` varchar(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `color` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `start` datetime NOT NULL,
-  `end` datetime NOT NULL,
+  `title` varchar(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `color` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `start` datetime DEFAULT NULL,
+  `end` datetime DEFAULT NULL,
   `obs` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -93,7 +101,10 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `title`, `color`, `start`, `end`, `obs`) VALUES
-(21, 'fdasfffaaa', '#8B4513', '2024-09-11 00:00:00', '2024-09-11 00:00:00', 'dfasfffaaa');
+(42, 'Leonardo Dinelli', '#FFD700', '2024-09-13 13:00:00', '2024-09-13 14:00:00', 'conserto de ar condicionado'),
+(45, NULL, NULL, NULL, NULL, NULL),
+(47, 'Matheus Estevam', '#436EEE', '2024-09-12 14:00:00', '2024-09-12 15:00:00', 'limpeza'),
+(48, 'Etec Heliópolis', '#FF4500', '2024-10-03 13:00:00', '2024-10-03 18:00:00', 'Apresentação da Pré Banca');
 
 -- --------------------------------------------------------
 
@@ -122,7 +133,8 @@ INSERT INTO `financas` (`id`, `mes`, `recebimento`, `despesa`) VALUES
 (31, 'Setembro', 544.00, 244.00),
 (32, 'Fevereiro', 24.00, 24.00),
 (33, 'Abril', 51.00, 32.00),
-(34, 'Novembro', 10.00, 5.00);
+(34, 'Novembro', 10.00, 5.00),
+(35, 'Outubro', 300.00, 100.00);
 
 -- --------------------------------------------------------
 
@@ -145,7 +157,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nome`, `usuario`, `senha_usuario`, `codigo_autenticacao`, `data_codigo_autenticacao`) VALUES
 (1, 'Gabriel Braga', 'gabrielbraga1324@gmail.com', '$2y$10$/8h3zj2her/0yPi77XGj0OWJBOSdTLdzrep/m6tq3iYSisH49ZsQe', NULL, NULL),
-(2, 'Matheus Estevam', 'matheusoliveirale2007@gmail.com', '$2y$10$fAFCeXba8e7/z5VL6MHJRuxIHvkn4DZXEJ1YfG.4qR2A.iiFTz4XK', NULL, NULL),
+(2, 'Matheus Estevam', 'matheusoliveirale2007@gmail.com', '$2y$10$W6svxbrsCZ4LAOGnkV13iepjTtomS5.2tnEZR/cNl2SsnkTYAUeBm', 286873, '2024-10-01 10:00:33'),
 (3, 'Castellinho', 'isabellasilvestrecastellon@gmail.com', '$2y$10$V98pJibds2bCSOT2bHCsg.dmF9Xb/07LAFx1jC9c2nLeSYzzU.GIS', NULL, NULL),
 (4, 'Leonardo Dinelli', 'leodinelli2007@gmail.com', '$2y$10$eC32oyaPHFgaLkyDxNcw1u45r4AOOVj6gLy7nONoWToRPeU0YkL7y', NULL, NULL),
 (5, 'Henrick Gomes', 'henrickgomes46@gmail.com', '$2y$10$sKSYqTve.IP8KM9YqcCTf.jEaZMdXu1Lvm3z.VGzrg.od./srVwh6', 260643, '2024-09-27 10:10:05'),
@@ -187,19 +199,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `financas`
 --
 ALTER TABLE `financas`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
