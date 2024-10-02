@@ -35,7 +35,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
     <body>
         
-        <header class="header"> <!-- começo menu fixo no topo -->
+        <header class="header adicionando uma palavra"> <!-- começo menu fixo no topo -->
         
             <nav class="menu-lateral"> <!-- primeiro item do menu -->
 
