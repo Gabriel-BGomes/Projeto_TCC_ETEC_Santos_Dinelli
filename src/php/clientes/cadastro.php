@@ -33,6 +33,12 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
     <body>
 
+    <!-- Adicionando a biblioteca Inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.7/jquery.inputmask.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+
     <header class="header"> <!-- começo menu fixo no topo -->
             
             <nav class="menu-lateral"> <!-- primeiro item do menu -->
@@ -100,12 +106,16 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
         // Verificar se o usuário clicou no botão cadastrar
         if (!empty($dados['SendCad'])) {
+
             // Acessa o IF quando o tipo de pessoa é física
             if ($dados['tipo_pessoa'] == 1) {
+
                 // Verificação se campos obrigatórios estão preenchidos
                 if (empty($dados['email_cliente']) || empty($dados['telefone']) || empty($dados['endereco']) || empty($dados['nome_cliente'])) {
-                    echo "<p style='color: red;'>Por favor, preencha todos os campos obrigatórios!</p>";
+                    echo "<p class='error-message' style='color: red;'>Por favor, preencha todos os campos obrigatórios!</p>";
+
                 } else {
+                    
                     // QUERY para cadastrar pessoa física no banco de dados
                     $query_pessoa = "INSERT INTO clientes (tipo_pessoa, nome_cliente, email_cliente, cpf_cliente, data_nascimento, telefone, endereco, bairro, cep, cidade, complemento, forma_pagamento) 
                                     VALUES (:tipo_pessoa, :nome_cliente, :email_cliente, :cpf_cliente, :data_nascimento, :telefone, :endereco, :bairro, :cep, :cidade, :complemento, :forma_pagamento)";
@@ -142,9 +152,10 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     }
                 }
             } elseif ($dados['tipo_pessoa'] == 2) { 
+
                 // Acessa o ELSEIF quando o tipo de pessoa é jurídica
                 if (empty($dados['email_cliente_pj']) || empty($dados['telefone_pj']) || empty($dados['endereco_pj']) || empty($dados['razao_social'])) {
-                    echo "<p style='color: red;'>Por favor, preencha todos os campos obrigatórios!</p>";
+                    echo "<p class='error-message' style='color: red;'>Por favor, preencha todos os campos obrigatórios!</p>";
                 } else {
                     // QUERY para cadastrar pessoa jurídica no banco de dados
                     $query_pessoa = "INSERT INTO clientes (tipo_pessoa, razao_social, email_cliente_pj, cnpj, telefone_pj, endereco_pj, cep_pj, referencia_pj) 
@@ -217,7 +228,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                         <div class="campo">
                             <label>CPF</label>
-                            <input type="text" name="cpf_cliente" maxlength="14" placeholder="CPF">
+                            <input type="text" name="cpf_cliente" id="cpf" placeholder="CPF">
                         </div>
 
                         <div class="campo">
@@ -227,7 +238,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                         <div class="campo">
                             <label>Telefone</label>
-                            <input type="text" name="telefone" maxlength="15" placeholder="Telefone">
+                            <input type="text" name="telefone" id="telefoneFisica" placeholder="Telefone">
                         </div>
                    
                     </div>
@@ -246,7 +257,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                         <div class="campo">
                             <label>CEP</label>
-                            <input type="text" name="cep" maxLength="9" placeholder="CEP">
+                            <input type="text" name="cep" id="cepFisica" placeholder="CEP">
                         </div>
 
                         <div class="campo">
@@ -294,7 +305,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                         <div class="campo">
                             <label>CNPJ</label>
-                            <input type="text" name="cnpj" placeholder="CNPJ">
+                            <input type="text" name="cnpj" id="cnpj" placeholder="CNPJ">
                         </div>
 
                     </div>
@@ -302,8 +313,8 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     <div class="separar">
 
                         <div class="campo">
-                            <label>Telefone(s)</label>
-                            <input type="text" name="telefone_pj" placeholder="Telefone(s)">
+                            <label>Telefone</label>
+                            <input type="text" name="telefone_pj" id="telefoneJuridica" maxlength="12" placeholder="Telefone">
                         </div>
 
                         <div class="campo">
@@ -313,7 +324,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                         <div class="campo">
                             <label>CEP</label>
-                            <input type="text" name="cep_pj" placeholder="CEP">
+                            <input type="text" name="cepJuridica" id="cepJuridica" placeholder="CEP">
                         </div>
 
                     </div>

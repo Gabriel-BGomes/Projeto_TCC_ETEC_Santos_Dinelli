@@ -30,6 +30,7 @@ function formPessoaFisica() {
 
 let campoCpf = document.querySelector('.cpf');
 
+/* // Função que deixa no padrão o CPF
 document.addEventListener("DOMContentLoaded", function () {
     const campoCpf = document.querySelector("input[name='cpf_cliente']");
 
@@ -51,43 +52,12 @@ document.addEventListener("DOMContentLoaded", function () {
             campoCpf.value += '-';
         }
     });
-});
+}); */
 
-// Função que adiciona máscara de telefone conforme o usuário digita
-document.addEventListener("DOMContentLoaded", function () {
-    const campoTelefone = document.querySelector("input[name='telefone']");
-
-    campoTelefone.addEventListener('keypress', () => {
-        let tamanhoCampo = campoTelefone.value.length;
-
-        // Adiciona o parêntese esquerdo após o primeiro dígito do DDD
-        if (tamanhoCampo === 0) {
-            campoTelefone.value += '(';
-        }
-
-        // Adiciona o parêntese direito após o segundo dígito do DDD
-        if (tamanhoCampo === 3) {
-            campoTelefone.value += ') ';
-        }
-
-        // Adiciona o traço após o quinto dígito para celulares (formato (XX) XXXXX-)
-        if (tamanhoCampo === 10) {
-            campoTelefone.value += '-';
-        }
-    });
-});
-
-// Função que adiciona máscara de CEP conforme o usuário digita
-document.addEventListener("DOMContentLoaded", function () {
-    const campoTelefone = document.querySelector("input[name='cep']");
-
-    campoTelefone.addEventListener('keypress', () => {
-        let tamanhoCampo = campoTelefone.value.length;
-
-        // Adiciona o parêntese esquerdo após o primeiro dígito do DDD
-        if (tamanhoCampo === 5) {
-            campoTelefone.value += '-';
-        }
-
-    });
-});
+$('#cpf').mask('000.000.000-00', {reverse: true});
+$('#telefoneFisica').mask('(00) 0000-0000');
+$('#cepFisica').mask('00000-000');
+$('#cepJuridica').mask('00000-000');
+$('#cnpj').mask('00.000.000/0000-00', {reverse: true});
+$('#telefoneFisica').mask('(00) 00000-0000');
+$('#telefoneJuridica').mask('(00) 0000-0000');
