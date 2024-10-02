@@ -6,8 +6,6 @@ include_once './conexao.php';
 // receber os dados enviado pelo JavaScript
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-echo $dados;
-
 // query cadastrar no banco
 $query_cad_event = "INSERT INTO events (title, color, start, end, obs) VALUES (:title, :color, :start, :end, :obs)";
 
