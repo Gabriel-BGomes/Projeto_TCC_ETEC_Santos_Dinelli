@@ -33,10 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Definir o idioma usado no calendário
         locale: 'pt-br',
 
-        // Definir a data inicial
-        //initialDate: '2023-01-12',
-        //initialDate: '2023-10-12',
-
         // Permitir clicar nos nomes dos dias da semana 
         navLinks: true,
 
@@ -57,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Identificar o clique do usuário sobre o evento
         eventClick: function (info) {
-
+            
             // Apresentar os detalhes do evento
             document.getElementById("visualizarEvento").style.display = "block";
             document.getElementById("visualizarModalLabel").style.display = "block";
@@ -72,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById("visualizar_obs").innerText = info.event.extendedProps.obs;
             document.getElementById("visualizar_start").innerText = info.event.start.toLocaleString();
             document.getElementById("visualizar_end").innerText = info.event.end !== null ? info.event.end.toLocaleString() : info.event.start.toLocaleString();
+            document.getElementById("visualizar_servico").innerText = info.event.extendedProps.servico;
 
             // Enviar os dados do evento para o formulário editar
             document.getElementById("edit_id").value = info.event.id;
@@ -80,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById("edit_start").value = converterData(info.event.start);
             document.getElementById("edit_end").value = info.event.end !== null ? converterData(info.event.end) : converterData(info.event.start);
             document.getElementById("edit_color").value = info.event.backgroundColor;
+            document.getElementById("edit_servico").value = info.event.extendedProps.servico;
 
             // Abrir a janela modal visualizar
             visualizarModal.show();
@@ -184,7 +182,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     color: resposta['color'],
                     start: resposta['start'],
                     end: resposta['end'],
-                    obs: resposta['obs'],
+                    extendedProps: {
+                        obs: resposta['obs'],
+                        servico: resposta['servico']
+                    }
                 }
 
                 // Adicionar o evento ao calendário
@@ -281,8 +282,6 @@ document.addEventListener('DOMContentLoaded', function () {
             // Realizar a leitura dos dados retornados pelo PHP
             const resposta = await dados.json();
 
-            
-
             // Acessa o IF quando não editar com sucesso
             if (!resposta['status']) {
 
@@ -310,6 +309,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     eventoExiste.setProp('title', resposta['title']);
                     eventoExiste.setProp('color', resposta['color']);
                     eventoExiste.setExtendedProp('obs', resposta['obs']);
+                    eventoExiste.setExtendedProp('servico', resposta['servico']);
                     eventoExiste.setStart(resposta['start']);
                     eventoExiste.setEnd(resposta['end']);
                 }
@@ -340,7 +340,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Verificar se o usuário confirmou
             if (confirmacao) {
-
+                    
                 // Receber o id do evento
                 var idEvento = document.getElementById("visualizar_id").textContent;
 
