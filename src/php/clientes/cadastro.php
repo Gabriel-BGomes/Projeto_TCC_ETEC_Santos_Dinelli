@@ -148,7 +148,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                         
                     } catch (PDOException $e) {
-                        echo "Erro ao cadastrar: " . $e->getMessage();
+                        echo "<p clsass='error-message' Erro ao cadastrar: ", e->getMessage();
                     }
                 }
             } elseif ($dados['tipo_pessoa'] == 2) { 
@@ -246,6 +246,11 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     <div class="separar">
 
                         <div class="campo">
+                            <label>CEP</label>
+                            <input type="text" name="cep" id="cepFisica" placeholder="CEP">
+                        </div>   
+                    
+                        <div class="campo">
                             <label>Endereço Completo</label>
                             <input type="text" name="endereco" placeholder="Ex: rua abacaxi listrado 112">
                         </div>
@@ -253,11 +258,6 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                         <div class="campo">
                             <label>Bairro</label>
                             <input type="text" name="bairro" placeholder="Bairro">
-                        </div>
-
-                        <div class="campo">
-                            <label>CEP</label>
-                            <input type="text" name="cep" id="cepFisica" placeholder="CEP">
                         </div>
 
                         <div class="campo">
@@ -272,8 +272,8 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                     </div>
 
-                    <div class="campo especial" style="margin-bottom: 10px">
-                        <label>Forma de Pagamento</label>
+                    <div class="campo especial">
+                        <label class="label-especial">Forma de Pagamento</label>
 
                         <select id="forma_pagamento">
                             <option value="">Selecione</option>
