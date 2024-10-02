@@ -245,8 +245,20 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                     <div class="separar">
 
-            <label>Cidade</label>
-            <input type="text" name="cidade" placeholder="Cidade"><br><br>
+                        <div class="campo">
+                            <label>CEP</label>
+                            <input type="text" name="cep" id="cepFisica" placeholder="CEP">
+                        </div>   
+                    
+                        <div class="campo">
+                            <label>Endereço Completo</label>
+                            <input type="text" name="endereco" placeholder="Ex: rua abacaxi listrado 112">
+                        </div>
+
+                        <div class="campo">
+                            <label>Bairro</label>
+                            <input type="text" name="bairro" placeholder="Bairro">
+                        </div>
 
                         <div class="campo">
                             <label>Cidade</label>
