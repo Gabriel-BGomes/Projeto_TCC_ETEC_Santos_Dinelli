@@ -10,10 +10,9 @@ h1 {
     color: #0c3101; /* Texto em cor neutra */
 }
 
-
 .container {
     width: calc(100vw- 100px);
-    height: calc(100vh - 150px);
+    height: calc(100vh - 94px);
     display: flex;
     justify-content: center;
 }
@@ -24,8 +23,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
-}
+    margin: 0 auto;}
 
 .radio {
     width: 500px;
@@ -50,9 +48,9 @@ h1 {
 }
 
 .form {
-    width: 60vw;
+    width: 80vw;
     height: 75vh;
-    margin-top: 50px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -60,9 +58,11 @@ h1 {
 
 #form-pessoa-fisica, #form-pessoa-juridica{
     width: 100%;
+    height: 70vh;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    margin-top: -5px;
 }
 
 .campo {
@@ -98,7 +98,7 @@ select  {
 
 input[type="submit"] {
     width: 200px;
-    height: 60px;
+    height: 55px;
     background: #145400; /* Verde escuro semelhante ao da barra superior da imagem */
     color: white;
     border: none;
@@ -123,7 +123,7 @@ input[type="submit"]:hover {
 .success-message {
     color: green;
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
     margin-bottom: -20px;
     margin-top: 20px;
 }
@@ -137,3 +137,49 @@ select {
     height: 50px;
 }
 
+@media (max-height: 700px) {
+
+    .container {
+        margin-top: -40px;
+    }
+
+    .form {
+        margin-bottom: 5px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .tipo-pessoa {
+        margin-top: 5px;
+        height: 50px;
+        font-size: 17px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    select {
+        height: 25px;
+    }
+
+    input[type="submit"] {
+        margin-top: -100px;
+        width: 150px;
+        height: 50px;
+    }
+
+    select {
+        height: 40px;
+    }
+
+    label {
+        font-size: 17px;
+    }
+
+    .label-especial {
+        margin-top: -10px;
+    }
+
+}

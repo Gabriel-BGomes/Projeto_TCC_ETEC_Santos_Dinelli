@@ -132,6 +132,12 @@ html, body{
     width: 220px;
 }
 
+@media (max-height: 700px) {
+    .header {
+        height: 70px;
+    }
+
+}
 
 @media (max-width: 960px) {
     .header {
