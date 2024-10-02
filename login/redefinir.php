@@ -14,7 +14,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nova_senha = $_POST['nova_senha'];
     $confirma_senha = $_POST['confirma_senha'];
 
-    if ($nova_senha === $confirma_senha) {
+    // Variável para controlar erros de validação
+    $senha_valida = true;
+
+    // Verifica se a nova senha tem no mínimo 8 caracteres
+    if (strlen($nova_senha) < 8) {
+        $msg .= "<p style='color: red;'>A senha deve ter no mínimo 8 caracteres.</p>";
+        $senha_valida = false;
+    } 
+    
+    // Verifica se a nova senha tem letras maiúsculas
+    if (!preg_match('@[A-Z]@', $nova_senha)) {
+        $msg .= "<p style='color: red;'>A senha deve ter letras maiúsculas.</p>";
+        $senha_valida = false;
+    } 
+    
+    // Verifica se a nova senha tem pelo menos um número
+    if (!preg_match('@[0-9]@', $nova_senha)) {
+        $msg .= "<p style='color: red;'>A senha deve conter pelo menos um número.</p>";
+        $senha_valida = false;
+    }
+    
+    // Verifica se a nova senha tem pelo menos um símbolo especial
+    if (!preg_match('@[^\w]@', $nova_senha)) {
+        $msg .= "<p style='color: red;'>A senha deve conter pelo menos um símbolo especial ($@#&!).</p>";
+        $senha_valida = false;
+    }
+    
+    // Verifica se as senhas coincidem
+    if ($nova_senha !== $confirma_senha) {
+        $msg .= "<p style='color: red;'>As senhas não coincidem.</p>";
+        $senha_valida = false;
+    } if ($senha_valida) {
         $id = $_SESSION['id'];
         $senha_hash = password_hash($nova_senha, PASSWORD_DEFAULT);
 
@@ -30,11 +61,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             unset($_SESSION['id']);
             unset($_SESSION['email']);
             unset($_SESSION['codigo_enviado']);
+            exit();  // Para garantir que a execução seja interrompida após o redirecionamento
         } else {
             $msg = "<p style='color: red;'>Erro ao atualizar a senha.</p>";
         }
-    } else {
-        $msg = "<p style='color: red;'>As senhas não coincidem.</p>";
     }
 }
 ?>
@@ -62,16 +92,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <form action="" method="post" class="reset-form" id="reset-form">
 
-                <div class="input-group">
-                    <input type="password" id="new-password" name="nova_senha" required>
-                    <span class="highlight"></span>
-                    <label for="new-password">Nova Senha</label>
+            <div class="input-group">
+                <input type="password" id="new-password" name="nova_senha" required>
+                <span class="highlight"></span>
+                <label for="new-password">Nova Senha</label>
+            </div>
+            <div class="password-strength">
+                <div class="password-strength-meter"></div>
+            </div>
+
+                <div class="password-requirements" id="password-requirements">
+                    <p id="length" class="invalid">Mínimo de 8 caracteres</p>
+                    <p id="uppercase" class="invalid">Letras maiúsculas</p>
+                    <p id="number" class="invalid">Números</p>
+                    <p id="special" class="invalid">Símbolos especiais ($@#&!)</p>
                 </div>
 
                 <div class="input-group">
                     <input type="password" id="confirm-password" name="confirma_senha" required>
                     <span class="highlight"></span>
                     <label for="confirm-password">Confirmar Senha</label>
+                </div>
+                <div class="password-strength">
+                    <div class="password-strength-meter"></div>
+                </div>
+                
+                <div class="same-password" id="same-password">
+                    <p id="same" class="invalid">As senhas devem ser idênticas</p>
                 </div>
 
                 <input type="submit" value="Redefinir Senha" class="reset-button">
@@ -81,5 +128,71 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
     </body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const newPassword = document.getElementById('new-password');
+            const confirmPassword = document.getElementById('confirm-password');
+            const passwordStrengthMeters = document.querySelectorAll('.password-strength-meter');
+            const requirements = {
+                length: document.querySelector('#password-requirements #length'),
+                uppercase: document.querySelector('#password-requirements #uppercase'),
+                number: document.querySelector('#password-requirements #number'),
+                special: document.querySelector('#password-requirements #special'),
+                same: document.querySelector('#same-password #same')
+            };
+
+            newPassword.addEventListener('input', function() {
+                const strength = calculatePasswordStrength(this.value);
+                updatePasswordStrength(passwordStrengthMeters[0], strength);
+                checkPasswordRequirements(this.value, confirmPassword.value);
+            });
+
+            confirmPassword.addEventListener('input', function() {
+                const strength = calculatePasswordStrength(this.value);
+                updatePasswordStrength(passwordStrengthMeters[1], strength);
+                checkPasswordRequirements(newPassword.value, this.value);
+            });
+
+            function calculatePasswordStrength(password) {
+                let strength = 0;
+                if (password.length >= 8) strength += 25;
+                if (password.match(/[A-Z]/)) strength += 25;
+                if (password.match(/[0-9]/)) strength += 25;
+                if (password.match(/[$@#&!]/)) strength += 25;
+                return strength;
+            }
+
+            function getStrengthColor(strength) {
+                if (strength < 50) return '#ff4d4d';
+                if (strength < 75) return '#ffa64d';
+                return '#5cd65c';
+            }
+
+            function updatePasswordStrength(meter, strength) {
+                meter.style.width = `${strength}%`;
+                meter.style.backgroundColor = getStrengthColor(strength);
+            }
+
+            function checkPasswordRequirements(password, confirmPwd) {
+                updateRequirement(requirements.length, password.length >= 8);
+                updateRequirement(requirements.uppercase, password.match(/[A-Z]/));
+                updateRequirement(requirements.number, password.match(/[0-9]/));
+                updateRequirement(requirements.special, password.match(/[$@#&!]/));
+                updateRequirement(requirements.same, password === confirmPwd && password !== '');
+            }
+
+            function updateRequirement(element, isValid) {
+                if (isValid) {
+                    element.classList.add('valid');
+                    element.classList.remove('invalid');
+                } else {
+                    element.classList.add('invalid');
+                    element.classList.remove('valid');
+                }
+            }
+        });
+
+    </script>
 
 </html>

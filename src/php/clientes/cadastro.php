@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 session_start(); // Iniciar a sessão
 
@@ -18,271 +18,321 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
     exit();
 }
 
-?>
+?> -->
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../style/clientes/clientes.css">
-    <link rel="stylesheet" href="../../style/layout-header.css">
-    <link rel="shortcut icon" href="../images/icons/logo.ico" type="image/x-icon">
-    <title>Cadastro</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../style/clientes/cadastrar.css">
+        <link rel="stylesheet" href="../../style/layout-header.css">
+        <link rel="shortcut icon" href="../../images/icons/logo.ico" type="image/x-icon">
+        <title>Cadastro</title>
+    </head>
 
-<body>
+    <body>
 
-<header class="header"> <!-- começo menu fixo no topo -->
-        
-        <nav class="menu-lateral"> <!-- primeiro item do menu -->
+    <!-- Adicionando a biblioteca Inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.7/jquery.inputmask.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 
-            <input type="checkbox" class="fake-tres-linhas">
-            <div><img class="tres-linhas" src="../../images/menu-tres-linhas.png" alt="menu de três linhas"></div>
+    <header class="header"> <!-- começo menu fixo no topo -->
+            
+            <nav class="menu-lateral"> <!-- primeiro item do menu -->
 
-            <ul>
-                <li><a class="link" href="../../pages/home.php">ÍNICIO</a></li>
-                <li><a class="link" href="../../pages/agenda.php">AGENDA</a></li>
-                <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
-                <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
-                <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
-                <li><a class="link" href="../../login/sair.php">SAIR</a></li>
-            </ul>
+                <input type="checkbox" class="fake-tres-linhas">
+                <div><img class="tres-linhas" src="../../images/menu-tres-linhas.png" alt="menu de três linhas"></div>
 
-        </nav>
+                <ul>
+                    <li><a class="link" href="../../pages/home.php">ÍNICIO</a></li>
+                    <li><a class="link" href="../../pages/agenda.php">AGENDA</a></li>
+                    <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
+                    <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
+                    <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
+                    <li><a class="link" href="../../../login/sair.php">SAIR</a></li>
+                </ul>
 
-        <nav> <!-- começar com uma nav para definir os itens do menu-->
+            </nav>
 
-            <ul class="menu-fixo"> <!-- começo dos itens do menu-->
+            <nav> <!-- começar com uma nav para definir os itens do menu-->
 
-                <li><a class="link" href="../../pages/home.php">ÍNICIO</a></li>
-                <li><a class="link" href="../../pages/agenda.php">AGENDA</a></li>
-                <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
-                <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
-                <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
+                <ul class="menu-fixo"> <!-- começo dos itens do menu-->
 
-            </ul>
+                    <li><a class="link" href="../../pages/home.php">ÍNICIO</a></li>
+                    <li><a class="link" href="../../pages/agenda.php">AGENDA</a></li>
+                    <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
+                    <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
+                    <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
 
-        </nav>
+                </ul>
 
-        <nav> <!-- finalizar com a logo da empresa na direita-->
+            </nav>
 
-            <a href="https://www.santosedinelli.com.br/" target="_blank">
-            <img class="logo" src="../../images/santos-dinelli.png"  alt="logo da empresa"></a>
+            <nav> <!-- finalizar com a logo da empresa na direita-->
 
-        </nav> <!-- final da div da logo-->
+                <a href="https://www.santosedinelli.com target="_blank">
+                <img class="logo" src="../../images/santos-dinelli.png"  alt="logo da empresa"></a>
 
-    </header> <!-- fim header fixo -->
+            </nav> <!-- final da div da logo-->
 
-    <!-- Voltar legal do leo
-    <button onclick="history.back()" style="margin-bottom: 20px;">Voltar</button> -->
+        </header> <!-- fim header fixo -->
 
-    <?php    
-    // Configurações do banco de dados
-    $host = "localhost";
-    $dbname = "santos_dinelli"; // Substitua pelo nome do seu banco de dados
-    $user = "root"; // Substitua pelo seu usuário do banco de dados
-    $pass = ""; // Substitua pela sua senha do banco de dados
+        <!--  botao voltar legal do leo
+        <button onclick="history.back()" style="margin-bottom: 20px;">Voltar</button> -->
 
-    try {
-        // Criar a conexão com o banco de dados usando PDO
-        $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-        // Definir o modo de erro do PDO como exceção
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        echo "Erro na conexão: " . $e->getMessage();
-        exit;
-    }
 
-    // Receber dados do formulário com PHP
-    $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        <?php    
+        // Configurações do banco de dados
+        $host = "localhost";
+        $dbname = "santos_dinelli"; // Substitua pelo nome do seu banco de dados
+        $user = "root"; // Substitua pelo seu usuário do banco de dados
+        $pass = ""; // Substitua pela sua senha do banco de dados
 
-    // Verificar se o usuário clicou no botão cadastrar
-    if (!empty($dados['SendCad'])) {
-        // Acessa o IF quando o tipo de pessoa é física
-        if ($dados['tipo_pessoa'] == 1) {
-            // Verificação se campos obrigatórios estão preenchidos
-            if (empty($dados['email_cliente']) || empty($dados['telefone']) || empty($dados['endereco']) || empty($dados['nome_cliente'])) {
-                echo "<p style='color: red;'>Por favor, preencha todos os campos obrigatórios!</p>";
-            } else {
-                // QUERY para cadastrar pessoa física no banco de dados
-                $query_pessoa = "INSERT INTO clientes (tipo_pessoa, nome_cliente, email_cliente, cpf_cliente, data_nascimento, telefone, endereco, bairro, cep, cidade, complemento, forma_pagamento) 
-                                VALUES (:tipo_pessoa, :nome_cliente, :email_cliente, :cpf_cliente, :data_nascimento, :telefone, :endereco, :bairro, :cep, :cidade, :complemento, :forma_pagamento)";
+        try {
+            // Criar a conexão com o banco de dados usando PDO
+            $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+            // Definir o modo de erro do PDO como exceção
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            echo "Erro na conexão: " . $e->getMessage();
+            exit;
+        }
 
-                // Preparar a QUERY com PDO
-                $cad_pessoa = $conn->prepare($query_pessoa);
+        // Receber dados do formulário com PHP
+        $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-                // Substituir os valores da QUERY pelos valores que vem do formulário
-                $cad_pessoa->bindParam(':tipo_pessoa', $dados['tipo_pessoa']);
-                $cad_pessoa->bindParam(':nome_cliente', $dados['nome_cliente']);
-                $cad_pessoa->bindParam(':email_cliente', $dados['email_cliente']);
-                $cad_pessoa->bindParam(':cpf_cliente', $dados['cpf_cliente']);
-                $cad_pessoa->bindParam(':data_nascimento', $dados['data_nascimento']);
-                $cad_pessoa->bindParam(':telefone', $dados['telefone']);
-                $cad_pessoa->bindParam(':endereco', $dados['endereco']);
-                $cad_pessoa->bindParam(':bairro', $dados['bairro']);
-                $cad_pessoa->bindParam(':cep', $dados['cep']);
-                $cad_pessoa->bindParam(':cidade', $dados['cidade']);
-                $cad_pessoa->bindParam(':complemento', $dados['complemento']);
-                $cad_pessoa->bindParam(':forma_pagamento', $dados['forma_pagamento']);
-                
-               // Executar a QUERY com PDO
-                try {
-                    $cad_pessoa->execute();
-                    if ($cad_pessoa->rowCount()) {
-                        echo "<p style='color: green;'>Cliente cadastrado com sucesso!</p>";
-                    } else {
-                        echo "<p style='color: #f00;'>Erro: Cliente não cadastrado com sucesso!</p>";
-                    }
+        // Verificar se o usuário clicou no botão cadastrar
+        if (!empty($dados['SendCad'])) {
 
+            // Acessa o IF quando o tipo de pessoa é física
+            if ($dados['tipo_pessoa'] == 1) {
+
+                // Verificação se campos obrigatórios estão preenchidos
+                if (empty($dados['email_cliente']) || empty($dados['telefone']) || empty($dados['endereco']) || empty($dados['nome_cliente'])) {
+                    echo "<p class='error-message' style='color: red;'>Por favor, preencha todos os campos obrigatórios!</p>";
+
+                } else {
                     
-                } catch (PDOException $e) {
-                    echo "Erro ao cadastrar: " . $e->getMessage();
-                }
-            }
-        } elseif ($dados['tipo_pessoa'] == 2) { 
-            // Acessa o ELSEIF quando o tipo de pessoa é jurídica
-            if (empty($dados['email_cliente_pj']) || empty($dados['telefone_pj']) || empty($dados['endereco_pj']) || empty($dados['razao_social'])) {
-                echo "<p style='color: red;'>Por favor, preencha todos os campos obrigatórios!</p>";
-            } else {
-                // QUERY para cadastrar pessoa jurídica no banco de dados
-                $query_pessoa = "INSERT INTO clientes (tipo_pessoa, razao_social, email_cliente_pj, cnpj, telefone_pj, endereco_pj, cep_pj, referencia_pj) 
-                                 VALUES (:tipo_pessoa, :razao_social, :email_cliente_pj, :cnpj, :telefone_pj, :endereco_pj, :cep_pj, :referencia_pj)";
+                    // QUERY para cadastrar pessoa física no banco de dados
+                    $query_pessoa = "INSERT INTO clientes (tipo_pessoa, nome_cliente, email_cliente, cpf_cliente, data_nascimento, telefone, endereco, bairro, cep, cidade, complemento, forma_pagamento) 
+                                    VALUES (:tipo_pessoa, :nome_cliente, :email_cliente, :cpf_cliente, :data_nascimento, :telefone, :endereco, :bairro, :cep, :cidade, :complemento, :forma_pagamento)";
 
-                // Preparar a QUERY com PDO
-                $cad_pessoa = $conn->prepare($query_pessoa);
+                    // Preparar a QUERY com PDO
+                    $cad_pessoa = $conn->prepare($query_pessoa);
 
-                // Substituir os valores da QUERY pelos valores que vem do formulário
-                $cad_pessoa->bindParam(':tipo_pessoa', $dados['tipo_pessoa']);
-                $cad_pessoa->bindParam(':razao_social', $dados['razao_social']);
-                $cad_pessoa->bindParam(':email_cliente_pj', $dados['email_cliente_pj']);
-                $cad_pessoa->bindParam(':cnpj', $dados['cnpj']);
-                $cad_pessoa->bindParam(':telefone_pj', $dados['telefone_pj']); // Verifique se este nome está correto
-                $cad_pessoa->bindParam(':endereco_pj', $dados['endereco_pj']);
-                $cad_pessoa->bindParam(':cep_pj', $dados['cep_pj']); // Verifique se o nome do campo está correto
-                $cad_pessoa->bindParam(':referencia_pj', $dados['referencia_pj']);
-                
+                    // Substituir os valores da QUERY pelos valores que vem do formulário
+                    $cad_pessoa->bindParam(':tipo_pessoa', $dados['tipo_pessoa']);
+                    $cad_pessoa->bindParam(':nome_cliente', $dados['nome_cliente']);
+                    $cad_pessoa->bindParam(':email_cliente', $dados['email_cliente']);
+                    $cad_pessoa->bindParam(':cpf_cliente', $dados['cpf_cliente']);
+                    $cad_pessoa->bindParam(':data_nascimento', $dados['data_nascimento']);
+                    $cad_pessoa->bindParam(':telefone', $dados['telefone']);
+                    $cad_pessoa->bindParam(':endereco', $dados['endereco']);
+                    $cad_pessoa->bindParam(':bairro', $dados['bairro']);
+                    $cad_pessoa->bindParam(':cep', $dados['cep']);
+                    $cad_pessoa->bindParam(':cidade', $dados['cidade']);
+                    $cad_pessoa->bindParam(':complemento', $dados['complemento']);
+                    $cad_pessoa->bindParam(':forma_pagamento', $dados['forma_pagamento']);
+                    
                 // Executar a QUERY com PDO
-                try {
-                    $cad_pessoa->execute();
-                    if ($cad_pessoa->rowCount()) {
-                        echo "<p style='color: green;'>Cliente cadastrado com sucesso!</p>";
-                    } else {
-                        echo "<p style='color: #f00;'>Erro: Cliente não cadastrado com sucesso!</p>";
+                    try {
+                        $cad_pessoa->execute();
+                        if ($cad_pessoa->rowCount()) {
+                            echo "<p class='success-message'>Cliente cadastrado com sucesso!</p>";
+                        } else {
+                            echo "<p class='error-message'>Erro: Cliente não cadastrado com sucesso!</p>";
+                        }
+
+                        
+                    } catch (PDOException $e) {
+                        echo "<p clsass='error-message' Erro ao cadastrar: ", e->getMessage();
                     }
-                } catch (PDOException $e) {
-                    echo "Erro ao cadastrar: " . $e->getMessage();
+                }
+            } elseif ($dados['tipo_pessoa'] == 2) { 
+
+                // Acessa o ELSEIF quando o tipo de pessoa é jurídica
+                if (empty($dados['email_cliente_pj']) || empty($dados['telefone_pj']) || empty($dados['endereco_pj']) || empty($dados['razao_social'])) {
+                    echo "<p class='error-message' style='color: red;'>Por favor, preencha todos os campos obrigatórios!</p>";
+                } else {
+                    // QUERY para cadastrar pessoa jurídica no banco de dados
+                    $query_pessoa = "INSERT INTO clientes (tipo_pessoa, razao_social, email_cliente_pj, cnpj, telefone_pj, endereco_pj, cep_pj, referencia_pj) 
+                                    VALUES (:tipo_pessoa, :razao_social, :email_cliente_pj, :cnpj, :telefone_pj, :endereco_pj, :cep_pj, :referencia_pj)";
+
+                    // Preparar a QUERY com PDO
+                    $cad_pessoa = $conn->prepare($query_pessoa);
+
+                    // Substituir os valores da QUERY pelos valores que vem do formulário
+                    $cad_pessoa->bindParam(':tipo_pessoa', $dados['tipo_pessoa']);
+                    $cad_pessoa->bindParam(':razao_social', $dados['razao_social']);
+                    $cad_pessoa->bindParam(':email_cliente_pj', $dados['email_cliente_pj']);
+                    $cad_pessoa->bindParam(':cnpj', $dados['cnpj']);
+                    $cad_pessoa->bindParam(':telefone_pj', $dados['telefone_pj']); // Verifique se este nome está correto
+                    $cad_pessoa->bindParam(':endereco_pj', $dados['endereco_pj']);
+                    $cad_pessoa->bindParam(':cep_pj', $dados['cep_pj']); // Verifique se o nome do campo está correto
+                    $cad_pessoa->bindParam(':referencia_pj', $dados['referencia_pj']);
                     
+                    // Executar a QUERY com PDO
+                    try {
+                        $cad_pessoa->execute();
+                        if ($cad_pessoa->rowCount()) {
+                            echo "<p class='success-message'>Cliente cadastrado com sucesso!</p>";
+                        } else {
+                            echo "<p class='error-message'>Erro: Cliente não cadastrado com sucesso!</p>";
+                        }
+                    } catch (PDOException $e) {
+                        echo "Erro ao cadastrar: " . $e->getMessage();
+                        
+                    }
                 }
             }
         }
-    }
-    ?>
+        ?>
 
-    <h1 style="display: flex;">
-        Cadastrar cliente:&nbsp;
-        <span id="titulo-pessoa-fisica" style="display: none;">Pessoa física</span>
-        <span id="titulo-pessoa-juridica" style="display: none;">Pessoa jurídica</span>
-    </h1>
+        <div class="container">
+           
+            <form method="POST" action="" class="form">
+            
+                <div class="tipo-pessoa">
 
-    <form method="POST" action="">
-        <input type="radio" name="tipo_pessoa" id="tipo_pessoa_fisica" value="1" onchange="formPessoaFisica();">Pessoa Física
-        <input type="radio" name="tipo_pessoa" id="tipo_pessoa_juridica" value="2" onchange="formPessoaJuridica();">Pessoa Jurídica<br><br>
+                    <h1 style="display: flex;">
+                        Cadastrar cliente:&nbsp;
+                        <span id="titulo-pessoa-fisica" style="display: none;">Pessoa física</span>
+                        <span id="titulo-pessoa-juridica" style="display: none;">Pessoa jurídica</span>
+                    </h1>
 
-        <div id="form-pessoa-fisica" style="display: none;">
-            <label>Nome</label>
-            <input type="text" name="nome_cliente" placeholder="Nome completo"><br><br>
+                    <div class="radio">
+                        <input type="radio" name="tipo_pessoa"  id="tipo_pessoa_fisica" class="radin" value="1" onchange="formPessoaFisica();">
+                        <p class="input-radio">Pessoa Física</p>
+                        <input type="radio" name="tipo_pessoa"  id="tipo_pessoa_juridica" class="radin" value="2" onchange="formPessoaJuridica();">
+                        <p class="input-radio">Pessoa Jurídica</p>
+                    </div>
 
-            <label>E-mail</label>
-            <input type="email" name="email_cliente" placeholder="E-mail"><br><br>
+                </div>  <!-- fechamento tipo-pesso -->
 
-            <label>CPF</label>
-            <input type="text" name="cpf_cliente" placeholder="CPF"><br><br>
+                <div id="form-pessoa-fisica" style="display: none;">
+                    
+                    <div class="separar">
+                        
+                        <div class="campo">
+                            <label>Nome</label>
+                            <input type="text" name="nome_cliente" placeholder="Nome completo">
+                        </div>
 
-            <label>Data de Nascimento</label>
-            <input type="date" name="data_nascimento" placeholder="Data de nascimento"><br><br>
+                        <div class="campo">
+                            <label>E-mail</label>
+                            <input type="email" name="email_cliente" placeholder="E-mail">
+                        </div>
 
-            <label>Telefone</label>
-            <input type="text" name="telefone" placeholder="Telefone"><br><br>
+                        <div class="campo">
+                            <label>CPF</label>
+                            <input type="text" name="cpf_cliente" id="cpf" placeholder="CPF">
+                        </div>
 
-            <label>Endereço completo da entrega</label>
-            <input type="text" name="endereco" placeholder="Endereço completo"><br><br>
+                        <div class="campo">
+                            <label>Data de Nascimento</label>
+                            <input type="date" name="data_nascimento" placeholder="Data de nascimento">
+                        </div>
 
-            <label>Bairro</label>
-            <input type="text" name="bairro" placeholder="Bairro"><br><br>
+                        <div class="campo">
+                            <label>Telefone</label>
+                            <input type="text" name="telefone" id="telefoneFisica" placeholder="Telefone">
+                        </div>
+                   
+                    </div>
 
-            <label>CEP</label>
-            <input type="text" name="cep" placeholder="CEP"><br><br>
+                    <div class="separar">
 
             <label>Cidade</label>
             <input type="text" name="cidade" placeholder="Cidade"><br><br>
 
-<label>Complemento</label>
-<input type="text" name="complemento" placeholder="Complemento"><br><br>
+                        <div class="campo">
+                            <label>Cidade</label>
+                            <input type="text" name="cidade" placeholder="Cidade">
+                        </div>
 
-<label>Forma de Pagamento</label>
-<input type="text" name="forma_pagamento" placeholder="Forma de pagamento"><br><br>
-</div>
+                        <div class="campo">
+                            <label>Complemento</label>
+                            <input type="text" name="complemento" placeholder="Complemento">
+                        </div>
 
-<div id="form-pessoa-juridica" style="display: none;">
-<label>Razão Social</label>
-<input type="text" name="razao_social" placeholder="Razão social"><br><br>
+                    </div>
 
-<label>E-mail</label>
-<input type="email" name="email_cliente_pj" placeholder="E-mail"><br><br>
+                    <div class="campo especial">
+                        <label class="label-especial">Forma de Pagamento</label>
 
-<label>CNPJ</label>
-<input type="text" name="cnpj" placeholder="CNPJ"><br><br>
+                        <select id="forma_pagamento">
+                            <option value="">Selecione</option>
+                            <option value="debito">Débito</option>
+                            <option value="credito">Crédito</option>
+                            <option value="boleto">Boleto</option>
+                            <option value="pix">Pix</option>
+                            <option value="dinheiro">Dinheiro</option>
+                        </select>
+                
+                    </div>  
 
-<label>Telefone(s)</label>
-<input type="text" name="telefone_pj" placeholder="Telefone(s)"><br><br>
+                </div> <!-- fim do form para pessoa fisica -->
 
-<label>Endereço completo</label>
-<input type="text" name="endereco_pj" placeholder="Endereço completo"><br><br>
+                <div id="form-pessoa-juridica" style="display: none;">
 
-<label>CEP</label>
-<input type="text" name="cep_pj" placeholder="CEP"><br><br>
 
-<label>Ponto de referência</label>
-<input type="text" name="referencia_pj" placeholder="Ponto de referência"><br><br>
-</div>
+                    <div class="separar">
 
-<div id="form-btn-cadastrar" style="display: none;">
-<input type="submit" name="SendCad" value="Cadastrar"><br><br>
-</div>
+                        <div class="campo">
+                            <label>Razão Social</label>
+                            <input type="text" name="razao_social" placeholder="Razão social">
+                        </div>  
 
-</form>
-<!-- Fim formulário cadastrar pessoa física ou pessoa jurídica -->
+                        <div class="campo">
+                            <label>E-mail</label>
+                            <input type="email" name="email_cliente_pj" placeholder="E-mail">
+                        </div>
 
-<script>
-// Função para carregar os campos para cadastrar pessoa física
-function formPessoaFisica() {
-// Apresentar o título cadastrar pessoa física
-document.getElementById("titulo-pessoa-fisica").style.display = 'block';
-document.getElementById("titulo-pessoa-juridica").style.display = 'none';
+                        <div class="campo">
+                            <label>CNPJ</label>
+                            <input type="text" name="cnpj" id="cnpj" placeholder="CNPJ">
+                        </div>
 
-// Apresentar o formulário cadastrar pessoa física
-document.getElementById("form-pessoa-fisica").style.display = 'block';
-document.getElementById("form-pessoa-juridica").style.display = 'none';
+                    </div>
 
-// Carregar o botão cadastrar após o usuário selecionar o tipo de formulário pessoa física ou jurídica
-document.getElementById("form-btn-cadastrar").style.display = 'block';
-}
+                    <div class="separar">
 
-// Função para carregar os campos para cadastrar pessoa jurídica
-function formPessoaJuridica() {
-// Apresentar o título cadastrar pessoa jurídica
-document.getElementById("titulo-pessoa-juridica").style.display = 'block';
-document.getElementById("titulo-pessoa-fisica").style.display = 'none';
+                        <div class="campo">
+                            <label>Telefone</label>
+                            <input type="text" name="telefone_pj" id="telefoneJuridica" maxlength="12" placeholder="Telefone">
+                        </div>
 
-// Apresentar o formulário cadastrar pessoa jurídica
-document.getElementById("form-pessoa-fisica").style.display = 'none';
-document.getElementById("form-pessoa-juridica").style.display = 'block';
+                        <div class="campo">
+                            <label>Endereço completo</label>
+                            <input type="text" name="endereco_pj" placeholder="Ex: rua abacaxi listrado 112">
+                        </div>
 
-// Carregar o botão cadastrar após o usuário selecionar o tipo de formulário pessoa física ou jurídica
-document.getElementById("form-btn-cadastrar").style.display = 'block';
-}
-</script>
+                        <div class="campo">
+                            <label>CEP</label>
+                            <input type="text" name="cepJuridica" id="cepJuridica" placeholder="CEP">
+                        </div>
 
-</body>
+                    </div>
+
+                    <div class="campo especial">
+                        <label>Ponto de referência</label>
+                        <input type="text" name="referencia_pj" placeholder="Ponto de referência">
+                    </div>
+                
+                </div> <!-- fim do form para pessoa juridica -->
+
+                <div id="form-btn-cadastrar" style="display: none;">
+                    <input type="submit" name="SendCad" value="Cadastrar"></div>
+                </div>
+
+            </form> <!-- Fim formulário cadastrar pessoa física ou pessoa jurídica -->
+            
+        </div> <!-- fim container -->
+
+    <script src="../../js/clientes/cadastrar.js"></script>
+
+    </body>
 </html>

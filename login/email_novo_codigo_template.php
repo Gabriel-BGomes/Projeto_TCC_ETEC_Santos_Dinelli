@@ -115,7 +115,7 @@
                 <p>Seu código de verificação de 6 dígitos é:</p>
 
                 <div class="code-container">
-                    <span class="code"><?php echo htmlspecialchars($codigo_autenticacao); ?></span>
+                    <span class="code"><?php echo htmlspecialchars($novo_codigo); ?></span>
                 </div>
 
                 <div class="instructions">

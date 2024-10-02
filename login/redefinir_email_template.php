@@ -108,7 +108,6 @@
         <div class="container">
 
             <div class="header">
-                <img src="./circulo.png" alt="imagemquenaofoi">
                 <h1>Autenticação Multifator</h1>
             </div>
 
@@ -125,13 +124,13 @@
                     <p>Este código foi enviado para redefinir sua senha. Por favor, insira-o na página de verificação para continuar.</p>
                 </div>
 
-                <p class="warning">Se você não solicitou este código, por favor ignore este email.</p>
+                <p class="warning">Se você não solicitou este código, por favor ignore este E-mail.</p>
                 <a href="localhost/project_Santos_Dinelli/login/verificar.php" class="btn" style="color: white !important;">Ir para a página de verificação</a>
 
             </div>  
 
             <div class="footer">
-                <p>Esta é uma mensagem automática. Por favor, não responda a este email.</p>
+                <p>Esta é uma mensagem automática. Por favor, não responda a este E-mail.</p>
                 <p>&copy; 2024 Santos & Dinelli Climatização. Todos os direitos reservados.</p>
             </div>
             

@@ -118,6 +118,38 @@ body {
     box-shadow: 0 5px 15px rgba(46,204,113,0.3);
 }
 
+.password-strength {
+    height: 5px;
+    margin-bottom: 1rem;
+    background-color: #ffffff;
+    margin-top: -28px;
+}
+.password-strength-meter {
+    height: 100%;
+    width: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.password-requirements p,
+.same-password p {
+    font-size: 12px;
+    color: red;
+}
+
+.password-requirements p.valid,
+.same-password p.valid {
+    color: green;
+}
+
+.same-password {
+    margin-top: -18px;
+}
+
+.password-requirements {
+    margin-top: -18px;
+    margin-bottom: 12px;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
