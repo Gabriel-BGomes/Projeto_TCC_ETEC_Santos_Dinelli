@@ -167,7 +167,7 @@ html, body{
 
     .menu-fixo {
         margin-left: 65px !important;
-        background-color: yellow;
+        padding: 0;
     }
 
     .menu-fixo li a {
