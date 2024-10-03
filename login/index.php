@@ -177,7 +177,7 @@ include_once "./conexao.php";
     <div class="login-container">
         <div class="login-header">
             <h2>Bem-vindo de volta</h2>
-            <p>Estamos felizes em te ver novamente!</p>
+            <p>faça seu login</p>
         </div>
 
         <?php if (isset($_SESSION['msg'])): ?>
@@ -213,6 +213,11 @@ include_once "./conexao.php";
                         <label for="password">Senha</label>
                     </div>
                     
+                    <div class="lembrar-me">
+                        <input type="checkbox" name="manterlogin" value="manterlogin" class="lembrar-checkbox">
+                        <label for="manterlogin" class="lembrar-label">Lembrar-me</label>
+                    </div>
+
                         <input type="submit" name="SendLogin" value="Acessar" class="login-button">    
                     <div class="forgot-password">
                         <a href="enviarcodigo.php">Esqueceu a senha?</a>

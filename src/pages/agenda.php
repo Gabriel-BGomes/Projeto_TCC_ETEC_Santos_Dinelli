@@ -225,6 +225,30 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                         <div class="row mb-3">
 
+                            <label for="cad_servico" class="col-sm-2 col-form-label">Serviço</label>
+
+                            <div class="col-sm-10">
+
+                                <select name="cad_servico" class="form-control" id="cad_servico">
+                                    <option  value="">Selecione</option>
+                                    <option  value="Venda">Venda</option>
+                                    <option  value="Instalação">Instalação</option>
+                                    <option  value="Desinstalação">Desinstalação</option>
+                                    <option  value="Visita">Visita</option>
+                                    <option  value="Higienização">Higienização</option>
+                                    <option  value="Manutenção preventiva">Manutenção preventiva</option>
+                                    <option  value="Manutenção Corretiva">Manutenção Corretiva</option>
+                                    <option  value="Laudos">Laudos</option>
+                                    <option  value="PMOC">PMOC</option>
+                                    <option  value="Contrato de manutenção preventiva e corretiva">Contrato de manutenção preventiva e corretiva</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+
                             <label for="cad_obs" class="col-sm-2 col-form-label">Observação</label>
 
                             <div class="col-sm-10">

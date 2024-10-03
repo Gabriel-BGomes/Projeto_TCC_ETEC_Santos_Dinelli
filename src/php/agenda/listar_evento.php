@@ -27,8 +27,8 @@ while($row_events = $result_events->fetch(PDO::FETCH_ASSOC)){
         'start' => $start,
         'end' => $end,
         'extendedProps' => [
-            'obs' => $obs,
-            'servico' => $servico
+        'obs' => $obs,
+        'servico' => $servico
         ]
     ];
 }

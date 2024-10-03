@@ -148,9 +148,10 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                         
                     } catch (PDOException $e) {
-                        echo "<p clsass='error-message' Erro ao cadastrar: ", e->getMessage();
+                        echo "Erro ao cadastrar: " . $e->getMessage();
                     }
                 }
+
             } elseif ($dados['tipo_pessoa'] == 2) { 
 
                 // Acessa o ELSEIF quando o tipo de pessoa é jurídica

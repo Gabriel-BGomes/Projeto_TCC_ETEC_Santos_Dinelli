@@ -32,12 +32,12 @@ CREATE TABLE `clientes` (
   `tipo_pessoa` int DEFAULT NULL,
   `nome_cliente` varchar(100) DEFAULT NULL,
   `email_cliente` varchar(100) DEFAULT NULL,
-  `cpf_cliente` varchar(11) DEFAULT NULL,
+  `cpf_cliente` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `data_nascimento` date DEFAULT NULL,
   `telefone` varchar(15) DEFAULT NULL,
   `endereco` varchar(255) DEFAULT NULL,
   `bairro` varchar(100) DEFAULT NULL,
-  `cep` varchar(10) DEFAULT NULL,
+  `cep` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `cidade` varchar(100) DEFAULT NULL,
   `complemento` varchar(100) DEFAULT NULL,
   `forma_pagamento` varchar(50) DEFAULT NULL,
@@ -55,31 +55,7 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `tipo_pessoa`, `nome_cliente`, `email_cliente`, `cpf_cliente`, `data_nascimento`, `telefone`, `endereco`, `bairro`, `cep`, `cidade`, `complemento`, `forma_pagamento`, `razao_social`, `email_cliente_pj`, `cnpj`, `telefone_pj`, `endereco_pj`, `cep_pj`, `referencia_pj`) VALUES
-(10, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Etec', 'leodinelli2007@gmail.com', '4234423424', '11940521224', 'Rua c 152', '04182-135', 'APPCCCCXCX'),
-(18, 1, 'Matheus', 'fdasfas@gmail.com', '12312241', '1245-12-12', 'fdsa', '1fsdaf', 'fdas', 'fdas', 'fdsa', 'fdas', 'fdsa', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(19, 1, 'Matheus', 'fdasfas@gmail.com', '12312241', '1245-12-12', 'fdsa', '1fsdaf', 'fdas', 'fdas', 'fdsa', 'fdas', 'fdsa', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(20, 1, 'Matheus', 'fdasfas@gmail.com', '12312241', '1245-12-12', 'fdsa', '1fsdaf', 'fdas', 'fdas', 'fdsa', 'fdas', 'fdsa', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(21, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(22, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(23, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(24, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(25, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(26, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(27, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(28, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(29, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(30, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(31, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(32, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(33, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(34, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(35, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(36, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(37, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(38, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(39, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(40, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca'),
-(41, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Americanas', 'americanas@gmail.com', '1231241512', '11918422906', 'rua abacaxi não listrado 1234', '041525001', 'em frente a padoca');
+(44, 1, 'Gabriel Braga Gomes', 'gabrielbraga1008@gmail.com', '432.142.531-53', '2001-02-14', '(11) 92341-5321', 'rua abacaxi listrado 1532', 'vila moraes', '04321-532', 'são paulo', 'em frente a padoca', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -93,18 +69,18 @@ CREATE TABLE `events` (
   `color` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `start` datetime DEFAULT NULL,
   `end` datetime DEFAULT NULL,
-  `obs` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+  `obs` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `servico` varchar(55) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`id`, `title`, `color`, `start`, `end`, `obs`) VALUES
-(42, 'Leonardo Dinelli', '#FFD700', '2024-09-13 13:00:00', '2024-09-13 14:00:00', 'conserto de ar condicionado'),
-(45, NULL, NULL, NULL, NULL, NULL),
-(47, 'Matheus Estevam', '#436EEE', '2024-09-12 14:00:00', '2024-09-12 15:00:00', 'limpeza'),
-(48, 'Etec Heliópolis', '#FF4500', '2024-10-03 13:00:00', '2024-10-03 18:00:00', 'Apresentação da Pré Banca');
+INSERT INTO `events` (`id`, `title`, `color`, `start`, `end`, `obs`, `servico`) VALUES
+(101, 'Etec Heliópolis – Arquiteto Ruy Ohtake', '#FF4500', '2024-10-03 13:00:00', '2024-10-03 18:20:00', 'Apresentação pré banca', 'Visita'),
+(104, 'Aline', '#228B22', '2024-10-09 11:00:00', '2024-10-09 11:11:00', 'ada', 'Higienização'),
+(105, 'Izael', '#1C1C1C', '2024-10-16 13:00:00', '2024-10-16 14:30:00', 'Verificar gás', 'Desinstalação');
 
 -- --------------------------------------------------------
 
@@ -124,7 +100,7 @@ CREATE TABLE `financas` (
 --
 
 INSERT INTO `financas` (`id`, `mes`, `recebimento`, `despesa`) VALUES
-(25, 'Janeiro', 1.00, 1.00),
+(25, 'Janeiro', 21.00, 11.00),
 (26, 'Julho', 17.00, 17.00),
 (27, 'Março', 46.00, 80.00),
 (28, 'Maio', 80.00, 50.00),
@@ -159,7 +135,7 @@ INSERT INTO `usuarios` (`id`, `nome`, `usuario`, `senha_usuario`, `codigo_autent
 (1, 'Gabriel Braga', 'gabrielbraga1324@gmail.com', '$2y$10$/8h3zj2her/0yPi77XGj0OWJBOSdTLdzrep/m6tq3iYSisH49ZsQe', NULL, NULL),
 (2, 'Matheus Estevam', 'matheusoliveirale2007@gmail.com', '$2y$10$W6svxbrsCZ4LAOGnkV13iepjTtomS5.2tnEZR/cNl2SsnkTYAUeBm', 286873, '2024-10-01 10:00:33'),
 (3, 'Castellinho', 'isabellasilvestrecastellon@gmail.com', '$2y$10$V98pJibds2bCSOT2bHCsg.dmF9Xb/07LAFx1jC9c2nLeSYzzU.GIS', NULL, NULL),
-(4, 'Leonardo Dinelli', 'leodinelli2007@gmail.com', '$2y$10$eC32oyaPHFgaLkyDxNcw1u45r4AOOVj6gLy7nONoWToRPeU0YkL7y', NULL, NULL),
+(4, 'Leonardo Dinelli', 'leodinelli2007@gmail.com', '$2y$10$QjiKQ3IKJ95BL1pGwBQYSeMzvn9SH8gVpfmVHMQIEfMvXr/zacohe', NULL, NULL),
 (5, 'Henrick Gomes', 'henrickgomes46@gmail.com', '$2y$10$sKSYqTve.IP8KM9YqcCTf.jEaZMdXu1Lvm3z.VGzrg.od./srVwh6', 260643, '2024-09-27 10:10:05'),
 (6, 'Matheus Ribeiro', 'matheusribeiro2409@outlook.com ', '$2y$10$eIaKTCE3Y.P.src/1C2pF.7dml6VAd0bE09SOr4rir0.VFfVt2XAi', 630028, '2024-09-27 10:15:30');
 
