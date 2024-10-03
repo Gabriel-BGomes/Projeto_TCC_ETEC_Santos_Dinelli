@@ -128,7 +128,7 @@ include_once "./conexao.php";
                     $mail->Port       = 587;
 
                     // E-mail do rementente
-                    $mail->setFrom('testesdogabrielb@gmail.com', 'NaoRespondaEsseEmail');
+                    $mail->setFrom('testesdogabrielb@gmail.com', 'Santos Dinelli Climatização');
 
                     // E-mail de destino
                     $mail->addAddress($row_usuario['usuario'], $row_usuario['nome']);

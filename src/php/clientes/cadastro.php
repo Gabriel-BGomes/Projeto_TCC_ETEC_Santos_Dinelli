@@ -1,3 +1,25 @@
+<!-- <?php
+
+session_start(); // Iniciar a sessão
+
+ob_start(); // Limpar o buffer de saída
+
+// Definir um fuso horario padrao
+date_default_timezone_set('America/Sao_Paulo');
+
+// Acessar o IF quando o usuário não estão logado e redireciona para página de login
+if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SESSION['codigo_autenticacao']))){
+    $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
+
+    // Redirecionar o usuário
+    header("Location: /project_Santos_Dinelli/login/index.php");
+
+    // Pausar o processamento
+    exit();
+}
+
+?> -->
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -10,6 +32,12 @@
     </head>
 
     <body>
+
+    <!-- Adicionando a biblioteca Inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.7/jquery.inputmask.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 
     <header class="header"> <!-- começo menu fixo no topo -->
             
@@ -24,7 +52,7 @@
                     <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
                     <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
                     <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
-                    <li><a class="link" href="../../login/sair.php">SAIR</a></li>
+                    <li><a class="link" href="../../../login/sair.php">SAIR</a></li>
                 </ul>
 
             </nav>
@@ -78,12 +106,16 @@
 
         // Verificar se o usuário clicou no botão cadastrar
         if (!empty($dados['SendCad'])) {
+
             // Acessa o IF quando o tipo de pessoa é física
             if ($dados['tipo_pessoa'] == 1) {
+
                 // Verificação se campos obrigatórios estão preenchidos
                 if (empty($dados['email_cliente']) || empty($dados['telefone']) || empty($dados['endereco']) || empty($dados['nome_cliente'])) {
-                    echo "<p style='color: red;'>Por favor, preencha todos os campos obrigatórios!</p>";
+                    echo "<p class='error-message' style='color: red;'>Por favor, preencha todos os campos obrigatórios!</p>";
+
                 } else {
+                    
                     // QUERY para cadastrar pessoa física no banco de dados
                     $query_pessoa = "INSERT INTO clientes (tipo_pessoa, nome_cliente, email_cliente, cpf_cliente, data_nascimento, telefone, endereco, bairro, cep, cidade, complemento, forma_pagamento) 
                                     VALUES (:tipo_pessoa, :nome_cliente, :email_cliente, :cpf_cliente, :data_nascimento, :telefone, :endereco, :bairro, :cep, :cidade, :complemento, :forma_pagamento)";
@@ -119,10 +151,12 @@
                         echo "Erro ao cadastrar: " . $e->getMessage();
                     }
                 }
+
             } elseif ($dados['tipo_pessoa'] == 2) { 
+
                 // Acessa o ELSEIF quando o tipo de pessoa é jurídica
                 if (empty($dados['email_cliente_pj']) || empty($dados['telefone_pj']) || empty($dados['endereco_pj']) || empty($dados['razao_social'])) {
-                    echo "<p style='color: red;'>Por favor, preencha todos os campos obrigatórios!</p>";
+                    echo "<p class='error-message' style='color: red;'>Por favor, preencha todos os campos obrigatórios!</p>";
                 } else {
                     // QUERY para cadastrar pessoa jurídica no banco de dados
                     $query_pessoa = "INSERT INTO clientes (tipo_pessoa, razao_social, email_cliente_pj, cnpj, telefone_pj, endereco_pj, cep_pj, referencia_pj) 
@@ -195,23 +229,28 @@
 
                         <div class="campo">
                             <label>CPF</label>
-                            <input type="text" name="cpf_cliente" maxlength="14" placeholder="CPF">
+                            <input type="text" name="cpf_cliente" id="cpf" placeholder="CPF">
                         </div>
 
                         <div class="campo">
                             <label>Data de Nascimento</label>
-                            <input type="date" name="data_nascimento" class="cpf" placeholder="Data de nascimento">
+                            <input type="date" name="data_nascimento" placeholder="Data de nascimento">
                         </div>
 
                         <div class="campo">
                             <label>Telefone</label>
-                            <input type="text" name="telefone" maxlength="15" placeholder="Telefone">
+                            <input type="text" name="telefone" id="telefoneFisica" placeholder="Telefone">
                         </div>
                    
                     </div>
 
                     <div class="separar">
 
+                        <div class="campo">
+                            <label>CEP</label>
+                            <input type="text" name="cep" id="cepFisica" placeholder="CEP">
+                        </div>   
+                    
                         <div class="campo">
                             <label>Endereço Completo</label>
                             <input type="text" name="endereco" placeholder="Ex: rua abacaxi listrado 112">
@@ -220,11 +259,6 @@
                         <div class="campo">
                             <label>Bairro</label>
                             <input type="text" name="bairro" placeholder="Bairro">
-                        </div>
-
-                        <div class="campo">
-                            <label>CEP</label>
-                            <input type="text" name="cep" placeholder="CEP">
                         </div>
 
                         <div class="campo">
@@ -239,9 +273,18 @@
 
                     </div>
 
-                    <div class="campo especial" style="margin-bottom: 10px">
-                        <label>Forma de Pagamento</label>
-                        <input  type="text" name="forma_pagamento" placeholder="Forma de pagamento">
+                    <div class="campo especial">
+                        <label class="label-especial">Forma de Pagamento</label>
+
+                        <select id="forma_pagamento">
+                            <option value="">Selecione</option>
+                            <option value="debito">Débito</option>
+                            <option value="credito">Crédito</option>
+                            <option value="boleto">Boleto</option>
+                            <option value="pix">Pix</option>
+                            <option value="dinheiro">Dinheiro</option>
+                        </select>
+                
                     </div>  
 
                 </div> <!-- fim do form para pessoa fisica -->
@@ -263,7 +306,7 @@
 
                         <div class="campo">
                             <label>CNPJ</label>
-                            <input type="text" name="cnpj" placeholder="CNPJ">
+                            <input type="text" name="cnpj" id="cnpj" placeholder="CNPJ">
                         </div>
 
                     </div>
@@ -271,8 +314,8 @@
                     <div class="separar">
 
                         <div class="campo">
-                            <label>Telefone(s)</label>
-                            <input type="text" name="telefone_pj" placeholder="Telefone(s)">
+                            <label>Telefone</label>
+                            <input type="text" name="telefone_pj" id="telefoneJuridica" maxlength="12" placeholder="Telefone">
                         </div>
 
                         <div class="campo">
@@ -282,7 +325,7 @@
 
                         <div class="campo">
                             <label>CEP</label>
-                            <input type="text" name="cep_pj" placeholder="CEP">
+                            <input type="text" name="cepJuridica" id="cepJuridica" placeholder="CEP">
                         </div>
 
                     </div>

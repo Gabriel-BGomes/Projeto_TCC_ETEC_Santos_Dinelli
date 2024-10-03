@@ -132,6 +132,54 @@ html, body{
     width: 220px;
 }
 
+@media (max-height: 700px) {
+    .header {
+        height: 70px;
+    }
+
+    .fake-tres-linhas {
+        width: 65px;
+        height: 50px;
+        margin-top: -25px;
+        margin-left: 30px !important;
+    }
+    
+    .tres-linhas {
+        width: 65px;
+        height: 50px;
+        margin-top: -25px;
+        margin-left: 30px !important;
+    }
+    
+    .menu-lateral ul {
+        width: 300px;
+        margin-left: -300px;
+        transition: all 1s;
+    }
+    
+    .menu-lateral ul li:first-child {
+        margin-top: 80px;
+    }
+    
+    .menu-lateral ul li{
+        font-size: 16px;
+    }
+
+    .menu-fixo {
+        margin-left: 65px !important;
+        padding: 0;
+    }
+
+    .menu-fixo li a {
+        padding: 10px !important;
+        font-size: 16px;
+    }
+
+    .logo {
+        width: 155px;
+    }
+
+}
 
 @media (max-width: 960px) {
     .header {
