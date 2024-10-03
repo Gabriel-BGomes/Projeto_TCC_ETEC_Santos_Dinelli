@@ -68,7 +68,7 @@ try {
     $mail->CharSet    = 'UTF-8';
 
     // Configurações do e-mail
-    $mail->setFrom('testesdogabrielb@gmail.com', 'NaoRespondaEsseEmail');
+    $mail->setFrom('testesdogabrielb@gmail.com', 'Santos Dinelli Climatização');
     $mail->addAddress($row_usuario['usuario'], $row_usuario['nome']);
     $mail->isHTML(true);
     $mail->Subject = 'Novo Código de Verificação para Autenticação Multifator';
