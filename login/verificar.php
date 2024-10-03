@@ -39,10 +39,10 @@
                     exit();
                 } else {
                     // Exibindo mensagem de erro se o código for incorreto
-                    echo "<p class='error-message'>O código está incorreto. Tente novamente.</p>";
+                    echo "<p  class='error-message' style='color: #f00; margin-left: 28px;'>O código está incorreto. Tente novamente.</p>";
                 }
             } else {
-                echo "<p class='error-message'>Código não encontrado. Solicite novamente o envio.</p>";
+                echo "<p class='error-message' style='color: #f00; margin-left: 28px;'>Código não encontrado. Solicite novamente o envio.</p>";
             }
         }
         ?>

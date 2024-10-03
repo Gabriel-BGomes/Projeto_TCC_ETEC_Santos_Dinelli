@@ -19,31 +19,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Verifica se a nova senha tem no mínimo 8 caracteres
     if (strlen($nova_senha) < 8) {
-        $msg .= "<p style='color: red;'>A senha deve ter no mínimo 8 caracteres.</p>";
+        $_SESSION['msg'] = "<p style='color: red; margin-top: -30px; margin-bottom: 10px;'>A senha deve ter no mínimo 8 caracteres.</p>";
         $senha_valida = false;
     } 
     
     // Verifica se a nova senha tem letras maiúsculas
     if (!preg_match('@[A-Z]@', $nova_senha)) {
-        $msg .= "<p style='color: red;'>A senha deve ter letras maiúsculas.</p>";
+        $_SESSION['msg'] = "<p style='color: red; margin-top: -30px; margin-bottom: 10px;'>A senha deve ter letras maiúsculas.</p>";
         $senha_valida = false;
     } 
     
     // Verifica se a nova senha tem pelo menos um número
     if (!preg_match('@[0-9]@', $nova_senha)) {
-        $msg .= "<p style='color: red;'>A senha deve conter pelo menos um número.</p>";
+        $_SESSION['msg'] = "<p style='color: red; margin-top: -30px; margin-bottom: 10px;'>A senha deve conter pelo menos um número.</p>";
         $senha_valida = false;
     }
     
-    // Verifica se a nova senha tem pelo menos um símbolo especial
-    if (!preg_match('@[^\w]@', $nova_senha)) {
-        $msg .= "<p style='color: red;'>A senha deve conter pelo menos um símbolo especial ($@#&!).</p>";
+    // Verifica se a nova senha tem pelo menos um símbolo especial (incluindo . e _)
+    if (!preg_match('@[^\w]@', $nova_senha) && !preg_match('@[._]@', $nova_senha)) {
+        $_SESSION['msg'] = "<p style='color: red; margin-top: -30px; margin-bottom: 10px;'>A senha deve conter pelo menos um símbolo especial ($@#&!_.)</p>";
         $senha_valida = false;
     }
     
     // Verifica se as senhas coincidem
     if ($nova_senha !== $confirma_senha) {
-        $msg .= "<p style='color: red;'>As senhas não coincidem.</p>";
+        $_SESSION['msg'] = "<p style='color: red; margin-top: -30px; margin-bottom: 10px;'>As senhas não coincidem.</p>";
         $senha_valida = false;
     } if ($senha_valida) {
         $id = $_SESSION['id'];
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':id', $id);
 
         if ($stmt->execute()) {
-            $msg = "<p style='color: green;'>Senha atualizada com sucesso!</p>";
+            $_SESSION['msg'] = "<p style='color: green;'>Senha atualizada com sucesso!</p>";
             header("Location: index.php");
             // Clear session variables
             unset($_SESSION['id']);
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             unset($_SESSION['codigo_enviado']);
             exit();  // Para garantir que a execução seja interrompida após o redirecionamento
         } else {
-            $msg = "<p style='color: red;'>Erro ao atualizar a senha.</p>";
+            $_SESSION['msg'] = "<p style='color: red;'>Erro ao atualizar a senha.</p>";
         }
     }
 }
@@ -92,6 +92,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <form action="" method="post" class="reset-form" id="reset-form">
 
+            <div class="error-messages">
+                        <?php
+                        // Imprimir a mensagem da sessão
+                            if (isset($_SESSION['msg'])) {
+                            echo $_SESSION['msg'];
+                            unset($_SESSION['msg']);
+                            }
+                        ?>
+            </div>         
+
             <div class="input-group">
                 <input type="password" id="new-password" name="nova_senha" required>
                 <span class="highlight"></span>
@@ -105,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <p id="length" class="invalid">Mínimo de 8 caracteres</p>
                     <p id="uppercase" class="invalid">Letras maiúsculas</p>
                     <p id="number" class="invalid">Números</p>
-                    <p id="special" class="invalid">Símbolos especiais ($@#&!)</p>
+                    <p id="special" class="invalid">Símbolos especiais ($@#&!_.)</p>
                 </div>
 
                 <div class="input-group">
@@ -159,7 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (password.length >= 8) strength += 25;
                 if (password.match(/[A-Z]/)) strength += 25;
                 if (password.match(/[0-9]/)) strength += 25;
-                if (password.match(/[$@#&!]/)) strength += 25;
+                if (password.match(/[$@#&!_.]/)) strength += 25;
                 return strength;
             }
 
@@ -178,7 +188,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 updateRequirement(requirements.length, password.length >= 8);
                 updateRequirement(requirements.uppercase, password.match(/[A-Z]/));
                 updateRequirement(requirements.number, password.match(/[0-9]/));
-                updateRequirement(requirements.special, password.match(/[$@#&!]/));
+                updateRequirement(requirements.special, password.match(/[$@#&!_.]/));
                 updateRequirement(requirements.same, password === confirmPwd && password !== '');
             }
 
