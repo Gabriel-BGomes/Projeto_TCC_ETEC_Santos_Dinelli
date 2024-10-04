@@ -35,17 +35,31 @@ const mesSelecionadoDespesa = {
 // aqui você pode declarar uma variável ou declarar no próprio chart as informações do gráfico.
 var dataMensal = {
   labels: ['RESUMO'], // colunas
-  datasets: [{
+  datasets: [
+
+  {
     label: 'RECEBIMENTOS', // nome da primeira coluna
     data: mesSelecionadoRecebimento, // dados da primeira coluna
-    backgroundColor: 'green' // cor da primeira coluna
+    backgroundColor: '#1833ba' // cor da primeira coluna
   },
 
   {
     label: 'DESPESAS', // nome da segunda coluna
     data: mesSelecionadoDespesa, // dados da segunda coluna
-    backgroundColor: 'red' // cor da segunda coluna
+    backgroundColor: '#fff227' // cor da segunda coluna
+  },
+
+  {
+    label: 'MÉDIA',
+    data: (mesSelecionadoRecebimento - mesSelecionadoDespesa),
+    backgroundColor: function(context) {
+      // Pega o valor da média
+      const value = context.dataset.data[context.dataIndex];
+      // Retorna verde se for positivo, vermelho se for negativo
+      return value >= 0 ? 'green' : 'red';
   }
+  }
+
 ]
 };
 
@@ -126,6 +140,9 @@ var definingChart = {
 // criando de fato o gráfico
 const chartAnual = new Chart(anual, definingChart);
 
+var somaRecebimentos = 0
+var somaDespesas = 0
+
 // Função para carregar os dados financeiros do PHP para o gráfico anual
 function carregarDadosAnuais() {
   fetch('../php/financeiro/dados_finance.php') // Ajuste o caminho conforme necessário
@@ -146,7 +163,17 @@ function carregarDadosAnuais() {
       // Atualizar o gráfico com os novos dados
       chartAnual.data.datasets[0].data = Object.values(mesSelecionadoRecebimento);
       chartAnual.data.datasets[1].data = Object.values(mesSelecionadoDespesa);
+      chartAnual.data.datasets[2].data = [mesSelecionadoRecebimento['Janeiro'] - mesSelecionadoDespesa['Janeiro']];
       chartAnual.update(); // Atualizar o gráfico
+
+      for (const mes in mesSelecionadoRecebimento) {
+        somaRecebimentos += Number(mesSelecionadoRecebimento[mes])
+      }
+
+      for (const mes in mesSelecionadoDespesa) {
+        somaDespesas += Number(mesSelecionadoDespesa[mes])
+      }
+
     })
     .catch(error => console.error('Erro ao carregar os dados anuais:', error));
 }
@@ -159,13 +186,19 @@ carregarDadosAnuais();
 monthSelector.addEventListener("change", function() {
   let monthSele = monthSelector.value;
 
+  console.log(somaRecebimentos)
+  console.log(somaDespesas)
+
   if (monthSele == 'Todos') {
     chartAnual.data.datasets[0].data = (mesSelecionadoRecebimento);
     chartAnual.data.datasets[1].data = (mesSelecionadoDespesa);
+    chartAnual.data.datasets[2].data = [(somaRecebimentos - somaDespesas)];
     chartAnual.options.plugins.title.text = `RESUMO ANUAL`;
+
   } else {
     chartAnual.data.datasets[0].data = [mesSelecionadoRecebimento[monthSele]];
     chartAnual.data.datasets[1].data = [mesSelecionadoDespesa[monthSele]];
+    chartAnual.data.datasets[2].data = [(mesSelecionadoRecebimento[monthSele]) - (mesSelecionadoDespesa[monthSele])];
     chartAnual.options.plugins.title.text = `RESUMO DE ${monthSele.toUpperCase()}`;
   };
 
