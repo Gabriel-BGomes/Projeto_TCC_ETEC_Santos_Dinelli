@@ -64,7 +64,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
         <nav> <!-- começar com uma nav para definir os itens do menu-->
 
-            <ul class="menu-fixo" style="margin-top: 15px"> <!-- começo dos itens do menu-->
+            <ul class="menu-fixo" style="margin-top: 15px; padding: 0;"> <!-- começo dos itens do menu-->
 
                     <li><a class="link" href="./agenda.php">AGENDA</a></li>
                     <li><a class="link" href="./finance.php">FINANCEIRO</a></li>

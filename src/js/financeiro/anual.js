@@ -102,7 +102,7 @@ var options = {
     },
 
     tooltip: { // tooltip  é o que aparece quando o mouse fica em cima de cada coluna
-      titleColor: 'pink', // mudando a cor do título da coluna
+      titleColor: '#f1e8e8', // mudando a cor do título da coluna
       bodyColor: 'white', // mudando a cor da legenda do pop-up
       backgroundColor: 'rgb(60, 66, 71)' // mudando o background do pop-up
     },

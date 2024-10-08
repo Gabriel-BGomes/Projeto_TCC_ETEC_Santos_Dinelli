@@ -114,11 +114,11 @@ html, body{
     align-items: center;
     justify-content: center;
     margin-left: 120px;
-    
 }
 
 .menu-fixo > li {
     margin-left: 10px;
+    text-align: center;
 }
 
 .menu-fixo > li > a {

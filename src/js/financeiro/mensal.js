@@ -122,7 +122,7 @@ var options = {
     },
 
     tooltip: { // tooltip  é o que aparece quando o mouse fica em cima de cada coluna
-      titleColor: 'pink', // mudando a cor do título da coluna
+      titleColor: '#f1e8e8', // mudando a cor do título da coluna
       bodyColor: 'white', // mudando a cor da legenda do pop-up
       backgroundColor: 'rgb(60, 66, 71)' // mudando o background do pop-up
     },
@@ -148,6 +148,23 @@ var definingChart = {
   
 // criando de fato o gráfico
 const chartMensal = new Chart(mensal, definingChart);
+
+// zerar os valores do recebimento e despesa após digitar os valores
+function manterInputs() {
+  recebimentosInput.addEventListener('click', function() {
+    recebimentosInput.value = recebimentosInput.value
+  })
+  
+  despesasInput.addEventListener('focus', function() {
+  despesasInput.value = despesasInput.value
+  })
+
+};
+
+function limparInputs() {
+  recebimentosInput.value = '';
+  despesasInput.value = '';
+}
 
 // Função para carregar os dados financeiros do PHP para o gráfico anual
 function carregarDadosFinanceiros() {
@@ -176,10 +193,16 @@ function carregarDadosFinanceiros() {
       chartMensal.data.datasets[1].data = [mesSelecionadoDespesa[monthSele]];
 
       chartMensal.update(); // Atualizar o gráfico
+
+      
+
+      redefinirInputs();
+
     })
     .catch(error => console.error('Erro ao carregar os dados anuais:', error));
 }
 
+// função para puxar a função de carregar os dados assim que entrar no financeiro.
 carregarDadosFinanceiros();
 
 // Atualizar o gráfico com base na seleção do mês
@@ -218,6 +241,8 @@ inserirValores.addEventListener('click', function (event) {
       console.error('Erro ao carregar os dados:', error);
   });
 
+  limparInputs();
+
 });
 
 editarValores.addEventListener('click', function (event) {
@@ -243,6 +268,8 @@ editarValores.addEventListener('click', function (event) {
   .catch(error => {
       console.error('Erro ao carregar os dados:', error);
   });
+
+  limparInputs();
   
 });
 
@@ -270,6 +297,8 @@ excluirValores.addEventListener('click', function (event) {
       console.error('Erro ao carregar os dados:', error);
   });
   
+  limparInputs()
+
 });
 
 atualizarGraph.addEventListener('click', function(event) {
