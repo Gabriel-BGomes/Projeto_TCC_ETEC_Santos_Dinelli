@@ -149,18 +149,7 @@ var definingChart = {
 // criando de fato o gráfico
 const chartMensal = new Chart(mensal, definingChart);
 
-// zerar os valores do recebimento e despesa após digitar os valores
-function manterInputs() {
-  recebimentosInput.addEventListener('click', function() {
-    recebimentosInput.value = recebimentosInput.value
-  })
-  
-  despesasInput.addEventListener('focus', function() {
-  despesasInput.value = despesasInput.value
-  })
-
-};
-
+// após a pessoa digitar os valores e clicar em editar ou algo relacionado, os campos serão limpados.
 function limparInputs() {
   recebimentosInput.value = '';
   despesasInput.value = '';
@@ -217,8 +206,9 @@ monthSelector.addEventListener("change", function() {
   chartMensal.update();
 });
 
+// inserir valores no gráfico e no banco
 inserirValores.addEventListener('click', function (event) {
-  event.preventDefault(); // Impede o envio do formulário
+  event.preventDefault(); // Impede o envio do formulário, ou seja, não irá atualizar a página.
 
   let month = monthSelector.value;
   let recebimentos = parseInt(recebimentosInput.value);
@@ -245,8 +235,10 @@ inserirValores.addEventListener('click', function (event) {
 
 });
 
+
+// editar os valores do gráfico.
 editarValores.addEventListener('click', function (event) {
-  event.preventDefault(); // Impede o envio do formulário
+  event.preventDefault();
 
   let month = monthSelector.value;
   let recebimentos = parseInt(recebimentosInput.value);
@@ -273,14 +265,14 @@ editarValores.addEventListener('click', function (event) {
   
 });
 
+// excluir os valores do gráfico.
 excluirValores.addEventListener('click', function (event) {
-  event.preventDefault(); // Impede o envio do formulário
+  event.preventDefault();
 
   let month = monthSelector.value;
   let recebimentos = parseInt(recebimentosInput.value);
   let despesas = parseInt(despesasInput.value);
 
-  // Envio dos dados via AJAX para excluir (pode ser um método diferente se precisar)
   fetch('../php/financeiro/processaFinancas.php', {
       method: 'POST',
       headers: {
@@ -301,6 +293,7 @@ excluirValores.addEventListener('click', function (event) {
 
 });
 
+// caso algo dê errado, a pessoa pode atualizar o gráfico, fazendo com que os gráficos sejam atualizados forçadamente.
 atualizarGraph.addEventListener('click', function(event) {
   event.preventDefault();
   carregarDadosFinanceiros();
