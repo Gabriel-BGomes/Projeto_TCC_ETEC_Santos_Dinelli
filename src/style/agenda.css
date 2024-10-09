@@ -63,6 +63,11 @@ button#btnEditEvento:hover {
 }
 
 #btnCadEvento {
-    margin-left: 150px !important;
+    margin-left: 240px !important;
     width: 150px !important;
+}
+
+.modal-content-edit {
+    width: 700px !important;
+    margin-left: -100px;
 }
