@@ -79,21 +79,70 @@ h1 {
     width: 500px;
 }
 
-label {
+.input-group {
+    width: 600px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.input-group label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 20px;
+    color: #666;
+    pointer-events: none;
+    transition: 0.3s ease all;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+    top: -30px;
+    font-size: 15px;
+    color: #228d02;
+}
+
+.input-group .highlight {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background: #228d02;
+    transition: 0.3s ease all;
+}
+
+.input-group input:focus ~ .highlight {
+    width: 100%;
+}
+
+
+ label {
     font-size: 20px;
     display: block;
     font-weight: bold;
-    color: #145400; /* Verde escuro para as labels */
-}
+    color: #145400;
+} 
 
-input[type="text"],
-input[type="email"],
-input[type="date"],
+.especial input[type="text"],
 input[type="radio"],
 select  {
-    width: 90%; /* Reduzindo a largura dos inputs */
+    width: 90%; 
     height: 30px;
-    padding: 8px; /* Diminuindo o padding */
+    padding: 8px; 
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -105,19 +154,23 @@ select  {
 }
 
 .btn-cadastrar {
-    width: 200px;
-    height: 55px;
-    background: #145400; /* Verde escuro semelhante ao da barra superior da imagem */
+    width: 300px;
+    height: 60px;
+    background: linear-gradient(135deg, #228d02, #145400);
     color: white;
     border: none;
-    border-radius: 10px;
-    margin: 10px 15px;
+    padding: 12px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    font-size: 17px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
 }
 
 input[type="submit"]:hover {
-    background: #228d02; /* Verde mais claro para o efeito de hover */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(46,204,113,0.3);
 }
 
 .error-message {
