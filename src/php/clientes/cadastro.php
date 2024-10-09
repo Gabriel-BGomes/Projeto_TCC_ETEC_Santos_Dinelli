@@ -213,7 +213,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                 </div>  <!-- fechamento tipo-pesso -->
 
-                <div id="form-pessoa-fisica" style="display: flex;">
+                <div id="form-pessoa-fisica" style="display: none;">
                     
                     <div class="separar">
                         
