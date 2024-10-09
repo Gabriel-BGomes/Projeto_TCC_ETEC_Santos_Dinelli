@@ -2,6 +2,7 @@ body {
     background-color: #edece2; /* Cor de fundo clara semelhante ao da imagem */
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 
@@ -11,8 +12,8 @@ h1 {
 }
 
 .container {
-    width: calc(100vw- 100px);
-    height: calc(100vh - 94px);
+    width: 100vw;
+    height: calc(100vh - 100px);
     display: flex;
     justify-content: center;
 }
@@ -23,7 +24,8 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;}
+    margin: 0 auto;
+}
 
 .radio {
     width: 500px;
@@ -54,6 +56,7 @@ h1 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    border-radius: 20px;
 }
 
 #form-pessoa-fisica, #form-pessoa-juridica{
@@ -66,11 +69,12 @@ h1 {
 }
 
 .campo {
-    width: 400px;
+    width: 600px;
     height: 80px;
 }
 
 .especial {
+    margin-top: -100px;
     text-align: center;
     width: 500px;
 }
@@ -96,7 +100,11 @@ select  {
     font-size: 18px;
 }
 
-input[type="submit"] {
+#form-btn-cadastrar {
+    margin-top: -60px;
+}
+
+.btn-cadastrar {
     width: 200px;
     height: 55px;
     background: #145400; /* Verde escuro semelhante ao da barra superior da imagem */

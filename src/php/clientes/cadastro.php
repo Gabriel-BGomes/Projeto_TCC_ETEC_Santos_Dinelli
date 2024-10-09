@@ -33,10 +33,10 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
     <body>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
     <!-- Adicionando a biblioteca Inputmask -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.7/jquery.inputmask.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 
     <header class="header"> <!-- começo menu fixo no topo -->
@@ -194,11 +194,11 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
         <div class="container">
            
-            <form method="POST" action="" class="form">
+            <form method="POST" action="" class="form" id="form">
             
-                <div class="tipo-pessoa">
+                <div class="tipo-pessoa" id="tipo-pessoa">
 
-                    <h1 style="display: flex;">
+                    <h1 style="display: flex;" id="titulo">
                         Cadastrar cliente:&nbsp;
                         <span id="titulo-pessoa-fisica" style="display: none;">Pessoa física</span>
                         <span id="titulo-pessoa-juridica" style="display: none;">Pessoa jurídica</span>
@@ -206,14 +206,14 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                     <div class="radio">
                         <input type="radio" name="tipo_pessoa"  id="tipo_pessoa_fisica" class="radin" value="1" onchange="formPessoaFisica();">
-                        <p class="input-radio">Pessoa Física</p>
+                        <p class="input-radio" id="radio">Pessoa Física</p>
                         <input type="radio" name="tipo_pessoa"  id="tipo_pessoa_juridica" class="radin" value="2" onchange="formPessoaJuridica();">
-                        <p class="input-radio">Pessoa Jurídica</p>
+                        <p class="input-radio" id="radio">Pessoa Jurídica</p>
                     </div>
 
                 </div>  <!-- fechamento tipo-pesso -->
 
-                <div id="form-pessoa-fisica" style="display: none;">
+                <div id="form-pessoa-fisica" style="display: flex;">
                     
                     <div class="separar">
                         
@@ -253,17 +253,17 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     
                         <div class="campo">
                             <label>Endereço Completo</label>
-                            <input type="text" name="endereco" placeholder="Ex: rua abacaxi listrado 112">
+                            <input type="text" name="endereco" id="ruaFisica" placeholder="Ex: rua abacaxi listrado 112">
                         </div>
 
                         <div class="campo">
                             <label>Bairro</label>
-                            <input type="text" name="bairro" placeholder="Bairro">
+                            <input type="text" name="bairro" id="bairroFisica" placeholder="Bairro">
                         </div>
 
                         <div class="campo">
                             <label>Cidade</label>
-                            <input type="text" name="cidade" placeholder="Cidade">
+                            <input type="text" name="cidade" id="cidadeFisica" placeholder="Cidade">
                         </div>
 
                         <div class="campo">
@@ -319,14 +319,16 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                         </div>
 
                         <div class="campo">
-                            <label>Endereço completo</label>
-                            <input type="text" name="endereco_pj" placeholder="Ex: rua abacaxi listrado 112">
-                        </div>
-
-                        <div class="campo">
                             <label>CEP</label>
                             <input type="text" name="cepJuridica" id="cepJuridica" placeholder="CEP">
                         </div>
+
+                        <div class="campo">
+                            <label>Endereço completo</label>
+                            <input type="text" name="endereco_pj" id="ruaJuridica" placeholder="Ex: rua abacaxi listrado 112">
+                        </div>
+
+                        
 
                     </div>
 
@@ -338,7 +340,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                 </div> <!-- fim do form para pessoa juridica -->
 
                 <div id="form-btn-cadastrar" style="display: none;">
-                    <input type="submit" name="SendCad" value="Cadastrar"></div>
+                    <input type="submit" name="SendCad" class="btn-cadastrar" value="Cadastrar"></div>
                 </div>
 
             </form> <!-- Fim formulário cadastrar pessoa física ou pessoa jurídica -->
