@@ -31,18 +31,55 @@ $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../style/clientes/visualizar.css">
+    <link rel="stylesheet" href="../../style/layout-header.css">
     <link rel="shortcut icon" href="../../images/icons/logo.ico" type="image/x-icon">
     <title>Visualizar Clientes</title>
 </head>
 
 <body>
-    <!-- tem que colocar o header fiquei com preguiça -->
-    <hedader>
-        <h1>Clientes Cadastrados</h1>
-    </hedader>
+    
+    <header class="header"> <!-- começo menu fixo no topo -->
+            
+        <nav class="menu-lateral"> <!-- primeiro item do menu -->
+
+            <input type="checkbox" class="fake-tres-linhas">
+            <div><img class="tres-linhas" src="../../images/menu-tres-linhas.png" alt="menu de três linhas"></div>
+
+            <ul>
+                <li><a class="link" href="../../pages/home.php">ÍNICIO</a></li>
+                <li><a class="link" href="../../pages/agenda.php">AGENDA</a></li>
+                <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
+                <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
+                <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
+                <li><a class="link" href="../../../login/sair.php">SAIR</a></li>
+            </ul>
+
+        </nav>
+
+        <nav> <!-- começar com uma nav para definir os itens do menu-->
+
+            <ul class="menu-fixo"> <!-- começo dos itens do menu-->
+
+                <li><a class="link" href="../../pages/agenda.php">AGENDA</a></li>
+                <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
+                <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
+
+            </ul>
+
+        </nav>
+
+        <nav> <!-- finalizar com a logo da empresa na direita-->
+
+            <a href="https://www.santosedinelli.com target="_blank">
+            <img class="logo" src="../../images/santos-dinelli.png"  alt="logo da empresa"></a>
+
+        </nav> <!-- final da div da logo-->
+
+    </header> <!-- fim header fixo -->
 
     <!-- pessoa fisica pra vc mexer nao criei div se vira -->
     <h2>Pessoas Físicas</h2>
+    
     <table>
         <thead>
             <tr>
@@ -99,6 +136,7 @@ $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <th>Forma de Pagamento</th>
             </tr>
         </thead>
+
         <!-- parte do banco-->
         <tbody>
             <?php foreach ($clientes as $cliente): ?>
