@@ -119,6 +119,8 @@ $(document).ready(function() {
 
     function limpa_formulário_cep() {
         $("#ruaJuridica").val("");
+        $("#bairroJuridica").val("");
+        $("#cidadeJuridica").val("");
     }
     
     // Quando o campo CEP de Pessoa Física perde o foco
@@ -130,6 +132,8 @@ $(document).ready(function() {
 
             if(validacep.test(cep)) {
                 $("#ruaJuridica").val("...");
+                $("#bairroJuridica").val("...");
+                $("#cidadeJuridica").val("...");
                 console.log("CEP válido. Consultando ViaCEP.");
 
                 $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
@@ -137,6 +141,8 @@ $(document).ready(function() {
                     if (!("erro" in dados)) {
                         // Atualiza os campos com os valores da consulta.
                         $("#ruaJuridica").val(dados.logradouro);
+                        $("#bairroJuridica").val(dados.bairro);
+                        $("#cidadeJuridica").val(dados.localidade);
                         console.log("Endereço preenchido com sucesso.");
                     } else {
                         // CEP pesquisado não foi encontrado.

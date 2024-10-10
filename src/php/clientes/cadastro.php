@@ -333,10 +333,10 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                           <div class="input-group">
                             <input type="text" name="cep_pj" id="cepJuridica" placeholder="CEP">
-                        </div>   
-
                             <span class="highlight"></span>
                             <label>CEP</label>
+                        </div>   
+
                     </div>
 
                     <div class="separar">
@@ -360,13 +360,13 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                         </div>
 
                         <div class="input-group">
-                            <input type="text" name="complemento_pj" placeholder="ComplementoJuridica">
+                            <input type="text" name="complemento_pj" placeholder="Complemento">
                             <span class="highlight"></span>
                             <label>Complemento</label>
                         </div>
 
                         <div class="input-group">
-                            <input type="text" name="referencia_pj" placeholder="referenciaJuridica">
+                            <input type="text" name="referencia_pj" placeholder="Referência">
                             <span class="highlight"></span>
                             <label>Ponto de referência</label>
                             
