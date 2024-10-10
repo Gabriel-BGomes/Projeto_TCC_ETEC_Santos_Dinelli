@@ -61,11 +61,9 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                 <ul class="menu-fixo"> <!-- começo dos itens do menu-->
 
-                    <li><a class="link" href="../../pages/home.php">ÍNICIO</a></li>
                     <li><a class="link" href="../../pages/agenda.php">AGENDA</a></li>
                     <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
                     <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
-                    <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
 
                 </ul>
 
@@ -159,22 +157,27 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     echo "<p class='error-message' style='color: red;'>Por favor, preencha todos os campos obrigatórios!</p>";
                 } else {
                     // QUERY para cadastrar pessoa jurídica no banco de dados
-                    $query_pessoa = "INSERT INTO clientes (tipo_pessoa, razao_social, email_cliente_pj, cnpj, telefone_pj, endereco_pj, cep_pj, referencia_pj) 
-                                    VALUES (:tipo_pessoa, :razao_social, :email_cliente_pj, :cnpj, :telefone_pj, :endereco_pj, :cep_pj, :referencia_pj)";
+                    $query_pessoa = "INSERT INTO clientes (tipo_pessoa, razao_social, email_cliente_pj, cnpj, telefone_pj, endereco_pj, cep_pj, referencia_pj, bairro_pj, cidade_pj, complemento_pj) 
+                    VALUES 
+                    (:tipo_pessoa, :razao_social, :email_cliente_pj, :cnpj, :telefone_pj, :endereco_pj, :cep_pj, :referencia_pj, :bairro_pj, :cidade_pj, :complemento_pj)";
+
 
                     // Preparar a QUERY com PDO
                     $cad_pessoa = $conn->prepare($query_pessoa);
 
-                    // Substituir os valores da QUERY pelos valores que vem do formulário
+                  // Substituir os valores da QUERY pelos valores que vem do formulário
                     $cad_pessoa->bindParam(':tipo_pessoa', $dados['tipo_pessoa']);
                     $cad_pessoa->bindParam(':razao_social', $dados['razao_social']);
                     $cad_pessoa->bindParam(':email_cliente_pj', $dados['email_cliente_pj']);
                     $cad_pessoa->bindParam(':cnpj', $dados['cnpj']);
-                    $cad_pessoa->bindParam(':telefone_pj', $dados['telefone_pj']); // Verifique se este nome está correto
+                    $cad_pessoa->bindParam(':telefone_pj', $dados['telefone_pj']);  
                     $cad_pessoa->bindParam(':endereco_pj', $dados['endereco_pj']);
-                    $cad_pessoa->bindParam(':cep_pj', $dados['cep_pj']); // Verifique se o nome do campo está correto
+                    $cad_pessoa->bindParam(':cep_pj', $dados['cep_pj']); 
+                    $cad_pessoa->bindParam(':bairro_pj', $dados['bairro_pj']); 
+                    $cad_pessoa->bindParam(':cidade_pj', $dados['cidade_pj']); 
+                    $cad_pessoa->bindParam(':complemento_pj', $dados['complemento_pj']);
                     $cad_pessoa->bindParam(':referencia_pj', $dados['referencia_pj']);
-                    
+
                     // Executar a QUERY com PDO
                     try {
                         $cad_pessoa->execute();
@@ -322,21 +325,21 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                             <label>CNPJ</label>  
                         </div>
 
-                    </div>
-
-                    <div class="separar">
-
                         <div class="input-group">
                             <input type="text" name="telefone_pj" id="telefoneJuridica" maxlength="12" placeholder="Telefone">
                             <span class="highlight"></span>
                             <label>Telefone</label>
                         </div>
 
-                        <div class="input-group">
-                            <input type="text" name="cepJuridica" id="cepJuridica" placeholder="CEP">
+                          <div class="input-group">
+                            <input type="text" name="cep_pj" id="cepJuridica" placeholder="CEP">
+                        </div>   
+
                             <span class="highlight"></span>
                             <label>CEP</label>
-                        </div>
+                    </div>
+
+                    <div class="separar">
 
                         <div class="input-group">
                             <input type="text" name="endereco_pj" id="ruaJuridica" placeholder="Ex: rua abacaxi listrado 112">
@@ -344,12 +347,46 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                             <label>Endereço completo</label>
                         </div>
 
-                    </div>
+                        <div class="input-group">
+                            <input type="text" name="bairro_pj" id="bairroJuridica" placeholder="Bairro">
+                            <span class="highlight"></span>
+                            <label>Bairro</label>
+                        </div>
 
-                    <div class="campo especial">
-                        <label>Ponto de referência</label>
-                        <input type="text" name="referencia_pj" placeholder="Ponto de referência">
-                    </div>
+                        <div class="input-group">
+                            <input type="text" name="cidade_pj" id="cidadeJuridica" placeholder="Cidade">
+                            <span class="highlight"></span>
+                            <label>Cidade</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" name="complemento_pj" placeholder="ComplementoJuridica">
+                            <span class="highlight"></span>
+                            <label>Complemento</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" name="referencia_pj" placeholder="referenciaJuridica">
+                            <span class="highlight"></span>
+                            <label>Ponto de referência</label>
+                            
+                        </div>
+
+                        </div>
+
+                        <div class="campo especial">
+                        <label class="label-especial">Forma de Pagamento</label>
+
+                        <select id="forma_pagamento">
+                            <option value="">Selecione</option>
+                            <option value="debito">Débito</option>
+                            <option value="credito">Crédito</option>
+                            <option value="boleto">Boleto</option>
+                            <option value="pix">Pix</option>
+                            <option value="dinheiro">Dinheiro</option>
+                        </select>
+
+                        </div>  
                 
                 </div> <!-- fim do form para pessoa juridica -->
 
