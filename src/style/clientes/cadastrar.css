@@ -13,7 +13,7 @@ h1 {
 
 .container {
     width: 100vw;
-    height: calc(100vh - 100px);
+    height: 100vh;
     display: flex;
     justify-content: center;
 }
@@ -201,10 +201,11 @@ select {
 @media (max-height: 700px) {
 
     .container {
-        margin-top: -40px;
+        margin-top: -10px;
     }
 
     .form {
+        height: 80vh;
         margin-bottom: 5px;
     }
 
@@ -213,21 +214,14 @@ select {
     }
 
     .tipo-pessoa {
-        margin-top: 5px;
         height: 50px;
         font-size: 17px;
     }
 
-    input[type="text"],
-    input[type="email"],
-    input[type="date"],
-    select {
-        height: 25px;
-    }
 
     input[type="submit"] {
-        margin-top: -100px;
-        width: 150px;
+        margin-top: 50px;
+        width: 200px;
         height: 50px;
     }
 
@@ -240,7 +234,7 @@ select {
     }
 
     .label-especial {
-        margin-top: -10px;
+        margin-top: 20px;
     }
 
 }
