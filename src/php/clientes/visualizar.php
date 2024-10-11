@@ -114,7 +114,7 @@ $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo htmlspecialchars($cliente['bairro_pj'] ?? ''); ?></td>
                         <td><?php echo htmlspecialchars($cliente['cep_pj'] ?? ''); ?></td>
                         <td><?php echo htmlspecialchars($cliente['complemento_pj'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['forma_pagamento'] ?? ''); ?></td>
+                        <td><?php echo htmlspecialchars($cliente['forma_pagamento_pj'] ?? ''); ?></td>
                     </tr>
                 <?php endif; ?>
             <?php endforeach; ?>
