@@ -280,8 +280,10 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="cadastrarModalLabel">Cadastrar o Serviço</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+                </div>                   
+
                 <div class="modal-body">
+
                     <span id="msgCadEvento"></span>
                     <form method="POST" id="formCadEvento">
                         <div class="row mb-3">
@@ -297,14 +299,6 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                                 </select>
                             </div>
                         </div>
-                    <div class="row mb-3">
-                        <label for="cad_title" class="col-sm-2 col-form-label">Nome</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="cad_title" class="form-control" id="cad_title" placeholder="Nome do Cliente">
-                        </div>
-                    </div>
-
-                <div class="modal-body">
 
                     <span id="msgCadEvento"></span>
 
@@ -312,17 +306,17 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                         <div class="row mb-3">
 
-                            <label for="cad_title" class="col-sm-2 col-form-label">Cliente</label>
+                            <label for="cad_title" class="col-sm-2 col-form-label">Serviço</label>
 
                             <div class="col-sm-10">
-                                <input type="text" name="cad_title" class="form-control" id="cad_title" placeholder="Nome do Cliente">
+                                <input type="text" name="cad_title" class="form-control" id="cad_title" placeholder="Nome do Serviço">
                             </div>
 
                         </div>
 
                         <div class="row mb-3">
 
-                            <label for="cad_servico" class="col-sm-2 col-form-label">Serviço</label>
+                            <label for="cad_servico" class="col-sm-2 col-form-label">Tipo Serviço</label>
 
                             <div class="col-sm-10">
 

@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
         formCadEvento.addEventListener("submit", async (e) => {
             e.preventDefault();
             const dadosForm = new FormData(formCadEvento);
-            const dados = await fetch("cadastrar_evento.php", {
+            const dados = await fetch("../php/agenda/cadastrar_evento.php", {
                 method: "POST",
                 body: dadosForm
             });
