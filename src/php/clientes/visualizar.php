@@ -64,7 +64,7 @@ function getClientEvents($conn, $clientId) {
 
             <ul class="menu-fixo"> <!-- começo dos itens do menu-->
 
-                <li><a class="link" href="../../pages/agenda.php">AGENDA</a></li>
+                <li><a class="link" style="margin-left: 18px;" href="../../pages/agenda.php">AGENDA</a></li>
                 <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
                 <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
 

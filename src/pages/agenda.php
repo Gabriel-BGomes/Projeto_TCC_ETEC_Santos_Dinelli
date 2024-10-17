@@ -116,8 +116,8 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
     </header> <!-- fim header fixo -->
 
     <div class="container">
-    <span id="msg" class="msg"></span>
-    <div id='calendar' class="calendario"></div>
+        <span id="msg" class="msg"></span>
+        <div id='calendar' class="calendario"></div> <!-- calendário -->
     </div>
 
     <!-- janela vizu -->
