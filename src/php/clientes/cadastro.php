@@ -139,14 +139,13 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     try {
                         $cad_pessoa->execute();
                         if ($cad_pessoa->rowCount()) {
-                            echo "<p class='success-message'>Cliente cadastrado com sucesso!</p>";
+                            echo "<p id='successMessage' class='success-message'>Cliente cadastrado com sucesso!</p>";
                         } else {
-                            echo "<p class='error-message'>Erro: Cliente não cadastrado com sucesso!</p>";
+                            echo "<p id='errorMessage' class='error-message'>Erro: Cliente não cadastrado com sucesso!</p>";
                         }
-
                         
                     } catch (PDOException $e) {
-                        echo "Erro ao cadastrar: " . $e->getMessage();
+                        echo "<p id='errorMessage' class='error-message'>Erro ao cadastrar: " . $e->getMessage() . "</p>";
                     }
                 }
 
@@ -208,9 +207,9 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     </h1>
 
                     <div class="radio">
-                        <input type="radio" name="tipo_pessoa"  id="tipo_pessoa_fisica" class="radin" value="1" onchange="formPessoaFisica();">
+                        <input type="radio" name="tipo_pessoa"  id="tipo_pessoa_fisica" class="radin" value="1" onchange="mostrarFormulario();">
                         <p class="input-radio" id="radio">Pessoa Física</p>
-                        <input type="radio" name="tipo_pessoa"  id="tipo_pessoa_juridica" class="radin" value="2" onchange="formPessoaJuridica();">
+                        <input type="radio" name="tipo_pessoa"  id="tipo_pessoa_juridica" class="radin" value="2" onchange="mostrarFormulario();">
                         <p class="input-radio" id="radio">Pessoa Jurídica</p>
                     </div>
 
@@ -220,58 +219,68 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     
                     <div class="separar">
                         
-                        <div class="campo">
+                        <div class="input-group">
+                            <input type="text" name="nome_cliente" placeholder="Nome completo"> 
+                            <span class="highlight"></span>
                             <label>Nome</label>
-                            <input type="text" name="nome_cliente" placeholder="Nome completo">
                         </div>
 
-                        <div class="campo">
-                            <label>E-mail</label>
+                        <div class="input-group">
                             <input type="email" name="email_cliente" placeholder="E-mail">
+                            <span class="highlight"></span>
+                            <label>E-mail</label>
                         </div>
 
-                        <div class="campo">
-                            <label>CPF</label>
+                        <div class="input-group">
                             <input type="text" name="cpf_cliente" id="cpf" placeholder="CPF">
+                            <span class="highlight"></span>
+                            <label>CPF</label>
                         </div>
 
-                        <div class="campo">
-                            <label>Data de Nascimento</label>
+                        <div class="input-group">
                             <input type="date" name="data_nascimento" placeholder="Data de nascimento">
+                            <span class="highlight"></span>
+                            <label>Data de Nascimento</label>
                         </div>
 
-                        <div class="campo">
-                            <label>Telefone</label>
+                        <div class="input-group">
                             <input type="text" name="telefone" id="telefoneFisica" placeholder="Telefone">
+                            <span class="highlight"></span>
+                            <label>Telefone</label>
                         </div>
                    
                     </div>
 
                     <div class="separar">
 
-                        <div class="campo">
-                            <label>CEP</label>
+                        <div class="input-group">
                             <input type="text" name="cep" id="cepFisica" placeholder="CEP">
+                            <span class="highlight"></span>
+                            <label>CEP</label> 
                         </div>   
-                    
-                        <div class="campo">
-                            <label>Endereço Completo</label>
+                        
+                        <div class="input-group">
                             <input type="text" name="endereco" id="ruaFisica" placeholder="Ex: rua abacaxi listrado 112">
+                            <span class="highlight"></span>
+                            <label>Endereço Completo</label>
                         </div>
 
-                        <div class="campo">
-                            <label>Bairro</label>
+                        <div class="input-group">
                             <input type="text" name="bairro" id="bairroFisica" placeholder="Bairro">
+                            <span class="highlight"></span>
+                            <label>Bairro</label>
                         </div>
 
-                        <div class="campo">
-                            <label>Cidade</label>
+                        <div class="input-group">
                             <input type="text" name="cidade" id="cidadeFisica" placeholder="Cidade">
+                            <span class="highlight"></span>
+                            <label>Cidade</label>
                         </div>
 
-                        <div class="campo">
-                            <label>Complemento</label>
+                        <div class="input-group">
                             <input type="text" name="complemento" placeholder="Complemento">
+                            <span class="highlight"></span>
+                            <label>Complemento</label>
                         </div>
 
                     </div>
@@ -297,58 +306,69 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                     <div class="separar">
 
-                        <div class="campo">
-                            <label>Razão Social</label>
+                        <div class="input-group slide-down">
                             <input type="text" name="razao_social" placeholder="Razão social">
+                            <span class="highlight"></span>
+                            <label>Razão Social</label>
                         </div>  
 
-                        <div class="campo">
-                            <label>E-mail</label>
+                        <div class="input-group">
                             <input type="email" name="email_cliente_pj" placeholder="E-mail">
+                            <span class="highlight"></span>
+                            <label>E-mail</label>
                         </div>
 
-                        <div class="campo">
-                            <label>CNPJ</label>
+                        <div class="input-group">
                             <input type="text" name="cnpj" id="cnpj" placeholder="CNPJ">
+                            <span class="highlight"></span>
+                            <label>CNPJ</label>  
                         </div>
 
-                        <div class="campo">
-                            <label>Telefone</label>
+                        <div class="input-group">
                             <input type="text" name="telefone_pj" id="telefoneJuridica" maxlength="12" placeholder="Telefone">
+                            <span class="highlight"></span>
+                            <label>Telefone</label>
                         </div>
 
-                          <div class="campo">
-                            <label>CEP</label>
+                          <div class="input-group">
                             <input type="text" name="cep_pj" id="cepJuridica" placeholder="CEP">
+                            <span class="highlight"></span>
+                            <label>CEP</label>
                         </div>   
 
                     </div>
 
                     <div class="separar">
 
-                        <div class="campo">
-                            <label>Endereço Completo</label>
+                        <div class="input-group">
                             <input type="text" name="endereco_pj" id="ruaJuridica" placeholder="Ex: rua abacaxi listrado 112">
+                            <span class="highlight"></span>
+                            <label>Endereço completo</label>
                         </div>
 
-                        <div class="campo">
-                            <label>Bairro</label>
+                        <div class="input-group">
                             <input type="text" name="bairro_pj" id="bairroJuridica" placeholder="Bairro">
+                            <span class="highlight"></span>
+                            <label>Bairro</label>
                         </div>
 
-                        <div class="campo">
-                            <label>Cidade</label>
+                        <div class="input-group">
                             <input type="text" name="cidade_pj" id="cidadeJuridica" placeholder="Cidade">
+                            <span class="highlight"></span>
+                            <label>Cidade</label>
                         </div>
 
-                        <div class="campo">
+                        <div class="input-group">
+                            <input type="text" name="complemento_pj" placeholder="Complemento">
+                            <span class="highlight"></span>
                             <label>Complemento</label>
-                            <input type="text" name="complemento_pj" placeholder="ComplementoJuridica">
                         </div>
 
-                        <div class="campo">
+                        <div class="input-group">
+                            <input type="text" name="referencia_pj" placeholder="Referência">
+                            <span class="highlight"></span>
                             <label>Ponto de referência</label>
-                            <input type="text" name="referencia_pj" placeholder="referenciaJuridica">
+                            
                         </div>
 
                         </div>
