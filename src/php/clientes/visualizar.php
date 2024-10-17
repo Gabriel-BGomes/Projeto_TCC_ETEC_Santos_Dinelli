@@ -1,17 +1,13 @@
 <?php
-// Iniciar a sessão
 session_start();
 
-// Configurações do banco de dados
 $host = "localhost";
-$dbname = "santos_dinelli"; // Substitua pelo nome do seu banco de dados
-$user = "root"; // Substitua pelo seu usuário do banco de dados
-$pass = ""; // Substitua pela sua senha do banco de dados
+$dbname = "santos_dinelli";
+$user = "root";
+$pass = "";
 
 try {
-    // Criar a conexão com o banco de dados usando PDO
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-    // Definir o modo de erro do PDO como exceção
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     echo "Erro na conexão: " . $e->getMessage();
@@ -23,104 +19,211 @@ $query = "SELECT * FROM clientes";
 $stmt = $conn->prepare($query);
 $stmt->execute();
 $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Função para buscar eventos de um cliente
+function getClientEvents($conn, $clientId) {
+    $query = "SELECT * FROM events WHERE id_cliente = :id_cliente";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':id_cliente', $clientId);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 ?>
+
+<style>
+
+    /* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #007bff;
+    font-size: 2em;
+    margin-top: 40px;
+}
+
+/* Estilos para a lista de clientes */
+.cliente {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cliente h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.cliente p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+/* Estilos para a tabela de eventos */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+}
+
+td {
+    background-color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilos para o rodapé de eventos */
+h4 {
+    color: #007bff;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+/* Adicionando um efeito hover */
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+</style>
+
 
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../style/clientes/visualizar.css">
     <link rel="shortcut icon" href="../../images/icons/logo.ico" type="image/x-icon">
     <title>Visualizar Clientes</title>
 </head>
-
 <body>
-    <!-- tem que colocar o header fiquei com preguiça -->
-    <hedader>
+    
+<button onclick="goBack()" class="back-button">Voltar</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+    <header>
         <h1>Clientes Cadastrados</h1>
-    </hedader>
+    </header>
 
-    <!-- pessoa fisica pra vc mexer nao criei div se vira -->
     <h2>Pessoas Físicas</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>CPF</th>
-                <th>Telefone</th>
-                <th>Endereço</th>
-                <th>Cidade</th>
-                <th>Bairro</th>
-                <th>CEP</th>
-                <th>Complemento</th>
-                <th>Forma de Pagamento</th>
-            </tr>
-        </thead>
+    <?php foreach ($clientes as $cliente): ?>
+        <?php if ($cliente['tipo_pessoa'] == 1): ?>
+            <div class="cliente">
+                <h3><?php echo htmlspecialchars($cliente['nome_cliente'] ?? ''); ?></h3>
+                <p>Email: <?php echo htmlspecialchars($cliente['email_cliente'] ?? ''); ?></p>
+                <p>CPF: <?php echo htmlspecialchars($cliente['cpf_cliente'] ?? ''); ?></p>
+                <!-- Adicione outros campos conforme necessário -->
 
-        <!-- parte do banco-->
-        <tbody>
-            <?php foreach ($clientes as $cliente): ?>
-                <?php if ($cliente['tipo_pessoa'] == 1): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($cliente['id'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['nome_cliente'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['email_cliente'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['cpf_cliente'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['telefone'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['endereco'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['cidade'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['bairro'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['cep'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['complemento'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['forma_pagamento'] ?? ''); ?></td>
-                    </tr>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-                    <!-- pessoa juridica pra vc mexer nao criei div se vira -->
+                <h4>Eventos Agendados</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Data Início</th>
+                            <th>Data Fim</th>
+                            <th>Serviço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        $events = getClientEvents($conn, $cliente['id']);
+                        foreach ($events as $event): 
+                        ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($event['title']); ?></td>
+                                <td><?php echo htmlspecialchars($event['start']); ?></td>
+                                <td><?php echo htmlspecialchars($event['end']); ?></td>
+                                <td><?php echo htmlspecialchars($event['servico']); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
+
     <h2>Pessoas Jurídicas</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Razão Social</th>
-                <th>Email</th>
-                <th>CNPJ</th>
-                <th>Telefone</th>
-                <th>Endereço</th>
-                <th>Cidade</th>
-                <th>Bairro</th>
-                <th>CEP</th>
-                <th>Complemento</th>
-                <th>Forma de Pagamento</th>
-            </tr>
-        </thead>
-        <!-- parte do banco-->
-        <tbody>
-            <?php foreach ($clientes as $cliente): ?>
-                <?php if ($cliente['tipo_pessoa'] == 2): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($cliente['id'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['razao_social'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['email_cliente_pj'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['cnpj'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['telefone_pj'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['endereco_pj'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['cidade_pj'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['bairro_pj'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['cep_pj'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['complemento_pj'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['forma_pagamento_pj'] ?? ''); ?></td>
-                    </tr>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-</body>
+    <?php foreach ($clientes as $cliente): ?>
+        <?php if ($cliente['tipo_pessoa'] == 2): ?>
+            <div class="cliente">
+                <h3><?php echo htmlspecialchars($cliente['razao_social'] ?? ''); ?></h3>
+                <p>Email: <?php echo htmlspecialchars($cliente['email_cliente_pj'] ?? ''); ?></p>
+                <p>CNPJ: <?php echo htmlspecialchars($cliente['cnpj'] ?? ''); ?></p>
+                <!-- Adicione outros campos conforme necessário -->
 
+                <h4>Eventos Agendados</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Data Início</th>
+                            <th>Data Fim</th>
+                            <th>Serviço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        $events = getClientEvents($conn, $cliente['id']);
+                        foreach ($events as $event): 
+                        ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($event['title']); ?></td>
+                                <td><?php echo htmlspecialchars($event['start']); ?></td>
+                                <td><?php echo htmlspecialchars($event['end']); ?></td>
+                                <td><?php echo htmlspecialchars($event['servico']); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</body>
 </html>
-<!-- acabou -->

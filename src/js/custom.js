@@ -82,9 +82,9 @@ document.addEventListener('DOMContentLoaded', function () {
             // Abrir a janela modal visualizar
             visualizarModal.show();
         },
+
         // Abrir a janela modal cadastrar quando clicar sobre o dia no calendário
         select: function (info) {
-
             // Chamar a função para converter a data selecionada para ISO8601 e enviar para o formulário
             document.getElementById("cad_start").value = converterData(info.start);
             document.getElementById("cad_end").value = converterData(info.start);
@@ -99,132 +99,62 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Converter a data
     function converterData(data) {
-
-        // Converter a string em um objeto Date
         const dataObj = new Date(data);
-
-        // Extrair o ano da data
         const ano = dataObj.getFullYear();
-
-        // Obter o mês, mês começa de 0, padStart adiciona zeros à esquerda para garantir que o mês tenha dígitos
         const mes = String(dataObj.getMonth() + 1).padStart(2, '0');
-
-        // Obter o dia do mês, padStart adiciona zeros à esquerda para garantir que o dia tenha dois dígitos
         const dia = String(dataObj.getDate()).padStart(2, '0');
-
-        // Obter a hora, padStart adiciona zeros à esquerda para garantir que a hora tenha dois dígitos
         const hora = String(dataObj.getHours()).padStart(2, '0');
-
-        // Obter minuto, padStart adiciona zeros à esquerda para garantir que o minuto tenha dois dígitos
         const minuto = String(dataObj.getMinutes()).padStart(2, '0');
-
-        // Retornar a data
         return `${ano}-${mes}-${dia} ${hora}:${minuto}`;
     }
 
     // Receber o SELETOR do formulário cadastrar evento
     const formCadEvento = document.getElementById("formCadEvento");
 
-    // Receber o SELETOR da mensagem genérica
-    const msg = document.getElementById("msg");
-
-    // Receber o SELETOR da mensagem cadastrar evento
-    const msgCadEvento = document.getElementById("msgCadEvento");
-
-    // Receber o SELETOR do botão da janela modal cadastrar evento
-    const btnCadEvento = document.getElementById("btnCadEvento");
-
     // Somente acessa o IF quando existir o SELETOR "formCadEvento"
     if (formCadEvento) {
-
-        // Aguardar o usuario clicar no botao cadastrar
         formCadEvento.addEventListener("submit", async (e) => {
-
-            // Não permitir a atualização da pagina
             e.preventDefault();
-
-            // Apresentar no botão o texto salvando
-            btnCadEvento.value = "Salvando...";
-
-            // Receber os dados do formulário
             const dadosForm = new FormData(formCadEvento);
-
-            // Chamar o arquivo PHP responsável em salvar o evento
-            const dados = await fetch("../php/agenda/cadastrar_evento.php", {
+            const dados = await fetch("cadastrar_evento.php", {
                 method: "POST",
                 body: dadosForm
             });
-
-            // Realizar a leitura dos dados retornados pelo PHP
             const resposta = await dados.json();
-
-            // Acessa o IF quando não cadastrar com sucesso
-            if (!resposta['status']) {
-
-                // Enviar a mensagem para o HTML
-                msgCadEvento.innerHTML = `<div class="alert alert-danger" role="alert">${resposta['msg']}</div>`;
-
-            } else {
-
-                // Enviar a mensagem para o HTML
-                msg.innerHTML = `<div class="alert alert-success" role="alert">${resposta['msg']}</div>`;
-
-                // Enviar a mensagem para o HTML
-                msgCadEvento.innerHTML = "";
-
-                // Limpar o formulário
-                formCadEvento.reset();
-
-                // Criar o objeto com os dados do evento
-                const novoEvento = {
+            if (resposta['status']) {
+                document.getElementById("msgCadEvento").innerHTML = resposta['msg'];
+                document.getElementById("cad_id_cliente").value = "";
+                document.getElementById("cad_title").value = "";
+                document.getElementById("cad_servico").value = "";
+                document.getElementById("cad_obs").value = "";
+                document.getElementById("cad_start").value = "";
+                document.getElementById("cad_end").value = "";
+                document.getElementById("cad_color").value = "";
+                document.getElementById("msgCadEvento").innerHTML = "";
+                calendar.addEvent({
                     id: resposta['id'],
                     title: resposta['title'],
                     color: resposta['color'],
                     start: resposta['start'],
                     end: resposta['end'],
-                    extendedProps: {
-                        obs: resposta['obs'],
-                        servico: resposta['servico']
-                    }
-                }
-
-                // Adicionar o evento ao calendário
-                calendar.addEvent(novoEvento);
-
-                // Chamar a função para remover a mensagem após 3 segundo
-                removerMsg();
-
-                // Fechar a janela modal
+                    obs: resposta['obs'],
+                    servico: resposta['servico'],
+                    id_cliente: resposta['id_cliente']
+                });
                 cadastrarModal.hide();
+            } else {
+                document.getElementById("msgCadEvento").innerHTML = resposta['msg'];
             }
-
-            // Apresentar no botão o texto Cadastrar
-            btnCadEvento.value = "Cadastrar";
-
         });
-    }
-
-    // Função para remover a mensagem após 3 segundo
-    function removerMsg() {
-        setTimeout(() => {
-            document.getElementById('msg').innerHTML = "";
-        }, 3000)
     }
 
     // Receber o SELETOR ocultar detalhes do evento e apresentar o formulário editar evento
     const btnViewEditEvento = document.getElementById("btnViewEditEvento");
 
-    // Somente acessa o IF quando existir o SELETOR "btnViewEditEvento"
     if (btnViewEditEvento) {
-
-        // Aguardar o usuario clicar no botao editar
         btnViewEditEvento.addEventListener("click", () => {
-
-            // Ocultar os detalhes do evento
             document.getElementById("visualizarEvento").style.display = "none";
             document.getElementById("visualizarModalLabel").style.display = "none";
-
-            // Apresentar o formulário editar do evento
             document.getElementById("editarEvento").style.display = "block";
             document.getElementById("editarModalLabel").style.display = "block";
         });
@@ -233,17 +163,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Receber o SELETOR ocultar formulário editar evento e apresentar o detalhes do evento
     const btnViewEvento = document.getElementById("btnViewEvento");
 
-    // Somente acessa o IF quando existir o SELETOR "btnViewEvento"
     if (btnViewEvento) {
-
-        // Aguardar o usuario clicar no botao editar
         btnViewEvento.addEventListener("click", () => {
-
-            // Apresentar os detalhes do evento
             document.getElementById("visualizarEvento").style.display = "block";
             document.getElementById("visualizarModalLabel").style.display = "block";
-
-            // Ocultar o formulário editar do evento
             document.getElementById("editarEvento").style.display = "none";
             document.getElementById("editarModalLabel").style.display = "none";
         });
@@ -252,136 +175,100 @@ document.addEventListener('DOMContentLoaded', function () {
     // Receber o SELETOR do formulário editar evento
     const formEditEvento = document.getElementById("formEditEvento");
 
-    // Receber o SELETOR da mensagem editar evento 
     const msgEditEvento = document.getElementById("msgEditEvento");
-
-    // Receber o SELETOR do botão editar evento
     const btnEditEvento = document.getElementById("btnEditEvento");
 
-    // Somente acessa o IF quando existir o SELETOR "formEditEvento"
     if (formEditEvento) {
-
-        // Aguardar o usuario clicar no botao editar
         formEditEvento.addEventListener("submit", async (e) => {
-
-            // Não permitir a atualização da pagina
             e.preventDefault();
-
-            // Apresentar no botão o texto salvando
             btnEditEvento.value = "Salvando...";
-
-            // Receber os dados do formulário
             const dadosForm = new FormData(formEditEvento);
-
-            // Chamar o arquivo PHP responsável em editar o evento
             const dados = await fetch("../php/agenda/editar_evento.php", {
                 method: "POST",
                 body: dadosForm
             });
-
-            // Realizar a leitura dos dados retornados pelo PHP
             const resposta = await dados.json();
-
-            // Acessa o IF quando não editar com sucesso
             if (!resposta['status']) {
-
-                // Enviar a mensagem para o HTML
                 msgEditEvento.innerHTML = `<div class="alert alert-danger" role="alert">${resposta['msg']}</div>`;
-
             } else {
-
-                // Enviar a mensagem para o HTML
                 msg.innerHTML = `<div class="alert alert-success" role="alert">${resposta['msg']}</div>`;
-
-                // Enviar a mensagem para o HTML
                 msgEditEvento.innerHTML = "";
-
-                // Limpar o formulário
                 formEditEvento.reset();
-
-                // Recuperar o evento no FullCalendar pelo id 
                 const eventoExiste = calendar.getEventById(resposta['id']);
-
-                // Verificar se encontrou o evento no FullCalendar pelo id
                 if (eventoExiste) {
-
-                    // Atualizar os atributos do evento com os novos valores do banco de dados
                     eventoExiste.setProp('title', resposta['title']);
                     eventoExiste.setProp('color', resposta['color']);
                     eventoExiste.setExtendedProp('obs', resposta['obs']);
                     eventoExiste.setExtendedProp('servico', resposta['servico']);
                     eventoExiste.setStart(resposta['start']);
                     eventoExiste.setEnd(resposta['end']);
+
+                    eventoExiste.setEnd(resposta['end']);
                 }
 
-                // Chamar a função para remover a mensagem após 3 segundo
+                // Chamar a função para remover a mensagem após 3 segundos
                 removerMsg();
 
                 // Fechar a janela modal
                 visualizarModal.hide();
             }
 
-            // Apresentar no botão o texto salvar
+            // Apresentar no botão o texto "Salvar"
             btnEditEvento.value = "Salvar";
         });
+    }
+
+    // Função para remover a mensagem após 3 segundos
+    function removerMsg() {
+        setTimeout(() => {
+            document.getElementById('msg').innerHTML = "";
+        }, 3000);
     }
 
     // Receber o SELETOR apagar evento
     const btnApagarEvento = document.getElementById("btnApagarEvento");
 
-    // Somente acessa o IF quando existir o SELETOR "formEditEvento"
     if (btnApagarEvento) {
-
-        // Aguardar o usuario clicar no botao apagar
+        // Aguardar o usuário clicar no botão apagar
         btnApagarEvento.addEventListener("click", async () => {
-
             // Exibir uma caixa de diálogo de confirmação
             const confirmacao = window.confirm("Tem certeza de que deseja apagar este evento?");
 
             // Verificar se o usuário confirmou
             if (confirmacao) {
-                    
                 // Receber o id do evento
                 var idEvento = document.getElementById("visualizar_id").textContent;
 
-                // Chamar o arquivo PHP responsável apagar o evento
+                // Chamar o arquivo PHP responsável por apagar o evento
                 const dados = await fetch("../php/agenda/apagar_evento.php?id=" + idEvento);
 
                 // Realizar a leitura dos dados retornados pelo PHP
                 const resposta = await dados.json();
 
-                // Acessa o IF quando não cadastrar com sucesso
-                if(!resposta['status']){
-
-                    // Enviar a mensagem para o HTML
+                // Acessa o IF quando não apagar com sucesso
+                if (!resposta['status']) {
                     msgViewEvento.innerHTML = `<div class="alert alert-danger" role="alert">${resposta['msg']}</div>`;
                 } else {
-
-                    // Enviar a mensagem para o HTML
                     msg.innerHTML = `<div class="alert alert-success" role="alert">${resposta['msg']}</div>`;
-
-                    // Enviar a mensagem para o HTML
                     msgViewEvento.innerHTML = "";
 
                     // Recuperar o evento no FullCalendar
                     const eventoExisteRemover = calendar.getEventById(idEvento);
 
                     // Verificar se encontrou o evento no FullCalendar
-                    if(eventoExisteRemover){
-
+                    if (eventoExisteRemover) {
                         // Remover o evento do calendário
                         eventoExisteRemover.remove();
                     }
 
-                    // Chamar a função para remover a mensagem após 3 segundo
+                    // Chamar a função para remover a mensagem após 3 segundos
                     removerMsg();
 
                     // Fechar a janela modal
                     visualizarModal.hide();
-
                 }
             }
         });
-
     }
+
 });
