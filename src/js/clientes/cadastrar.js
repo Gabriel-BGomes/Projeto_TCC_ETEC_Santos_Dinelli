@@ -1,171 +1,142 @@
-// Função para carregar os campos para cadastrar pessoa física
-function formPessoaFisica() {
-
-    document.getElementById("titulo").style.color = '#ffffff'
-    document.getElementById("form").style.backgroundColor = '#ffffff'
-    document.getElementById("tipo-pessoa").style.background = 'linear-gradient(135deg, #228d02, #145400)'
-
-    const elementos = document.querySelectorAll('.input-radio');
-    elementos.forEach(elemento => {
-        elemento.style.color = 'white';
+// Função para mostrar o formulário com animação
+function mostrarFormulario(formId) {
+    // Esconde todos os formulários
+    document.querySelectorAll('#form-pessoa-fisica, #form-pessoa-juridica').forEach(form => {
+        if (form) {
+            form.classList.remove('slide-down');
+            form.style.display = 'none';
+        }
     });
 
-    // Apresentar o título cadastrar pessoa física
-    document.getElementById("titulo-pessoa-fisica").style.display = 'flex';
-    document.getElementById("titulo-pessoa-juridica").style.display = 'none';
-
-    // Apresentar o formulário cadastrar pessoa física
-    document.getElementById("form-pessoa-fisica").style.display = 'flex';
-    document.getElementById("form-pessoa-juridica").style.display = 'none';
-
-    // Carregar o botão cadastrar após o usuário selecionar o tipo de formulário pessoa física ou jurídica
-    document.getElementById("form-btn-cadastrar").style.display = 'block';
+    // Mostra o formulário selecionado
+    const formSelecionado = document.getElementById(formId);
+    if (formSelecionado) {
+        formSelecionado.style.display = 'flex';
+        formSelecionado.style.backgroundColor = 'white';
+        setTimeout(() => {
+            formSelecionado.classList.add('slide-down');
+        }, 10);
     }
 
-    // Função para carregar os campos para cadastrar pessoa jurídica
-    function formPessoaJuridica() {
-
-    document.getElementById("titulo").style.color = '#ffffff'
-    document.getElementById("form").style.backgroundColor = '#ffffff'
-    document.getElementById("tipo-pessoa").style.background = 'linear-gradient(135deg, #228d02, #145400)'
-
-    const elementos = document.querySelectorAll('.input-radio');
-    elementos.forEach(elemento => {
-        elemento.style.color = 'white';
-    });
-
-    // Apresentar o título cadastrar pessoa jurídica
-    document.getElementById("titulo-pessoa-juridica").style.display = 'flex';
-    document.getElementById("titulo-pessoa-fisica").style.display = 'none';
-
-    // Apresentar o formulário cadastrar pessoa jurídica
-    document.getElementById("form-pessoa-fisica").style.display = 'none';
-    document.getElementById("form-pessoa-juridica").style.display = 'flex';
-
-    // Carregar o botão cadastrar após o usuário selecionar o tipo de formulário pessoa física ou jurídica
-    document.getElementById("form-btn-cadastrar").style.display = 'block';
+    // Mostra o botão de cadastrar
+    const btnCadastrar = document.getElementById('form-btn-cadastrar');
+    if (btnCadastrar) {
+        btnCadastrar.classList.remove('slide-down');
+        btnCadastrar.style.display = 'block';
+        // Força um reflow antes de adicionar a classe de animação
+        void btnCadastrar.offsetWidth;
+        btnCadastrar.classList.add('slide-down');
+    }
 }
 
-// máscaras nos campos de pessoa física
-$('#cpf').mask('000.000.000-00', {reverse: true});
-$('#telefoneFisica').mask('(00) 0000-0000');
-$('#cepFisica').mask('00000-000');
-$('#cepJuridica').mask('00000-000');
-$('#cnpj').mask('00.000.000/0000-00', {reverse: true});
-$('#telefoneFisica').mask('(00) 00000-0000');
-$('#telefoneJuridica').mask('(00) 0000-0000');
-
-// Função para buscar endereço via CEP para Pessoa Física
-$(document).ready(function() {
-
-    function limpa_formulário_cep() {
-        $("#ruaFisica").val("");
-        $("#bairroFisica").val("");
-        $("#cidadeFisica").val("");
-    }
-    
-    // Quando o campo CEP de Pessoa Física perde o foco
-    $("#cepFisica").blur(function() {
-        console.log("Evento blur no CEP acionado");
-        var cep = $(this).val().replace(/\D/g, '');
-        console.log("CEP digitado:", cep);
-
-        if (cep !== "") {
-            var validacep = /^[0-9]{8}$/;
-            console.log("Validando CEP:", validacep.test(cep));
-
-            if(validacep.test(cep)) {
-                $("#ruaFisica").val("...");
-                $("#bairroFisica").val("...");
-                $("#cidadeFisica").val("...");
-                console.log("CEP válido. Consultando ViaCEP.");
-
-                $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
-                    console.log("Resposta ViaCEP:", dados);
-                    if (!("erro" in dados)) {
-                        // Atualiza os campos com os valores da consulta.
-                        $("#ruaFisica").val(dados.logradouro);
-                        $("#bairroFisica").val(dados.bairro);
-                        $("#cidadeFisica").val(dados.localidade);
-                        console.log("Endereço preenchido com sucesso.");
-                    } else {
-                        // CEP pesquisado não foi encontrado.
-                        limpa_formulário_cep();
-                        alert("CEP não encontrado.");
-                        console.log("CEP não encontrado.");
-                    }
-                }).fail(function() {
-                    // Erro na requisição.
-                    limpa_formulário_cep();
-                    alert("Erro ao consultar o CEP. Por favor, tente novamente.");
-                    console.log("Falha na requisição ViaCEP.");
-                });
-            } else {
-                // CEP é inválido.
-                limpa_formulário_cep();
-                alert("Formato de CEP inválido.");
-                console.log("Formato de CEP inválido.");
-            }
-        } else {
-            // CEP sem valor, limpa formulário.
-            limpa_formulário_cep();
-            console.log("CEP vazio. Formulário limpo.");
+function esconderFormulario() {
+    // Esconde todos os formulários
+    document.querySelectorAll('#form-pessoa-fisica, #form-pessoa-juridica').forEach(form => {
+        if (form) {
+            form.classList.remove('slide-down');
+            form.style.display = 'none';
         }
     });
+}
+
+// Adicione os event listeners quando o DOM estiver completamente carregado
+document.addEventListener('DOMContentLoaded', function() {
+    const tipoPessoaFisica = document.getElementById('tipo_pessoa_fisica');
+    const tipoPessoaJuridica = document.getElementById('tipo_pessoa_juridica');
+
+    if (tipoPessoaFisica) {
+        tipoPessoaFisica.addEventListener('change', function() {
+            mostrarFormulario('form-pessoa-fisica');
+        });
+    }
+
+    if (tipoPessoaJuridica) {
+        tipoPessoaJuridica.addEventListener('change', function() {
+            mostrarFormulario('form-pessoa-juridica');
+        });
+    }
+
+    // Inicializar as máscaras
+    if (jQuery().mask) {
+        $('#cpf').mask('000.000.000-00', {reverse: true});
+        $('#telefoneFisica').mask('(00) 00000-0000');
+        $('#cepFisica').mask('00000-000');
+        $('#cepJuridica').mask('00000-000');
+        $('#cnpj').mask('00.000.000/0000-00', {reverse: true});
+        $('#telefoneJuridica').mask('(00) 0000-0000');
+    }
+
+    const elementos = document.querySelectorAll('.input-radio');
+    elementos.forEach(elemento => {
+        elemento.style.color = 'white';
+    });
+
+    function showMessage(messageId) {
+        const message = document.getElementById(messageId);
+        if (message) {
+            message.style.display = 'block';
+            setTimeout(function() {
+                message.style.opacity = '0';
+                setTimeout(function() {
+                    message.style.display = 'none';
+                    message.style.opacity = '1';
+                }, 500);
+            }, 3000);
+        }
+    }
+
+    // Verifica se há uma mensagem de sucesso ou erro
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+
+    if (successMessage) {
+        showMessage('successMessage');
+    } else if (errorMessage) {
+        showMessage('errorMessage');
+    }
 });
 
-// Função para buscar endereço via CEP para Pessoa Jurídica
-$(document).ready(function() {
-
-    function limpa_formulário_cep() {
-        $("#ruaJuridica").val("");
-        $("#bairroJuridica").val("");
-        $("#cidadeJuridica").val("");
-    }
-    
-    // Quando o campo CEP de Pessoa Física perde o foco
-    $("#cepFisica").blur(function() {
+// Função para buscar endereço via CEP (comum para Pessoa Física e Jurídica)
+function buscarEnderecoPorCEP(cepInput, ruaInput, bairroInput, cidadeInput) {
+    $(cepInput).blur(function() {
         var cep = $(this).val().replace(/\D/g, '');
         if (cep !== "") {
             var validacep = /^[0-9]{8}$/;
-            console.log("Validando CEP:", validacep.test(cep));
-
             if(validacep.test(cep)) {
-                $("#ruaJuridica").val("...");
-                $("#bairroJuridica").val("...");
-                $("#cidadeJuridica").val("...");
-                console.log("CEP válido. Consultando ViaCEP.");
+                $(ruaInput).val("...");
+                $(bairroInput).val("...");
+                $(cidadeInput).val("...");
 
                 $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
-                    console.log("Resposta ViaCEP:", dados);
                     if (!("erro" in dados)) {
-                        // Atualiza os campos com os valores da consulta.
-                        $("#ruaJuridica").val(dados.logradouro);
-                        $("#bairroJuridica").val(dados.bairro);
-                        $("#cidadeJuridica").val(dados.localidade);
-                        console.log("Endereço preenchido com sucesso.");
+                        $(ruaInput).val(dados.logradouro);
+                        $(bairroInput).val(dados.bairro);
+                        $(cidadeInput).val(dados.localidade);
                     } else {
-                        // CEP pesquisado não foi encontrado.
-                        limpa_formulário_cep();
+                        limpaFormularioCEP(ruaInput, bairroInput, cidadeInput);
                         alert("CEP não encontrado.");
-                        console.log("CEP não encontrado.");
                     }
                 }).fail(function() {
-                    // Erro na requisição.
-                    limpa_formulário_cep();
+                    limpaFormularioCEP(ruaInput, bairroInput, cidadeInput);
                     alert("Erro ao consultar o CEP. Por favor, tente novamente.");
-                    console.log("Falha na requisição ViaCEP.");
                 });
             } else {
-                // CEP é inválido.
-                limpa_formulário_cep();
+                limpaFormularioCEP(ruaInput, bairroInput, cidadeInput);
                 alert("Formato de CEP inválido.");
-                console.log("Formato de CEP inválido.");
             }
         } else {
-            // CEP sem valor, limpa formulário.
-            limpa_formulário_cep();
-            console.log("CEP vazio. Formulário limpo.");
+            limpaFormularioCEP(ruaInput, bairroInput, cidadeInput);
         }
     });
+}
+
+function limpaFormularioCEP(ruaInput, bairroInput, cidadeInput) {
+    $(ruaInput).val("");
+    $(bairroInput).val("");
+    $(cidadeInput).val("");
+}
+
+$(document).ready(function() {
+    buscarEnderecoPorCEP("#cepFisica", "#ruaFisica", "#bairroFisica", "#cidadeFisica");
+    buscarEnderecoPorCEP("#cepJuridica", "#ruaJuridica", "#bairroJuridica", "#cidadeJuridica");
 });

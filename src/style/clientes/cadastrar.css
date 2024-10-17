@@ -2,7 +2,6 @@ body {
     background-color: #edece2; /* Cor de fundo clara semelhante ao da imagem */
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
 
@@ -13,7 +12,7 @@ h1 {
 
 .container {
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 60px);
     display: flex;
     justify-content: center;
 }
@@ -61,11 +60,10 @@ h1 {
 
 #form-pessoa-fisica, #form-pessoa-juridica{
     width: 100%;
-    height: 70vh;
+    height: 80vh;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    margin-top: -5px;
 }
 
 .campo {
@@ -129,8 +127,7 @@ h1 {
     width: 100%;
 }
 
-
- label {
+label {
     font-size: 20px;
     display: block;
     font-weight: bold;
@@ -202,6 +199,21 @@ select {
     height: 50px;
 }
 
+.slide-down {
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (max-height: 700px) {
 
     .container {
@@ -215,13 +227,19 @@ select {
 
     h1 {
         font-size: 30px;
+        color: white;
     }
 
     .tipo-pessoa {
+        display: flex;
+        background: linear-gradient(135deg, #228d02, #145400);
         height: 50px;
         font-size: 17px;
     }
 
+    #form-pessoa-fisica, #form-pessoa-juridica {
+        height: 90%;
+    }
 
     input[type="submit"] {
         margin-top: 20px;
@@ -238,7 +256,11 @@ select {
     }
 
     .label-especial {
-        margin-top: 20px;
+        margin-top: -20px;
+    }
+
+    #form-btn-cadastrar {
+        margin-top: -100px;
     }
 
 }

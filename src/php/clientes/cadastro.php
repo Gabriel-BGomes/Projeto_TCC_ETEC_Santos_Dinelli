@@ -139,14 +139,13 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     try {
                         $cad_pessoa->execute();
                         if ($cad_pessoa->rowCount()) {
-                            echo "<p class='success-message'>Cliente cadastrado com sucesso!</p>";
+                            echo "<p id='successMessage' class='success-message'>Cliente cadastrado com sucesso!</p>";
                         } else {
-                            echo "<p class='error-message'>Erro: Cliente não cadastrado com sucesso!</p>";
+                            echo "<p id='errorMessage' class='error-message'>Erro: Cliente não cadastrado com sucesso!</p>";
                         }
-
                         
                     } catch (PDOException $e) {
-                        echo "Erro ao cadastrar: " . $e->getMessage();
+                        echo "<p id='errorMessage' class='error-message'>Erro ao cadastrar: " . $e->getMessage() . "</p>";
                     }
                 }
 
@@ -208,9 +207,9 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     </h1>
 
                     <div class="radio">
-                        <input type="radio" name="tipo_pessoa"  id="tipo_pessoa_fisica" class="radin" value="1" onchange="formPessoaFisica();">
+                        <input type="radio" name="tipo_pessoa"  id="tipo_pessoa_fisica" class="radin" value="1" onchange="mostrarFormulario();">
                         <p class="input-radio" id="radio">Pessoa Física</p>
-                        <input type="radio" name="tipo_pessoa"  id="tipo_pessoa_juridica" class="radin" value="2" onchange="formPessoaJuridica();">
+                        <input type="radio" name="tipo_pessoa"  id="tipo_pessoa_juridica" class="radin" value="2" onchange="mostrarFormulario();">
                         <p class="input-radio" id="radio">Pessoa Jurídica</p>
                     </div>
 
@@ -307,7 +306,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                     <div class="separar">
 
-                        <div class="input-group">
+                        <div class="input-group slide-down">
                             <input type="text" name="razao_social" placeholder="Razão social">
                             <span class="highlight"></span>
                             <label>Razão Social</label>
