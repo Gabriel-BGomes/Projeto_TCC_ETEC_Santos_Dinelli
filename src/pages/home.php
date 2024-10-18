@@ -75,9 +75,13 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
         </header> <!-- fim header fixo -->
 
         <section>
-            <div class="canvas">
-                <div class="chart">
-                    <canvas id="inicial"></canvas>
+            <div class="container-agenda">
+                <div class="header-agenda">
+                    <h2><i class="fas fa-calendar-alt"></i>Agenda de Serviços</h2>
+                    <div id="data-hoje"></div>
+                </div>
+                <div id="listaEventos" class="list-group">
+                    <!-- Os eventos serão carregados aqui -->
                 </div>
             </div>
         </section>
