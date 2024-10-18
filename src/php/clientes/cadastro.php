@@ -156,10 +156,9 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     echo "<p class='error-message' style='color: red;'>Por favor, preencha todos os campos obrigatórios!</p>";
                 } else {
                     // QUERY para cadastrar pessoa jurídica no banco de dados
-                    $query_pessoa = "INSERT INTO clientes (tipo_pessoa, razao_social, email_cliente_pj, cnpj, telefone_pj, endereco_pj, cep_pj, referencia_pj, bairro_pj, cidade_pj, complemento_pj) 
+                    $query_pessoa = "INSERT INTO clientes (tipo_pessoa, razao_social, email_cliente_pj, cnpj, telefone_pj, endereco_pj, cep_pj, referencia_pj, bairro_pj, cidade_pj, complemento_pj, forma_pagamento_pj) 
                     VALUES 
-                    (:tipo_pessoa, :razao_social, :email_cliente_pj, :cnpj, :telefone_pj, :endereco_pj, :cep_pj, :referencia_pj, :bairro_pj, :cidade_pj, :complemento_pj)";
-
+                    (:tipo_pessoa, :razao_social, :email_cliente_pj, :cnpj, :telefone_pj, :endereco_pj, :cep_pj, :referencia_pj, :bairro_pj, :cidade_pj, :complemento_pj, :forma_pagamento_pj)";
 
                     // Preparar a QUERY com PDO
                     $cad_pessoa = $conn->prepare($query_pessoa);
@@ -176,6 +175,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     $cad_pessoa->bindParam(':cidade_pj', $dados['cidade_pj']); 
                     $cad_pessoa->bindParam(':complemento_pj', $dados['complemento_pj']);
                     $cad_pessoa->bindParam(':referencia_pj', $dados['referencia_pj']);
+                    $cad_pessoa->bindParam(':forma_pagamento_pj', $dados['forma_pagamento_pj']);
 
                     // Executar a QUERY com PDO
                     try {
@@ -288,14 +288,15 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     <div class="campo especial">
                         <label class="label-especial">Forma de Pagamento</label>
 
-                        <select id="forma_pagamento">
+                        <select name="forma_pagamento">
                             <option value="">Selecione</option>
-                            <option value="debito">Débito</option>
-                            <option value="credito">Crédito</option>
-                            <option value="boleto">Boleto</option>
-                            <option value="pix">Pix</option>
-                            <option value="dinheiro">Dinheiro</option>
+                            <option value="Débito">Débito</option>
+                            <option value="Crédito">Crédito</option>
+                            <option value="Boleto">Boleto</option>
+                            <option value="Pix">Pix</option>
+                            <option value="Dinheiro">Dinheiro</option>
                         </select>
+
                 
                     </div>  
 
@@ -376,14 +377,15 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                         <div class="campo especial">
                         <label class="label-especial">Forma de Pagamento</label>
 
-                        <select id="forma_pagamento">
+                        <select name="forma_pagamento_pj">
                             <option value="">Selecione</option>
-                            <option value="debito">Débito</option>
-                            <option value="credito">Crédito</option>
-                            <option value="boleto">Boleto</option>
-                            <option value="pix">Pix</option>
-                            <option value="dinheiro">Dinheiro</option>
+                            <option value="Débito">Débito</option>
+                            <option value="Crédito">Crédito</option>
+                            <option value="Boleto">Boleto</option>
+                            <option value="Pix">Pix</option>
+                            <option value="Dinheiro">Dinheiro</option>
                         </select>
+
 
                         </div>  
                 

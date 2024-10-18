@@ -1,17 +1,13 @@
 <?php
-// Iniciar a sessão
 session_start();
 
-// Configurações do banco de dados
 $host = "localhost";
-$dbname = "santos_dinelli"; // Substitua pelo nome do seu banco de dados
-$user = "root"; // Substitua pelo seu usuário do banco de dados
-$pass = ""; // Substitua pela sua senha do banco de dados
+$dbname = "santos_dinelli";
+$user = "root";
+$pass = "";
 
 try {
-    // Criar a conexão com o banco de dados usando PDO
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-    // Definir o modo de erro do PDO como exceção
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     echo "Erro na conexão: " . $e->getMessage();
@@ -23,11 +19,20 @@ $query = "SELECT * FROM clientes";
 $stmt = $conn->prepare($query);
 $stmt->execute();
 $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Função para buscar eventos de um cliente
+function getClientEvents($conn, $clientId) {
+    $query = "SELECT * FROM events WHERE id_cliente = :id_cliente";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':id_cliente', $clientId);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../style/clientes/visualizar.css">
@@ -35,7 +40,6 @@ $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="shortcut icon" href="../../images/icons/logo.ico" type="image/x-icon">
     <title>Visualizar Clientes</title>
 </head>
-
 <body>
     
     <header class="header"> <!-- começo menu fixo no topo -->
@@ -60,7 +64,7 @@ $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             <ul class="menu-fixo"> <!-- começo dos itens do menu-->
 
-                <li><a class="link" href="../../pages/agenda.php">AGENDA</a></li>
+                <li><a class="link" style="margin-left: 18px;" href="../../pages/agenda.php">AGENDA</a></li>
                 <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
                 <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
 
@@ -77,88 +81,78 @@ $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     </header> <!-- fim header fixo -->
 
-    <!-- pessoa fisica pra vc mexer nao criei div se vira -->
     <h2>Pessoas Físicas</h2>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>CPF</th>
-                <th>Telefone</th>
-                <th>Endereço</th>
-                <th>Cidade</th>
-                <th>Bairro</th>
-                <th>CEP</th>
-                <th>Complemento</th>
-                <th>Forma de Pagamento</th>
-            </tr>
-        </thead>
+    <?php foreach ($clientes as $cliente): ?>
+        <?php if ($cliente['tipo_pessoa'] == 1): ?>
+            <div class="cliente">
+                <h3><?php echo htmlspecialchars($cliente['nome_cliente'] ?? ''); ?></h3>
+                <p>Email: <?php echo htmlspecialchars($cliente['email_cliente'] ?? ''); ?></p>
+                <p>CPF: <?php echo htmlspecialchars($cliente['cpf_cliente'] ?? ''); ?></p>
+                <!-- Adicione outros campos conforme necessário -->
 
-        <!-- parte do banco-->
-        <tbody>
-            <?php foreach ($clientes as $cliente): ?>
-                <?php if ($cliente['tipo_pessoa'] == 1): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($cliente['id'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['nome_cliente'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['email_cliente'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['cpf_cliente'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['telefone'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['endereco'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['cidade'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['bairro'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['cep'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['complemento'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['forma_pagamento'] ?? ''); ?></td>
-                    </tr>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-                    <!-- pessoa juridica pra vc mexer nao criei div se vira -->
+                <h4>Eventos Agendados</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Data Início</th>
+                            <th>Data Fim</th>
+                            <th>Serviço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        $events = getClientEvents($conn, $cliente['id']);
+                        foreach ($events as $event): 
+                        ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($event['title']); ?></td>
+                                <td><?php echo htmlspecialchars($event['start']); ?></td>
+                                <td><?php echo htmlspecialchars($event['end']); ?></td>
+                                <td><?php echo htmlspecialchars($event['servico']); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
+
     <h2>Pessoas Jurídicas</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Razão Social</th>
-                <th>Email</th>
-                <th>CNPJ</th>
-                <th>Telefone</th>
-                <th>Endereço</th>
-                <th>Cidade</th>
-                <th>Bairro</th>
-                <th>CEP</th>
-                <th>Complemento</th>
-                <th>Forma de Pagamento</th>
-            </tr>
-        </thead>
+    <?php foreach ($clientes as $cliente): ?>
+        <?php if ($cliente['tipo_pessoa'] == 2): ?>
+            <div class="cliente">
+                <h3><?php echo htmlspecialchars($cliente['razao_social'] ?? ''); ?></h3>
+                <p>Email: <?php echo htmlspecialchars($cliente['email_cliente_pj'] ?? ''); ?></p>
+                <p>CNPJ: <?php echo htmlspecialchars($cliente['cnpj'] ?? ''); ?></p>
+                <!-- Adicione outros campos conforme necessário -->
 
-        <!-- parte do banco-->
-        <tbody>
-            <?php foreach ($clientes as $cliente): ?>
-                <?php if ($cliente['tipo_pessoa'] == 2): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($cliente['id'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['razao_social'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['email_cliente_pj'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['cnpj'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['telefone_pj'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['endereco_pj'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['cidade_pj'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['bairro_pj'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['cep_pj'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['complemento_pj'] ?? ''); ?></td>
-                        <td><?php echo htmlspecialchars($cliente['forma_pagamento'] ?? ''); ?></td>
-                    </tr>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+                <h4>Eventos Agendados</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Data Início</th>
+                            <th>Data Fim</th>
+                            <th>Serviço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        $events = getClientEvents($conn, $cliente['id']);
+                        foreach ($events as $event): 
+                        ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($event['title']); ?></td>
+                                <td><?php echo htmlspecialchars($event['start']); ?></td>
+                                <td><?php echo htmlspecialchars($event['end']); ?></td>
+                                <td><?php echo htmlspecialchars($event['servico']); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
 </body>
-
 </html>
-<!-- acabou -->

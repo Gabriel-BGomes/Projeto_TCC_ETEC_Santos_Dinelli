@@ -1,5 +1,36 @@
 <!-- <?php
+ include_once './conexao.php';
 
+ session_start();
+
+ $host = "localhost";
+ $dbname = "santos_dinelli";
+ $user = "root";
+ $pass = "";
+ 
+ try {
+    $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo "Erro na conexão: " . $e->getMessage();
+    exit;
+}
+
+// Consultar os dados da tabela clientes
+$query = "SELECT id, COALESCE(nome_cliente, razao_social) AS nome FROM clientes";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+$clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Função para buscar eventos de um cliente
+function getClientEvents($conn, $clientId) {
+    $query = "SELECT * FROM events WHERE id_cliente = :id_cliente";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':id_cliente', $clientId);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+ 
 session_start(); // Iniciar a sessão
 
 ob_start(); // Limpar o buffer de saída
@@ -17,6 +48,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
     // Pausar o processamento
     exit();
 }
+
 
 ?> -->
 
@@ -84,11 +116,8 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
     </header> <!-- fim header fixo -->
 
     <div class="container">
-
         <span id="msg" class="msg"></span>
-
-        <div id='calendar' class="calendario"></div>
-
+        <div id='calendar' class="calendario"></div> <!-- calendário -->
     </div>
 
     <!-- janela vizu -->
@@ -246,17 +275,30 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
     <!-- janela cadastra -->
     <div class="modal fade" id="cadastrarModal" tabindex="-1" aria-labelledby="cadastrarModalLabel" aria-hidden="true">
-
         <div class="modal-dialog">
-
-            <div class="modal-content modal-content-edit"> <!-- janela de cadastro -->
-
+            <div class="modal-content modal-content-edit">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="cadastrarModalLabel">Cadastrar o Serviço</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+                </div>                   
 
                 <div class="modal-body">
+
+                    <span id="msgCadEvento"></span>
+                    <form method="POST" id="formCadEvento">
+                        <div class="row mb-3">
+                            <label for="cad_id_cliente" class="col-sm-2 col-form-label">Cliente</label>
+                            <div class="col-sm-10">
+                                <select name="cad_id_cliente" class="form-control" id="cad_id_cliente" required>
+                                    <option value="">Selecione o cliente</option>
+                                    <?php foreach ($clientes as $cliente): ?>
+                                        <option value="<?php echo $cliente['id']; ?>">
+                                            <?php echo htmlspecialchars($cliente['nome']); ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
 
                     <span id="msgCadEvento"></span>
 
@@ -264,17 +306,17 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                         <div class="row mb-3">
 
-                            <label for="cad_title" class="col-sm-2 col-form-label">Cliente</label>
+                            <label for="cad_title" class="col-sm-2 col-form-label">Serviço</label>
 
                             <div class="col-sm-10">
-                                <input type="text" name="cad_title" class="form-control" id="cad_title" placeholder="Nome do Cliente">
+                                <input type="text" name="cad_title" class="form-control" id="cad_title" placeholder="Nome do Serviço">
                             </div>
 
                         </div>
 
                         <div class="row mb-3">
 
-                            <label for="cad_servico" class="col-sm-2 col-form-label">Serviço</label>
+                            <label for="cad_servico" class="col-sm-2 col-form-label">Tipo Serviço</label>
 
                             <div class="col-sm-10">
 
@@ -364,13 +406,10 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src='../js/index.global.min.js'></script>
     <script src="../js/bootstrap5/index.global.min.js"></script>
     <script src='../js/core/locales-all.global.min.js'></script>
     <script src='../js/custom.js'></script>
-
-
 </body>
-
-</html>
+</html>   
