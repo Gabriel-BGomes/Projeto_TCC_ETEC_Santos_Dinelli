@@ -31,7 +31,7 @@ section {
 }
 
 .container-agenda {
-    width: 95vw;
+    width: 85vw;
     height: calc(80vh - 100px);
     background-color: white;
     border-radius: 20px;
@@ -197,73 +197,4 @@ section {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary-hover);
-}
-
-@media (max-width: 960px) {
-
-    .canvas { 
-        height: calc(100vh - 80px);
-    }
-    
-    .chart{ 
-        width: 75vw;
-        height: 60vh;
-    }
-
-}
-
-@media (max-width: 768px) {
-
-    .canvas { 
-        height: calc(100vh - 60px)
-    }
-    
-    .chart{ 
-        width: 80vw;
-        height: 60vh;
-    }
-}
-
-@media (max-width: 670px) {
-
-    .canvas { 
-        height: calc(100vh - 40px)
-    }
-    
-    .chart{ 
-        width: 90vw;
-        height: 40vh;
-    }
-}
-
-@media (max-width: 530px) {
-
-    .canvas { 
-        height: calc(100vh - 30px)
-    }
-    
-    .chart{ 
-        width: calc(100vw- 100px);
-        height: 30vh;
-    }
-}
-
-@media (max-width: 420px) {
-
-    .canvas { 
-        height: calc(100vh - 25px)
-    }
-    
-    .chart{ 
-        width: 98vw;
-        height: 25vh;
-    }
-}
-
-@media (max-width: 380px) {
-    
-    .chart{ 
-        width: 98vw;
-        height: calc(100vh - 25px);
-    }
 }
