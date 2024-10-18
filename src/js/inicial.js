@@ -26,13 +26,20 @@ document.addEventListener('DOMContentLoaded', function () {
                   <div class="list-group-item">
                       <div class="evento-titulo">
                           <i class="fas fa-bookmark"></i>
-                          ${evento.title}
+                          ${evento.cliente_nome}
                       </div>
                       <div class="evento-detalhes">
+
                           <div class="servico-info">
                               <i class="fas fa-cog"></i>
                               <span>Serviço: ${evento.servico}</span>
                           </div>
+
+                          <div class="servico-info">
+                              <i class="fas fa-cog"></i>
+                              <span>Endereço: ${evento.cliente_endereco}</span>
+                          </div>
+
                           <div class="tempo-info">
                               <i class="fas fa-clock"></i>
                               <span>

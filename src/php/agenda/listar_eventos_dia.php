@@ -23,7 +23,19 @@ $dataHoje = date('Y-m-d');
 
 // Buscar os eventos do dia no banco de dados
 try {
-    $query = $pdo->prepare("SELECT id, title, start, end, servico FROM events WHERE DATE(start) = :dataHoje");
+    $query = $pdo->prepare("
+        SELECT 
+            e.id, 
+            e.title, 
+            e.start, 
+            e.end, 
+            e.servico,
+            COALESCE(c.nome_cliente, c.razao_social) AS cliente_nome, 
+            COALESCE(c.endereco, c.endereco_pj) AS cliente_endereco
+        FROM events e
+        INNER JOIN clientes c ON e.id_cliente = c.id
+        WHERE DATE(e.start) = :dataHoje
+    ");
     $query->bindParam(':dataHoje', $dataHoje);
     $query->execute();
 
@@ -39,4 +51,5 @@ try {
 } catch (PDOException $e) {
     echo json_encode(['status' => false, 'msg' => 'Erro ao buscar eventos: ' . $e->getMessage()]);
 }
+
 
