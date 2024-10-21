@@ -94,14 +94,14 @@ function formatarData($data) {
                 <p>Email: <?php echo htmlspecialchars($cliente['email_cliente'] ?? ''); ?></p>
                 <p>CPF: <?php echo htmlspecialchars($cliente['cpf_cliente'] ?? ''); ?></p>
 
-                <h4>Eventos Agendados</h4>
+                <h4>Serviços Agendados</h4>
                 <table>
                     <thead>
                         <tr>
-                            <th>Título</th>
+                            <th>Serviço</th>
                             <th>Data Início</th>
                             <th>Data Fim</th>
-                            <th>Serviço</th>
+                            <th>Tipo Serviço</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -130,14 +130,14 @@ function formatarData($data) {
                 <p>Email: <?php echo htmlspecialchars($cliente['email_cliente_pj'] ?? ''); ?></p>
                 <p>CNPJ: <?php echo htmlspecialchars($cliente['cnpj'] ?? ''); ?></p>
 
-                <h4>Eventos Agendados</h4>
+                <h4>Serviçost Agendados</h4>
                 <table>
                     <thead>
                         <tr>
-                            <th>Título</th>
+                            <th>Serviço</th>
                             <th>Data Início</th>
                             <th>Data Fim</th>
-                            <th>Serviço</th>
+                            <th>Tipo Serviço</th>
                         </tr>
                     </thead>
                     <tbody>

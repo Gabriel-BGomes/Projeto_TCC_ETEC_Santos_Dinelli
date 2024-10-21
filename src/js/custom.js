@@ -19,6 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // Incluir o bootstrap 5
         themeSystem: 'bootstrap5',
 
+        title: {
+            text: 'Teste'
+        },
+
         // Criar o cabeçalho do calendário
         headerToolbar: {
             left: 'prev,next today',
@@ -90,6 +94,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // Função para remover a mensagem após 3 segundos
+    function removerMsg() {
+        setTimeout(() => {
+            document.getElementById('msg').innerHTML = "";
+        }, 3000);
+    }
+
     // Renderizar o calendário
     calendar.render();
 
@@ -118,7 +129,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
             const resposta = await dados.json();
             if (resposta['status']) {
-                msgEditEvento.innerHTML = `<div class="alert alert-danger" role="alert">${resposta['msg']}</div>`;
+                /* document.getElementById("msga").innerHTML = resposta['msg']; */
+                msg.innerHTML = `<div class="alert alert-success" role="alert">${resposta['msg']}</div>`;
                 document.getElementById("cad_id_cliente").value = "";
                 document.getElementById("cad_title").value = "";
                 document.getElementById("cad_servico").value = "";
@@ -141,6 +153,9 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 document.getElementById("msgCadEvento").innerHTML = resposta['msg'];
             }
+
+            removerMsg();
+
         });
     }
 
@@ -167,6 +182,8 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById("editarModalLabel").style.display = "none";
         });
     }
+
+    
 
     // Receber o SELETOR do formulário editar evento
     const formEditEvento = document.getElementById("formEditEvento");
@@ -214,12 +231,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Função para remover a mensagem após 3 segundos
-    function removerMsg() {
-        setTimeout(() => {
-            document.getElementById('msg').innerHTML = "";
-        }, 3000);
-    }
+    
 
     // Receber o SELETOR apagar evento
     const btnApagarEvento = document.getElementById("btnApagarEvento");
