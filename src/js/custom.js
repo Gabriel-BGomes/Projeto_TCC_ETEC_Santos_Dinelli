@@ -19,10 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Incluir o bootstrap 5
         themeSystem: 'bootstrap5',
 
-        title: {
-            text: 'Teste'
-        },
-
         // Criar o cabeçalho do calendário
         headerToolbar: {
             left: 'prev,next today',
@@ -122,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
             const resposta = await dados.json();
             if (resposta['status']) {
-                document.getElementById("msgCadEvento").innerHTML = resposta['msg'];
+                msgEditEvento.innerHTML = `<div class="alert alert-danger" role="alert">${resposta['msg']}</div>`;
                 document.getElementById("cad_id_cliente").value = "";
                 document.getElementById("cad_title").value = "";
                 document.getElementById("cad_servico").value = "";

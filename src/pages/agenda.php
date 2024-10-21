@@ -343,7 +343,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                             <label for="cad_obs" class="col-sm-2 col-form-label">Observação</label>
 
                             <div class="col-sm-10">
-                                <input type="text" name="cad_obs" class="form-control" id="cad_obs" placeholder="Observação do Serviço" required>
+                                <input type="text" name="cad_obs" class="form-control" id="cad_obs" placeholder="Observação do Serviço">
                             </div>
 
                             

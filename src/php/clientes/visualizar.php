@@ -28,6 +28,11 @@ function getClientEvents($conn, $clientId) {
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+// Função para formatar a data para o padrão brasileiro
+function formatarData($data) {
+    return date('d/m/Y H:i', strtotime($data));
+}
 ?>
 
 
@@ -64,7 +69,7 @@ function getClientEvents($conn, $clientId) {
 
             <ul class="menu-fixo"> <!-- começo dos itens do menu-->
 
-                <li><a class="link" style="margin-left: 18px;" href="../../pages/agenda.php">AGENDA</a></li>
+                <li><a class="link" style="margin-left: 10px;" href="../../pages/agenda.php">AGENDA</a></li>
                 <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
                 <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
 
@@ -88,7 +93,6 @@ function getClientEvents($conn, $clientId) {
                 <h3><?php echo htmlspecialchars($cliente['nome_cliente'] ?? ''); ?></h3>
                 <p>Email: <?php echo htmlspecialchars($cliente['email_cliente'] ?? ''); ?></p>
                 <p>CPF: <?php echo htmlspecialchars($cliente['cpf_cliente'] ?? ''); ?></p>
-                <!-- Adicione outros campos conforme necessário -->
 
                 <h4>Eventos Agendados</h4>
                 <table>
@@ -107,8 +111,8 @@ function getClientEvents($conn, $clientId) {
                         ?>
                             <tr>
                                 <td><?php echo htmlspecialchars($event['title']); ?></td>
-                                <td><?php echo htmlspecialchars($event['start']); ?></td>
-                                <td><?php echo htmlspecialchars($event['end']); ?></td>
+                                <td><?php echo formatarData($event['start']); ?></td>
+                                <td><?php echo formatarData($event['end']); ?></td>
                                 <td><?php echo htmlspecialchars($event['servico']); ?></td>
                             </tr>
                         <?php endforeach; ?>
@@ -125,7 +129,6 @@ function getClientEvents($conn, $clientId) {
                 <h3><?php echo htmlspecialchars($cliente['razao_social'] ?? ''); ?></h3>
                 <p>Email: <?php echo htmlspecialchars($cliente['email_cliente_pj'] ?? ''); ?></p>
                 <p>CNPJ: <?php echo htmlspecialchars($cliente['cnpj'] ?? ''); ?></p>
-                <!-- Adicione outros campos conforme necessário -->
 
                 <h4>Eventos Agendados</h4>
                 <table>
@@ -144,8 +147,8 @@ function getClientEvents($conn, $clientId) {
                         ?>
                             <tr>
                                 <td><?php echo htmlspecialchars($event['title']); ?></td>
-                                <td><?php echo htmlspecialchars($event['start']); ?></td>
-                                <td><?php echo htmlspecialchars($event['end']); ?></td>
+                                <td><?php echo formatarData($event['start']); ?></td>
+                                <td><?php echo formatarData($event['end']); ?></td>
                                 <td><?php echo htmlspecialchars($event['servico']); ?></td>
                             </tr>
                         <?php endforeach; ?>
@@ -154,5 +157,6 @@ function getClientEvents($conn, $clientId) {
             </div>
         <?php endif; ?>
     <?php endforeach; ?>
+
 </body>
 </html>
