@@ -175,20 +175,45 @@ input[type="submit"]:hover {
 }
 
 .error-message {
-    color: red;
+    display: none;
+    background-color: #f44336; /* Vermelho */
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+    position: fixed;
+    top: -100px; /* Inicialmente fora da tela */
+    left: 0;
+    right: 0;
     text-align: center;
-    font-size: 30px;
-    margin-bottom: -20px;
-    margin-top: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: top 0.5s ease; /* Animação de deslizar */
 }
 
+
 .success-message {
-    color: green;
+    display: none;
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+    position: fixed;
+    top: -100px; /* Inicialmente fora da tela */
+    left: 0;
+    right: 0;
     text-align: center;
-    font-size: 20px;
-    margin-bottom: -20px;
-    margin-top: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: top 0.5s ease; /* Animação de deslizar */
 }
+
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
 
 .form-section {
     display: none;

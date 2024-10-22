@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
                 cadastrarModal.hide();
             } else {
-                document.getElementById("msgCadEvento").innerHTML = resposta['msg'];
+                msg.innerHTML = `<div class="alert alert-danger" role="alert">${resposta['msg']}</div>`;
             }
 
             removerMsg();
