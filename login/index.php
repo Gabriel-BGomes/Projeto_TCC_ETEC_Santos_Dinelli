@@ -2,6 +2,11 @@
 
 session_start(); // Iniciar a sessão
 
+// Verificar se veio do timeout
+if(isset($_GET['timeout']) && $_GET['timeout'] === 'true') {
+    $_SESSION['msg'] = "<p style='color: #f00;'>Você foi desconectado por inatividade!</p>";
+}
+
 ob_start(); // Limpar o buffer de saída
 
 // Importar as classes

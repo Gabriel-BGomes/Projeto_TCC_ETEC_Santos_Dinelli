@@ -91,5 +91,6 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="text/javascript" src="../js/inicial.js"></script>
+    <script src="../js/inactivityTimeout.js"></script>
 
 </html>
