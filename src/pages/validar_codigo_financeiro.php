@@ -2,7 +2,19 @@
 session_start();
 ob_start();
 date_default_timezone_set('America/Sao_Paulo');
-include_once "./conexao.php";
+include_once "..//../login/conexao.php";
+
+// Verificar se usuário está logado
+if (!isset($_SESSION['id']) || !isset($_SESSION['usuario'])) {
+    header("Location: ../../login/index.php");
+    exit();
+}
+
+// Se ainda não enviou o código, envia primeiro
+if (!isset($_SESSION['codigo_enviado_financeiro'])) {
+    header("Location: enviar_codigo_financeiro.php");
+    exit();
+}
 
 // Function to send JSON response
 function sendJsonResponse($success, $message) {
@@ -44,7 +56,8 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                 $result_up_usuario->execute();
 
                 $_SESSION['nome'] = $row_usuario['nome'];
-                $_SESSION['codigo_autenticacao'] = true;            
+                $_SESSION['codigo_autenticacao'] = true;     
+                $_SESSION['acesso_financeiro'] = true;       
 
                 sendJsonResponse(true, 'Código válido. Redirecionando...');
             } else {
@@ -56,26 +69,57 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
     } else {
         sendJsonResponse(false, 'Método de requisição inválido.');
     }
-    exit(); // Ensure script stops here for AJAX requests
+    exit();
 }
-
-// If it's not an AJAX request, display the page normally
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verificação de Duas Etapas</title>
-    <link rel="stylesheet" href="../src/style/login/validar_codigo.css">
-    <link rel="shortcut icon" href="../src/images/icons/logo.ico" type="image/x-icon"> 
+    <title>Verificação de Duas Etapas - Financeiro</title>
+    <link rel="stylesheet" href="../style/login/validar_codigo.css">
+    <link rel="stylesheet" href="../style/layout-header.css">
+    <link rel="shortcut icon" href="../images/icons/logo.ico" type="image/x-icon"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>     
 </head>
+<body>
 
-<div class="container-geral"> <!-- container para conseguir centralizar toda a caixa de verificação no meio -->
+    <header class="header"> 
+        <nav class="menu-lateral">
+            <input type="checkbox" class="fake-tres-linhas">
+            <div><img class="tres-linhas" src="../images/menu-tres-linhas.png" alt="menu de três linhas"></div>
 
-        <div class="auth-container"> <!-- container de autenticação -->
+            <ul>
+                <li><a class="link" href="./home.php">ÍNICIO</a></li>
+                <li><a class="link" href="./agenda.php">AGENDA</a></li>
+                <li><a class="link" href="./validar_codigo_financeiro.php">FINANCEIRO</a></li>
+                <li><a class="link" href="./client.php">CLIENTES</a></li>
+                <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
+                <li><a class="link" href="../../login/sair.php">SAIR</a></li>
+            </ul>
+        </nav>
+
+        <nav>
+            <ul class="menu-fixo">
+                <li><a class="link" href="./agenda.php">AGENDA</a></li>
+                <li><a class="link" href="./validar_codigo_financeiro.php">FINANCEIRO</a></li>
+                <li><a class="link" href="./client.php">CLIENTES</a></li>
+            </ul>
+        </nav>
+
+        <nav>
+            <a href="https://www.santosedinelli.com.br/" target="_blank">
+                <img class="logo" src="../images/santos-dinelli.png" alt="logo da empresa">
+            </a>
+        </nav>
+    </header>
     
+    <div class="container-geral" style="height: calc(100vh - 70px);">
+        <div class="auth-container">
             <div class="auth-header">
                 <h2>Digite o código enviado no E-mail cadastrado</h2>
             </div>
@@ -83,7 +127,6 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
             <div id="message" class="message"></div>
         
             <form method="POST" action="" class="auth-form" id="auth-form">
-        
                 <div class="loading-overlay" id="loadingOverlay">
                     <div class="loading-spinner"></div>
                     <div class="loading-text" id="loadingText">Validando...</div>
@@ -100,12 +143,9 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                 <div class="reenviar">
                     <a href="#" id="reenviar-codigo">Reenviar Código</a>
                 </div>
-            
             </form>
-        
-        </div> <!-- fim container de autenticação -->
-    
-    </div> <!-- fim do container para centralizar tudo -->
+        </div>
+    </div>
 
     <script>
     $(document).ready(function() {
@@ -114,7 +154,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
             $('#loadingText').text('Reenviando código...');
             $('#loadingOverlay').css('display', 'flex');
             $.ajax({
-                url: 'enviar_novo_codigo.php',
+                url: 'enviar_codigo_financeiro.php',
                 type: 'POST',
                 dataType: 'json',
                 success: function(response) {
@@ -127,44 +167,40 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     $('#loadingOverlay').css('display', 'none');
-                    console.log("AJAX Error: ", textStatus, errorThrown);
-                    console.log("Response Text: ", jqXHR.responseText);
                     $('#message').text('Erro ao processar a solicitação. Tente novamente.').removeClass('success-message').addClass('error-message').show();
                 }
             });
         });
 
         $('#auth-form').submit(function(e) {
-        e.preventDefault();
-        $('#loadingText').text('Validando...');
-        $('#loadingOverlay').css('display', 'flex');
-        $.ajax({
-            url: $(this).attr('action'),
-            type: 'POST',
-            data: $(this).serialize(),
-            dataType: 'json',
-            success: function(response) {
-                $('#loadingOverlay').css('display', 'none');
-                if (response.success) {
-                    $('#loadingText').text('Redirecionando...');
-                    $('#loadingOverlay').css('display', 'flex');
-                    setTimeout(function() {
-                        window.location.href = '../src/pages/home.php';
-                    }, 2000);
-                } else {
-                    $('#message').text(response.message).removeClass('success-message').addClass('error-message').show();
+            e.preventDefault();
+            $('#loadingText').text('Validando...');
+            $('#loadingOverlay').css('display', 'flex');
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(response) {
+                    $('#loadingOverlay').css('display', 'none');
+                    if (response.success) {
+                        $('#loadingText').text('Redirecionando...');
+                        $('#loadingOverlay').css('display', 'flex');
+                        setTimeout(function() {
+                            window.location.href = '../pages/finance.php';
+                        }, 2000);
+                    } else {
+                        $('#message').text(response.message).removeClass('success-message').addClass('error-message').show();
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    $('#loadingOverlay').css('display', 'none');
+                    $('#message').text('Erro ao processar a solicitação. Tente novamente.').removeClass('success-message').addClass('error-message').show();
                 }
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                $('#loadingOverlay').css('display', 'none');
-                console.log("AJAX Error: ", textStatus, errorThrown);
-                console.log("Response Text: ", jqXHR.responseText);
-                $('#message').text('Erro ao processar a solicitação. Tente novamente.').removeClass('success-message').addClass('error-message').show();
-            }
+            });
         });
     });
-});
-</script>
+    </script>
 </body>
 </html>
 <?php
