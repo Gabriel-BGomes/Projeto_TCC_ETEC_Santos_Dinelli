@@ -94,7 +94,10 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (errorMessage) {
         showMessage('errorMessage');
     }
+
 });
+
+
 
 // Função para buscar endereço via CEP (comum para Pessoa Física e Jurídica)
 function buscarEnderecoPorCEP(cepInput, ruaInput, bairroInput, cidadeInput) {

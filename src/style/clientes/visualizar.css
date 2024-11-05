@@ -1,77 +1,130 @@
-h1, h2 {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #228d02;
+    --primary-hover: #145400;
+    --primary-light: #45a528;
+    --secondary-color: #f8f9fa;
+    --accent-color: #1a6600;
+    --text-color: #333333;
+    --shadow: 0 8px 15px rgba(34, 141, 2, 0.1);
+    --gradient-start: #f0f7f0;
+    --gradient-end: #e1efe1;
+}
+
+body {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 70px;
 }
 
-h1 {
-    font-size: 2.5em;
+
+.header {
+    margin-top: -70px;
 }
 
+/* Main Content */
 h2 {
-    color: #007bff;
-    font-size: 2em;
-    margin-top: 40px;
+    color: var(--primary-color);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-bottom: 30px;
 }
 
-/* Estilos para a lista de clientes */
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
 .cliente {
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: white;
+    border-radius: 15px;
+    margin: 20px auto;
+    padding: 25px;
+    width: 90%;
+    max-width: 1200px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.cliente:hover {
+    transform: translateY(-5px);
 }
 
 .cliente h3 {
-    font-size: 1.8em;
-    color: #333;
-    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-light);
 }
 
 .cliente p {
-    font-size: 1.2em;
-    color: #555;
-    margin-bottom: 8px;
+    color: var(--text-color);
+    margin: 10px 0;
+    font-size: 1.1rem;
 }
 
-/* Estilos para a tabela de eventos */
+/* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    margin-bottom: 20px;
+    background: var(--secondary-color);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 12px;
-    text-align: left;
+thead {
+    background: var(--primary-color);
+    color: white;
 }
 
 th {
-    background-color: #f2f2f2;
-    color: #333;
-    font-weight: bold;
+    padding: 15px;
+    text-align: left;
 }
 
 td {
-    background-color: #fff;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9;
+tr:hover {
+    background: rgba(34, 141, 2, 0.05);
 }
 
-/* Estilos para o rodapé de eventos */
-h4 {
-    color: #007bff;
-    font-size: 1.5em;
-    margin-top: 20px;
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+    width: 10px;
 }
 
-/* Adicionando um efeito hover */
-table tr:hover {
-    background-color: #f1f1f1;
-}    
+::-webkit-scrollbar-track {
+    background: var(--gradient-start);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-hover);
+}
