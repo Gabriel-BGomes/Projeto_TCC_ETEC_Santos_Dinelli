@@ -1,107 +1,38 @@
 :root {
-    --primary-color: #2563eb;
-    --primary-hover: #1d4ed8;
-    --success-color: #145400;
-    --success-hover: #45a049;
-    --text-primary: #1f2937;
-    --text-secondary: #4b5563;
-    --background-light: #f9fafb;
-    --background-white: #ffffff;
-    --border-color: #e5e7eb;
-    --header-bg: #333;
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    --transition-base: all 0.2s ease-in-out;
+    --primary-color: #228d02;
+    --primary-hover: #145400;
+    --primary-light: #45a528;
+    --secondary-color: #f8f9fa;
+    --accent-color: #1a6600;
+    --text-color: #333333;
+    --shadow: 0 8px 15px rgba(34, 141, 2, 0.1);
+    --gradient-start: #f0f7f0;
+    --gradient-end: #e1efe1;
+    --transition-base: 0.5s
 }
 
-/* Reset e estilos base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background-color: var(--background-light);
-    color: var(--text-primary);
-    line-height: 1.5;
-}
-
-/* Header e navegação */
-.header {
-    background-color: var(--header-bg);
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: var(--shadow-md);
-}
-
-.header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+.container-search-form {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
-.logo {
-    width: 50px;
-    height: auto;
-    transition: var(--transition-base);
-}
-
-.menu-lateral ul,
-.menu-fixo ul {
-    list-style-type: none;
-    display: flex;
-    gap: 1.5rem;
-}
-
-.menu-lateral ul li a,
-.menu-fixo ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
-    transition: var(--transition-base);
-}
-
-.menu-lateral ul li a:hover,
-.menu-fixo ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Tipografia */
-h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-align: center;
-    color: var(--text-primary);
-    margin: 2rem 0;
-}
-
-h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--success-color);
-    margin-bottom: 1rem;
-}
-
-/* Formulário */
 .search-form {
-    background-color: var(--background-white);
-    padding: 1.5rem;
-    border-radius: 0.75rem;
-    box-shadow: var(--shadow-sm);
-    margin: 2rem auto;
-    max-width: 800px;
+    background: white;
+    border-radius: 15px;
+    margin: 20px auto;
+    padding: 25px;
+    width: 90%;
+    max-width: 1200px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
 }
 
-form {
+.search-form:hover {
+    transform: translateY(-5px);
+}
+
+.search-form {
     display: flex;
     gap: 1rem;
     align-items: center;
@@ -109,151 +40,57 @@ form {
     margin: 1rem 0;
 }
 
-form label {
+.label-form {
     font-size: 1.1em;
     font-weight: 500;
-    color: var(--text-primary);
+    color: var(--primary-color);
     margin-right: 0.5rem;
 }
 
-form input[type="text"] {
-    width: 300px;
+.search-form input[type="text"] {
+    width: 400px;
     padding: 0.75rem 1rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--accent-color);
     border-radius: 0.5rem;
     font-size: 1rem;
     transition: var(--transition-base);
 }
 
-form input[type="text"]:focus {
+.search-form input[type="text"]:focus {
     outline: none;
-    border-color: var(--success-color);
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+    border-color: var(--primary-hover);
+    box-shadow: 0 0 0 3px rgba(34, 141, 2, 0.1);
 }
 
-form button {
+.search-form button {
+    width: 120px;
     padding: 0.75rem 1.5rem;
-    background-color: var(--success-color);
+    background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 0.5rem;
     font-weight: 500;
+    font-size: 0.9em;
     cursor: pointer;
     transition: var(--transition-base);
 }
 
-form button:hover {
-    background-color: var(--success-hover);
+.search-form  button:hover {
+    background-color: var(--primary-hover);
 }
 
-/* Cards de Cliente */
-.cliente {
-    background-color: var(--background-white);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    margin: 1.5rem auto;
-    max-width: 600px;
-    box-shadow: var(--shadow-md);
-    transition: var(--transition-base);
-}
-
-.cliente:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.15);
-}
-
-.cliente h3 {
-    color: var(--success-color);
-}
-
-.cliente p {
-    color: var(--text-secondary);
-    margin: 0.5rem 0;
-}
-
-/* Tabela */
-.table-container {
-    overflow-x: auto;
-    margin: 1rem 0;
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow-sm);
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: var(--background-white);
-}
-
-th, td {
-    padding: 0.75rem 1rem;
-    text-align: left;
-    border: 1px solid var(--border-color);
-}
-
-th {
-    background-color: var(--success-color);
-    color: white;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size: 0.875rem;
-    letter-spacing: 0.05em;
-}
-
-tr:nth-child(even) {
-    background-color: var(--background-light);
-}
-
-tr:hover td {
-    background-color: rgba(76, 175, 80, 0.05);
-}
-
-/* Responsividade */
 @media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .menu-lateral ul,
-    .menu-fixo ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
-    }
-
-    form {
+    .search-form form {
         flex-direction: column;
         align-items: stretch;
     }
 
-    form input[type="text"] {
+    .search-form form input[type="text"] {
         width: 100%;
     }
 
-    form button {
+    .search-form form button {
         width: 100%;
         margin-top: 0.5rem;
     }
-
-    .cliente {
-        margin: 1rem;
-        padding: 1rem;
-    }
-}
-
-/* Animações */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.cliente {
-    animation: fadeIn 0.3s ease-out;
 }

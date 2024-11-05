@@ -52,6 +52,7 @@ if (isset($_GET['search'])) {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../style/clientes/pesquisar.css">
+    <link rel="stylesheet" href="../../style/clientes/visualizar.css">
     <link rel="stylesheet" href="../../style/layout-header.css">
     <link rel="shortcut icon" href="../../images/icons/logo.ico" type="image/x-icon">
     <title>Visualizar Clientes</title>
@@ -97,12 +98,14 @@ if (isset($_GET['search'])) {
 
 </header> <!-- fim header fixo -->
 
-<!-- Formulário de pesquisa -->
-<form method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-    <label for="search">Pesquisar clientes:</label>
-    <input type="text" id="search" name="search" placeholder="Nome, email, CPF, razão social, CNPJ..." value="<?php echo htmlspecialchars($searchTerm); ?>">
-    <button type="submit">Pesquisar</button>
-</form>
+<div class="container-search-form">
+    <!-- Formulário de pesquisa de cliente -->
+    <form class="search-form" method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <label class="label-form" for="search">Pesquisar clientes:</label>
+        <input type="text" id="search" name="search" placeholder="Nome, email, CPF, razão social, CNPJ" value="<?php echo htmlspecialchars($searchTerm); ?>">
+        <button type="submit">Pesquisar</button>
+    </form>
+</div>
 
 <h2>Clientes Físicos</h2>
 
@@ -114,7 +117,7 @@ if (isset($_GET['search'])) {
             <p>CPF: <?php echo htmlspecialchars($cliente['cpf_cliente'] ?? ''); ?></p>
             <!-- Adicione outros campos conforme necessário -->
 
-            <h4>Eventos Agendados</h4>
+            <h4>Serviços Agendados</h4>
             <table>
                 <thead>
                     <tr>
