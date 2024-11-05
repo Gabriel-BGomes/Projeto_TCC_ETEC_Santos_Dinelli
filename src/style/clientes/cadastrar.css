@@ -7,12 +7,12 @@ body {
 
 h1 {
     text-align: center;
-    color: #0c3101; /* Texto em cor neutra */
+    color: white;
 }
 
 .container {
     width: 100vw;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 100px);
     display: flex;
     justify-content: center;
 }
@@ -24,6 +24,9 @@ h1 {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    background: linear-gradient(135deg, #228d02, #145400);
+    height: 50px;
+    font-size: 17px;
 }
 
 .radio {
@@ -60,7 +63,7 @@ h1 {
 
 #form-pessoa-fisica, #form-pessoa-juridica{
     width: 100%;
-    height: 80vh;
+    height: 95%;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
@@ -72,7 +75,7 @@ h1 {
 }
 
 .especial {
-    margin-top: -100px;
+    margin-top: -250px;
     text-align: center;
     width: 500px;
 }
@@ -150,8 +153,12 @@ select  {
     font-size: 18px;
 }
 
+.label-especial {
+    color: #228d02;
+}
+
 #form-btn-cadastrar {
-    margin-top: -60px;
+    margin-top: -140px;
 }
 
 .btn-cadastrar {
@@ -166,7 +173,6 @@ select  {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 20px;
 }
 
 input[type="submit"]:hover {
@@ -222,6 +228,7 @@ input[type="submit"]:hover {
 
 select {
     height: 50px;
+    font-size: 15px;
 }
 
 .slide-down {
@@ -266,10 +273,11 @@ select {
         height: 90%;
     }
 
-    input[type="submit"] {
+    #form-btn-cadastrar {
         margin-top: 20px;
         width: 300px;
         height: 50px;
+        margin-top: -80px;
     }
 
     select {
@@ -281,11 +289,7 @@ select {
     }
 
     .label-especial {
-        margin-top: -20px;
-    }
-
-    #form-btn-cadastrar {
-        margin-top: -100px;
+        margin-top: 60px;
     }
 
 }
