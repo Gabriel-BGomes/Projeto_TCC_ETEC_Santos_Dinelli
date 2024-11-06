@@ -208,6 +208,13 @@ ALTER TABLE `financas`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
+-- ALTER TABLE for table `usuarios`
+--
+ALTER TABLE `usuarios`
+ADD COLUMN remember_token VARCHAR(64) NULL,
+ADD COLUMN token_expiracao DATETIME NULL;
+
+--
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
