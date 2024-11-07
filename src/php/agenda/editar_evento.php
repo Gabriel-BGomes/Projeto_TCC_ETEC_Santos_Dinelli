@@ -33,7 +33,7 @@ $edit_event->bindParam(':id', $dados['edit_id']);
 if ($edit_event->execute()) {
     $retorna = [
         'status' => true, 
-        'msg' => 'Evento editado com sucesso!',
+        'msg' => 'Serviço editado com sucesso!',
         'id' => $dados['edit_id'],
         'title' => $dados['edit_title'],
         'color' => $dados['edit_color'],
@@ -43,7 +43,7 @@ if ($edit_event->execute()) {
         'servico' => $dados['edit_servico']
     ];
 } else {
-    $retorna = ['status' => false, 'msg' => 'Erro: Evento não editado!'];
+    $retorna = ['status' => false, 'msg' => 'Erro: Serviço não editado!'];
 }
 
 // Retornar os dados para o JavaScript
