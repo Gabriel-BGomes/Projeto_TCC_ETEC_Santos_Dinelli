@@ -1,0 +1,1948 @@
+2024-11-06 20:52:08 - Tentando gerar código para usuário ID: 2 - Email: matheusoliveirale2007@gmail.com
+2024-11-06 20:52:09 - PHPMailer Debug: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d2e1a72fcca58-7240799bb8fsm119305b3a.116 - gsmtp
+
+2024-11-06 20:52:09 - PHPMailer Debug: CLIENT -> SERVER: EHLO localhost
+
+2024-11-06 20:52:09 - PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2804:7f0:3e6:b18:7cfd:ce8:444d:3967]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2024-11-06 20:52:09 - PHPMailer Debug: CLIENT -> SERVER: STARTTLS
+
+2024-11-06 20:52:09 - PHPMailer Debug: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2024-11-06 20:52:09 - PHPMailer Debug: CLIENT -> SERVER: EHLO localhost
+
+2024-11-06 20:52:09 - PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2804:7f0:3e6:b18:7cfd:ce8:444d:3967]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2024-11-06 20:52:09 - PHPMailer Debug: CLIENT -> SERVER: AUTH LOGIN
+
+2024-11-06 20:52:10 - PHPMailer Debug: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2024-11-06 20:52:10 - PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+2024-11-06 20:52:10 - PHPMailer Debug: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2024-11-06 20:52:10 - PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+2024-11-06 20:52:10 - PHPMailer Debug: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2024-11-06 20:52:10 - PHPMailer Debug: CLIENT -> SERVER: MAIL FROM:<testesdogabrielb@gmail.com>
+
+2024-11-06 20:52:10 - PHPMailer Debug: SERVER -> CLIENT: 250 2.1.0 OK d2e1a72fcca58-7240799bb8fsm119305b3a.116 - gsmtp
+
+2024-11-06 20:52:10 - PHPMailer Debug: CLIENT -> SERVER: RCPT TO:<matheusoliveirale2007@gmail.com>
+
+2024-11-06 20:52:11 - PHPMailer Debug: SERVER -> CLIENT: 250 2.1.5 OK d2e1a72fcca58-7240799bb8fsm119305b3a.116 - gsmtp
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: DATA
+
+2024-11-06 20:52:11 - PHPMailer Debug: SERVER -> CLIENT: 354 Go ahead d2e1a72fcca58-7240799bb8fsm119305b3a.116 - gsmtp
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: Date: Wed, 6 Nov 2024 20:52:09 -0300
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: To: matheusoliveirale2007@gmail.com
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: From: =?UTF-8?Q?Santos_=26_Dinelli_Climatiza=C3=A7=C3=A3o?= <testesdogabrielb@gmail.com>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: Subject: =?UTF-8?Q?C=C3=B3digo_de_Verifica=C3=A7=C3=A3o_para_Acesso_ao_Financeiro?=
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: Message-ID: <8Scrcw7Jwq9FTnRIO4j758u3Fi9ttoMiihNMITWMM@localhost>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: X-Mailer: PHPMailer 6.8.0 (https://github.com/PHPMailer/PHPMailer)
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: MIME-Version: 1.0
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: multipart/alternative;
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:  boundary="b1=_8Scrcw7Jwq9FTnRIO4j758u3Fi9ttoMiihNMITWMM"
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: --b1=_8Scrcw7Jwq9FTnRIO4j758u3Fi9ttoMiihNMITWMM
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: Seu código de verificação para acesso ao financeiro é: 269110
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: --b1=_8Scrcw7Jwq9FTnRIO4j758u3Fi9ttoMiihNMITWMM
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/html; charset=UTF-8
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:     <html>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:     
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:     <body style='font-family: Arial, sans-serif;'>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:         <div style='max-width: 600px; margin: 0 auto; padding: 20px;'>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:             <h2 style='color: #333;'>Verificação de Acesso ao Financeiro</h2>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:             <p>Olá!</p>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:             <p>Seu código de verificação para acesso ao financeiro é:</p>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:             <div style='background-color: #f8f9fa; padding: 15px; border-radius: 5px; text-align: center; margin: 20px 0;'>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:                 <span style='font-size: 24px; font-weight: bold; letter-spacing: 2px; color: #0056b3;'>269110</span>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:             <p style='color: #666;'>Este código é válido apenas para esta sessão.</p>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:             <p style='color: #dc3545; font-size: 14px;'>Se você não solicitou este código, ignore este email.</p>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:             <hr style='border: 1px solid #eee; margin: 20px 0;'>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:             <p style='font-size: 12px; color: #666;'>Este é um email automático. Por favor, não responda.</p>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:         </div>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:     </body>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER:     </html>
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: --b1=_8Scrcw7Jwq9FTnRIO4j758u3Fi9ttoMiihNMITWMM--
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 20:52:11 - PHPMailer Debug: CLIENT -> SERVER: .
+
+2024-11-06 20:52:12 - PHPMailer Debug: SERVER -> CLIENT: 250 2.0.0 OK  1730937224 d2e1a72fcca58-7240799bb8fsm119305b3a.116 - gsmtp
+
+2024-11-06 20:52:12 - PHPMailer Debug: CLIENT -> SERVER: QUIT
+
+2024-11-06 20:52:12 - PHPMailer Debug: SERVER -> CLIENT: 221 2.0.0 closing connection d2e1a72fcca58-7240799bb8fsm119305b3a.116 - gsmtp
+
+2024-11-06 20:52:12 - Código enviado com sucesso para: matheusoliveirale2007@gmail.com
+2024-11-06 21:03:17 - Tentando gerar código para usuário ID: 2 - Email: matheusoliveirale2007@gmail.com
+2024-11-06 21:03:17 - PHPMailer Debug: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP 41be03b00d2f7-7f41f5bcaadsm95976a12.24 - gsmtp
+
+2024-11-06 21:03:17 - PHPMailer Debug: CLIENT -> SERVER: EHLO localhost
+
+2024-11-06 21:03:17 - PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2804:7f0:3e6:b18:7cfd:ce8:444d:3967]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2024-11-06 21:03:17 - PHPMailer Debug: CLIENT -> SERVER: STARTTLS
+
+2024-11-06 21:03:17 - PHPMailer Debug: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2024-11-06 21:03:17 - PHPMailer Debug: CLIENT -> SERVER: EHLO localhost
+
+2024-11-06 21:03:18 - PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2804:7f0:3e6:b18:7cfd:ce8:444d:3967]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2024-11-06 21:03:18 - PHPMailer Debug: CLIENT -> SERVER: AUTH LOGIN
+
+2024-11-06 21:03:18 - PHPMailer Debug: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2024-11-06 21:03:18 - PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+2024-11-06 21:03:18 - PHPMailer Debug: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2024-11-06 21:03:18 - PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+2024-11-06 21:03:18 - PHPMailer Debug: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2024-11-06 21:03:18 - PHPMailer Debug: CLIENT -> SERVER: MAIL FROM:<testesdogabrielb@gmail.com>
+
+2024-11-06 21:03:19 - PHPMailer Debug: SERVER -> CLIENT: 250 2.1.0 OK 41be03b00d2f7-7f41f5bcaadsm95976a12.24 - gsmtp
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: RCPT TO:<matheusoliveirale2007@gmail.com>
+
+2024-11-06 21:03:19 - PHPMailer Debug: SERVER -> CLIENT: 250 2.1.5 OK 41be03b00d2f7-7f41f5bcaadsm95976a12.24 - gsmtp
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: DATA
+
+2024-11-06 21:03:19 - PHPMailer Debug: SERVER -> CLIENT: 354 Go ahead 41be03b00d2f7-7f41f5bcaadsm95976a12.24 - gsmtp
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: Date: Wed, 6 Nov 2024 21:03:17 -0300
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: To: matheusoliveirale2007@gmail.com
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: From: =?UTF-8?Q?Santos_=26_Dinelli_Climatiza=C3=A7=C3=A3o?= <testesdogabrielb@gmail.com>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: Subject: =?UTF-8?Q?C=C3=B3digo_de_Verifica=C3=A7=C3=A3o_para_Acesso_ao_Financeiro?=
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: Message-ID: <2cDtWU50zhUUJeY4OgJIOuo3z5YDhHlBDDQgMf4Ms4@localhost>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: X-Mailer: PHPMailer 6.8.0 (https://github.com/PHPMailer/PHPMailer)
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: MIME-Version: 1.0
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: multipart/alternative;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:  boundary="b1=_2cDtWU50zhUUJeY4OgJIOuo3z5YDhHlBDDQgMf4Ms4"
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: --b1=_2cDtWU50zhUUJeY4OgJIOuo3z5YDhHlBDDQgMf4Ms4
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: Seu código de verificação para acesso ao financeiro é: 673326
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: --b1=_2cDtWU50zhUUJeY4OgJIOuo3z5YDhHlBDDQgMf4Ms4
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/html; charset=UTF-8
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:     <html>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:     <body style=' 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif';
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 line-height: 1.6;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 color: #333;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #f0f0f0;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 margin: 0;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 0;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:         
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:             <div class='container' style='
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 max-width: 600px;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 margin: 20px auto;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #ffffff;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 border-radius: 8px;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 overflow: hidden;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);'
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='header' style='
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #228d02;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 color: white;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 30px;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 text-align: center;'
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     <h1 style='margin: 0;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     font-size: 28px;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     font-weight: 300;'>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     Autenticação Multifator
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     </h1>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='content' style='padding: 30px;'>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Olá!</p>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Seu código de verificação de 6 dígitos é:</p>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     <div class='code-container' style='
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     background-color: rgb(175, 221, 134);
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     border: 2px dashed rgb(175, 221, 134);
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     border-radius: 8px;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     padding: 20px;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     text-align: center;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     margin: 20px 0;'
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     >
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                         <span class='code' style='
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                         font-size: 36px;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                         font-weight: bold;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                         color: rgb(72, 140, 15, 1);
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                         letter-spacing: 5px;'
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                         > <?php echo htmlspecialchars(673326); ?></span>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     </div>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     <div class='instructions' style='
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     background-color: #f9f9f9;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     border-left: 4px solid #145400;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     padding: 15px;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     margin: 20px 0;'
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     >
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                         <p><strong>Instruções:</strong></p>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                         <p>Este código foi enviado para verificar seu login. Por favor, insira-o na página de verificação para continuar.</p>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     </div>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     <p class='warning' style='
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     color: #e74c3c;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     font-style: italic;'
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     >Se você não solicitou este código, por favor ignore este E-mail.</p>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     <a href='localhost/project_Santos_Dinelli/src/pages/validar_codigo_financeiro.php'' class='btn' style='color: white !important;'>Ir para a página de verificação</a>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='footer' style='
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #228d02;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 color: white;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 text-align: center;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 15px;
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 font-size: 12px;'
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Esta é uma mensagem automática. Por favor, não responda a este E-mail.</p>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                     <p>&copy; 2024 Santos & Dinelli Climatização. Todos os direitos reservados.</p>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:         </body>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER:     </html>
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: --b1=_2cDtWU50zhUUJeY4OgJIOuo3z5YDhHlBDDQgMf4Ms4--
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:03:19 - PHPMailer Debug: CLIENT -> SERVER: .
+
+2024-11-06 21:03:20 - PHPMailer Debug: SERVER -> CLIENT: 250 2.0.0 OK  1730937892 41be03b00d2f7-7f41f5bcaadsm95976a12.24 - gsmtp
+
+2024-11-06 21:03:20 - PHPMailer Debug: CLIENT -> SERVER: QUIT
+
+2024-11-06 21:03:20 - PHPMailer Debug: SERVER -> CLIENT: 221 2.0.0 closing connection 41be03b00d2f7-7f41f5bcaadsm95976a12.24 - gsmtp
+
+2024-11-06 21:03:20 - Código enviado com sucesso para: matheusoliveirale2007@gmail.com
+2024-11-06 21:04:57 - Tentando gerar código para usuário ID: 2 - Email: matheusoliveirale2007@gmail.com
+2024-11-06 21:04:57 - PHPMailer Debug: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d9443c01a7336-21177e6b9besm401745ad.248 - gsmtp
+
+2024-11-06 21:04:57 - PHPMailer Debug: CLIENT -> SERVER: EHLO localhost
+
+2024-11-06 21:04:57 - PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2804:7f0:3e6:b18:7cfd:ce8:444d:3967]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2024-11-06 21:04:57 - PHPMailer Debug: CLIENT -> SERVER: STARTTLS
+
+2024-11-06 21:04:58 - PHPMailer Debug: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2024-11-06 21:04:58 - PHPMailer Debug: CLIENT -> SERVER: EHLO localhost
+
+2024-11-06 21:04:58 - PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2804:7f0:3e6:b18:7cfd:ce8:444d:3967]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2024-11-06 21:04:58 - PHPMailer Debug: CLIENT -> SERVER: AUTH LOGIN
+
+2024-11-06 21:04:58 - PHPMailer Debug: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2024-11-06 21:04:58 - PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+2024-11-06 21:04:58 - PHPMailer Debug: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2024-11-06 21:04:58 - PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+2024-11-06 21:04:59 - PHPMailer Debug: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: MAIL FROM:<testesdogabrielb@gmail.com>
+
+2024-11-06 21:04:59 - PHPMailer Debug: SERVER -> CLIENT: 250 2.1.0 OK d9443c01a7336-21177e6b9besm401745ad.248 - gsmtp
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: RCPT TO:<matheusoliveirale2007@gmail.com>
+
+2024-11-06 21:04:59 - PHPMailer Debug: SERVER -> CLIENT: 250 2.1.5 OK d9443c01a7336-21177e6b9besm401745ad.248 - gsmtp
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: DATA
+
+2024-11-06 21:04:59 - PHPMailer Debug: SERVER -> CLIENT: 354 Go ahead d9443c01a7336-21177e6b9besm401745ad.248 - gsmtp
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: Date: Wed, 6 Nov 2024 21:04:57 -0300
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: To: matheusoliveirale2007@gmail.com
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: From: =?UTF-8?Q?Santos_=26_Dinelli_Climatiza=C3=A7=C3=A3o?= <testesdogabrielb@gmail.com>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: Subject: =?UTF-8?Q?C=C3=B3digo_de_Verifica=C3=A7=C3=A3o_para_Acesso_ao_Financeiro?=
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: Message-ID: <PyTiO0Uiwvw8dJe4jlcSQgRewFnMLLkHgWI3DNNo84@localhost>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: X-Mailer: PHPMailer 6.8.0 (https://github.com/PHPMailer/PHPMailer)
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: MIME-Version: 1.0
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: multipart/alternative;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:  boundary="b1=_PyTiO0Uiwvw8dJe4jlcSQgRewFnMLLkHgWI3DNNo84"
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: --b1=_PyTiO0Uiwvw8dJe4jlcSQgRewFnMLLkHgWI3DNNo84
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: Seu código de verificação para acesso ao financeiro é: 705275
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: --b1=_PyTiO0Uiwvw8dJe4jlcSQgRewFnMLLkHgWI3DNNo84
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/html; charset=UTF-8
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:     <html>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:     <body style=' 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif';
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 line-height: 1.6;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 color: #333;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #f0f0f0;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 margin: 0;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 0;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:         
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:             <div class='container' style='
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 max-width: 600px;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 margin: 20px auto;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #ffffff;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 border-radius: 8px;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 overflow: hidden;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);'
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='header' style='
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #228d02;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 color: white;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 30px;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 text-align: center;'
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     <h1 style='margin: 0;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     font-size: 28px;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     font-weight: 300;'>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     Autenticação Multifator
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     </h1>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='content' style='padding: 30px;'>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Olá!</p>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Seu código de verificação de 6 dígitos é:</p>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     <div class='code-container' style='
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     background-color: rgb(175, 221, 134);
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     border: 2px dashed rgb(175, 221, 134);
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     border-radius: 8px;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     padding: 20px;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     text-align: center;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     margin: 20px 0;'
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     >
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                         <span class='code' style='
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                         font-size: 36px;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                         font-weight: bold;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                         color: rgb(72, 140, 15, 1);
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                         letter-spacing: 5px;'
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                         > <?php echo htmlspecialchars(705275); ?></span>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     </div>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     <div class='instructions' style='
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     background-color: #f9f9f9;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     border-left: 4px solid #145400;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     padding: 15px;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     margin: 20px 0;'
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     >
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                         <p><strong>Instruções:</strong></p>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                         <p>Este código foi enviado para verificar seu login. Por favor, insira-o na página de verificação para continuar.</p>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     </div>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     <p class='warning' style='
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     color: #e74c3c;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     font-style: italic;'
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     >Se você não solicitou este código, por favor ignore este E-mail.</p>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     <a href='localhost/project_Santos_Dinelli/src/pages/validar_codigo_financeiro.php'' class='btn' style='color: white !important;'>Ir para a página de verificação</a>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='footer' style='
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #228d02;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 color: white;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 text-align: center;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 15px;
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 font-size: 12px;'
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Esta é uma mensagem automática. Por favor, não responda a este E-mail.</p>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                     <p>&copy; 2024 Santos & Dinelli Climatização. Todos os direitos reservados.</p>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:         </body>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER:     </html>
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: --b1=_PyTiO0Uiwvw8dJe4jlcSQgRewFnMLLkHgWI3DNNo84--
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:04:59 - PHPMailer Debug: CLIENT -> SERVER: .
+
+2024-11-06 21:05:00 - PHPMailer Debug: SERVER -> CLIENT: 250 2.0.0 OK  1730937993 d9443c01a7336-21177e6b9besm401745ad.248 - gsmtp
+
+2024-11-06 21:05:00 - PHPMailer Debug: CLIENT -> SERVER: QUIT
+
+2024-11-06 21:05:00 - PHPMailer Debug: SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-21177e6b9besm401745ad.248 - gsmtp
+
+2024-11-06 21:05:00 - Código enviado com sucesso para: matheusoliveirale2007@gmail.com
+2024-11-06 21:05:23 - Tentando gerar código para usuário ID: 2 - Email: matheusoliveirale2007@gmail.com
+2024-11-06 21:05:24 - PHPMailer Debug: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d2e1a72fcca58-724079b7712sm138482b3a.103 - gsmtp
+
+2024-11-06 21:05:24 - PHPMailer Debug: CLIENT -> SERVER: EHLO localhost
+
+2024-11-06 21:05:24 - PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2804:7f0:3e6:b18:7cfd:ce8:444d:3967]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2024-11-06 21:05:24 - PHPMailer Debug: CLIENT -> SERVER: STARTTLS
+
+2024-11-06 21:05:24 - PHPMailer Debug: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2024-11-06 21:05:24 - PHPMailer Debug: CLIENT -> SERVER: EHLO localhost
+
+2024-11-06 21:05:24 - PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2804:7f0:3e6:b18:7cfd:ce8:444d:3967]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2024-11-06 21:05:24 - PHPMailer Debug: CLIENT -> SERVER: AUTH LOGIN
+
+2024-11-06 21:05:25 - PHPMailer Debug: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2024-11-06 21:05:25 - PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+2024-11-06 21:05:25 - PHPMailer Debug: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2024-11-06 21:05:25 - PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+2024-11-06 21:05:25 - PHPMailer Debug: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2024-11-06 21:05:25 - PHPMailer Debug: CLIENT -> SERVER: MAIL FROM:<testesdogabrielb@gmail.com>
+
+2024-11-06 21:05:25 - PHPMailer Debug: SERVER -> CLIENT: 250 2.1.0 OK d2e1a72fcca58-724079b7712sm138482b3a.103 - gsmtp
+
+2024-11-06 21:05:25 - PHPMailer Debug: CLIENT -> SERVER: RCPT TO:<matheusoliveirale2007@gmail.com>
+
+2024-11-06 21:05:25 - PHPMailer Debug: SERVER -> CLIENT: 250 2.1.5 OK d2e1a72fcca58-724079b7712sm138482b3a.103 - gsmtp
+
+2024-11-06 21:05:25 - PHPMailer Debug: CLIENT -> SERVER: DATA
+
+2024-11-06 21:05:26 - PHPMailer Debug: SERVER -> CLIENT: 354 Go ahead d2e1a72fcca58-724079b7712sm138482b3a.103 - gsmtp
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: Date: Wed, 6 Nov 2024 21:05:23 -0300
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: To: matheusoliveirale2007@gmail.com
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: From: =?UTF-8?Q?Santos_=26_Dinelli_Climatiza=C3=A7=C3=A3o?= <testesdogabrielb@gmail.com>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: Subject: =?UTF-8?Q?C=C3=B3digo_de_Verifica=C3=A7=C3=A3o_para_Acesso_ao_Financeiro?=
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: Message-ID: <W4PFn7801uP6cqk2oh7AyQxtMkC4zInKqEIFvG0yu0@localhost>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: X-Mailer: PHPMailer 6.8.0 (https://github.com/PHPMailer/PHPMailer)
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: MIME-Version: 1.0
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: multipart/alternative;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:  boundary="b1=_W4PFn7801uP6cqk2oh7AyQxtMkC4zInKqEIFvG0yu0"
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: --b1=_W4PFn7801uP6cqk2oh7AyQxtMkC4zInKqEIFvG0yu0
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: Seu código de verificação para acesso ao financeiro é: 500908
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: --b1=_W4PFn7801uP6cqk2oh7AyQxtMkC4zInKqEIFvG0yu0
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/html; charset=UTF-8
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:     <html>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:     <body style=' 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif';
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 line-height: 1.6;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 color: #333;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #f0f0f0;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 margin: 0;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 0;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:         
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:             <div class='container' style='
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 max-width: 600px;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 margin: 20px auto;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #ffffff;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 border-radius: 8px;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 overflow: hidden;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);'
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='header' style='
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #228d02;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 color: white;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 30px;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 text-align: center;'
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     <h1 style='margin: 0;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     font-size: 28px;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     font-weight: 300;'>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     Autenticação Multifator
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     </h1>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='content' style='padding: 30px;'>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Olá!</p>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Seu código de verificação de 6 dígitos é:</p>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     <div class='code-container' style='
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     background-color: rgb(175, 221, 134);
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     border: 2px dashed rgb(175, 221, 134);
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     border-radius: 8px;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     padding: 20px;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     text-align: center;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     margin: 20px 0;'
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     >
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                         <span class='code' style='
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                         font-size: 36px;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                         font-weight: bold;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                         color: rgb(72, 140, 15, 1);
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                         letter-spacing: 5px;'
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                         > <?php echo htmlspecialchars(500908); ?></span>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     </div>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     <div class='instructions' style='
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     background-color: #f9f9f9;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     border-left: 4px solid #145400;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     padding: 15px;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     margin: 20px 0;'
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     >
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                         <p><strong>Instruções:</strong></p>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                         <p>Este código foi enviado para verificar seu login. Por favor, insira-o na página de verificação para continuar.</p>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     </div>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     <p class='warning' style='
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     color: #e74c3c;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     font-style: italic;'
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     >Se você não solicitou este código, por favor ignore este E-mail.</p>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     <a href='localhost/project_Santos_Dinelli/src/pages/validar_codigo_financeiro.php'' class='btn' style='color: white !important;'>Ir para a página de verificação</a>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='footer' style='
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #228d02;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 color: white;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 text-align: center;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 15px;
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 font-size: 12px;'
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Esta é uma mensagem automática. Por favor, não responda a este E-mail.</p>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                     <p>&copy; 2024 Santos & Dinelli Climatização. Todos os direitos reservados.</p>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:         </body>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER:     </html>
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: --b1=_W4PFn7801uP6cqk2oh7AyQxtMkC4zInKqEIFvG0yu0--
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:26 - PHPMailer Debug: CLIENT -> SERVER: .
+
+2024-11-06 21:05:27 - PHPMailer Debug: SERVER -> CLIENT: 250 2.0.0 OK  1730938019 d2e1a72fcca58-724079b7712sm138482b3a.103 - gsmtp
+
+2024-11-06 21:05:27 - PHPMailer Debug: CLIENT -> SERVER: QUIT
+
+2024-11-06 21:05:27 - PHPMailer Debug: SERVER -> CLIENT: 221 2.0.0 closing connection d2e1a72fcca58-724079b7712sm138482b3a.103 - gsmtp
+
+2024-11-06 21:05:27 - Código enviado com sucesso para: matheusoliveirale2007@gmail.com
+2024-11-06 21:05:44 - Tentando gerar código para usuário ID: 2 - Email: matheusoliveirale2007@gmail.com
+2024-11-06 21:05:45 - PHPMailer Debug: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d2e1a72fcca58-724079a3d38sm140327b3a.122 - gsmtp
+
+2024-11-06 21:05:45 - PHPMailer Debug: CLIENT -> SERVER: EHLO localhost
+
+2024-11-06 21:05:45 - PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2804:7f0:3e6:b18:7cfd:ce8:444d:3967]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2024-11-06 21:05:45 - PHPMailer Debug: CLIENT -> SERVER: STARTTLS
+
+2024-11-06 21:05:46 - PHPMailer Debug: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2024-11-06 21:05:46 - PHPMailer Debug: CLIENT -> SERVER: EHLO localhost
+
+2024-11-06 21:05:46 - PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2804:7f0:3e6:b18:7cfd:ce8:444d:3967]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2024-11-06 21:05:46 - PHPMailer Debug: CLIENT -> SERVER: AUTH LOGIN
+
+2024-11-06 21:05:46 - PHPMailer Debug: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2024-11-06 21:05:46 - PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+2024-11-06 21:05:46 - PHPMailer Debug: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2024-11-06 21:05:46 - PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+2024-11-06 21:05:47 - PHPMailer Debug: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: MAIL FROM:<testesdogabrielb@gmail.com>
+
+2024-11-06 21:05:47 - PHPMailer Debug: SERVER -> CLIENT: 250 2.1.0 OK d2e1a72fcca58-724079a3d38sm140327b3a.122 - gsmtp
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: RCPT TO:<matheusoliveirale2007@gmail.com>
+
+2024-11-06 21:05:47 - PHPMailer Debug: SERVER -> CLIENT: 250 2.1.5 OK d2e1a72fcca58-724079a3d38sm140327b3a.122 - gsmtp
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: DATA
+
+2024-11-06 21:05:47 - PHPMailer Debug: SERVER -> CLIENT: 354 Go ahead d2e1a72fcca58-724079a3d38sm140327b3a.122 - gsmtp
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: Date: Wed, 6 Nov 2024 21:05:44 -0300
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: To: matheusoliveirale2007@gmail.com
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: From: =?UTF-8?Q?Santos_=26_Dinelli_Climatiza=C3=A7=C3=A3o?= <testesdogabrielb@gmail.com>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: Subject: =?UTF-8?Q?C=C3=B3digo_de_Verifica=C3=A7=C3=A3o_para_Acesso_ao_Financeiro?=
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: Message-ID: <CNxMN5qvNRv93dLIAjonZnaZlCtI6XQT9eMM9cHw@localhost>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: X-Mailer: PHPMailer 6.8.0 (https://github.com/PHPMailer/PHPMailer)
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: MIME-Version: 1.0
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: multipart/alternative;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:  boundary="b1=_CNxMN5qvNRv93dLIAjonZnaZlCtI6XQT9eMM9cHw"
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: --b1=_CNxMN5qvNRv93dLIAjonZnaZlCtI6XQT9eMM9cHw
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: Seu código de verificação para acesso ao financeiro é: 752335
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: --b1=_CNxMN5qvNRv93dLIAjonZnaZlCtI6XQT9eMM9cHw
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/html; charset=UTF-8
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:     <html>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:     <body style=' 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif';
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 line-height: 1.6;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 color: #333;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #f0f0f0;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 margin: 0;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 0;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:         
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:             <div class='container' style='
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 max-width: 600px;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 margin: 20px auto;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #ffffff;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 border-radius: 8px;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 overflow: hidden;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);'
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='header' style='
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #228d02;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 color: white;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 30px;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 text-align: center;'
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     <h1 style='margin: 0;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     font-size: 28px;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     font-weight: 300;'>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     Autenticação Multifator
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     </h1>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='content' style='padding: 30px;'>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Olá!</p>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Seu código de verificação de 6 dígitos é:</p>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     <div class='code-container' style='
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     background-color: rgb(175, 221, 134);
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     border: 2px dashed rgb(175, 221, 134);
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     border-radius: 8px;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     padding: 20px;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     text-align: center;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     margin: 20px 0;'
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     >
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                         <span class='code' style='
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                         font-size: 36px;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                         font-weight: bold;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                         color: rgb(72, 140, 15, 1);
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                         letter-spacing: 5px;'
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                         > <?php echo htmlspecialchars(752335); ?></span>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     </div>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     <div class='instructions' style='
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     background-color: #f9f9f9;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     border-left: 4px solid #145400;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     padding: 15px;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     margin: 20px 0;'
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     >
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                         <p><strong>Instruções:</strong></p>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                         <p>Este código foi enviado para verificar seu login. Por favor, insira-o na página de verificação para continuar.</p>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     </div>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     <p class='warning' style='
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     color: #e74c3c;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     font-style: italic;'
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     >Se você não solicitou este código, por favor ignore este E-mail.</p>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     <a href='localhost/project_Santos_Dinelli/src/pages/validar_codigo_financeiro.php'' class='btn' style='color: white !important;'>Ir para a página de verificação</a>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='footer' style='
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #228d02;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 color: white;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 text-align: center;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 15px;
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 font-size: 12px;'
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Esta é uma mensagem automática. Por favor, não responda a este E-mail.</p>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                     <p>&copy; 2024 Santos & Dinelli Climatização. Todos os direitos reservados.</p>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:         </body>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER:     </html>
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: --b1=_CNxMN5qvNRv93dLIAjonZnaZlCtI6XQT9eMM9cHw--
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:05:47 - PHPMailer Debug: CLIENT -> SERVER: .
+
+2024-11-06 21:05:48 - PHPMailer Debug: SERVER -> CLIENT: 250 2.0.0 OK  1730938041 d2e1a72fcca58-724079a3d38sm140327b3a.122 - gsmtp
+
+2024-11-06 21:05:48 - PHPMailer Debug: CLIENT -> SERVER: QUIT
+
+2024-11-06 21:05:48 - PHPMailer Debug: SERVER -> CLIENT: 221 2.0.0 closing connection d2e1a72fcca58-724079a3d38sm140327b3a.122 - gsmtp
+
+2024-11-06 21:05:48 - Código enviado com sucesso para: matheusoliveirale2007@gmail.com
+2024-11-06 21:06:05 - Tentando gerar código para usuário ID: 2 - Email: matheusoliveirale2007@gmail.com
+2024-11-06 21:06:05 - PHPMailer Debug: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d2e1a72fcca58-72407a18e2csm137187b3a.156 - gsmtp
+
+2024-11-06 21:06:05 - PHPMailer Debug: CLIENT -> SERVER: EHLO localhost
+
+2024-11-06 21:06:06 - PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2804:7f0:3e6:b18:7cfd:ce8:444d:3967]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2024-11-06 21:06:06 - PHPMailer Debug: CLIENT -> SERVER: STARTTLS
+
+2024-11-06 21:06:06 - PHPMailer Debug: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2024-11-06 21:06:06 - PHPMailer Debug: CLIENT -> SERVER: EHLO localhost
+
+2024-11-06 21:06:06 - PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2804:7f0:3e6:b18:7cfd:ce8:444d:3967]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2024-11-06 21:06:06 - PHPMailer Debug: CLIENT -> SERVER: AUTH LOGIN
+
+2024-11-06 21:06:06 - PHPMailer Debug: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2024-11-06 21:06:06 - PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+2024-11-06 21:06:06 - PHPMailer Debug: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2024-11-06 21:06:06 - PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+2024-11-06 21:06:07 - PHPMailer Debug: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: MAIL FROM:<testesdogabrielb@gmail.com>
+
+2024-11-06 21:06:07 - PHPMailer Debug: SERVER -> CLIENT: 250 2.1.0 OK d2e1a72fcca58-72407a18e2csm137187b3a.156 - gsmtp
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: RCPT TO:<matheusoliveirale2007@gmail.com>
+
+2024-11-06 21:06:07 - PHPMailer Debug: SERVER -> CLIENT: 250 2.1.5 OK d2e1a72fcca58-72407a18e2csm137187b3a.156 - gsmtp
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: DATA
+
+2024-11-06 21:06:07 - PHPMailer Debug: SERVER -> CLIENT: 354 Go ahead d2e1a72fcca58-72407a18e2csm137187b3a.156 - gsmtp
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: Date: Wed, 6 Nov 2024 21:06:05 -0300
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: To: matheusoliveirale2007@gmail.com
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: From: =?UTF-8?Q?Santos_=26_Dinelli_Climatiza=C3=A7=C3=A3o?= <testesdogabrielb@gmail.com>
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: Subject: =?UTF-8?Q?C=C3=B3digo_de_Verifica=C3=A7=C3=A3o_para_Acesso_ao_Financeiro?=
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: Message-ID: <rcwAzphTFcOMeVK0pbbd5uVNM97XCijof9KD1bVKk@localhost>
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: X-Mailer: PHPMailer 6.8.0 (https://github.com/PHPMailer/PHPMailer)
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: MIME-Version: 1.0
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: multipart/alternative;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:  boundary="b1=_rcwAzphTFcOMeVK0pbbd5uVNM97XCijof9KD1bVKk"
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: --b1=_rcwAzphTFcOMeVK0pbbd5uVNM97XCijof9KD1bVKk
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: Seu código de verificação para acesso ao financeiro é: 741678
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: --b1=_rcwAzphTFcOMeVK0pbbd5uVNM97XCijof9KD1bVKk
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/html; charset=UTF-8
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:     <html>
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:     <body style=' 
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif';
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 line-height: 1.6;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 color: #333;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #f0f0f0;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 margin: 0;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 0;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:         
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:             <div class='container' style='
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 max-width: 600px;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 margin: 20px auto;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #ffffff;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 border-radius: 8px;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 overflow: hidden;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);'
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='header' style='
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #228d02;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 color: white;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 30px;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 text-align: center;'
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     <h1 style='margin: 0;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     font-size: 28px;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     font-weight: 300;'>
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     Autenticação Multifator
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     </h1>
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='content' style='padding: 30px;'>
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Olá!</p>
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Seu código de verificação de 6 dígitos é:</p>
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     <div class='code-container' style='
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     background-color: rgb(175, 221, 134);
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     border: 2px dashed rgb(175, 221, 134);
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     border-radius: 8px;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     padding: 20px;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     text-align: center;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     margin: 20px 0;'
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     >
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                         <span class='code' style='
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                         font-size: 36px;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                         font-weight: bold;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                         color: rgb(72, 140, 15, 1);
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                         letter-spacing: 5px;'
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                         > <?php echo htmlspecialchars(741678); ?></span>
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     </div>
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     <div class='instructions' style='
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     background-color: #f9f9f9;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     border-left: 4px solid #145400;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     padding: 15px;
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     margin: 20px 0;'
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER:                     >
+
+2024-11-06 21:06:07 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                         <p><strong>Instruções:</strong></p>
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                         <p>Este código foi enviado para verificar seu login. Por favor, insira-o na página de verificação para continuar.</p>
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                     </div>
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                     <p class='warning' style='
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                     color: #e74c3c;
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                     font-style: italic;'
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                     >Se você não solicitou este código, por favor ignore este E-mail.</p>
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                     <a href='localhost/project_Santos_Dinelli/src/pages/validar_codigo_financeiro.php'' class='btn' style='color: white !important;'>Ir para a página de verificação</a>
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='footer' style='
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #228d02;
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                 color: white;
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                 text-align: center;
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 15px;
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                 font-size: 12px;'
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Esta é uma mensagem automática. Por favor, não responda a este E-mail.</p>
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                     <p>&copy; 2024 Santos & Dinelli Climatização. Todos os direitos reservados.</p>
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:         </body>
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER:     </html>
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER: --b1=_rcwAzphTFcOMeVK0pbbd5uVNM97XCijof9KD1bVKk--
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER: .
+
+2024-11-06 21:06:08 - PHPMailer Debug: SERVER -> CLIENT: 250 2.0.0 OK  1730938061 d2e1a72fcca58-72407a18e2csm137187b3a.156 - gsmtp
+
+2024-11-06 21:06:08 - PHPMailer Debug: CLIENT -> SERVER: QUIT
+
+2024-11-06 21:06:09 - PHPMailer Debug: SERVER -> CLIENT: 221 2.0.0 closing connection d2e1a72fcca58-72407a18e2csm137187b3a.156 - gsmtp
+
+2024-11-06 21:06:09 - Código enviado com sucesso para: matheusoliveirale2007@gmail.com
+2024-11-06 21:06:49 - Tentando gerar código para usuário ID: 2 - Email: matheusoliveirale2007@gmail.com
+2024-11-06 21:06:49 - PHPMailer Debug: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d9443c01a7336-21177e84c4asm391695ad.267 - gsmtp
+
+2024-11-06 21:06:49 - PHPMailer Debug: CLIENT -> SERVER: EHLO localhost
+
+2024-11-06 21:06:49 - PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2804:7f0:3e6:b18:7cfd:ce8:444d:3967]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2024-11-06 21:06:49 - PHPMailer Debug: CLIENT -> SERVER: STARTTLS
+
+2024-11-06 21:06:49 - PHPMailer Debug: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2024-11-06 21:06:49 - PHPMailer Debug: CLIENT -> SERVER: EHLO localhost
+
+2024-11-06 21:06:50 - PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2804:7f0:3e6:b18:7cfd:ce8:444d:3967]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2024-11-06 21:06:50 - PHPMailer Debug: CLIENT -> SERVER: AUTH LOGIN
+
+2024-11-06 21:06:50 - PHPMailer Debug: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2024-11-06 21:06:50 - PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+2024-11-06 21:06:50 - PHPMailer Debug: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2024-11-06 21:06:50 - PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+2024-11-06 21:06:50 - PHPMailer Debug: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2024-11-06 21:06:50 - PHPMailer Debug: CLIENT -> SERVER: MAIL FROM:<testesdogabrielb@gmail.com>
+
+2024-11-06 21:06:51 - PHPMailer Debug: SERVER -> CLIENT: 250 2.1.0 OK d9443c01a7336-21177e84c4asm391695ad.267 - gsmtp
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: RCPT TO:<matheusoliveirale2007@gmail.com>
+
+2024-11-06 21:06:51 - PHPMailer Debug: SERVER -> CLIENT: 250 2.1.5 OK d9443c01a7336-21177e84c4asm391695ad.267 - gsmtp
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: DATA
+
+2024-11-06 21:06:51 - PHPMailer Debug: SERVER -> CLIENT: 354 Go ahead d9443c01a7336-21177e84c4asm391695ad.267 - gsmtp
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: Date: Wed, 6 Nov 2024 21:06:49 -0300
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: To: matheusoliveirale2007@gmail.com
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: From: =?UTF-8?Q?Santos_=26_Dinelli_Climatiza=C3=A7=C3=A3o?= <testesdogabrielb@gmail.com>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: Subject: =?UTF-8?Q?C=C3=B3digo_de_Verifica=C3=A7=C3=A3o_para_Acesso_ao_Financeiro?=
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: Message-ID: <NmYiiaMjJ08eXZPGlx8v3OxKFf1yCLC0oagkNRE@localhost>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: X-Mailer: PHPMailer 6.8.0 (https://github.com/PHPMailer/PHPMailer)
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: MIME-Version: 1.0
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: multipart/alternative;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:  boundary="b1=_NmYiiaMjJ08eXZPGlx8v3OxKFf1yCLC0oagkNRE"
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: --b1=_NmYiiaMjJ08eXZPGlx8v3OxKFf1yCLC0oagkNRE
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: Seu código de verificação para acesso ao financeiro é: 701853
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: --b1=_NmYiiaMjJ08eXZPGlx8v3OxKFf1yCLC0oagkNRE
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/html; charset=UTF-8
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:     <html>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:     <body style=' 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif';
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 line-height: 1.6;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 color: #333;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #f0f0f0;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 margin: 0;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 0;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:         
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:             <div class='container' style='
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 max-width: 600px;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 margin: 20px auto;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #ffffff;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 border-radius: 8px;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 overflow: hidden;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);'
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='header' style='
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #228d02;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 color: white;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 30px;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 text-align: center;'
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     <h1 style='margin: 0;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     font-size: 28px;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     font-weight: 300;'>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     Autenticação Multifator
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     </h1>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='content' style='padding: 30px;'>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Olá!</p>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Seu código de verificação de 6 dígitos é:</p>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     <div class='code-container' style='
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     background-color: rgb(175, 221, 134);
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     border: 2px dashed rgb(175, 221, 134);
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     border-radius: 8px;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     padding: 20px;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     text-align: center;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     margin: 20px 0;'
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     >
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                         <span class='code' style='
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                         font-size: 36px;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                         font-weight: bold;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                         color: rgb(72, 140, 15, 1);
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                         letter-spacing: 5px;'
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                         >701853</span>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     </div>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     <div class='instructions' style='
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     background-color: #f9f9f9;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     border-left: 4px solid #145400;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     padding: 15px;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     margin: 20px 0;'
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     >
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                         <p><strong>Instruções:</strong></p>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                         <p>Este código foi enviado para verificar seu login. Por favor, insira-o na página de verificação para continuar.</p>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     </div>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     <p class='warning' style='
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     color: #e74c3c;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     font-style: italic;'
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     >Se você não solicitou este código, por favor ignore este E-mail.</p>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     <a href='localhost/project_Santos_Dinelli/src/pages/validar_codigo_financeiro.php'' class='btn' style='color: white !important;'>Ir para a página de verificação</a>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 <div class='footer' style='
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 background-color: #228d02;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 color: white;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 text-align: center;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 padding: 15px;
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 font-size: 12px;'
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 >
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     <p>Esta é uma mensagem automática. Por favor, não responda a este E-mail.</p>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                     <p>&copy; 2024 Santos & Dinelli Climatização. Todos os direitos reservados.</p>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:                 </div>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:         </body>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER:     </html>
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: --b1=_NmYiiaMjJ08eXZPGlx8v3OxKFf1yCLC0oagkNRE--
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 21:06:51 - PHPMailer Debug: CLIENT -> SERVER: .
+
+2024-11-06 21:06:52 - PHPMailer Debug: SERVER -> CLIENT: 250 2.0.0 OK  1730938104 d9443c01a7336-21177e84c4asm391695ad.267 - gsmtp
+
+2024-11-06 21:06:52 - PHPMailer Debug: CLIENT -> SERVER: QUIT
+
+2024-11-06 21:06:52 - PHPMailer Debug: SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-21177e84c4asm391695ad.267 - gsmtp
+
+2024-11-06 21:06:52 - Código enviado com sucesso para: matheusoliveirale2007@gmail.com
