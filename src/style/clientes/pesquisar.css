@@ -1,0 +1,96 @@
+:root {
+    --primary-color: #228d02;
+    --primary-hover: #145400;
+    --primary-light: #45a528;
+    --secondary-color: #f8f9fa;
+    --accent-color: #1a6600;
+    --text-color: #333333;
+    --shadow: 0 8px 15px rgba(34, 141, 2, 0.1);
+    --gradient-start: #f0f7f0;
+    --gradient-end: #e1efe1;
+    --transition-base: 0.5s
+}
+
+.container-search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-form {
+    background: white;
+    border-radius: 15px;
+    margin: 20px auto;
+    padding: 25px;
+    width: 90%;
+    max-width: 1200px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.search-form:hover {
+    transform: translateY(-5px);
+}
+
+.search-form {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.label-form {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+.search-form input[type="text"] {
+    width: 400px;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: var(--transition-base);
+}
+
+.search-form input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-hover);
+    box-shadow: 0 0 0 3px rgba(34, 141, 2, 0.1);
+}
+
+.search-form button {
+    width: 120px;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.search-form  button:hover {
+    background-color: var(--primary-hover);
+}
+
+@media (max-width: 768px) {
+    .search-form form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-form form input[type="text"] {
+        width: 100%;
+    }
+
+    .search-form form button {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+}
