@@ -97,7 +97,7 @@ if (isset($_GET['search'])) {
 
 </header> <!-- fim header fixo -->
 
-<!-- Formulário de pesquisa -->
+<!-- formulario de pesquisa -->
 <form method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <label for="search">Pesquisar clientes:</label>
     <input type="text" id="search" name="search" placeholder="Nome, email, CPF, razão social, CNPJ..." value="<?php echo htmlspecialchars($searchTerm); ?>">
@@ -111,16 +111,18 @@ if (isset($_GET['search'])) {
         <div class="cliente">
             <h3><?php echo htmlspecialchars($cliente['nome_cliente'] ?? ''); ?></h3>
             <p>Email: <?php echo htmlspecialchars($cliente['email_cliente'] ?? ''); ?></p>
+            <p>Telefone: <?php echo htmlspecialchars($cliente['telefone'] ?? ''); ?></p>
             <p>CPF: <?php echo htmlspecialchars($cliente['cpf_cliente'] ?? ''); ?></p>
+            <p>Endereço: <?php echo htmlspecialchars($cliente['endereco'] ?? ''); ?></p>
             <!-- Adicione outros campos conforme necessário -->
 
-            <h4>Eventos Agendados</h4>
+            <h4>Serviços Agendados</h4>
             <table>
                 <thead>
                     <tr>
                         <th>Título</th>
-                        <th>Data Início</th>
-                        <th>Data Fim</th>
+                        <th>Início</th>
+                        <th>Fim</th>
                         <th>Serviço</th>
                     </tr>
                 </thead>
@@ -134,6 +136,7 @@ if (isset($_GET['search'])) {
                             <td><?php echo htmlspecialchars($event['start']); ?></td>
                             <td><?php echo htmlspecialchars($event['end']); ?></td>
                             <td><?php echo htmlspecialchars($event['servico']); ?></td>
+
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -148,17 +151,20 @@ if (isset($_GET['search'])) {
         <div class="cliente">
             <h3><?php echo htmlspecialchars($cliente['razao_social'] ?? ''); ?></h3>
             <p>Email: <?php echo htmlspecialchars($cliente['email_cliente_pj'] ?? ''); ?></p>
+            <p>Telefone: <?php echo htmlspecialchars($cliente['telefone_pj'] ?? ''); ?></p>
             <p>CNPJ: <?php echo htmlspecialchars($cliente['cnpj'] ?? ''); ?></p>
+            <p>Endereço: <?php echo htmlspecialchars($cliente['endereco_pj'] ?? ''); ?></p>
             <!-- Adicione outros campos conforme necessário -->
 
-            <h4>Eventos Agendados</h4>
+            <h4>Serviços Agendados</h4>
             <table>
                 <thead>
                     <tr>
                         <th>Título</th>
-                        <th>Data Início</th>
-                        <th>Data Fim</th>
+                        <th>Início</th>
+                        <th>Fim</th>
                         <th>Serviço</th>
+                    
                     </tr>
                 </thead>
                 <tbody>
