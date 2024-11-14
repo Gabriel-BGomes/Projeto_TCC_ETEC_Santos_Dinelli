@@ -5,6 +5,32 @@ ob_start();
 // Verificar se é logout por timeout
 $timeout = isset($_GET['timeout']) && $_GET['timeout'] === 'true';
 
+// Limpar o cookie remember_token se existir
+if (isset($_COOKIE['remember_token'])) {
+    $token = $_COOKIE['remember_token'];
+    
+    // Limpar token no banco de dados
+    $query_clear = "UPDATE usuarios SET 
+                    remember_token = NULL,
+                    token_expiracao = NULL 
+                    WHERE remember_token = :token";
+    
+    include_once "./conexao.php";
+    $result_clear = $conn->prepare($query_clear);
+    $result_clear->bindParam(':token', $token);
+    $result_clear->execute();
+    
+    // Remover cookie
+    setcookie('remember_token', '', [
+        'expires' => time() - 3600,
+        'path' => '/',
+        'secure' => true,
+        'httponly' => true,
+        'samesite' => 'Strict'
+    ]);
+}
+
+// Destruir todas as variáveis de sessão
 unset($_SESSION['id'], $_SESSION['nome'], $_SESSION['usuario'], $_SESSION['codigo_autenticacao']);
 
 if((!isset($_SESSION['id'])) && (!isset($_SESSION['usuario'])) && (!isset($_SESSION['codigo_autenticacao']))){
