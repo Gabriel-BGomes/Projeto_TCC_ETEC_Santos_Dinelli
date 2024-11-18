@@ -149,7 +149,7 @@ foreach ($clientes as $cliente) {
 </div>
 
 <!-- Seção de Clientes Jurídicos -->
-<div id="clientes-juridicos" class="cliente-section" style="margin-top: -100px">
+<div id="clientes-juridicos" class="cliente-section" style="margin-top: 30px">
     <h2>Clientes Jurídicos</h2>
     <?php foreach ($clientes_filtrados['juridicos'] as $cliente): ?>
         <div class="cliente">
@@ -180,7 +180,7 @@ foreach ($clientes as $cliente) {
     }
 
     // Exibe os clientes físicos ao carregar a página
-    toggleClientes('fisicos');
+    toggleClientes('ambos');
 </script>
 
 </body>
