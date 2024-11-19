@@ -40,13 +40,13 @@ var dataMensal = {
   {
     label: 'RECEBIMENTOS', // nome da primeira coluna
     data: mesSelecionadoRecebimento, // dados da primeira coluna
-    backgroundColor: '#1833ba' // cor da primeira coluna
+    backgroundColor: 'green' // cor da primeira coluna
   },
 
   {
     label: 'DESPESAS', // nome da segunda coluna
     data: mesSelecionadoDespesa, // dados da segunda coluna
-    backgroundColor: '#fff227' // cor da segunda coluna
+    backgroundColor: 'red' // cor da segunda coluna
   },
 
   {

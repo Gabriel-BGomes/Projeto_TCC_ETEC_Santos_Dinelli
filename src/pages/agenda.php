@@ -128,8 +128,8 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
         <div class="modal-content modal-content-edit">
 
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="visualizarModalLabel">Visualizar o Evento</h1>
-                <h1 class="modal-title fs-5" id="editarModalLabel" style="display: none;">Editar o Evento</h1>
+                <h1 class="modal-title fs-5" id="visualizarModalLabel">Visualizar o Serviço</h1>
+                <h1 class="modal-title fs-5" id="editarModalLabel" style="display: none;">Editar o Serviço</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -172,7 +172,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                                 <label for="edit_title" class="col-sm-2 col-form-label">Nome</label>
 
                                 <div class="col-sm-10">
-                                    <input type="text" name="edit_title" class="form-control" id="edit_title" placeholder="Título do evento">
+                                    <input type="text" name="edit_title" class="form-control" id="edit_title" placeholder="Título do Serviço">
                                 </div>
 
                             </div>
@@ -207,7 +207,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                                 <div class="col-sm-10">
 
-                                    <input type="text" name="edit_obs" class="form-control" id="edit_obs" placeholder="Observação do evento">
+                                    <input type="text" name="edit_obs" class="form-control" id="edit_obs" placeholder="Observação do Serviço">
                                 </div>
 
                             </div>

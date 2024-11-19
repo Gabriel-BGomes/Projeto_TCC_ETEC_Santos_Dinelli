@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Aguardar o usuário clicar no botão apagar
         btnApagarEvento.addEventListener("click", async () => {
             // Exibir uma caixa de diálogo de confirmação
-            const confirmacao = window.confirm("Tem certeza de que deseja apagar este evento?");
+            const confirmacao = window.confirm("Tem certeza de que deseja apagar este serviço?");
 
             // Verificar se o usuário confirmou
             if (confirmacao) {

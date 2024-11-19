@@ -20,13 +20,13 @@ if (!empty($id)) {
 
     // verificar se consegui apagar corretamente
     if($apagar_event->execute()){
-        $retorna = ['status' => true, 'msg' => 'Evento apagado com sucesso!'];
+        $retorna = ['status' => true, 'msg' => 'Serviço apagado com sucesso!'];
     }else{
-        $retorna = ['status' => false, 'msg' => 'Erro: Evento não apagado!'];
+        $retorna = ['status' => false, 'msg' => 'Erro: Serviço não apagado!'];
     }
 
 } else { // acessa o ELSE quando o id está vazio
-    $retorna = ['status' => false, 'msg' => 'Erro: Necessário enviar o id do evento!'];
+    $retorna = ['status' => false, 'msg' => 'Erro: Necessário enviar o id do serviço!'];
 }
 
 // converter o array em objeto e retornar para o JavaScript

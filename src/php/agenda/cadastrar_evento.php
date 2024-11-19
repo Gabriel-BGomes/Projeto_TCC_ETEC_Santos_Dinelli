@@ -18,7 +18,7 @@ $cad_event->bindParam(':id_cliente', $dados['cad_id_cliente']);
 if ($cad_event->execute()) {
     $retorna = [
         'status' => true,
-        'msg' => 'Evento cadastrado com sucesso!',
+        'msg' => 'Serviço cadastrado com sucesso!',
         'id' => $conn->lastInsertId(),
         'title' => $dados['cad_title'],
         'color' => $dados['cad_color'],
@@ -29,7 +29,7 @@ if ($cad_event->execute()) {
         'id_cliente' => $dados['cad_id_cliente']
     ];
 } else {
-    $retorna = ['status' => false, 'msg' => 'Erro: Evento não cadastrado!'];
+    $retorna = ['status' => false, 'msg' => 'Erro: Serviço não cadastrado!'];
 }
 
 echo json_encode($retorna);

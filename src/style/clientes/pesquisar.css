@@ -15,6 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 200px;
 }
 
 .search-form {
@@ -75,7 +76,7 @@
     transition: var(--transition-base);
 }
 
-.search-form  button:hover {
+.search-form button:hover {
     background-color: var(--primary-hover);
 }
 

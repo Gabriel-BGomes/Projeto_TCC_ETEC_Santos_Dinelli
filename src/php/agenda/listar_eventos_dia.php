@@ -43,13 +43,13 @@ try {
 
     // Verificar se há eventos e retornar a resposta
     if (!$eventos) {
-        echo json_encode(['status' => false, 'msg' => 'Nenhum evento encontrado para hoje.']);
+        echo json_encode(['status' => false, 'msg' => 'Nenhum serviço encontrado para hoje.']);
     } else {
         header('Content-Type: application/json');
         echo json_encode($eventos);
     }
 } catch (PDOException $e) {
-    echo json_encode(['status' => false, 'msg' => 'Erro ao buscar eventos: ' . $e->getMessage()]);
+    echo json_encode(['status' => false, 'msg' => 'Erro ao buscar serviço: ' . $e->getMessage()]);
 }
 
 

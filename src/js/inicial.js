@@ -54,11 +54,11 @@ document.addEventListener('DOMContentLoaded', function () {
       }
   })
   .catch(error => {
-      console.error('Erro ao carregar eventos:', error);
+      console.error('Erro ao carregar serviços:', error);
       document.getElementById('listaEventos').innerHTML = `
           <div class="sem-eventos">
               <i class="fas fa-exclamation-triangle fa-3x"></i>
-              <p>Erro ao carregar eventos.</p>
+              <p>Erro ao carregar serviços.</p>
           </div>`;
   });
 });
