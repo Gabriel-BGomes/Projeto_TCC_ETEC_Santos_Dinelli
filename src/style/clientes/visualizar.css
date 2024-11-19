@@ -12,19 +12,12 @@
     --accent-color: #1a6600;
     --text-color: #333333;
     --shadow: 0 8px 15px rgba(34, 141, 2, 0.1);
-    --gradient-start: #f0f7f0;
-    --gradient-end: #e1efe1;
 }
 
 body {
     min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding-top: 70px;
-}
-
-
-.header {
-    margin-top: -70px;
+    background: white;
 }
 
 /* Main Content */
@@ -108,14 +101,13 @@ tr:hover {
     background: rgba(34, 141, 2, 0.05);
 }
 
-
 /* Scrollbar Customization */
 ::-webkit-scrollbar {
     width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--gradient-start);
+    background: #f1f1f1;
     border-radius: 5px;
 }
 
@@ -126,4 +118,52 @@ tr:hover {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary-hover);
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.actions a {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.actions .btn-edit {
+    background-color: #007bff; /* Azul */
+    color: #fff;
+    border: 2px solid #007bff;
+}
+
+.actions .btn-edit:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.actions .btn-delete {
+    background-color: #dc3545; /* Vermelho */
+    color: #fff;
+    border: 2px solid #dc3545;
+}
+
+.actions .btn-delete:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.actions a:active {
+    transform: scale(0.95);
 }
