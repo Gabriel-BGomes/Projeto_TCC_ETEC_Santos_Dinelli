@@ -14,20 +14,15 @@ try {
     exit;
 }
 
-// Função para pesquisar clientes
-function searchClientes($conn, $searchTerm) {
-    $query = "SELECT * FROM clientes WHERE 
-              email_cliente LIKE :searchTerm 
-              OR telefone LIKE :searchTerm
-              OR cpf_cliente LIKE :searchTerm
-              OR email_cliente_pj LIKE :searchTerm
-              OR telefone_pj LIKE :searchTerm
-              OR cnpj LIKE :searchTerm
-              OR nome_cliente LIKE :searchTerm
-              OR razao_social LIKE :searchTerm";
     $stmt = $conn->prepare($query);
+    
+    // Adiciona o parâmetro de pesquisa com o "%" para procurar qualquer ocorrência
     $stmt->bindValue(':searchTerm', '%' . $searchTerm . '%');
+    
+    // Executa a consulta
     $stmt->execute();
+    
+    // Retorna os resultados
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
@@ -47,12 +42,21 @@ if (isset($_GET['search'])) {
 // Filtra os clientes por tipo de pessoa
 $clientes_filtrados = ['fisicos' => [], 'juridicos' => []];
 foreach ($clientes as $cliente) {
-    if ($cliente['tipo_pessoa'] == 1) {
-        $clientes_filtrados['fisicos'][] = $cliente;
-    } elseif ($cliente['tipo_pessoa'] == 2) {
-        $clientes_filtrados['juridicos'][] = $cliente;
+
     }
 }
+
+// Função para obter eventos de um cliente
+function getClientEvents($conn, $id_cliente) {
+    $query = "SELECT * FROM events WHERE id_cliente = :id_cliente";  // Alterado para "events"
+    $stmt = $conn->prepare($query);
+    $stmt->bindValue(':id_cliente', $id_cliente, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+$query = "SELECT * FROM events WHERE id_cliente = :id_cliente";  // Alterado para "events"
+
 ?>
 
 <!DOCTYPE html>
@@ -107,8 +111,7 @@ foreach ($clientes as $cliente) {
 
             <nav> <!-- finalizar com a logo da empresa na direita-->
 
-                <a href="https://www.santosedinelli.com target="_blank">
-                <img class="logo" src="../../images/santos-dinelli.png"  alt="logo da empresa"></a>
+
 
             </nav> <!-- final da div da logo-->
 
@@ -117,7 +120,7 @@ foreach ($clientes as $cliente) {
 <div class="container-search-form">
     <form class="search-form" method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <label class="label-form" for="search">Pesquisar clientes:</label>
-        <input type="text" id="search" name="search" placeholder="Nome, email, CPF, razão social, CNPJ" value="<?php echo htmlspecialchars($searchTerm); ?>">
+        <input type="text" id="search" name="search" placeholder="Nome, CPF, razão social, CNPJ" value="<?php echo htmlspecialchars($searchTerm); ?>">
         <button type="submit">Pesquisar</button>
     </form>
 </div>
@@ -134,53 +137,6 @@ foreach ($clientes as $cliente) {
     </div>    
 </div>
 
-<!-- Seção de Clientes Físicos -->
-<div id="clientes-fisicos" class="cliente-section" style="margin-top: -100px">
-    <h2>Clientes Físicos</h2>
-    <?php foreach ($clientes_filtrados['fisicos'] as $cliente): ?>
-        <div class="cliente">
-            <h3><?php echo htmlspecialchars($cliente['nome_cliente'] ?? ''); ?></h3>
-            <p>Email: <?php echo htmlspecialchars($cliente['email_cliente'] ?? ''); ?></p>
-            <p>Telefone: <?php echo htmlspecialchars($cliente['telefone'] ?? ''); ?></p>
-            <p>CPF: <?php echo htmlspecialchars($cliente['cpf_cliente'] ?? ''); ?></p>
-            <p>Endereço: <?php echo htmlspecialchars($cliente['endereco'] ?? ''); ?></p>
-        </div>
-    <?php endforeach; ?>
-</div>
-
-<!-- Seção de Clientes Jurídicos -->
-<div id="clientes-juridicos" class="cliente-section" style="margin-top: 30px">
-    <h2>Clientes Jurídicos</h2>
-    <?php foreach ($clientes_filtrados['juridicos'] as $cliente): ?>
-        <div class="cliente">
-            <h3><?php echo htmlspecialchars($cliente['razao_social'] ?? ''); ?></h3>
-            <p>Email: <?php echo htmlspecialchars($cliente['email_cliente_pj'] ?? ''); ?></p>
-            <p>Telefone: <?php echo htmlspecialchars($cliente['telefone_pj'] ?? ''); ?></p>
-            <p>CNPJ: <?php echo htmlspecialchars($cliente['cnpj'] ?? ''); ?></p>
-            <p>Endereço: <?php echo htmlspecialchars($cliente['endereco_pj'] ?? ''); ?></p>
-        </div>
-    <?php endforeach; ?>
-</div>
-
-<script>
-    function toggleClientes(tipo) {
-        const fisicos = document.getElementById('clientes-fisicos');
-        const juridicos = document.getElementById('clientes-juridicos');
-
-        if (tipo === 'fisicos') {
-            fisicos.classList.add('visible');
-            juridicos.classList.remove('visible');
-        } else if (tipo === 'juridicos') {
-            juridicos.classList.add('visible');
-            fisicos.classList.remove('visible');
-        } else if (tipo === 'ambos') {
-            fisicos.classList.add('visible');
-            juridicos.classList.add('visible');
-        }
-    }
-
-    // Exibe os clientes físicos ao carregar a página
-    toggleClientes('ambos');
 </script>
 
 </body>
