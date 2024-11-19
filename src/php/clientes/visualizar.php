@@ -52,6 +52,7 @@ if (isset($_GET['search'])) {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../style/clientes/pesquisar.css">
+    <link rel="stylesheet" href="../../style/clientes/visualizar.css">
     <link rel="stylesheet" href="../../style/layout-header.css">
     <link rel="shortcut icon" href="../../images/icons/logo.ico" type="image/x-icon">
     <title>Visualizar Clientes</title>

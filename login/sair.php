@@ -1,21 +1,31 @@
 <?php
+session_start();
+ob_start();
 
-session_start(); // Iniciar a sessão
+// Verificar se é logout por timeout
+$timeout = isset($_GET['timeout']) && $_GET['timeout'] === 'true';
 
-ob_start(); // Limpar o buffer de saída
-
-// Destruir as sessões
 unset($_SESSION['id'], $_SESSION['nome'], $_SESSION['usuario'], $_SESSION['codigo_autenticacao']);
 
-// Acessar o IF quando o usuário não estão logado e redireciona para página de login
-if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SESSION['codigo_autenticacao']))){
-    $_SESSION['msg'] = "<p style='color: green;'>Deslogado com sucesso!</p>";
-
-    // Redirecionar o usuário
-    header("Location: ./index.php");
-
-    // Pausar o processamento
+if((!isset($_SESSION['id'])) && (!isset($_SESSION['usuario'])) && (!isset($_SESSION['codigo_autenticacao']))){
+    if($timeout) {
+        $_SESSION['msg'] = "<p style='color: #f00;'>Você foi desconectado por inatividade!</p>";
+    } else {
+        $_SESSION['msg'] = "<p style='color: green;'>Deslogado com sucesso!</p>";
+    }
+    
+    // Se for uma requisição AJAX
+    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        http_response_code(200);
+        exit();
+    }
+    
+    // Redirecionar mantendo o parâmetro timeout
+    if($timeout) {
+        header("Location: ./index.php?timeout=true");
+    } else {
+        header("Location: ./index.php");
+    }
     exit();
 }
-
 ?>

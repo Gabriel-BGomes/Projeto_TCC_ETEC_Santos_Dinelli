@@ -181,10 +181,10 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     try {
                         $cad_pessoa->execute();
                         if ($cad_pessoa->rowCount()) {
-                            echo "<p class='success-message'>Cliente cadastrado com sucesso!</p>";
+                            echo "<div id='successMessage' class='success-message'>Cliente cadastrado com sucesso!</div>";
                         } else {
-                            echo "<p class='error-message'>Erro: Cliente não cadastrado com sucesso!</p>";
-                        }
+                            echo "<div id='errorMessage' class='error-message'>Erro: Cliente não cadastrado com sucesso!</div>";
+                        }                        
                     } catch (PDOException $e) {
                         echo "Erro ao cadastrar: " . $e->getMessage();
                         
@@ -400,6 +400,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
         </div> <!-- fim container -->
 
     <script src="../../js/clientes/cadastrar.js"></script>
+    
 
     </body>
 </html>
