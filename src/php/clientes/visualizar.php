@@ -14,22 +14,34 @@ try {
     exit;
 }
 
+// Consultar os dados da tabela clientes
+$query = "SELECT * FROM clientes";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+$clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 // Função para pesquisar clientes
 function searchClientes($conn, $searchTerm) {
     $query = "SELECT * FROM clientes WHERE 
-              email_cliente LIKE :searchTerm 
-              OR telefone LIKE :searchTerm
+              nome_cliente LIKE :searchTerm 
+              OR razao_social LIKE :searchTerm
               OR cpf_cliente LIKE :searchTerm
-              OR email_cliente_pj LIKE :searchTerm
-              OR telefone_pj LIKE :searchTerm
-              OR cnpj LIKE :searchTerm
-              OR nome_cliente LIKE :searchTerm
-              OR razao_social LIKE :searchTerm";
+              OR cnpj LIKE :searchTerm";
+    
+    // Prepare a consulta SQL
     $stmt = $conn->prepare($query);
+    
+    // Adiciona o parâmetro de pesquisa com o "%" para procurar qualquer ocorrência
     $stmt->bindValue(':searchTerm', '%' . $searchTerm . '%');
+    
+    // Executa a consulta
     $stmt->execute();
+    
+    // Retorna os resultados
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+
 
 // Inicializa o array de clientes e verifica se há uma consulta de pesquisa
 $clientes = [];
@@ -47,12 +59,27 @@ if (isset($_GET['search'])) {
 // Filtra os clientes por tipo de pessoa
 $clientes_filtrados = ['fisicos' => [], 'juridicos' => []];
 foreach ($clientes as $cliente) {
-    if ($cliente['tipo_pessoa'] == 1) {
-        $clientes_filtrados['fisicos'][] = $cliente;
-    } elseif ($cliente['tipo_pessoa'] == 2) {
-        $clientes_filtrados['juridicos'][] = $cliente;
+    // Verifica se a chave 'tipo_pessoa' existe
+    if (isset($cliente['tipo_pessoa'])) {
+        if ($cliente['tipo_pessoa'] == 1) {
+            $clientes_filtrados['fisicos'][] = $cliente;
+        } elseif ($cliente['tipo_pessoa'] == 2) {
+            $clientes_filtrados['juridicos'][] = $cliente;
+        }
     }
 }
+
+// Função para obter eventos de um cliente
+function getClientEvents($conn, $id_cliente) {
+    $query = "SELECT * FROM events WHERE id_cliente = :id_cliente";  // Alterado para "events"
+    $stmt = $conn->prepare($query);
+    $stmt->bindValue(':id_cliente', $id_cliente, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+$query = "SELECT * FROM events WHERE id_cliente = :id_cliente";  // Alterado para "events"
+
 ?>
 
 <!DOCTYPE html>
@@ -64,123 +91,133 @@ foreach ($clientes as $cliente) {
     <link rel="stylesheet" href="../../style/layout-header.css">
     <link rel="shortcut icon" href="../../images/icons/logo.ico" type="image/x-icon">
     <title>Visualizar Clientes</title>
-    <style>
-        .cliente-section {
-            display: none;
-        }
-        .visible {
-            display: block;
-        }
-    </style>
 </head>
 <body>
 
 <header class="header"> <!-- começo menu fixo no topo -->
-            
-            <nav class="menu-lateral"> <!-- primeiro item do menu -->
+        
+    <nav class="menu-lateral"> <!-- primeiro item do menu -->
 
-                <input type="checkbox" class="fake-tres-linhas">
-                <div><img class="tres-linhas" src="../../images/menu-tres-linhas.png" alt="menu de três linhas"></div>
+        <input type="checkbox" class="fake-tres-linhas">
+        <div><img class="tres-linhas" src="../../images/menu-tres-linhas.png" alt="menu de três linhas"></div>
 
-                <ul>
-                    <li><a class="link" href="../../pages/home.php">ÍNICIO</a></li>
-                    <li><a class="link" href="../../pages/agenda.php">AGENDA</a></li>
-                    <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
-                    <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
-                    <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
-                    <li><a class="link" href="../../../login/sair.php">SAIR</a></li>
-                </ul>
+        <ul>
+            <li><a class="link" href="../../pages/home.php">ÍNICIO</a></li>
+            <li><a class="link" href="../../pages/agenda.php">AGENDA</a></li>
+            <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
+            <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
+            <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
+            <li><a class="link" href="../../../login/sair.php">SAIR</a></li>
+        </ul>
 
-            </nav>
+    </nav>
 
-            <nav> <!-- começar com uma nav para definir os itens do menu-->
+    <nav> <!-- começar com uma nav para definir os itens do menu-->
 
-                <ul class="menu-fixo"> <!-- começo dos itens do menu-->
+        <ul class="menu-fixo"> <!-- começo dos itens do menu-->
 
-                    <li><a class="link" href="../../pages/agenda.php">AGENDA</a></li>
-                    <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
-                    <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
+            <li><a class="link" style="margin-left: 18px;" href="../../pages/agenda.php">AGENDA</a></li>
+            <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
+            <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
 
-                </ul>
+        </ul>
 
-            </nav>
+    </nav>
 
-            <nav> <!-- finalizar com a logo da empresa na direita-->
+    <nav> <!-- finalizar com a logo da empresa na direita-->
 
-                <a href="https://www.santosedinelli.com target="_blank">
-                <img class="logo" src="../../images/santos-dinelli.png"  alt="logo da empresa"></a>
+        <a href="https://www.santosedinelli.com" target="_blank">
+        <img class="logo" src="../../images/santos-dinelli.png" alt="logo da empresa"></a>
 
-            </nav> <!-- final da div da logo-->
+    </nav> <!-- final da div da logo-->
 
-        </header> <!-- fim header fixo -->
+</header> <!-- fim header fixo -->
 
 <div class="container-search-form">
     <form class="search-form" method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <label class="label-form" for="search">Pesquisar clientes:</label>
-        <input type="text" id="search" name="search" placeholder="Nome, email, CPF, razão social, CNPJ" value="<?php echo htmlspecialchars($searchTerm); ?>">
+        <input type="text" id="search" name="search" placeholder="Nome, CPF, razão social, CNPJ" value="<?php echo htmlspecialchars($searchTerm); ?>">
         <button type="submit">Pesquisar</button>
     </form>
 </div>
 
-<div class="container-search-form">
-   
-    <div class="search-form" style="height: 94px; margin-top: -130px">
-    
-        <!-- Botões de alternância entre clientes físicos, jurídicos e ambos -->
-        <button class="search-form" style="width: 170px" onclick="toggleClientes('fisicos')">Clientes Físicos</button>
-        <button class="search-form" style="width: 170px" onclick="toggleClientes('juridicos')">Clientes Jurídicos</button>
-        <button class="search-form" style="width: 170px" onclick="toggleClientes('ambos')">Mostrar Ambos</button>
-      
-    </div>    
-</div>
+<h2>Clientes Físicos</h2>
 
-<!-- Seção de Clientes Físicos -->
-<div id="clientes-fisicos" class="cliente-section" style="margin-top: -100px">
-    <h2>Clientes Físicos</h2>
-    <?php foreach ($clientes_filtrados['fisicos'] as $cliente): ?>
-        <div class="cliente">
-            <h3><?php echo htmlspecialchars($cliente['nome_cliente'] ?? ''); ?></h3>
-            <p>Email: <?php echo htmlspecialchars($cliente['email_cliente'] ?? ''); ?></p>
-            <p>Telefone: <?php echo htmlspecialchars($cliente['telefone'] ?? ''); ?></p>
-            <p>CPF: <?php echo htmlspecialchars($cliente['cpf_cliente'] ?? ''); ?></p>
-            <p>Endereço: <?php echo htmlspecialchars($cliente['endereco'] ?? ''); ?></p>
-        </div>
-    <?php endforeach; ?>
-</div>
+<?php foreach ($clientes_filtrados['fisicos'] as $cliente): ?>
+    <div class="cliente">
+        <h3><?php echo htmlspecialchars($cliente['nome_cliente'] ?? ''); ?></h3>
+        <p>Email: <?php echo htmlspecialchars($cliente['email_cliente'] ?? ''); ?></p>
+        <p>Telefone: <?php echo htmlspecialchars($cliente['telefone'] ?? ''); ?></p>
+        <p>CPF: <?php echo htmlspecialchars($cliente['cpf_cliente'] ?? ''); ?></p>
+        <p>Endereço: <?php echo htmlspecialchars($cliente['endereco'] ?? ''); ?></p>
 
-<!-- Seção de Clientes Jurídicos -->
-<div id="clientes-juridicos" class="cliente-section" style="margin-top: 30px">
-    <h2>Clientes Jurídicos</h2>
-    <?php foreach ($clientes_filtrados['juridicos'] as $cliente): ?>
-        <div class="cliente">
-            <h3><?php echo htmlspecialchars($cliente['razao_social'] ?? ''); ?></h3>
-            <p>Email: <?php echo htmlspecialchars($cliente['email_cliente_pj'] ?? ''); ?></p>
-            <p>Telefone: <?php echo htmlspecialchars($cliente['telefone_pj'] ?? ''); ?></p>
-            <p>CNPJ: <?php echo htmlspecialchars($cliente['cnpj'] ?? ''); ?></p>
-            <p>Endereço: <?php echo htmlspecialchars($cliente['endereco_pj'] ?? ''); ?></p>
-        </div>
-    <?php endforeach; ?>
-</div>
+        <h4>Serviços Agendados</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Início</th>
+                    <th>Fim</th>
+                    <th>Serviço</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                $events = getClientEvents($conn, $cliente['id']);
+                foreach ($events as $event): 
+                ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($event['title']); ?></td>
+                        <td><?php echo htmlspecialchars($event['start']); ?></td>
+                        <td><?php echo htmlspecialchars($event['end']); ?></td>
+                        <td><?php echo htmlspecialchars($event['servico']); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+<?php endforeach; ?>
+
+<h2>Clientes Jurídicos</h2>
+<?php foreach ($clientes_filtrados['juridicos'] as $cliente): ?>
+    <div class="cliente">
+        <h3><?php echo htmlspecialchars($cliente['razao_social'] ?? ''); ?></h3>
+        <p>Email: <?php echo htmlspecialchars($cliente['email_cliente_pj'] ?? ''); ?></p>
+        <p>Telefone: <?php echo htmlspecialchars($cliente['telefone_pj'] ?? ''); ?></p>
+        <p>CNPJ: <?php echo htmlspecialchars($cliente['cnpj'] ?? ''); ?></p>
+        <p>Endereço: <?php echo htmlspecialchars($cliente['endereco_pj'] ?? ''); ?></p>
+
+        <h4>Serviços Agendados</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Início</th>
+                    <th>Fim</th>
+                    <th>Serviço</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                $events = getClientEvents($conn, $cliente['id']);
+                foreach ($events as $event): 
+                ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($event['title']); ?></td>
+                        <td><?php echo htmlspecialchars($event['start']); ?></td>
+                        <td><?php echo htmlspecialchars($event['end']); ?></td>
+                        <td><?php echo htmlspecialchars($event['servico']); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+<?php endforeach; ?>
 
 <script>
     function toggleClientes(tipo) {
-        const fisicos = document.getElementById('clientes-fisicos');
-        const juridicos = document.getElementById('clientes-juridicos');
-
-        if (tipo === 'fisicos') {
-            fisicos.classList.add('visible');
-            juridicos.classList.remove('visible');
-        } else if (tipo === 'juridicos') {
-            juridicos.classList.add('visible');
-            fisicos.classList.remove('visible');
-        } else if (tipo === 'ambos') {
-            fisicos.classList.add('visible');
-            juridicos.classList.add('visible');
-        }
+        // Função para alternar entre mostrar físicos, jurídicos ou ambos
     }
-
-    // Exibe os clientes físicos ao carregar a página
-    toggleClientes('ambos');
 </script>
 
 </body>
