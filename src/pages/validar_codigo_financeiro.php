@@ -10,10 +10,20 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['usuario'])) {
     exit();
 }
 
-// Function to send JSON response
-function sendJsonResponse($success, $message) {
+// Function to send JSON response with detailed error logging
+function sendJsonResponse($success, $message, $additionalInfo = null) {
     header('Content-Type: application/json');
-    echo json_encode(['success' => $success, 'message' => $message]);
+    $response = [
+        'success' => $success, 
+        'message' => $message
+    ];
+    
+    if ($additionalInfo) {
+        $response['debug'] = $additionalInfo;
+    }
+    
+    error_log(json_encode($response)); // Log the full response for debugging
+    echo json_encode($response);
     exit();
 }
 
@@ -23,29 +33,63 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
         $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         
         if (!empty($dados['pin_financeiro'])) {
-            // Busca o PIN do usuário logado
-            $query_usuario = "SELECT pin_financeiro 
-                            FROM usuarios 
-                            WHERE id = :id 
-                            LIMIT 1";
+            try {
+                // Busca o PIN do usuário logado
+                $query_usuario = "SELECT pin_financeiro, id 
+                                FROM usuarios 
+                                WHERE id = :id 
+                                LIMIT 1";
 
-            $result_usuario = $conn->prepare($query_usuario);
-            $result_usuario->bindParam(':id', $_SESSION['id']);
-            $result_usuario->execute();
-
-            if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
-                $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
+                $result_usuario = $conn->prepare($query_usuario);
+                $result_usuario->bindParam(':id', $_SESSION['id'], PDO::PARAM_INT);
                 
-                // Verifica se o PIN digitado corresponde ao hash armazenado
-                // Se o hash estiver vazio ou nulo, nega o acesso
-                if (!empty($row_usuario['pin_financeiro']) && password_verify($dados['pin_financeiro'], $row_usuario['pin_financeiro'])) {
-                    $_SESSION['acesso_financeiro'] = true;
-                    sendJsonResponse(true, 'PIN correto! Redirecionando...');
-                } else {
-                    sendJsonResponse(false, 'Erro: PIN inválido ou não configurado!');
+                // Execute com tratamento de erro
+                if (!$result_usuario->execute()) {
+                    $errorInfo = $result_usuario->errorInfo();
+                    sendJsonResponse(false, 'Erro na consulta ao banco de dados', $errorInfo);
                 }
-            } else {
-                sendJsonResponse(false, 'Erro: Usuário não encontrado.');
+
+                if ($result_usuario->rowCount() > 0) {
+                    $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
+                    
+                    // Se o PIN não está configurado
+                    if (empty($row_usuario['pin_financeiro'])) {
+                        // Configurar novo PIN
+                        $pin_hash = password_hash($dados['pin_financeiro'], PASSWORD_DEFAULT);
+                        
+                        $query_update = "UPDATE usuarios SET pin_financeiro = :pin WHERE id = :id";
+                        $result_update = $conn->prepare($query_update);
+                        $result_update->bindParam(':pin', $pin_hash);
+                        $result_update->bindParam(':id', $_SESSION['id'], PDO::PARAM_INT);
+                        
+                        if ($result_update->execute()) {
+                            $_SESSION['acesso_financeiro'] = true;
+                            sendJsonResponse(true, 'PIN configurado com sucesso! Redirecionando...');
+                        } else {
+                            sendJsonResponse(false, 'Erro ao configurar PIN.');
+                        }
+                    } 
+                    // Verificar PIN existente
+                    else {
+                        // Log detalhado para debugar
+                        error_log("PIN digitado: " . $dados['pin_financeiro']);
+                        error_log("Hash armazenado: " . $row_usuario['pin_financeiro']);
+
+                        if (password_verify($dados['pin_financeiro'], $row_usuario['pin_financeiro'])) {
+                            $_SESSION['acesso_financeiro'] = true;
+                            sendJsonResponse(true, 'PIN correto! Redirecionando...');
+                        } else {
+                            sendJsonResponse(false, 'Erro: PIN inválido!', [
+                                'pin_input' => $dados['pin_financeiro'],
+                                'stored_hash' => $row_usuario['pin_financeiro']
+                            ]);
+                        }
+                    }
+                } else {
+                    sendJsonResponse(false, 'Erro: Usuário não encontrado.');
+                }
+            } catch(PDOException $e) {
+                sendJsonResponse(false, 'Erro de banco de dados: ' . $e->getMessage());
             }
         } else {
             sendJsonResponse(false, 'Erro: PIN não fornecido.');
@@ -70,13 +114,22 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 </head>
 <body>
     <header class="header"> 
-        <!-- Seu código do header permanece o mesmo -->
+        <?php 
+        // Verificar se o usuário já possui PIN configurado
+        $query_verificar_pin = "SELECT pin_financeiro FROM usuarios WHERE id = :id";
+        $stmt_verificar_pin = $conn->prepare($query_verificar_pin);
+        $stmt_verificar_pin->bindParam(':id', $_SESSION['id']);
+        $stmt_verificar_pin->execute();
+        $tem_pin = $stmt_verificar_pin->fetchColumn();
+        ?>
     </header>
     
     <div class="container-geral" style="height: calc(100vh - 70px);">
         <div class="auth-container">
             <div class="auth-header">
-                <h2 style="margin-top: 15px">Digite o PIN de acesso</h2>
+                <h2 style="margin-top: 15px">
+                    <?php echo $tem_pin ? 'Digite o PIN de acesso' : 'Configure seu PIN de acesso'; ?>
+                </h2>
             </div>
         
             <div id="message" class="message"></div>
@@ -93,7 +146,9 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                     <label for="verification-code">PIN</label>
                 </div>
             
-                <input type="submit" class="auth-button" name="ValPin" value="Validar" id="botaoTransicao">
+                <input type="submit" class="auth-button" name="ValPin" 
+                       value="<?php echo $tem_pin ? 'Validar' : 'Configurar'; ?>" 
+                       id="botaoTransicao">
             </form>
         </div>
     </div>
@@ -112,6 +167,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                 dataType: 'json',
                 success: function(response) {
                     $('#loadingOverlay').css('display', 'none');
+                    console.log(response); // Log de resposta para debugging
                     if (response.success) {
                         $('#loadingText').text('Redirecionando...');
                         $('#loadingOverlay').css('display', 'flex');
@@ -123,10 +179,12 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                                    .removeClass('success-message')
                                    .addClass('error-message')
                                    .show();
+                        console.error(response); // Log de erro para debugging
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     $('#loadingOverlay').css('display', 'none');
+                    console.error(jqXHR, textStatus, errorThrown); // Log de erro detalhado
                     $('#message').text('Erro ao processar a solicitação. Tente novamente.')
                                .removeClass('success-message')
                                .addClass('error-message')
