@@ -216,8 +216,23 @@ $query = "SELECT * FROM events WHERE id_cliente = :id_cliente";  // Alterado par
 
 <script>
     function toggleClientes(tipo) {
-        // Função para alternar entre mostrar físicos, jurídicos ou ambos
+        const fisicos = document.getElementById('clientes-fisicos');
+        const juridicos = document.getElementById('clientes-juridicos');
+
+        if (tipo === 'fisicos') {
+            fisicos.classList.add('visible');
+            juridicos.classList.remove('visible');
+        } else if (tipo === 'juridicos') {
+            juridicos.classList.add('visible');
+            fisicos.classList.remove('visible');
+        } else if (tipo === 'ambos') {
+            fisicos.classList.add('visible');
+            juridicos.classList.add('visible');
+        }
     }
+
+    // Exibe os clientes físicos ao carregar a página
+    toggleClientes('ambos');
 </script>
 
 </body>
