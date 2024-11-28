@@ -45,7 +45,7 @@ if(
                 <ul>
                     <li><a class="link" href="./home.php">ÍNICIO</a></li>
                     <li><a class="link" href="./agenda.php">AGENDA</a></li>
-                    <li><a class="link" href="./finance.php">FINANCEIRO</a></li>
+                    <li><a class="link" href="./validar_codigo_financeiro.php">FINANCEIRO</a></li>
                     <li><a class="link" href="./client.php">CLIENTES</a></li>
                     <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
                     <li><a class="link" href="../../login/sair.php">SAIR</a></li>
@@ -85,7 +85,7 @@ if(
                     <p>Visualizar comparação em gráficos dos<br> meses do ano de 2024.</p>
                     <a class="btn btn-2 link" href="./anual.php">VISUALIZAR</a>
                 </div>
-                
+
             </div> <!-- fim da organização de seleção de mês/anual-->
         </body>
     </html>

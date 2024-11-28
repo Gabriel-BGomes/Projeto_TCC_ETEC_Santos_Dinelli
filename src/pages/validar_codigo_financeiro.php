@@ -99,7 +99,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 
 <!DOCTYPE html>
 <html lang="pt-br">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -130,7 +130,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
         <ul>
             <li><a class="link" href="./home.php">ÍNICIO</a></li>
             <li><a class="link" href="./agenda.php">AGENDA</a></li>
-            <li><a class="link" href="./finance.php">FINANCEIRO</a></li>
+            <li><a class="link" href="./validar_codigo_financeiro.php">FINANCEIRO</a></li>
             <li><a class="link" href="./client.php">CLIENTES</a></li>
             <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
             <li><a class="link" href="../../login/sair.php">SAIR</a></li>
@@ -142,7 +142,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 
         <ul class="menu-fixo"> <!-- começo dos itens do menu-->
             <li><a class="link" href="./agenda.php">AGENDA</a></li>
-            <li><a class="link" href="./finance.php">FINANCEIRO</a></li>
+            <li><a class="link" href="./validar_codigo_financeiro.php">FINANCEIRO</a></li>
             <li><a class="link" href="./client.php">CLIENTES</a></li>
         </ul>
 
