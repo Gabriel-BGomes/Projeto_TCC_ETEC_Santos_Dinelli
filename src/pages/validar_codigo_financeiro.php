@@ -99,6 +99,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 
 <!DOCTYPE html>
 <html lang="pt-br">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -108,7 +109,9 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
     <link rel="shortcut icon" href="../images/icons/logo.ico" type="image/x-icon"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>     
 </head>
+
 <body>
+
     <header class="header"> 
         <?php 
         // Verificar se o usuário já possui PIN configurado
@@ -118,6 +121,38 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
         $stmt_verificar_pin->execute();
         $tem_pin = $stmt_verificar_pin->fetchColumn();
         ?>
+
+        <nav class="menu-lateral"> <!-- primeiro item do menu -->
+
+        <input type="checkbox" class="fake-tres-linhas">
+        <div><img class="tres-linhas" src="../images/menu-tres-linhas.png" alt="menu de três linhas"></div>
+
+        <ul>
+            <li><a class="link" href="./home.php">ÍNICIO</a></li>
+            <li><a class="link" href="./agenda.php">AGENDA</a></li>
+            <li><a class="link" href="./finance.php">FINANCEIRO</a></li>
+            <li><a class="link" href="./client.php">CLIENTES</a></li>
+            <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
+            <li><a class="link" href="../../login/sair.php">SAIR</a></li>
+        </ul>
+
+        </nav>
+
+        <nav> <!-- começar com uma nav para definir os itens do menu-->
+
+        <ul class="menu-fixo"> <!-- começo dos itens do menu-->
+            <li><a class="link" href="./agenda.php">AGENDA</a></li>
+            <li><a class="link" href="./finance.php">FINANCEIRO</a></li>
+            <li><a class="link" href="./client.php">CLIENTES</a></li>
+        </ul>
+
+        </nav>
+
+        <div> <!-- finalizar com a logo da empresa na direita-->
+        <a href="https://www.santosedinelli.com.br/" target="_blank">
+        <img class="logo" src="../images/santos-dinelli.png"  alt="logo da empresa"></a>
+        </div> <!-- final da div da logo-->
+
     </header>
     
     <div class="container-geral" style="height: calc(100vh - 70px);">
