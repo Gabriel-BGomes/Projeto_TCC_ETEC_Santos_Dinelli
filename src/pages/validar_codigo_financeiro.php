@@ -10,31 +10,49 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['usuario'])) {
     exit();
 }
 
-// Function to send JSON response with detailed error logging
+// Gerar token CSRF se não existir
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
+// Função para enviar resposta JSON com registro de erro detalhado
 function sendJsonResponse($success, $message, $additionalInfo = null) {
     header('Content-Type: application/json');
     $response = [
         'success' => $success, 
-        'message' => $message
+        'message' => $message,
+        'csrf_token' => $_SESSION['csrf_token'] // Enviar novo token a cada requisição
     ];
     
     if ($additionalInfo) {
         $response['debug'] = $additionalInfo;
     }
     
-    error_log(json_encode($response)); // Log the full response for debugging
+    error_log(json_encode($response)); // Registrar resposta completa para depuração
     echo json_encode($response);
     exit();
 }
 
-// Check if it's an AJAX request
+// Verificar se é uma requisição AJAX
 if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Validar token CSRF
+        if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'] ?? '')) {
+            sendJsonResponse(false, 'Token de segurança inválido.');
+        }
+
         $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         
-        if (!empty($dados['pin_financeiro'])) {
+        // Validar entrada do PIN
+        $pin_input = preg_replace('/[^0-9]/', '', $dados['pin_financeiro'] ?? '');
+        
+        if (strlen($pin_input) < 4 || strlen($pin_input) > 6) {
+            sendJsonResponse(false, 'PIN deve conter entre 4 e 6 dígitos.');
+        }
+
+        if (!empty($pin_input)) {
             try {
-                // Busca o PIN do usuário logado
+                // Buscar PIN do usuário logado
                 $query_usuario = "SELECT pin_financeiro, id 
                                 FROM usuarios 
                                 WHERE id = :id 
@@ -42,47 +60,25 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 
                 $result_usuario = $conn->prepare($query_usuario);
                 $result_usuario->bindParam(':id', $_SESSION['id'], PDO::PARAM_INT);
-                
-                // Execute com tratamento de erro
-                if (!$result_usuario->execute()) {
-                    $errorInfo = $result_usuario->errorInfo();
-                    sendJsonResponse(false, 'Erro na consulta ao banco de dados', $errorInfo);
-                }
+                $result_usuario->execute();
 
                 if ($result_usuario->rowCount() > 0) {
                     $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
                     
-                    // Se o PIN não está configurado
-                    if (empty($row_usuario['pin_financeiro'])) {
-                        // Configurar novo PIN
-                        $pin_hash = password_hash($dados['pin_financeiro'], PASSWORD_DEFAULT);
-                        
-                        $query_update = "UPDATE usuarios SET pin_financeiro = :pin WHERE id = :id";
-                        $result_update = $conn->prepare($query_update);
-                        $result_update->bindParam(':pin', $pin_hash);
-                        $result_update->bindParam(':id', $_SESSION['id'], PDO::PARAM_INT);
-                        
-                        if ($result_update->execute()) {
-                            $_SESSION['acesso_financeiro'] = true;
-                            sendJsonResponse(true, 'PIN configurado com sucesso! Redirecionando...');
+                    if (password_verify($pin_input, $row_usuario['pin_financeiro'])) {
+                        $_SESSION['acesso_financeiro'] = true;
+                        sendJsonResponse(true, 'PIN correto! Redirecionando...');
+                    } else {
+                        // Verificar se o PIN armazenado foi criptografado com um algoritmo diferente
+                        if (substr($row_usuario['pin_financeiro'], 0, 4) === '$2y$') {
+                            if (password_verify($pin_input, $row_usuario['pin_financeiro'])) {
+                                $_SESSION['acesso_financeiro'] = true;
+                                sendJsonResponse(true, 'PIN correto! Redirecionando...');
+                            } else {
+                                sendJsonResponse(false, 'Erro: PIN inválido!');
+                            }
                         } else {
-                            sendJsonResponse(false, 'Erro ao configurar PIN.');
-                        }
-                    } 
-                    // Verificar PIN existente
-                    else {
-                        // Log detalhado para debugar
-                        error_log("PIN digitado: " . $dados['pin_financeiro']);
-                        error_log("Hash armazenado: " . $row_usuario['pin_financeiro']);
-
-                        if (password_verify($dados['pin_financeiro'], $row_usuario['pin_financeiro'])) {
-                            $_SESSION['acesso_financeiro'] = true;
-                            sendJsonResponse(true, 'PIN correto! Redirecionando...');
-                        } else {
-                            sendJsonResponse(false, 'Erro: PIN inválido!', [
-                                'pin_input' => $dados['pin_financeiro'],
-                                'stored_hash' => $row_usuario['pin_financeiro']
-                            ]);
+                            sendJsonResponse(false, 'Erro: PIN inválido!');
                         }
                     }
                 } else {
@@ -135,6 +131,8 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
             <div id="message" class="message"></div>
         
             <form method="POST" action="" class="auth-form" id="auth-form">
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+                
                 <div class="loading-overlay" id="loadingOverlay">
                     <div class="loading-spinner"></div>
                     <div class="loading-text" id="loadingText">Validando...</div>
@@ -168,6 +166,12 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                 success: function(response) {
                     $('#loadingOverlay').css('display', 'none');
                     console.log(response); // Log de resposta para debugging
+                    
+                    // Atualizar token CSRF
+                    if (response.csrf_token) {
+                        $('input[name="csrf_token"]').val(response.csrf_token);
+                    }
+                    
                     if (response.success) {
                         $('#loadingText').text('Redirecionando...');
                         $('#loadingOverlay').css('display', 'flex');
