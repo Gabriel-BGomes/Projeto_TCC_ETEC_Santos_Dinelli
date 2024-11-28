@@ -183,7 +183,34 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    
+    // Adicione este script no seu arquivo HTML ou script.js
+document.getElementById('formCadEvento').addEventListener('submit', function(e) {
+    e.preventDefault(); // Previne o envio padrão do formulário
+
+    // Aqui você faria a submissão via AJAX
+    fetch('sua_url_de_processamento', {
+        method: 'POST',
+        body: new FormData(this)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Fecha o modal se o cadastro for bem-sucedido
+            var modal = bootstrap.Modal.getInstance(document.getElementById('cadastrarModal'));
+            modal.hide();
+
+            // Opcional: atualizar a página ou calendário
+            location.reload(); // ou chamar uma função para atualizar o calendário
+        } else {
+            // Tratar erro, se necessário
+            alert('Erro ao cadastrar o serviço');
+        }
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert('Erro ao processar o cadastro');
+    });
+});
 
     // Receber o SELETOR do formulário editar evento
     const formEditEvento = document.getElementById("formEditEvento");
