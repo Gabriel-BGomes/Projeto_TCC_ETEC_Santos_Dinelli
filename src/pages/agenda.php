@@ -101,7 +101,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
             <ul class="menu-fixo" style="margin-top: 15px; padding: 0;"> <!-- começo dos itens do menu-->
 
                     <li><a class="link" href="./agenda.php">AGENDA</a></li>
-                    <li><a class="link" href="./finance.php">FINANCEIRO</a></li>
+                    <li><a class="link" href="./validar_codigo_financeiro.php">FINANCEIRO</a></li>
                     <li><a class="link" href="./client.php">CLIENTES</a></li>
 
             </ul>

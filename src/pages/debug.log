@@ -1,0 +1,144 @@
+2024-11-06 23:15:07 - Tentando gerar código para usuário ID: 1 - Email: gabrielbraga1324@gmail.com
+2024-11-06 23:15:08 - PHPMailer Debug: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP 98e67ed59e1d1-2e9a5f64a6asm282719a91.16 - gsmtp
+
+2024-11-06 23:15:08 - PHPMailer Debug: CLIENT -> SERVER: EHLO localhost
+
+2024-11-06 23:15:08 - PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2804:14c:121:86ef:d45:74b0:4894:a511]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2024-11-06 23:15:08 - PHPMailer Debug: CLIENT -> SERVER: STARTTLS
+
+2024-11-06 23:15:08 - PHPMailer Debug: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2024-11-06 23:15:08 - PHPMailer Debug: CLIENT -> SERVER: EHLO localhost
+
+2024-11-06 23:15:09 - PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2804:14c:121:86ef:d45:74b0:4894:a511]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2024-11-06 23:15:09 - PHPMailer Debug: CLIENT -> SERVER: AUTH LOGIN
+
+2024-11-06 23:15:09 - PHPMailer Debug: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2024-11-06 23:15:09 - PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+2024-11-06 23:15:09 - PHPMailer Debug: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2024-11-06 23:15:09 - PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+2024-11-06 23:15:09 - PHPMailer Debug: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2024-11-06 23:15:09 - PHPMailer Debug: CLIENT -> SERVER: MAIL FROM:<testesdogabrielb@gmail.com>
+
+2024-11-06 23:15:10 - PHPMailer Debug: SERVER -> CLIENT: 250 2.1.0 OK 98e67ed59e1d1-2e9a5f64a6asm282719a91.16 - gsmtp
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: RCPT TO:<gabrielbraga1324@gmail.com>
+
+2024-11-06 23:15:10 - PHPMailer Debug: SERVER -> CLIENT: 250 2.1.5 OK 98e67ed59e1d1-2e9a5f64a6asm282719a91.16 - gsmtp
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: DATA
+
+2024-11-06 23:15:10 - PHPMailer Debug: SERVER -> CLIENT: 354 Go ahead 98e67ed59e1d1-2e9a5f64a6asm282719a91.16 - gsmtp
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: Date: Wed, 6 Nov 2024 23:15:07 -0300
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: To: gabrielbraga1324@gmail.com
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: From: =?UTF-8?Q?Santos_Dinelli_Climatiza=C3=A7=C3=A3o?= <testesdogabrielb@gmail.com>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: Subject: =?UTF-8?Q?C=C3=B3digo_de_Verifica=C3=A7=C3=A3o_para_Acesso_ao_Financeiro?=
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: Message-ID: <OIHlVomOS7cV8093pV1dOEwxPsfvMq8Eh1TVuioLzs@localhost>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: X-Mailer: PHPMailer 6.8.0 (https://github.com/PHPMailer/PHPMailer)
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: MIME-Version: 1.0
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: multipart/alternative;
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER:  boundary="b1=_OIHlVomOS7cV8093pV1dOEwxPsfvMq8Eh1TVuioLzs"
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: --b1=_OIHlVomOS7cV8093pV1dOEwxPsfvMq8Eh1TVuioLzs
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/plain; charset=UTF-8
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: Seu código de verificação para acesso ao financeiro é: 688391
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: --b1=_OIHlVomOS7cV8093pV1dOEwxPsfvMq8Eh1TVuioLzs
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/html; charset=UTF-8
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER:     <html>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER:     <body style='font-family: Arial, sans-serif;'>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER:         <div style='max-width: 600px; margin: 0 auto; padding: 20px;'>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER:             <h2 style='color: #333;'>Verificação de Acesso ao Financeiro</h2>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER:             <p>Olá!</p>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER:             <p>Seu código de verificação para acesso ao financeiro é:</p>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER:             <div style='background-color: #f8f9fa; padding: 15px; border-radius: 5px; text-align: center; margin: 20px 0;'>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER:                 <span style='font-size: 24px; font-weight: bold; letter-spacing: 2px; color: #0056b3;'>688391</span>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER:             <p style='color: #666;'>Este código é válido apenas para esta sessão.</p>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER:             <p style='color: #dc3545; font-size: 14px;'>Se você não solicitou este código, ignore este email.</p>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER:             <hr style='border: 1px solid #eee; margin: 20px 0;'>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER:             <p style='font-size: 12px; color: #666;'>Este é um email automático. Por favor, não responda.</p>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER:         </div>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER:     </body>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER:     </html>
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: --b1=_OIHlVomOS7cV8093pV1dOEwxPsfvMq8Eh1TVuioLzs--
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: 
+
+2024-11-06 23:15:10 - PHPMailer Debug: CLIENT -> SERVER: .
+
+2024-11-06 23:15:11 - PHPMailer Debug: SERVER -> CLIENT: 250 2.0.0 OK  1730945710 98e67ed59e1d1-2e9a5f64a6asm282719a91.16 - gsmtp
+
+2024-11-06 23:15:11 - PHPMailer Debug: CLIENT -> SERVER: QUIT
+
+2024-11-06 23:15:11 - PHPMailer Debug: SERVER -> CLIENT: 221 2.0.0 closing connection 98e67ed59e1d1-2e9a5f64a6asm282719a91.16 - gsmtp
+
+2024-11-06 23:15:11 - Código enviado com sucesso para: gabrielbraga1324@gmail.com

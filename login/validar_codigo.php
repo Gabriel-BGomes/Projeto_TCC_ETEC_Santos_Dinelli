@@ -71,29 +71,41 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
     <link rel="shortcut icon" href="../src/images/icons/logo.ico" type="image/x-icon"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>     
 </head>
-<body>
-    <div class="auth-container">
-        <div class="auth-header">
-            <h2>Digite o código enviado no E-mail cadastrado</h2>
-        </div>
-        <div id="message" class="message"></div>
-        <form method="POST" action="" class="auth-form" id="auth-form">
-            <div class="loading-overlay" id="loadingOverlay">
-                <div class="loading-spinner"></div>
-                <div class="loading-text" id="loadingText">Validando...</div>
+
+<div class="container-geral"> <!-- container para conseguir centralizar toda a caixa de verificação no meio -->
+
+        <div class="auth-container"> <!-- container de autenticação -->
+    
+            <div class="auth-header">
+                <h2>Digite o código enviado no E-mail cadastrado</h2>
             </div>
+        
+            <div id="message" class="message"></div>
+        
+            <form method="POST" action="" class="auth-form" id="auth-form">
+        
+                <div class="loading-overlay" id="loadingOverlay">
+                    <div class="loading-spinner"></div>
+                    <div class="loading-text" id="loadingText">Validando...</div>
+                </div>
+                
+                <div class="input-group">
+                    <input type="text" name="codigo_autenticacao" id="verification-code" required maxlength="6">
+                    <span class="highlight"></span>
+                    <label for="verification-code">Código de Verificação</label>
+                </div>
             
-            <div class="input-group">
-                <input type="text" name="codigo_autenticacao" id="verification-code" required maxlength="6">
-                <span class="highlight"></span>
-                <label for="verification-code">Código de Verificação</label>
-            </div>
-            <input type="submit" class="auth-button" name="ValCodigo" value="Validar" id="botaoTransicao">
-            <div class="reenviar">
-                <a href="#" id="reenviar-codigo">Reenviar Código</a>
-            </div>
-        </form>
-    </div>
+                <input type="submit" class="auth-button" name="ValCodigo" value="Validar" id="botaoTransicao">
+            
+                <div class="reenviar">
+                    <a href="#" id="reenviar-codigo">Reenviar Código</a>
+                </div>
+            
+            </form>
+        
+        </div> <!-- fim container de autenticação -->
+    
+    </div> <!-- fim do container para centralizar tudo -->
 
     <script>
     $(document).ready(function() {

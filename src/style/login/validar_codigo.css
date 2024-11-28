@@ -9,11 +9,14 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #edece2;
+    overflow: hidden;
+}
+
+.container-geral {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
 }
 
 .auth-container {
@@ -26,6 +29,7 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
+    margin-top: -80px;
 }
 
 .auth-header {
