@@ -2,8 +2,8 @@ body {
     background-color: #edece2; /* Cor de fundo clara semelhante ao da imagem */
     margin: 0;
     padding: 0;
-}
 
+}
 
 h1 {
     text-align: center;
@@ -27,6 +27,8 @@ h1 {
     background: linear-gradient(135deg, #228d02, #145400);
     height: 50px;
     font-size: 17px;
+    border-radius: 15px 15px 0 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .radio {
@@ -35,6 +37,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .input-radio {
@@ -67,6 +70,7 @@ h1 {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    border-radius: 0 0 15px 15px;
 }
 
 .campo {

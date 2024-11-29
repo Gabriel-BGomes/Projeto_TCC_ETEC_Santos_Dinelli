@@ -19,6 +19,7 @@ try {
 }
 
 // Pegar a data de hoje
+date_default_timezone_set('America/Sao_Paulo');
 $dataHoje = date('Y-m-d');
 
 // Buscar os eventos do dia no banco de dados
@@ -43,6 +44,7 @@ try {
 
     // Verificar se há eventos e retornar a resposta
     if (!$eventos) {
+        echo json_encode($dataHoje);
         echo json_encode(['status' => false, 'msg' => 'Nenhum serviço encontrado para hoje.']);
     } else {
         header('Content-Type: application/json');

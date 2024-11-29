@@ -49,7 +49,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                 <ul>
                     <li><a class="link" href="../../pages/home.php">ÍNICIO</a></li>
                     <li><a class="link" href="../../pages/agenda.php">AGENDA</a></li>
-                    <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
+                    <li><a class="link" href="../../pages/validar_codigo_financeiro.php">FINANCEIRO</a></li>
                     <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
                     <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
                     <li><a class="link" href="../../../login/sair.php">SAIR</a></li>
@@ -62,7 +62,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                 <ul class="menu-fixo"> <!-- começo dos itens do menu-->
 
                     <li><a class="link" href="../../pages/agenda.php">AGENDA</a></li>
-                    <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
+                    <li><a class="link" href="../../pages/validar_codigo_financeiro.php">FINANCEIRO</a></li>
                     <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
 
                 </ul>
@@ -71,7 +71,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
             <nav> <!-- finalizar com a logo da empresa na direita-->
 
-                <a href="https://www.santosedinelli.com target="_blank">
+                <a href="https://www.santosedinelli.com.br" target="_blank">
                 <img class="logo" src="../../images/santos-dinelli.png"  alt="logo da empresa"></a>
 
             </nav> <!-- final da div da logo-->
