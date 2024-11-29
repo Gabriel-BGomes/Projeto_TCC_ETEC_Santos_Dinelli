@@ -72,9 +72,9 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>     
 </head>
 
-<div class="container-geral"> <!-- container para conseguir centralizar toda a caixa de verificação no meio -->
+<div class="container-geral" style="margin-top: 40px"> <!-- container para conseguir centralizar toda a caixa de verificação no meio -->
 
-        <div class="auth-container"> <!-- container de autenticação -->
+        <div class="auth-container" > <!-- container de autenticação -->
     
             <div class="auth-header">
                 <h2>Digite o código enviado no E-mail cadastrado</h2>
