@@ -111,48 +111,45 @@ foreach ($clientes as $cliente) {
     <title>Visualizar Clientes</title>
     <style>
         .acoes {
-            margin-top: 10px;
-            display: flex;
-            gap: 10px;
-        }
-        
-        .btn-editar, .btn-excluir {
-            padding: 8px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            text-decoration: none;
-            text-align: center;
-        }
-        
-        .btn-editar {
-            background-color: #4CAF50;
-            color: white;
-        }
-        
-        .btn-excluir {
-            background-color: #f44336;
-            color: white;
-        }
-        
-        .mensagem {
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 4px;
-        }
-        
-        .sucesso {
-            background-color: #dff0d8;
-            color: #3c763d;
-            border: 1px solid #d6e9c6;
-        }
-        
-        .erro {
-            background-color: #f2dede;
-            color: #a94442;
-            border: 1px solid #ebccd1;
-        }
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-editar, .btn-excluir {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.btn-editar {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color: #45a049;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.btn-excluir {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-excluir:hover {
+    background-color: #d32f2f;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
     </style>
 </head>
 <body>
@@ -240,7 +237,7 @@ if (isset($_GET['error'])) {
         </table>
         
         <div class="acoes">
-            <a href="editar_cliente.php?id=<?php echo $cliente['id']; ?>" class="btn-editar">Editar</a>
+            <a href="../clientes/editar.php?id=<?php echo $cliente['id']; ?>" class="btn-editar">Editar</a>
             <form method="post" style="display: inline;" onsubmit="return confirm('Tem certeza que deseja excluir este cliente?');">
                 <input type="hidden" name="action" value="delete">
                 <input type="hidden" name="id" value="<?php echo $cliente['id']; ?>">
