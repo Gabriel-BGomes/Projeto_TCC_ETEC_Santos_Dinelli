@@ -70,9 +70,8 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
-
-    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
     <title>Calendario</title>
     
 </head>
@@ -81,7 +80,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
     <header class="header"> <!-- começo menu fixo no topo -->
     
-        <nav class="menu-lateral"> <!-- primeiro item do menu -->
+        <nav class="menu-lateral"> <!-- primeiro item doz menu -->
 
             <input type="checkbox" class="fake-tres-linhas">
             <div><img class="tres-linhas" src="../images/menu-tres-linhas.png" alt="menu de três linhas"></div>
@@ -102,7 +101,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
             <ul class="menu-fixo" style="margin-top: 15px; padding: 0;"> <!-- começo dos itens do menu-->
 
                     <li><a class="link" href="./agenda.php">AGENDA</a></li>
-                    <li><a class="link" href="./finance.php">FINANCEIRO</a></li>
+                    <li><a class="link" href="./validar_codigo_financeiro.php">FINANCEIRO</a></li>
                     <li><a class="link" href="./client.php">CLIENTES</a></li>
 
             </ul>
@@ -275,134 +274,111 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
     </div>
 
 </div>
-
- <!-- Janela de cadastro de serviço com design atualizado -->
- <div class="modal fade" id="cadastrarModal" tabindex="-1" aria-labelledby="cadastrarModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content shadow-lg border-0">
-        <div class="modal-header text-white py-3" style="background-color: #1b6c00;">
+<div class="modal fade" id="cadastrarModal" tabindex="-1" aria-labelledby="cadastrarModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-content-edit">
+            <div class="modal-header" style="background-color: #145400; color: white;">
+           
                 <h1 class="modal-title fs-5" id="cadastrarModalLabel">
                     <i class="bi bi-calendar-plus me-2"></i>Cadastrar Novo Serviço
                 </h1>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+            </div>                   
 
-            <div class="modal-body p-4">
-                <span id="msgCadEvento" class="mb-3 d-block"></span>
+            <div class="modal-body">
                 <form method="POST" id="formCadEvento">
-                    <div class="row g-3">
-                        <div class="col-12">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
                             <label for="cad_id_cliente" class="form-label">Cliente</label>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-person"></i></span>
-                                <select name="cad_id_cliente" class="form-select" id="cad_id_cliente" required>
-                                    <option value="">Selecione o cliente</option>
-                                    <?php foreach ($clientes as $cliente): ?>
-                                        <option value="<?php echo $cliente['id']; ?>">
-                                            <?php echo htmlspecialchars($cliente['nome']); ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
+                            <select name="cad_id_cliente" class="form-select" id="cad_id_cliente" required>
+                                <option value="">Selecione o cliente</option>
+                                <?php foreach ($clientes as $cliente): ?>
+                                    <option value="<?php echo $cliente['id']; ?>">
+                                        <?php echo htmlspecialchars($cliente['nome']); ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
 
-                        <div class="col-12">
-                            <label for="cad_title" class="form-label">Serviço</label>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-tag"></i></span>
-                                <input type="text" name="cad_title" class="form-control" id="cad_title" placeholder="Nome do Serviço" required>
-                            </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="cad_title" class="form-label">Título do Serviço</label>
+                            <input type="text" name="cad_title" class="form-control" id="cad_title" 
+                                   placeholder="Digite o nome do serviço" required>
                         </div>
+                    </div>
 
-                        <div class="col-12">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
                             <label for="cad_servico" class="form-label">Tipo de Serviço</label>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-list-task"></i></span>
-                                <select name="cad_servico" class="form-select" id="cad_servico" required>
-                                    <option value="">Selecione o tipo de serviço</option>
+                            <select name="cad_servico" class="form-select" id="cad_servico" required>
+                                <option value="">Selecione o tipo de serviço</option>
+                                <optgroup label="Tipos de Serviço">
                                     <option value="Venda">Venda</option>
                                     <option value="Instalação">Instalação</option>
                                     <option value="Desinstalação">Desinstalação</option>
                                     <option value="Visita">Visita</option>
                                     <option value="Higienização">Higienização</option>
-                                    <option value="Manutenção preventiva">Manutenção preventiva</option>
+                                </optgroup>
+                                <optgroup label="Manutenção">
+                                    <option value="Manutenção preventiva">Manutenção Preventiva</option>
                                     <option value="Manutenção Corretiva">Manutenção Corretiva</option>
+                                    <option value="Contrato de manutenção preventiva e corretiva">Contrato de Manutenção</option>
+                                </optgroup>
+                                <optgroup label="Outros">
                                     <option value="Laudos">Laudos</option>
                                     <option value="PMOC">PMOC</option>
-                                    <option value="Contrato de manutenção preventiva e corretiva">Contrato de manutenção preventiva e corretiva</option>
-                                </select>
-                            </div>
+                                </optgroup>
+                            </select>
                         </div>
 
-                        <div class="col-12">
-                            <label for="cad_obs" class="form-label">Observação</label>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-chat-text"></i></span>
-                                <input type="text" name="cad_obs" class="form-control" id="cad_obs" placeholder="Observações do Serviço">
-                            </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="cad_color" class="form-label">Cor do Evento</label>
+                            <select name="cad_color" class="form-select" id="cad_color" required>
+                                <option value="">Selecione uma cor</option>
+                                <option class="text-warning" value="#FFD700">Amarelo</option>
+                                <option class="text-info" value="#0071c5">Azul Turquesa</option>
+                                <option class="text-danger" value="#FF4500">Laranja</option>
+                                <option class="text-secondary" value="#8B4513">Marrom</option>
+                                <option class="text-dark" value="#1C1C1C">Preto</option>
+                                <option class="text-primary" value="#436EEE">Royal Blue</option>
+                                <option class="text-purple" value="#A020F0">Roxo</option>
+                                <option class="text-success" value="#228B22">Verde</option>
+                                <option class="text-danger" value="#8B0000">Vermelho</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="cad_start" class="form-label">Data e Hora de Início</label>
+                            <input type="datetime-local" name="cad_start" class="form-control" id="cad_start" required>
                         </div>
 
-                        <div class="col-md-6">
-                            <label for="cad_start" class="form-label">Início</label>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-calendar-check"></i></span>
-                                <input type="datetime-local" name="cad_start" class="form-control" id="cad_start" required>
-                            </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="cad_end" class="form-label">Data e Hora de Término</label>
+                            <input type="datetime-local" name="cad_end" class="form-control" id="cad_end" required>
                         </div>
+                    </div>
 
-                        <div class="col-md-6">
-                            <label for="cad_end" class="form-label">Fim</label>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-calendar-x"></i></span>
-                                <input type="datetime-local" name="cad_end" class="form-control" id="cad_end" required>
-                            </div>
-                        </div>
+                    <div class="mb-3">
+                        <label for="cad_obs" class="form-label">Observações</label>
+                        <textarea name="cad_obs" class="form-control" id="cad_obs" 
+                                  placeholder="Detalhes adicionais do serviço" rows="3"></textarea>
+                    </div>
 
-                        
-                        <div class="d-flex justify-content-end mt-4">
-                            <button type="submit" name="btnCadEvento" class="btn btn-success" id="btnCadEvento" style="background-color: #1b6c00;">
-                                <i class="bi bi-plus-circle me-2"></i>
-                            </button>
-                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #8B0000; color: white;">
+                            <i class="bi bi-x-circle me-2"></i>Cancelar
+                        </button>
+                        <button type="submit" name="btnCadEvento" class="btn btn-success" id="btnCadEvento" style="background-color: #145400; color: white;">
+                            <i class="bi bi-check-circle me-2"></i>Cadastrar
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-    document.getElementById("btnCadEvento").addEventListener("click", function () {
-        // Adicione aqui sua lógica de validação ou envio de formulário, se necessário
-
-        // Fecha a modal
-        const modal = document.getElementById("cadastrarModal"); // Referência à modal
-        const bootstrapModal = bootstrap.Modal.getInstance(modal); // Obtém a instância do Bootstrap Modal
-        bootstrapModal.hide(); // Fecha a modal
-
-        // Recarrega a página após 1 segundo (dá tempo de fechar a modal antes de recarregar)
-        setTimeout(function() {
-            location.reload(); // Recarrega a página
-        }, 1000); // 1000 ms = 1 segundo
-    });
-</script>
-
-
-<style>
-    /* Alinhamento do botão na direita */
-.d-flex.justify-content-end {
-    margin-top: 1rem; /* Adiciona espaçamento superior */
-    padding-right: 1rem; /* Certifica que o botão não encoste na borda */
-}
-
-#btnCadEvento {
-    font-size: 1rem;
-    display: inline-block;
-    min-width: 150px; /* Para consistência visual */
-    text-align: center;
-}
-</style>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src='../js/index.global.min.js'></script>
