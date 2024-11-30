@@ -44,8 +44,10 @@ try {
 
     // Verificar se há eventos e retornar a resposta
     if (!$eventos) {
-        echo json_encode($dataHoje);
-        echo json_encode(['status' => false, 'msg' => 'Nenhum serviço encontrado para hoje.']);
+        echo json_encode([
+            'status' => false,
+            'msg' => 'Nenhum serviço encontrado para hoje.'
+        ]);
     } else {
         header('Content-Type: application/json');
         echo json_encode($eventos);
