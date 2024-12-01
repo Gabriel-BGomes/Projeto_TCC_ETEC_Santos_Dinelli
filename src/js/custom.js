@@ -121,43 +121,54 @@ document.addEventListener('DOMContentLoaded', function () {
     // Somente acessa o IF quando existir o SELETOR "formCadEvento"
     if (formCadEvento) {
         formCadEvento.addEventListener("submit", async (e) => {
-            e.preventDefault();
+            e.preventDefault(); // Evita o envio padrão do formulário
             const dadosForm = new FormData(formCadEvento);
-            const dados = await fetch("../php/agenda/cadastrar_evento.php", {
-                method: "POST",
-                body: dadosForm
-            });
-            const resposta = await dados.json();
-            if (resposta['status']) {
-                /* document.getElementById("msga").innerHTML = resposta['msg']; */
-                msg.innerHTML = `<div class="alert alert-success" role="alert">${resposta['msg']}</div>`;
-                document.getElementById("cad_id_cliente").value = "";
-                document.getElementById("cad_title").value = "";
-                document.getElementById("cad_servico").value = "";
-                document.getElementById("cad_obs").value = "";
-                document.getElementById("cad_start").value = "";
-                document.getElementById("cad_end").value = "";
-                document.getElementById("cad_color").value = "";
-                document.getElementById("msgCadEvento").innerHTML = "";
-                calendar.addEvent({
-                    id: resposta['id'],
-                    title: resposta['title'],
-                    color: resposta['color'],
-                    start: resposta['start'],
-                    end: resposta['end'],
-                    obs: resposta['obs'],
-                    servico: resposta['servico'],
-                    id_cliente: resposta['id_cliente']
+    
+            try {
+                // Envia os dados para o backend
+                const dados = await fetch("../php/agenda/cadastrar_evento.php", {
+                    method: "POST",
+                    body: dadosForm
                 });
-                cadastrarModal.hide();
-            } else {
-                msg.innerHTML = `<div class="alert alert-danger" role="alert">${resposta['msg']}</div>`;
+    
+                const resposta = await dados.json(); // Recebe a resposta em JSON
+    
+                if (resposta['status']) {
+                    msg.innerHTML = `<div class="alert alert-success" role="alert">${resposta['msg']}</div>`;
+                    
+                    // Adicionar o evento ao calendário
+                    calendar.addEvent({
+                        id: resposta['id'],
+                        title: resposta['title'],
+                        start: resposta['start'],
+                        end: resposta['end'],
+                        color: resposta['color'],
+                        extendedProps: {
+                            obs: resposta['obs'],
+                            servico: resposta['servico'],
+                            id_cliente: resposta['id_cliente']
+                        }
+                    });
+                    
+                    // Limpa o formulário
+                    formCadEvento.reset();
+    
+                    // Fecha o modal usando a instância global
+                    cadastrarModal.hide();
+                } else {
+                    // Exibe mensagem de erro caso a resposta seja negativa
+                    msg.innerHTML = `<div class="alert alert-danger" role="alert">${resposta['msg']}</div>`;
+                }
+            } catch (error) {
+                console.error("Erro durante o cadastro:", error);
+                msg.innerHTML = `<div class="alert alert-danger" role="alert">Erro ao tentar cadastrar o evento.</div>`;
             }
-
+    
+            // Remove a mensagem após alguns segundos
             removerMsg();
-
         });
     }
+    
 
     // Receber o SELETOR ocultar detalhes do evento e apresentar o formulário editar evento
     const btnViewEditEvento = document.getElementById("btnViewEditEvento");
@@ -183,34 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Adicione este script no seu arquivo HTML ou script.js
-document.getElementById('formCadEvento').addEventListener('submit', function(e) {
-    e.preventDefault(); // Previne o envio padrão do formulário
-
-    // Aqui você faria a submissão via AJAX
-    fetch('sua_url_de_processamento', {
-        method: 'POST',
-        body: new FormData(this)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            // Fecha o modal se o cadastro for bem-sucedido
-            var modal = bootstrap.Modal.getInstance(document.getElementById('cadastrarModal'));
-            modal.hide();
-
-            // Opcional: atualizar a página ou calendário
-            location.reload(); // ou chamar uma função para atualizar o calendário
-        } else {
-            // Tratar erro, se necessário
-            alert('Erro ao cadastrar o serviço');
-        }
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-        alert('Erro ao processar o cadastro');
-    });
-});
+    
 
     // Receber o SELETOR do formulário editar evento
     const formEditEvento = document.getElementById("formEditEvento");
@@ -257,7 +241,6 @@ document.getElementById('formCadEvento').addEventListener('submit', function(e) 
             btnEditEvento.value = "Salvar";
         });
     }
-
     
 
     // Receber o SELETOR apagar evento

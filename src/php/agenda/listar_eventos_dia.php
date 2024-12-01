@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Conectar ao banco de dados
+// Configurações de conexão com o banco de dados
 $host = "localhost";
 $user = "root";
 $pass = "";
@@ -12,18 +12,25 @@ $dbname = "santos_dinelli";
 $port = 3306;
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+    // Conectar ao banco de dados usando PDO
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;port=$port;charset=utf8", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die(json_encode(['status' => false, 'msg' => "Erro: Conexão com banco de dados não realizada. Erro: " . $e->getMessage()]));
+    // Retornar erro de conexão em formato JSON
+    http_response_code(500);
+    echo json_encode([
+        'status' => false,
+        'msg' => "Erro: Conexão com o banco de dados não realizada. Erro: " . $e->getMessage()
+    ]);
+    exit;
 }
 
-// Pegar a data de hoje
+// Definir o timezone e obter a data de hoje
 date_default_timezone_set('America/Sao_Paulo');
 $dataHoje = date('Y-m-d');
 
-// Buscar os eventos do dia no banco de dados
 try {
+    // Query para buscar os eventos do dia
     $query = $pdo->prepare("
         SELECT 
             e.id, 
@@ -40,20 +47,28 @@ try {
     $query->bindParam(':dataHoje', $dataHoje);
     $query->execute();
 
+    // Obter os resultados
     $eventos = $query->fetchAll(PDO::FETCH_ASSOC);
 
-    // Verificar se há eventos e retornar a resposta
-    if (!$eventos) {
+    // Verificar e retornar os eventos em formato JSON
+    if (empty($eventos)) {
         echo json_encode([
             'status' => false,
             'msg' => 'Nenhum serviço encontrado para hoje.'
         ]);
     } else {
         header('Content-Type: application/json');
-        echo json_encode($eventos);
+        echo json_encode([
+            'status' => true,
+            'msg' => 'Serviços encontrados.',
+            'data' => $eventos
+        ]);
     }
 } catch (PDOException $e) {
-    echo json_encode(['status' => false, 'msg' => 'Erro ao buscar serviço: ' . $e->getMessage()]);
+    // Retornar erro em formato JSON
+    http_response_code(500);
+    echo json_encode([
+        'status' => false,
+        'msg' => 'Erro ao buscar serviços: ' . $e->getMessage()
+    ]);
 }
-
-

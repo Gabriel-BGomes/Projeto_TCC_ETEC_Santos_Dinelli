@@ -386,4 +386,4 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
     <script src='../js/core/locales-all.global.min.js'></script>
     <script src='../js/custom.js'></script>
 </body>
-</html>   
+</html>
