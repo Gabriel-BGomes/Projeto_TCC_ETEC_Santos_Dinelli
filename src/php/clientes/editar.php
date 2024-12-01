@@ -448,8 +448,8 @@ input:valid {
                     </div>
                 <?php endif; ?>
                 
-                <button type="submit" class="btn">Atualizar Cliente</button>
-                <a href="visualizar.php" class="btnCancelar" style="background-color: #666;">Cancelar</a>
+                <button style="color: white;" type="submit" class="btn">Atualizar Cliente</button>
+                <a style="color: white; text-decoration: none;" href="visualizar.php" class="btnCancelar" style="background-color: #666;">Cancelar</a>
             </form>
         <?php else: ?>
             <p>Cliente não encontrado.</p>
