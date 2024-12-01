@@ -103,48 +103,228 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Editar Cliente</title>
     <link rel="stylesheet" href="../../style/layout-header.css">
     <style>
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="date"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-        }
-        .btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: #45a049;
-        }
-        .mensagem {
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-        }
-        .sucesso {
-            background-color: #dff0d8;
-            color: #3c763d;
-        }
-        .erro {
-            background-color: #f2dede;
-            color: #a94442;
-        }
+        :root {
+    --cor-primaria: #228d02;
+    --cor-secundaria: #2eab04;
+    --cor-cancelar1: #FF0000;
+    --cor-cancelar2: #8b0000;
+    --cor-texto-escuro: #1e2249;
+    --cor-fundo: #f5f7ff;
+    --cor-borda: #c2e0c2;
+    --sombra-suave: 0 10px 30px rgba(34, 141, 2, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-escuro);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: var(--sombra-suave);
+    padding: 50px;
+    border: 1px solid var(--cor-borda);
+}
+
+h2 {
+    text-align: center;
+    color: var(--cor-primaria);
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+    position: relative;
+    font-weight: 700;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, var(--cor-primaria), var(--cor-secundaria));
+    border-radius: 2px;
+}
+
+/* Estilos de Formulário */
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: black;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"] {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 4px rgba(34, 141, 2, 0.1);
+}
+
+/* butao atualizar */
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn:first-of-type {
+    background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+    color: white;
+    box-shadow: 0 10px 20px rgba(34, 141, 2, 0.3);
+}
+
+.btn:first-of-type:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(34, 141, 2, 0.4);
+}
+
+.btn:last-of-type {
+    background-color: #f1f9f1;
+    color: var(--cor-texto-escuro);
+    margin-left: 15px;
+}
+
+.btn:last-of-type:hover {
+    background-color: #e6f4e6;
+}
+
+/* butao cancelar */
+.btnCancelar {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    
+}
+
+.btnCancelar:first-of-type {
+    background: linear-gradient(135deg, var(--cor-cancelar1), var(--cor-cancelar2));
+    color: white;
+    box-shadow: 0 10px 20px rgba(200, 34, 34, 0.3);
+}
+
+.btnCancelar:first-of-type:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(200, 34, 34, 0.4);
+}
+
+.btnCancelar:last-of-type {
+    background-color: #f1f9f1;
+    color: black;
+    margin-left: 15px;
+}
+
+.btnCancelar:last-of-type:hover {
+    background-color: #e6f4e6;
+}
+
+/* Estilos de Mensagem */
+.mensagem {
+    padding: 15px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.sucesso {
+    background-color: #e7f5f0;
+    color: #1a6b3f;
+    border: 1px solid #228d02;
+}
+
+.erro {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 30px 20px;
+        margin: 20px auto;
+    }
+
+    .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .btn:last-of-type {
+        margin-left: 0;
+    }
+}
+
+/* Animações Sutis */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-group {
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+    animation-delay: calc(var(--delay) * 0.1s);
+}
+
+/* Estado de Validação */
+input:required:invalid {
+    border-color: #ff6b6b;
+}
+
+input:valid {
+    border-color: #228d02;
+}
     </style>
 </head>
 <body>
@@ -269,7 +449,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php endif; ?>
                 
                 <button type="submit" class="btn">Atualizar Cliente</button>
-                <a href="visualizar_clientes.php" class="btn" style="background-color: #666;">Cancelar</a>
+                <a href="visualizar.php" class="btnCancelar" style="background-color: #666;">Cancelar</a>
             </form>
         <?php else: ?>
             <p>Cliente não encontrado.</p>
