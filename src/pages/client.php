@@ -88,7 +88,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                 <div class="child child-2"> <!-- organizar cada filho-->
 
-                    <h4>Lista</h4>
+                    <h4>Visualizar</h4>
                     <p>Lista de clientes ja cadastrados<br> Pessoa Física ou Pessoa Jurídica.</p>
                     <a class="btn btn-2 link" href="../php/clientes/visualizar.php">VISUALIZAR</a>
 

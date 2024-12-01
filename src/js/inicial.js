@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+
   fetch('../php/agenda/listar_eventos_dia.php')
   .then(response => response.json())
   .then(data => {
@@ -8,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
           month: 'long', 
           day: 'numeric' 
       });
+
       document.getElementById('data-hoje').innerText = dataHoje.charAt(0).toUpperCase() + dataHoje.slice(1);
 
       if (data.status === false) {
@@ -53,12 +55,15 @@ document.addEventListener('DOMContentLoaded', function () {
           document.getElementById('listaEventos').innerHTML = listaEventos;
       }
   })
+
   .catch(error => {
-      console.error('Erro ao carregar serviços:', error);
+
+    console.error('Erro ao carregar serviços:', error);
       document.getElementById('listaEventos').innerHTML = `
           <div class="sem-eventos">
               <i class="fas fa-exclamation-triangle fa-3x"></i>
               <p>Erro ao carregar serviços.</p>
           </div>`;
   });
+
 });
