@@ -111,45 +111,71 @@ foreach ($clientes as $cliente) {
     <title>Visualizar Clientes</title>
     <style>
         .acoes {
-    margin-top: 10px;
-    display: flex;
-    gap: 10px;
-}
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
 
-.btn-editar, .btn-excluir {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    text-decoration: none;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 0.9em;
-    transition: all 0.3s ease;
-    display: inline-block;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
+        .btn-editar, .btn-excluir {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
 
-.btn-editar {
-    background-color: #4CAF50;
-    color: white;
-}
+        .btn-editar {
+            background-color: #4CAF50;
+            color: white;
+        }
 
-.btn-editar:hover {
-    background-color: #45a049;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
+        .btn-editar:hover {
+            background-color: #45a049;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
 
-.btn-excluir {
-    background-color: #f44336;
-    color: white;
-}
+        .btn-excluir {
+            background-color: #f44336;
+            color: white;
+        }
 
-.btn-excluir:hover {
-    background-color: #d32f2f;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
+        .btn-excluir:hover {
+            background-color: #d32f2f;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        /* New styles for filter buttons */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: #228d02;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background-color: #228d02;
+        }
+
+        .filter-btn.active {
+            background-color: #145400;
+        }
     </style>
 </head>
 <body>
@@ -191,6 +217,13 @@ foreach ($clientes as $cliente) {
     </form>
 </div>
 
+<!-- New filter buttons -->
+<div class="filter-buttons">
+    <button class="filter-btn" data-filter="all" onclick="filterClients('all')">Todos os Clientes</button>
+    <button class="filter-btn" data-filter="fisicos" onclick="filterClients('fisicos')">Clientes Físicos</button>
+    <button class="filter-btn" data-filter="juridicos" onclick="filterClients('juridicos')">Clientes Jurídicos</button>
+</div>
+
 <?php
 // Exibir mensagens de sucesso ou erro
 if (isset($_GET['msg'])) {
@@ -201,10 +234,10 @@ if (isset($_GET['error'])) {
 }
 ?>
 
-<h2>Clientes Físicos</h2>
+<h2 id="h2-fisicos">Clientes Físicos</h2>
 
 <?php foreach ($clientes_filtrados['fisicos'] as $cliente): ?>
-    <div class="cliente">
+    <div class="cliente cliente-fisico">
         <h3><?php echo htmlspecialchars($cliente['nome_cliente'] ?? ''); ?></h3>
         <p>Email: <?php echo htmlspecialchars($cliente['email_cliente'] ?? ''); ?></p>
         <p>Telefone: <?php echo htmlspecialchars($cliente['telefone'] ?? ''); ?></p>
@@ -247,9 +280,9 @@ if (isset($_GET['error'])) {
     </div>
 <?php endforeach; ?>
 
-<h2>Clientes Jurídicos</h2>
+<h2 id="h2-juridicos">Clientes Jurídicos</h2>
 <?php foreach ($clientes_filtrados['juridicos'] as $cliente): ?>
-    <div class="cliente">
+    <div class="cliente cliente-juridico">
         <h3><?php echo htmlspecialchars($cliente['razao_social'] ?? ''); ?></h3>
         <p>Email: <?php echo htmlspecialchars($cliente['email_cliente_pj'] ?? ''); ?></p>
         <p>Telefone: <?php echo htmlspecialchars($cliente['telefone_pj'] ?? ''); ?></p>
@@ -292,5 +325,45 @@ if (isset($_GET['error'])) {
     </div>
 <?php endforeach; ?>
 
-</body>
-</html>
+<script>
+function filterClients(filter) {
+    // Remove active class from all buttons
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    // Add active class to clicked button
+    const activeButton = document.querySelector(`.filter-btn[data-filter="${filter}"]`);
+    if (activeButton) activeButton.classList.add('active');
+
+    // Get all client divs
+    const fisicos = document.querySelectorAll('.cliente-fisico');
+    const juridicos = document.querySelectorAll('.cliente-juridico');
+    const h2Fisicos = document.getElementById('h2-fisicos');
+        const h2Juridicos = document.getElementById('h2-juridicos');
+
+        if (filter === 'all') {
+            fisicos.forEach(client => client.style.display = 'block');
+            juridicos.forEach(client => client.style.display = 'block');
+            h2Fisicos.style.display = 'block';
+            h2Juridicos.style.display = 'block';
+        } else if (filter === 'fisicos') {
+            fisicos.forEach(client => client.style.display = 'block');
+            juridicos.forEach(client => client.style.display = 'none');
+            h2Fisicos.style.display = 'block';
+            h2Juridicos.style.display = 'none';
+        } else if (filter === 'juridicos') {
+            fisicos.forEach(client => client.style.display = 'none');
+            juridicos.forEach(client => client.style.display = 'block');
+            h2Fisicos.style.display = 'none';
+            h2Juridicos.style.display = 'block';
+        }
+    }
+
+    // Opcional: Definir o estado inicial com base na URL ou padrão
+    document.addEventListener('DOMContentLoaded', () => {
+        // Verifica se há um filtro definido na URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const filter = urlParams.get('filter') || 'all';
+        filterClients(filter);
+    });
+    </script>
