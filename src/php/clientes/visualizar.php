@@ -1,4 +1,27 @@
 <?php
+
+// não deixar a pessoa entrar sem antes ter logado no sistema
+session_start(); // Iniciar a sessão
+
+ob_start(); // Limpar o buffer de saída
+
+// Definir um fuso horario padrao
+date_default_timezone_set('America/Sao_Paulo');
+
+// Acessar o IF quando o usuário não estão logado e redireciona para página de login
+if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SESSION['codigo_autenticacao']))) {
+    $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
+
+    // Redirecionar o usuário
+    header("Location: /project_Santos_Dinelli/login/index.php");
+
+    // Pausar o processamento
+    exit();
+}
+
+?>
+
+<?php
 session_start();
 
 $host = "localhost";
@@ -204,7 +227,7 @@ foreach ($clientes as $cliente) {
     </nav>
 
     <nav>
-        <a href="https://www.santosedinelli.com" target="_blank">
+        <a href="https://www.santosedinelli.com.br" target="_blank">
         <img class="logo" src="../../images/santos-dinelli.png" alt="logo da empresa"></a>
     </nav>
 </header>
