@@ -22,7 +22,6 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 ?>
 
 <?php
-session_start();
 
 $host = "localhost";
 $dbname = "santos_dinelli";
@@ -180,16 +179,21 @@ foreach ($clientes as $cliente) {
             justify-content: center;
             margin: 20px 0;
             gap: 10px;
+
         }
 
         .filter-btn {
+            width: 200px;
+            height: 60px;
             padding: 10px 20px;
             background-color: #228d02;
             color: white;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
+            border-radius: 15px;
             transition: background-color 0.3s ease;
+            font-size: 15px;
+            background-color: #45a528;
         }
 
         .filter-btn:hover {
@@ -197,7 +201,7 @@ foreach ($clientes as $cliente) {
         }
 
         .filter-btn.active {
-            background-color: #145400;
+            background-color: #145400;;
         }
     </style>
 </head>

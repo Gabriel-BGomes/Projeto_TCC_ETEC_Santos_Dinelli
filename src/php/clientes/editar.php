@@ -22,7 +22,6 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 ?>
 
 <?php
-session_start();
 
 $host = "localhost";
 $dbname = "santos_dinelli";
