@@ -60,6 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   data_nascimento = :data_nascimento,
                   telefone = :telefone,
                   endereco = :endereco,
+                  numero = :numero,
                   bairro = :bairro,
                   cep = :cep,
                   cidade = :cidade,
@@ -73,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bindValue(':data_nascimento', $_POST['data_nascimento']);
         $stmt->bindValue(':telefone', $_POST['telefone']);
         $stmt->bindValue(':endereco', $_POST['endereco']);
+        $stmt->bindValue(':numero', $_POST['numero']);
         $stmt->bindValue(':bairro', $_POST['bairro']);
         $stmt->bindValue(':cep', $_POST['cep']);
         $stmt->bindValue(':cidade', $_POST['cidade']);
@@ -85,6 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   cnpj = :cnpj,
                   telefone_pj = :telefone_pj,
                   endereco_pj = :endereco_pj,
+                  numero_pj = :numero_pj,
                   bairro_pj = :bairro_pj,
                   cep_pj = :cep_pj,
                   cidade_pj = :cidade_pj,
@@ -98,6 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bindValue(':cnpj', $_POST['cnpj']);
         $stmt->bindValue(':telefone_pj', $_POST['telefone_pj']);
         $stmt->bindValue(':endereco_pj', $_POST['endereco_pj']);
+        $stmt->bindValue(':numero_pj', $_POST['numero_pj']);
         $stmt->bindValue(':bairro_pj', $_POST['bairro_pj']);
         $stmt->bindValue(':cep_pj', $_POST['cep_pj']);
         $stmt->bindValue(':cidade_pj', $_POST['cidade_pj']);
@@ -396,6 +400,11 @@ input:valid {
                         <label>Endereço:</label>
                         <input type="text" name="endereco" value="<?php echo htmlspecialchars($cliente['endereco']); ?>" required>
                     </div>
+
+                    <div class="form-group">
+                        <label>Número:</label>
+                        <input type="text" name="numero" value="<?php echo htmlspecialchars($cliente['numero']); ?>" required>
+                    </div>
                     
                     <div class="form-group">
                         <label>Bairro:</label>
@@ -442,6 +451,11 @@ input:valid {
                     <div class="form-group">
                         <label>Endereço:</label>
                         <input type="text" name="endereco_pj" value="<?php echo htmlspecialchars($cliente['endereco_pj']); ?>" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Número:</label>
+                        <input type="text" name="numero_pj" value="<?php echo htmlspecialchars($cliente['numero_pj']); ?>" required>
                     </div>
                     
                     <div class="form-group">

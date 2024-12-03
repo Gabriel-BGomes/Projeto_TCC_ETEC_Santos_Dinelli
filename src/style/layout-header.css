@@ -129,7 +129,9 @@ html, body{
 }
 
 .logo {
-    width: 220px;
+    margin-right: 100px;
+    width: 100px;
+    height: 100px;
 }
 
 @media (max-height: 700px) {

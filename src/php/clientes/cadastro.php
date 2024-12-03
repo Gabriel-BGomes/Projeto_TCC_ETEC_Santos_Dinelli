@@ -115,8 +115,8 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                 } else {
                     
                     // QUERY para cadastrar pessoa física no banco de dados
-                    $query_pessoa = "INSERT INTO clientes (tipo_pessoa, nome_cliente, email_cliente, cpf_cliente, data_nascimento, telefone, endereco, bairro, cep, cidade, complemento, forma_pagamento) 
-                                    VALUES (:tipo_pessoa, :nome_cliente, :email_cliente, :cpf_cliente, :data_nascimento, :telefone, :endereco, :bairro, :cep, :cidade, :complemento, :forma_pagamento)";
+                    $query_pessoa = "INSERT INTO clientes (tipo_pessoa, nome_cliente, email_cliente, cpf_cliente, data_nascimento, telefone, endereco, numero, bairro, cep, cidade, complemento, forma_pagamento) 
+                                    VALUES (:tipo_pessoa, :nome_cliente, :email_cliente, :cpf_cliente, :data_nascimento, :telefone, :endereco, :numero, :bairro, :cep, :cidade, :complemento, :forma_pagamento)";
 
                     // Preparar a QUERY com PDO
                     $cad_pessoa = $conn->prepare($query_pessoa);
@@ -129,6 +129,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     $cad_pessoa->bindParam(':data_nascimento', $dados['data_nascimento']);
                     $cad_pessoa->bindParam(':telefone', $dados['telefone']);
                     $cad_pessoa->bindParam(':endereco', $dados['endereco']);
+                    $cad_pessoa->bindParam(':numero', $dados['numero']);
                     $cad_pessoa->bindParam(':bairro', $dados['bairro']);
                     $cad_pessoa->bindParam(':cep', $dados['cep']);
                     $cad_pessoa->bindParam(':cidade', $dados['cidade']);
@@ -156,9 +157,9 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     echo "<p class='error-message' style='color: red;'>Por favor, preencha todos os campos obrigatórios!</p>";
                 } else {
                     // QUERY para cadastrar pessoa jurídica no banco de dados
-                    $query_pessoa = "INSERT INTO clientes (tipo_pessoa, razao_social, email_cliente_pj, cnpj, telefone_pj, endereco_pj, cep_pj, referencia_pj, bairro_pj, cidade_pj, complemento_pj, forma_pagamento_pj) 
+                    $query_pessoa = "INSERT INTO clientes (tipo_pessoa, razao_social, email_cliente_pj, cnpj, telefone_pj, endereco_pj, numero_pj, cep_pj, referencia_pj, bairro_pj, cidade_pj, complemento_pj, forma_pagamento_pj) 
                     VALUES 
-                    (:tipo_pessoa, :razao_social, :email_cliente_pj, :cnpj, :telefone_pj, :endereco_pj, :cep_pj, :referencia_pj, :bairro_pj, :cidade_pj, :complemento_pj, :forma_pagamento_pj)";
+                    (:tipo_pessoa, :razao_social, :email_cliente_pj, :cnpj, :telefone_pj, :endereco_pj, :numero_pj, :cep_pj, :referencia_pj, :bairro_pj, :cidade_pj, :complemento_pj, :forma_pagamento_pj)";
 
                     // Preparar a QUERY com PDO
                     $cad_pessoa = $conn->prepare($query_pessoa);
@@ -170,6 +171,7 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                     $cad_pessoa->bindParam(':cnpj', $dados['cnpj']);
                     $cad_pessoa->bindParam(':telefone_pj', $dados['telefone_pj']);  
                     $cad_pessoa->bindParam(':endereco_pj', $dados['endereco_pj']);
+                    $cad_pessoa->bindParam(':numero_pj', $dados['numero_pj']);
                     $cad_pessoa->bindParam(':cep_pj', $dados['cep_pj']); 
                     $cad_pessoa->bindParam(':bairro_pj', $dados['bairro_pj']); 
                     $cad_pessoa->bindParam(':cidade_pj', $dados['cidade_pj']); 
@@ -259,16 +261,30 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
                             <label>CEP</label> 
                         </div>   
                         
-                        <div class="input-group">
-                            <input type="text" name="endereco" id="ruaFisica" placeholder="Ex: rua abacaxi listrado 112">
-                            <span class="highlight"></span>
-                            <label>Endereço Completo</label>
+                        <div class="input-group" style="width: 600px; display: flex;">
+                            
+                            <div>
+                                <input type="text" name="endereco" id="ruaFisica" placeholder="Ex: rua abacaxi listrado 112" style="width: 290px;">
+                                    <span class="highlight"></span>
+                                    <label style="width: 300px;">Endereço Completo</label>
+                            </div>
+
+                            <div>
+                                <input type="text" name="numero" id="ruaFisica" placeholder="" style="width: 285px; margin-left: 20px" >
+                                <span  style="margin-left: 300px"class="highlight"></span>
+                                <label style="width: 300px; margin-left: 310px">Número</label>
+                            </div>
+
                         </div>
 
                         <div class="input-group">
                             <input type="text" name="bairro" id="bairroFisica" placeholder="Bairro">
                             <span class="highlight"></span>
                             <label>Bairro</label>
+                        </div>
+
+                        <div class="input-group">
+                            
                         </div>
 
                         <div class="input-group">
@@ -341,10 +357,20 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
 
                     <div class="separar">
 
-                        <div class="input-group">
-                            <input type="text" name="endereco_pj" id="ruaJuridica" placeholder="Ex: rua abacaxi listrado 112">
-                            <span class="highlight"></span>
-                            <label>Endereço completo</label>
+                        <div class="input-group dividido" style="width: 600px; display: flex;">
+                            
+                            <div>
+                                <input type="text" name="endereco_pj" id="ruaJuridica" placeholder="Ex: rua abacaxi listrado 112" style="width: 290px;">
+                                    <span class="highlight"></span>
+                                    <label style="width: 300px;">Endereço Completo</label>
+                            </div>
+
+                            <div>
+                                <input type="text" name="numero_pj" id="numeroJuridica" placeholder="" style="width: 285px; margin-left: 20px" >
+                                <span  style="margin-left: 300px"class="highlight"></span>
+                                <label style="width: 300px; margin-left: 310px">Número</label>
+                            </div>
+
                         </div>
 
                         <div class="input-group">

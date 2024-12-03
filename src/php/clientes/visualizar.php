@@ -276,6 +276,7 @@ foreach ($clientes as $cliente) {
         <p>Telefone: <?php echo htmlspecialchars($cliente['telefone'] ?? ''); ?></p>
         <p>CPF: <?php echo htmlspecialchars($cliente['cpf_cliente'] ?? ''); ?></p>
         <p>Endereço: <?php echo htmlspecialchars($cliente['endereco'] ?? ''); ?></p>
+        <p>Número: <?php echo htmlspecialchars($cliente['numero'] ?? ''); ?></p>
         
         <h4>Serviços Agendados</h4>
         <table>
@@ -321,6 +322,7 @@ foreach ($clientes as $cliente) {
         <p>Telefone: <?php echo htmlspecialchars($cliente['telefone_pj'] ?? ''); ?></p>
         <p>CNPJ: <?php echo htmlspecialchars($cliente['cnpj'] ?? ''); ?></p>
         <p>Endereço: <?php echo htmlspecialchars($cliente['endereco_pj'] ?? ''); ?></p>
+        <p>Número: <?php echo htmlspecialchars($cliente['numero_pj'] ?? ''); ?></p>
 
         <h4>Serviços Agendados</h4>
         <table>
