@@ -178,7 +178,9 @@ html, body{
     }
 
     .logo {
-        width: 155px;
+        margin-right: 80px;
+        width: 80px;
+        height: 80px;
     }
 
 }
