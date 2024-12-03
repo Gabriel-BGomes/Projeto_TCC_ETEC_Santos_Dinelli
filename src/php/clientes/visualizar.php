@@ -87,11 +87,18 @@ function deleteCliente($conn, $id) {
 // Processar exclusão se solicitado
 if (isset($_POST['action']) && $_POST['action'] == 'delete' && isset($_POST['id'])) {
     if (deleteCliente($conn, $_POST['id'])) {
-        header("Location: " . $_SERVER['PHP_SELF'] . "?msg=Cliente excluído com sucesso");
-        exit;
+        header("Location: /project_Santos_Dinelli/src/php/clientes/visualizar.php?msg=success");
     } else {
-        header("Location: " . $_SERVER['PHP_SELF'] . "?error=Erro ao excluir cliente");
-        exit;
+        header("Location: /project_Santos_Dinelli/src/php/clientes/visualizar.php?msg=success");
+    }
+    exit; // Para garantir que o script não continua após o redirecionamento
+}
+
+if (isset($_GET['msg'])) {
+    if ($_GET['msg'] == 'success') {
+        echo "<script>alert('Cliente excluído com sucesso!');</script>";
+    } elseif ($_GET['msg'] == 'error') {
+        echo "<script>alert('Erro ao excluir o cliente.');</script>";
     }
 }
 
@@ -203,6 +210,12 @@ foreach ($clientes as $cliente) {
         .filter-btn.active {
             background-color: #145400;;
         }
+
+        .msg {
+            width: 95vw;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
@@ -236,6 +249,8 @@ foreach ($clientes as $cliente) {
     </nav>
 </header>
 
+<span id="msg" class="msg"></span>
+
 <div class="container-search-form">
     <form class="search-form" method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <label class="label-form" for="search">Pesquisar clientes:</label>
@@ -251,15 +266,6 @@ foreach ($clientes as $cliente) {
     <button class="filter-btn" data-filter="juridicos" onclick="filterClients('juridicos')">Clientes Jurídicos</button>
 </div>
 
-<?php
-// Exibir mensagens de sucesso ou erro
-if (isset($_GET['msg'])) {
-    echo '<div class="mensagem sucesso">' . htmlspecialchars($_GET['msg']) . '</div>';
-}
-if (isset($_GET['error'])) {
-    echo '<div class="mensagem erro">' . htmlspecialchars($_GET['error']) . '</div>';
-}
-?>
 
 <h2 id="h2-fisicos">Clientes Físicos</h2>
 
@@ -343,7 +349,7 @@ if (isset($_GET['error'])) {
         
         <div class="acoes">
             <a href="../clientes/editar.php?id=<?php echo $cliente['id']; ?>" class="btn-editar">Editar</a>
-            <form method="post" style="display: inline;" onsubmit="return confirm('Tem certeza que deseja excluir este cliente?');">
+            <form method="post" style="display: inline;" id="confirm" onsubmit="return confirm('Tem certeza que deseja excluir este cliente?');">
                 <input type="hidden" name="action" value="delete">
                 <input type="hidden" name="id" value="<?php echo $cliente['id']; ?>">
                 <button type="submit" class="btn-excluir">Excluir</button>
@@ -393,4 +399,22 @@ function filterClients(filter) {
         const filter = urlParams.get('filter') || 'all';
         filterClients(filter);
     });
+
+    // Função para remover a mensagem após 3 segundos
+    function removerMsg() {
+        setTimeout(() => {
+            document.getElementById('msg').innerHTML = "";
+        }, 3000);
+    }
+
+    const confirmacao = window.getElementById('confirm');
+    msgView = document.getElementById('msg').innerHTML = "";
+
+    if (confirmacao) {
+        msgView = document.getElementById('msg').innerHTML = `<div class="alert alert-success" role="alert">Cliente Excluído</div>`;
+        removerMsg();
+    } 
+
+    
+
     </script>
