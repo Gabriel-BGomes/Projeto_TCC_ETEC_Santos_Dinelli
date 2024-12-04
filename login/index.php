@@ -274,7 +274,6 @@ if (!empty($dados['SendLogin'])) {
         document.getElementById('auth-form').addEventListener('submit', function(e) {
             // Show the loading overlay
             document.getElementById('loadingOverlay').style.display = 'flex';
-            window.alert('clicou')
         });
 
         function togglePassword() {
