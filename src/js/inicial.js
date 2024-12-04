@@ -44,9 +44,15 @@ document.addEventListener('DOMContentLoaded', function () {
                         <i class="fas fa-bookmark"></i> ${evento.cliente_nome}
                     </div>
                     <div class="evento-detalhes">
+
                         <div class="servico-info">
                             <i class="fas fa-cog"></i>
-                            <span>Serviço: ${evento.servico}</span>
+                            <span>Serviço: ${evento.title}</span>
+                        </div>
+
+                        <div class="servico-info">
+                            <i class="fas fa-cog"></i>
+                            <span>Tipo de Serviço: ${evento.servico}</span>
                         </div>
                         <div class="servico-info">
                             <i class="fas fa-map-marker-alt"></i>

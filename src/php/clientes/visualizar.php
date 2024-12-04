@@ -228,7 +228,7 @@ foreach ($clientes as $cliente) {
         <ul>
             <li><a class="link" href="../../pages/home.php">ÍNICIO</a></li>
             <li><a class="link" href="../../pages/agenda.php">AGENDA</a></li>
-            <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
+            <li><a class="link" href="../../pages/validar_codigo_financeiro.php">FINANCEIRO</a></li>
             <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
             <li><a class="link" href="https://WA.me/+5511947295062/?text=Olá, preciso de ajuda com o software." target="_blank">SUPORTE</a></li>
             <li><a class="link" href="../../../login/sair.php">SAIR</a></li>
@@ -238,7 +238,7 @@ foreach ($clientes as $cliente) {
     <nav>
         <ul class="menu-fixo">
             <li><a class="link" style="margin-left: 18px;" href="../../pages/agenda.php">AGENDA</a></li>
-            <li><a class="link" href="../../pages/finance.php">FINANCEIRO</a></li>
+            <li><a class="link" href="../../pages/validar_codigo_financeiro.php">FINANCEIRO</a></li>
             <li><a class="link" href="../../pages/client.php">CLIENTES</a></li>
         </ul>
     </nav>
