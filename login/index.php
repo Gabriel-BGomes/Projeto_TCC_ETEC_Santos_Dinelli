@@ -187,8 +187,12 @@ if (!empty($dados['SendLogin'])) {
                                 "Se você não solicitou este código, por favor ignore este email.\n\n" .
                                 "Esta é uma mensagem automática. Por favor, não responda a este email.";
 
+                // Enviar e-mail
                 $mail->send();
+
+                // Redirecionar o usuário
                 header('Location: validar_codigo.php');
+                                
 
             } catch (Exception $e) {
                 echo "E-mail não enviado com sucesso. Erro: {$mail->ErrorInfo}";
@@ -211,6 +215,7 @@ if (!empty($dados['SendLogin'])) {
     <link rel="stylesheet" href="../src/style/login/index.css">
     <link rel="shortcut icon" href="../src/images/icons/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
 </head>
 <body>
     <div class="login-container">
@@ -228,14 +233,11 @@ if (!empty($dados['SendLogin'])) {
             </div>
         <?php endif; ?>
         
-        <form method="POST" action="" class="login-form" id="login-form">
-            <div class="error-messages">
-                <?php
-                if (isset($_SESSION['msg'])) {
-                    echo $_SESSION['msg'];
-                    unset($_SESSION['msg']);
-                }
-                ?>
+        <form method="POST" action="" class="login-form" id="auth-form">
+
+            <div class="loading-overlay" id="loadingOverlay">
+                <div class="loading-spinner"></div>
+                <div class="loading-text" id="loadingText">Validando...</div>
             </div>
 
             <div class="input-group">
@@ -258,35 +260,36 @@ if (!empty($dados['SendLogin'])) {
                 <label for="manterlogin" class="lembrar-label">Lembrar-me</label>
             </div>
 
-            <input type="submit" name="SendLogin" value="Acessar" class="login-button">    
+            <input type="submit" name="SendLogin" value="Acessar" class="login-button" id="botaoEnviar">    
             <div class="forgot-password">
-                <a href="enviarcodigo.php">Esqueceu a senha?</a>
+                <a href="enviarcodigo.php" id="enviar">Esqueceu a senha?</a>
             </div>
+
         </form>
+        
     </div>    
 
-    <script>
-    function togglePassword() {
-        const passwordInput = document.getElementById('password');
-        const toggleIcon = document.querySelector('.password-toggle i');
-        const toggleContainer = document.querySelector('.password-toggle');
-        
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            toggleIcon.classList.remove('fa-eye');
-            toggleIcon.classList.add('fa-eye-slash');
-        } else {
-            passwordInput.type = 'password';
-            toggleIcon.classList.remove('fa-eye-slash');
-            toggleIcon.classList.add('fa-eye');
+    <script>    
+
+        document.getElementById('auth-form').addEventListener('submit', function(e) {
+            // Show the loading overlay
+            document.getElementById('loadingOverlay').style.display = 'flex';
+        });
+
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.querySelector('.password-toggle i');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
         }
-        
-        toggleContainer.classList.add('animate');
-        
-        setTimeout(() => {
-            toggleContainer.classList.remove('animate');
-        }, 300);
-    }
+
     </script>
 </body>
 </html>
