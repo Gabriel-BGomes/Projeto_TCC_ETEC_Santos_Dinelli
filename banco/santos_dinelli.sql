@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 03, 2024 at 11:30 PM
+-- Generation Time: Dec 04, 2024 at 02:27 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -126,11 +126,29 @@ INSERT INTO `events` (`id`, `title`, `color`, `start`, `end`, `obs`, `servico`, 
 (113, NULL, NULL, NULL, NULL, NULL, NULL, 0),
 (125, 'Gravação do pitch', '#436EEE', '2024-11-18 10:00:00', '2024-11-18 12:00:00', 'levar notebook', 'Visita', 64),
 (130, 'Ronaldo WorkShop', '#228B22', '2024-11-02 11:00:00', '2024-11-02 11:40:00', 'dfas', 'PMOC', 64),
-(138, 'Título do Serviço', '#436EEE', '2024-12-02 11:00:00', '2024-12-02 12:00:00', 'sem obs', 'Desinstalação', 64),
-(152, 'Banca Final', '#A020F0', '2024-12-04 13:00:00', '2024-12-04 18:20:00', 'Banca final do nosso trabalho conclusivo de curso.\r\n', 'Visita', 69),
+(138, 'Desinstalação', '#436EEE', '2024-12-02 13:00:00', '2024-12-02 14:00:00', 'sem obs', 'Desinstalação', 64),
+(152, 'Apresentação do Software', '#A020F0', '2024-12-04 13:00:00', '2024-12-04 18:20:00', 'Apresentação de todo o sistema funcionando', 'Visita', 69),
 (153, 'Larissa Sacomã', '#FF4500', '2024-12-06 13:10:00', '2024-12-09 15:45:00', 'Iram ser realizadas instalações na áreas extrenas da varanda.\r\n', 'Instalação', 80),
 (154, 'Pedro NovaTec', '#8B0000', '2024-12-12 13:45:00', '2024-12-12 20:30:00', '', 'Higienização', 81),
-(155, 'Transportes Eireli', '#0071c5', '2024-12-17 14:20:00', '2024-12-17 15:00:00', '', 'Manutenção preventiva', 101);
+(155, 'Transportes Eireli', '#0071c5', '2024-12-17 14:20:00', '2024-12-17 15:00:00', '', 'Manutenção preventiva', 101),
+(156, 'Manutenção', '#1C1C1C', '2024-12-02 11:00:00', '2024-12-02 12:00:00', '', 'Manutenção preventiva', 75),
+(157, 'Visita para prevenção', '#FFD700', '2024-12-03 14:00:00', '2024-12-03 15:00:00', 'levar parafuso', 'Visita', 69),
+(158, 'Conserto', '#1C1C1C', '2024-12-03 10:00:00', '2024-12-03 11:00:00', 'chegar com antecedência', 'Manutenção Corretiva', 85),
+(159, 'Instalação na empresa', '#8B0000', '2024-12-18 10:00:00', '2024-12-20 18:00:00', 'levar todo material necessário para instalação de 10 ar condicionados', 'Instalação', 104),
+(160, 'Manutenção na empresa', '#436EEE', '2024-12-10 14:00:00', '2024-12-10 18:00:00', '', 'Manutenção preventiva', 100),
+(161, 'Manutenção na empresa', '#FF4500', '2024-12-05 09:00:00', '2024-12-05 11:00:00', 'sem obs', 'Manutenção Corretiva', 78),
+(162, 'Fazer laudo para cliente', '#A020F0', '2024-12-05 10:00:00', '2024-12-05 10:30:00', '', 'Laudos', 79),
+(163, 'Visita ', '#436EEE', '2024-12-11 09:00:00', '2024-12-11 11:00:00', 'verificar ar condicionados', 'Visita', 101),
+(164, 'Venda para Larissa', '#FF4500', '2024-12-11 14:00:00', '2024-12-11 15:30:00', 'levar modelos da LG', 'Venda', 80),
+(165, 'Desinstalar ar condicionado', '#8B4513', '2024-12-13 10:00:00', '2024-12-13 13:00:00', 'nenhuma', 'Desinstalação', 69),
+(166, 'Instalação na Clínica', '#A020F0', '2024-12-14 13:00:00', '2024-12-16 17:00:00', '', 'Instalação', 98),
+(167, 'Visitar para consulta de espaço', '#228B22', '2024-12-18 08:00:00', '2024-12-18 09:00:00', '', 'Visita', 104),
+(168, 'Instalação para Camila Barbosa', '#1C1C1C', '2024-12-19 08:00:00', '2024-12-19 09:30:00', 'tentar acabar o quanto antes para chegar a tempo', 'Instalação', 78),
+(169, 'Higienizar Auto Peças', '#FF4500', '2024-12-20 07:00:00', '2024-12-20 09:20:00', 'levar kit de limpeza', 'Higienização', 97),
+(170, 'Visita para verificação', '#A020F0', '2024-12-24 10:00:00', '2024-12-24 11:00:00', '', 'Visita', 64),
+(171, 'Visita Juliana', '#A020F0', '2024-12-24 13:00:00', '2024-12-24 13:30:00', '', 'Contrato de manutenção preventiva e corretiva', 76),
+(172, 'Visita Aline', '#A020F0', '2024-12-24 14:00:00', '2024-12-24 15:00:00', '', 'Higienização', 84),
+(173, 'Visita Larissa', '#A020F0', '2024-12-24 16:30:00', '2024-12-24 18:00:00', '', 'Visita', 80);
 
 -- --------------------------------------------------------
 
@@ -150,18 +168,18 @@ CREATE TABLE `financas` (
 --
 
 INSERT INTO `financas` (`id`, `mes`, `recebimento`, `despesa`) VALUES
-(25, 'Janeiro', 1500.00, 490.00),
-(26, 'Julho', 17.00, 17.00),
-(27, 'Março', 146.00, 100.00),
-(28, 'Maio', 80.00, 50.00),
-(29, 'Dezembro', 100.00, 12.00),
-(30, 'Junho', 20.00, 20.00),
-(31, 'Setembro', 544.00, 244.00),
-(32, 'Fevereiro', 34.00, 24.00),
-(33, 'Abril', 51.00, 32.00),
-(34, 'Novembro', 10.00, 5.00),
-(35, 'Outubro', 100.00, 20.00),
-(36, 'Agosto', 650.00, 749.00);
+(25, 'Janeiro', 0.00, 0.00),
+(26, 'Julho', 42203.00, 22359.00),
+(27, 'Março', 82615.00, 53417.00),
+(28, 'Maio', 42183.00, 32173.00),
+(29, 'Dezembro', 93224.00, 53303.00),
+(30, 'Junho', 50251.00, 31023.00),
+(31, 'Setembro', 74045.00, 61393.00),
+(32, 'Fevereiro', 60346.00, 30147.00),
+(33, 'Abril', 43174.00, 35353.00),
+(34, 'Novembro', 62359.00, 42315.00),
+(35, 'Outubro', 42410.00, 46741.00),
+(36, 'Agosto', 30423.00, 33714.00);
 
 -- --------------------------------------------------------
 
@@ -176,9 +194,9 @@ CREATE TABLE `usuarios` (
   `senha_usuario` varchar(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `codigo_autenticacao` int DEFAULT NULL,
   `data_codigo_autenticacao` datetime DEFAULT NULL,
-  `remember_token` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `token_expiracao` datetime DEFAULT NULL,
-  `pin_financeiro` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `token_expiracao` varchar(55) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pin_financeiro` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -186,12 +204,12 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `usuario`, `senha_usuario`, `codigo_autenticacao`, `data_codigo_autenticacao`, `remember_token`, `token_expiracao`, `pin_financeiro`) VALUES
-(1, 'Gabriel Braga', 'gabrielbraga1324@gmail.com', '$2y$10$/8h3zj2her/0yPi77XGj0OWJBOSdTLdzrep/m6tq3iYSisH49ZsQe', 969733, '2024-12-02 18:05:49', NULL, NULL, '583765'),
-(2, 'Matheus Estevam', 'matheusoliveirale2007@gmail.com', '$2y$10$RK1aV6Qem3i6uz9a6WZJ4eneO2iY7cTtUKkOAhG0.oFbXG.laoxeG', NULL, NULL, NULL, NULL, '$2y$10$Q5ja5LoRiBOWIZZhSkXXPuAFhjZV16X7vfOZ57YoMsZ1HpnvBycaq'),
-(3, 'Marcos Autilio', 'prautilio@gmail.com', '$2y$10$dfwfDUY3eQpxFAB/3SK0.er6hYEtn2aS3v1zD7S/raWIaRG5vRJuK', NULL, NULL, NULL, NULL, '$2y$10$Q5ja5LoRiBOWIZZhSkXXPuAFhjZV16X7vfOZ57YoMsZ1HpnvBycaq'),
-(4, 'Leonardo Dinelli', 'leodinelli2007@gmail.com', '$2y$10$QjiKQ3IKJ95BL1pGwBQYSeMzvn9SH8gVpfmVHMQIEfMvXr/zacohe', NULL, NULL, NULL, NULL, '$2y$10$n9R2TDePCeGIVncyy7sRP.lc6XT6..XP8X3aJposYmDZ8HsPSYOwS'),
-(5, 'Henrick Gomes', 'henrickgomes46@gmail.com', '$2y$10$sKSYqTve.IP8KM9YqcCTf.jEaZMdXu1Lvm3z.VGzrg.od./srVwh6', NULL, NULL, NULL, NULL, '0'),
-(6, 'Matheus Ribeiro', 'matheusribeiro2409@outlook.com ', '$2y$10$eIaKTCE3Y.P.src/1C2pF.7dml6VAd0bE09SOr4rir0.VFfVt2XAi', 630028, '2024-09-27 10:15:30', NULL, NULL, '0');
+(1, 'Gabriel Braga', 'gabrielbraga1324@gmail.com', '$2y$10$/8h3zj2her/0yPi77XGj0OWJBOSdTLdzrep/m6tq3iYSisH49ZsQe', NULL, NULL, '', '', '1324'),
+(2, 'Matheus Estevam', 'matheusoliveirale2007@gmail.com', '$2y$10$JUN.o4dcohaOksLP3jhLo.af9yMe8hUYLttEgxX4MgEe57LuR1XqO', NULL, NULL, NULL, NULL, '$2y$10$sPneinQbWiZVhXj10eUWle/gD0vMsXQjGNlPRcEnpuzWiOesIFtWq'),
+(3, 'Castellinho', 'isabellasilvestrecastellon@gmail.com', '$2y$10$V98pJibds2bCSOT2bHCsg.dmF9Xb/07LAFx1jC9c2nLeSYzzU.GIS', NULL, NULL, '', '', '2206'),
+(4, 'Leonardo Dinelli', 'leodinelli2007@gmail.com', '$2y$10$QjiKQ3IKJ95BL1pGwBQYSeMzvn9SH8gVpfmVHMQIEfMvXr/zacohe', NULL, NULL, '', '', '2602'),
+(5, 'Henrick Gomes', 'henrickgomes46@gmail.com', '$2y$10$sKSYqTve.IP8KM9YqcCTf.jEaZMdXu1Lvm3z.VGzrg.od./srVwh6', 260643, '2024-09-27 10:10:05', '', '', '1231'),
+(6, 'Matheus Ribeiro', 'matheusribeiro2409@outlook.com ', '$2y$10$eIaKTCE3Y.P.src/1C2pF.7dml6VAd0bE09SOr4rir0.VFfVt2XAi', 630028, '2024-09-27 10:15:30', '', '', '4213');
 
 --
 -- Indexes for dumped tables
@@ -235,7 +253,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
 
 --
 -- AUTO_INCREMENT for table `financas`
