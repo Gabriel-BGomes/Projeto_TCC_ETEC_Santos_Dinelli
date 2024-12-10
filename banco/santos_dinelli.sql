@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 04, 2024 at 02:27 AM
+-- Generation Time: Dec 10, 2024 at 01:20 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -61,10 +61,9 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `tipo_pessoa`, `nome_cliente`, `email_cliente`, `cpf_cliente`, `data_nascimento`, `telefone`, `endereco`, `numero`, `bairro`, `cep`, `cidade`, `complemento`, `forma_pagamento`, `razao_social`, `email_cliente_pj`, `cnpj`, `telefone_pj`, `endereco_pj`, `numero_pj`, `cep_pj`, `referencia_pj`, `bairro_pj`, `cidade_pj`, `complemento_pj`, `forma_pagamento_pj`) VALUES
-(64, 2, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, 'Asap Telecomunicações', 'asaptelecomunicacao@asap.com', '12.039.193/2131-23', '(11) 9321-3123', 'Avenida das Nações Unidas', 0, '04795-000', 'ao lado da ri happy', 'Vila Almeida', 'São Paulo', 'sp office', 'Pix'),
-(69, 1, 'Leonardo Santos', 'leolegal@gmail.com', '653.635.636-54', '2001-02-10', '(11) 98765-7567', 'Rua C ', 152, 'Jardim Santa Cruz (Sacomã)', '04182-135', 'São Paulo', 'App 44', 'Crédito', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL),
+(64, 2, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, 'Asap Telecomunicações', 'asaptelecomunicacao@asap.com', '12.039.193/2131-23', '(11) 9321-3123', 'Avenida das Nações Unidas', 0, '04795-000', 'ao lado da ri happy', 'Vila Almeida', 'São Paulo', 'sp office', 'Boleto'),
+(69, 1, 'Leonardo Santos', 'leolegal@gmail.com', '653.635.636-54', '2001-02-10', '(11) 98765-7567', 'Rua C ', 152, 'Jardim Santa Cruz (Sacomã)', '04182-135', 'São Paulo', 'App 444', 'Crédito', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL),
 (72, 1, 'Ana Beatriz Souza', 'ana.souza@email.com', '987.654.321-00', '1988-04-22', '(11) 99876-5432', 'Avenida Paulista', 1010, 'Bela Vista', '01311-200', 'São Paulo', 'Apartamento 12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(73, 1, 'Lucas Ferreira Lima', 'lucas.lima@email.com', '876.543.210-12', '1991-09-14', '(21) 91234-5678', 'Rua Barata Ribeiro', 305, 'Copacabana', '22031-070', 'Rio de Janeiro', 'Casa 2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (74, 1, 'Mariana Oliveira', 'mariana.oliveira@email.com', '765.432.109-23', '1985-07-19', '(41) 98456-7890', 'Rua XV de Novembro', 650, 'Centro', '80210-220', 'Curitiba', 'Sem complemento', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (75, 1, 'Gabriel Santos Silva', 'gabriel.santos@email.com', '654.321.098-34', '2000-11-05', '(61) 99912-3456', 'Quadra QI 1', 45, 'Guará', '71010-020', 'Brasília', 'Bloco A', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (76, 1, 'Juliana Alves Martins', 'juliana.martins@email.com', '543.210.987-45', '1995-02-18', '(81) 98834-5678', 'Rua do Sol', 112, 'Boa Vista', '50020-100', 'Recife', 'Prédio Comercial', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -96,7 +95,9 @@ INSERT INTO `clientes` (`id`, `tipo_pessoa`, `nome_cliente`, `email_cliente`, `c
 (102, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Energias Renováveis Ltda.', 'energia@renovaveis.com.br', '12.345.678/0001-01', '(91) 98822-3344', 'Rua da Sustentabilidade', 303, '66050-000', 'Próximo à Praça Verde', 'Campina', 'Belém', 'Escritório Central', 'Pix'),
 (103, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Construmax Comércio Ltda.', 'vendas@construmax.com.br', '23.456.789/0001-02', '(47) 99933-4455', 'Avenida das Construções', 999, '89010-970', 'Em frente ao Parque Industrial', 'Centro', 'Blumenau', 'Prédio Industrial', 'Boleto'),
 (104, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Instituto de Pesquisa Alfa', 'alfa@institutopesquisa.com', '34.567.890/0001-03', '(27) 99744-5566', 'Rua das Ideias', 456, '29010-500', 'Próximo à Biblioteca Central', 'Centro', 'Vitória', 'Laboratório', 'Cartão de Crédito'),
-(105, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Fábrica de Roupas Sempre Bela', 'moda@semprebela.com.br', '45.678.901/0001-04', '(13) 99655-6677', 'Rua dos Tecidos', 789, '11065-100', 'Ao lado do Ateliê Central', 'Gonzaga', 'Santos', 'Galpão de Costura', 'Dinheiro');
+(105, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Fábrica de Roupas Sempre Bela', 'moda@semprebela.com.br', '45.678.901/0001-04', '(13) 99655-6677', 'Rua dos Tecidos', 789, '11065-100', 'Ao lado do Ateliê Central', 'Gonzaga', 'Santos', 'Galpão de Costura', 'Dinheiro'),
+(106, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Etec Heliópolis Arq. Ruy Ohtake', 'etecheliopolis@etec.sp.gov.br', '62.823.257/0001-09', '(11) 8312-3123', 'Estrada das Lágrimas', 2461, '09642-000', '', 'Ipiranga', 'São Paulo', 'dentro do Céu Heliópolis', 'Pix'),
+(107, 1, 'Leonardo Dinelli', 'leodinelli@gmail.com', '578.457.378-69', '1990-02-27', '(11) 98744-8574', 'Rua C', 152, 'Jardim Santa Cruz (Sacomã)', '04182-135', 'São Paulo', 'App 33', 'Boleto', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -127,7 +128,6 @@ INSERT INTO `events` (`id`, `title`, `color`, `start`, `end`, `obs`, `servico`, 
 (125, 'Gravação do pitch', '#436EEE', '2024-11-18 10:00:00', '2024-11-18 12:00:00', 'levar notebook', 'Visita', 64),
 (130, 'Ronaldo WorkShop', '#228B22', '2024-11-02 11:00:00', '2024-11-02 11:40:00', 'dfas', 'PMOC', 64),
 (138, 'Desinstalação', '#436EEE', '2024-12-02 13:00:00', '2024-12-02 14:00:00', 'sem obs', 'Desinstalação', 64),
-(152, 'Apresentação do Software', '#A020F0', '2024-12-04 13:00:00', '2024-12-04 18:20:00', 'Apresentação de todo o sistema funcionando', 'Visita', 69),
 (153, 'Larissa Sacomã', '#FF4500', '2024-12-06 13:10:00', '2024-12-09 15:45:00', 'Iram ser realizadas instalações na áreas extrenas da varanda.\r\n', 'Instalação', 80),
 (154, 'Pedro NovaTec', '#8B0000', '2024-12-12 13:45:00', '2024-12-12 20:30:00', '', 'Higienização', 81),
 (155, 'Transportes Eireli', '#0071c5', '2024-12-17 14:20:00', '2024-12-17 15:00:00', '', 'Manutenção preventiva', 101),
@@ -145,10 +145,11 @@ INSERT INTO `events` (`id`, `title`, `color`, `start`, `end`, `obs`, `servico`, 
 (167, 'Visitar para consulta de espaço', '#228B22', '2024-12-18 08:00:00', '2024-12-18 09:00:00', '', 'Visita', 104),
 (168, 'Instalação para Camila Barbosa', '#1C1C1C', '2024-12-19 08:00:00', '2024-12-19 09:30:00', 'tentar acabar o quanto antes para chegar a tempo', 'Instalação', 78),
 (169, 'Higienizar Auto Peças', '#FF4500', '2024-12-20 07:00:00', '2024-12-20 09:20:00', 'levar kit de limpeza', 'Higienização', 97),
-(170, 'Visita para verificação', '#A020F0', '2024-12-24 10:00:00', '2024-12-24 11:00:00', '', 'Visita', 64),
-(171, 'Visita Juliana', '#A020F0', '2024-12-24 13:00:00', '2024-12-24 13:30:00', '', 'Contrato de manutenção preventiva e corretiva', 76),
-(172, 'Visita Aline', '#A020F0', '2024-12-24 14:00:00', '2024-12-24 15:00:00', '', 'Higienização', 84),
-(173, 'Visita Larissa', '#A020F0', '2024-12-24 16:30:00', '2024-12-24 18:00:00', '', 'Visita', 80);
+(170, 'Visita para verificação', '#A020F0', '2024-12-23 10:00:00', '2024-12-23 11:00:00', '', 'Visita', 64),
+(171, 'Visita Juliana', '#A020F0', '2024-12-23 13:00:00', '2024-12-23 13:30:00', '', 'Contrato de manutenção preventiva e corretiva', 76),
+(172, 'Visita Aline', '#A020F0', '2024-12-23 14:00:00', '2024-12-23 15:00:00', '', 'Higienização', 84),
+(173, 'Visita Larissa', '#A020F0', '2024-12-23 16:30:00', '2024-12-23 18:00:00', '', 'Visita', 80),
+(174, 'Apresentação de todo o sistema funcionando', '#FF4500', '2024-12-04 13:00:00', '2024-12-04 18:00:00', 'levar todo equipamento necessário para fazer a apresentação', 'Visita', 106);
 
 -- --------------------------------------------------------
 
@@ -194,9 +195,9 @@ CREATE TABLE `usuarios` (
   `senha_usuario` varchar(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `codigo_autenticacao` int DEFAULT NULL,
   `data_codigo_autenticacao` datetime DEFAULT NULL,
-  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `token_expiracao` varchar(55) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pin_financeiro` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
+  `remember_token` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `token_expiracao` datetime DEFAULT NULL,
+  `pin_financeiro` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -204,12 +205,12 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `usuario`, `senha_usuario`, `codigo_autenticacao`, `data_codigo_autenticacao`, `remember_token`, `token_expiracao`, `pin_financeiro`) VALUES
-(1, 'Gabriel Braga', 'gabrielbraga1324@gmail.com', '$2y$10$/8h3zj2her/0yPi77XGj0OWJBOSdTLdzrep/m6tq3iYSisH49ZsQe', NULL, NULL, '', '', '1324'),
-(2, 'Matheus Estevam', 'matheusoliveirale2007@gmail.com', '$2y$10$JUN.o4dcohaOksLP3jhLo.af9yMe8hUYLttEgxX4MgEe57LuR1XqO', NULL, NULL, NULL, NULL, '$2y$10$sPneinQbWiZVhXj10eUWle/gD0vMsXQjGNlPRcEnpuzWiOesIFtWq'),
-(3, 'Castellinho', 'isabellasilvestrecastellon@gmail.com', '$2y$10$V98pJibds2bCSOT2bHCsg.dmF9Xb/07LAFx1jC9c2nLeSYzzU.GIS', NULL, NULL, '', '', '2206'),
-(4, 'Leonardo Dinelli', 'leodinelli2007@gmail.com', '$2y$10$QjiKQ3IKJ95BL1pGwBQYSeMzvn9SH8gVpfmVHMQIEfMvXr/zacohe', NULL, NULL, '', '', '2602'),
-(5, 'Henrick Gomes', 'henrickgomes46@gmail.com', '$2y$10$sKSYqTve.IP8KM9YqcCTf.jEaZMdXu1Lvm3z.VGzrg.od./srVwh6', 260643, '2024-09-27 10:10:05', '', '', '1231'),
-(6, 'Matheus Ribeiro', 'matheusribeiro2409@outlook.com ', '$2y$10$eIaKTCE3Y.P.src/1C2pF.7dml6VAd0bE09SOr4rir0.VFfVt2XAi', 630028, '2024-09-27 10:15:30', '', '', '4213');
+(1, 'Gabriel Braga', 'gabrielbraga1324@gmail.com', '$2y$10$/8h3zj2her/0yPi77XGj0OWJBOSdTLdzrep/m6tq3iYSisH49ZsQe', 969733, '2024-12-02 18:05:49', NULL, NULL, '583765'),
+(2, 'Matheus Estevam', 'matheusoliveirale2007@gmail.com', '$2y$10$cOVHEAkpxJfNCxA5Q4n9/OEJQu36rX1x0Q7h.Degbh1tJB.R31XWy', 932659, '2024-12-04 14:36:17', NULL, NULL, '$2y$10$Q5ja5LoRiBOWIZZhSkXXPuAFhjZV16X7vfOZ57YoMsZ1HpnvBycaq'),
+(3, 'Marcos Autilio', 'prautilio@gmail.com', '$2y$10$dfwfDUY3eQpxFAB/3SK0.er6hYEtn2aS3v1zD7S/raWIaRG5vRJuK', NULL, NULL, NULL, NULL, '$2y$10$Q5ja5LoRiBOWIZZhSkXXPuAFhjZV16X7vfOZ57YoMsZ1HpnvBycaq'),
+(4, 'Leonardo Dinelli', 'leodinelli2007@gmail.com', '$2y$10$EUjP2juukHK7cDTgY4P5IOZiL6vgrPo9v/L45ku33qtR2toOdPVWq', NULL, NULL, NULL, NULL, '$2y$10$EUjP2juukHK7cDTgY4P5IOZiL6vgrPo9v/L45ku33qtR2toOdPVWq'),
+(5, 'Henrick Gomes', 'henrickgomes46@gmail.com', '$2y$10$sKSYqTve.IP8KM9YqcCTf.jEaZMdXu1Lvm3z.VGzrg.od./srVwh6', NULL, NULL, NULL, NULL, '0'),
+(6, 'Matheus Ribeiro', 'matheusribeiro2409@outlook.com ', '$2y$10$eIaKTCE3Y.P.src/1C2pF.7dml6VAd0bE09SOr4rir0.VFfVt2XAi', 630028, '2024-09-27 10:15:30', NULL, NULL, '0');
 
 --
 -- Indexes for dumped tables
@@ -247,13 +248,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- AUTO_INCREMENT for table `financas`
