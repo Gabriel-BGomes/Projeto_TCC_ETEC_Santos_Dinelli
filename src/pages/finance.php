@@ -82,7 +82,7 @@ if(
 
                 <div class="child child-2"> <!-- organizar cada filho-->
                     <h4>Anual</h4>
-                    <p>Visualizar comparação em gráficos dos<br> meses do ano de 2024.</p>
+                    <p>Visualizar comparação em gráficos dos<br> meses do ano de 2025.</p>
                     <a class="btn btn-2 link" href="./anual.php">VISUALIZAR</a>
                 </div>
 
