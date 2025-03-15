@@ -85,6 +85,15 @@ try {
                      "Se você não solicitou este código, por favor ignore este email.\n\n" .
                      "Esta é uma mensagem automática. Por favor, não responda a este email.";
 
+
+    $mail->SMTPOptions = [
+    'ssl' => [
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true,
+        ]
+    ];
+    
     // Enviar e-mail
     $mail->send();
 
