@@ -38,4 +38,4 @@ mysql -u root -p santos_dinelli < database/schema.sql
 ```
 
 ## 👨‍💻 Autor
-Feito por [Gabriel Gomes, Leonardo Santos e Matheus Oliveira](https://github.com/seu-usuario)
+Feito por [Gabriel Gomes, Leonardo Santos e Matheus Oliveira](https://github.com/Gabriel-BGomes)
